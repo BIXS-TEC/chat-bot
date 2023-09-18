@@ -1,0 +1,834 @@
+[
+    {
+      "codeProd": 740651,
+      "nameProd": "Espeto de Boi L",
+      "priceProd": 9,
+      "categoryProd": "COMIDAS",
+      "description": "Espeto de Boi Desc",
+      "AdditionalList": [
+        {
+          "ProductCode": 740651,
+          "AddCode": 1143545,
+          "nameAdd": "Bacon",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 740651,
+          "AddCode": 1143546,
+          "nameAdd": "Chedar",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 740651,
+          "AddCode": 1143547,
+          "nameAdd": "Quatro Queijos",
+          "priceAdd": 0,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 740651,
+          "AddCode": 1143548,
+          "nameAdd": "Bife",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 740651,
+          "AddCode": 1143549,
+          "nameAdd": "Alho Torrado",
+          "priceAdd": 0,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 740651,
+          "AddCode": 1143550,
+          "nameAdd": "Calabresa",
+          "priceAdd": 0,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 740651,
+          "AddCode": 1143553,
+          "nameAdd": "Ao ponto",
+          "priceAdd": 0,
+          "categoryAdd": "Ponto da carne",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 740651,
+          "AddCode": 1143554,
+          "nameAdd": "Bem passado",
+          "priceAdd": 0,
+          "categoryAdd": "Ponto da carne",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        }
+      ]
+    },
+    {
+      "codeProd": 806297,
+      "nameProd": "Prato Self",
+      "priceProd": 20,
+      "categoryProd": "COMIDAS",
+      "description": "Prato Self",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1229618,
+      "nameProd": "XBacon",
+      "priceProd": 13,
+      "categoryProd": "COMIDAS",
+      "description": "XBacon",
+      "AdditionalList": [
+        {
+          "ProductCode": 1229618,
+          "AddCode": 431170,
+          "nameAdd": "Bacon",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1229618,
+          "AddCode": 431171,
+          "nameAdd": "Chedar",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1229618,
+          "AddCode": 431172,
+          "nameAdd": "Quatro Queijos",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1229618,
+          "AddCode": 431173,
+          "nameAdd": "Bife",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1229618,
+          "AddCode": 431174,
+          "nameAdd": "Alho Torrado",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1229618,
+          "AddCode": 431175,
+          "nameAdd": "Calabresa",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        }
+      ]
+    },
+    {
+      "codeProd": 1259181,
+      "nameProd": "Pizza Esp G",
+      "priceProd": 51.9,
+      "categoryProd": "COMIDAS",
+      "description": "//////////\r\n//////////\r\n//////////\r\n//////////\r\n//////////\r\n//////////",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1272635,
+      "nameProd": "Picanha na Chapa",
+      "priceProd": 59.9,
+      "categoryProd": "COMIDAS",
+      "description": "Picanha na Chapa Desc",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1272636,
+      "nameProd": "File Acebolado 400g",
+      "priceProd": 19.9,
+      "categoryProd": "COMIDAS",
+      "description": "File Acebolado Descrição do Preparo",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1361780,
+      "nameProd": "Fritas Queijo e Bacon",
+      "priceProd": 0,
+      "categoryProd": "COMIDAS",
+      "description": "Fritas Queijo e Bacon",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1361780,
+      "nameProd": "Fritas Queijo e Bacon",
+      "priceProd": 25,
+      "categoryProd": "COMIDAS",
+      "description": "Fritas Queijo e Bacon",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1518397,
+      "nameProd": "XTudo",
+      "priceProd": 13,
+      "categoryProd": "COMIDAS",
+      "description": "XTudo",
+      "AdditionalList": [
+        {
+          "ProductCode": 1518397,
+          "AddCode": 314252,
+          "nameAdd": "Bacon",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1518397,
+          "AddCode": 314253,
+          "nameAdd": "Chedar",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1518397,
+          "AddCode": 314254,
+          "nameAdd": "Quatro Queijos",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1518397,
+          "AddCode": 314255,
+          "nameAdd": "Bife",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1518397,
+          "AddCode": 314256,
+          "nameAdd": "Alho Torrado",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1518397,
+          "AddCode": 314257,
+          "nameAdd": "Calabresa",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        }
+      ]
+    },
+    {
+      "codeProd": 1556483,
+      "nameProd": "Ref File de Tilapia",
+      "priceProd": 22,
+      "categoryProd": "COMIDAS",
+      "description": "Ref File de Tilapia",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1560447,
+      "nameProd": "XSalada",
+      "priceProd": 13,
+      "categoryProd": "COMIDAS",
+      "description": "XSalada",
+      "AdditionalList": [
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386046,
+          "nameAdd": "Bacon",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386047,
+          "nameAdd": "Chedar",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386048,
+          "nameAdd": "Quatro Queijos",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386049,
+          "nameAdd": "Bife",
+          "priceAdd": 2,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386050,
+          "nameAdd": "Alho Torrado",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386051,
+          "nameAdd": "Calabresa",
+          "priceAdd": 1,
+          "categoryAdd": "Adicionais",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386054,
+          "nameAdd": "Sem Alface",
+          "priceAdd": 0,
+          "categoryAdd": "Obs",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386055,
+          "nameAdd": "Sem milho",
+          "priceAdd": 0,
+          "categoryAdd": "Obs",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386056,
+          "nameAdd": "Sem Tomate",
+          "priceAdd": 0,
+          "categoryAdd": "Obs",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386057,
+          "nameAdd": "Molho barbecue",
+          "priceAdd": 2,
+          "categoryAdd": "Molho",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386058,
+          "nameAdd": "Molho caseiro",
+          "priceAdd": 3,
+          "categoryAdd": "Molho",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386059,
+          "nameAdd": "Sem Tomate",
+          "priceAdd": 1,
+          "categoryAdd": "Decrescimos",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1560447,
+          "AddCode": 2386060,
+          "nameAdd": "Sem Alface",
+          "priceAdd": 0.5,
+          "categoryAdd": "Decrescimos",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        }
+      ]
+    },
+    {
+      "codeProd": 1563929,
+      "nameProd": "Pizza A Moda Grande",
+      "priceProd": 59.9,
+      "categoryProd": "COMIDAS",
+      "description": "Pizza A Moda Grande",
+      "AdditionalList": [
+        {
+          "ProductCode": 1563929,
+          "AddCode": 324450,
+          "nameAdd": "Amoda",
+          "priceAdd": 9.9,
+          "categoryAdd": "Sabores da Pizza",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1563929,
+          "AddCode": 324451,
+          "nameAdd": "Bacon",
+          "priceAdd": 1,
+          "categoryAdd": "Sabores da Pizza",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1563929,
+          "AddCode": 324452,
+          "nameAdd": "Portuguesa",
+          "priceAdd": 0,
+          "categoryAdd": "Sabores da Pizza",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1563929,
+          "AddCode": 324453,
+          "nameAdd": "Frango c Catupiry",
+          "priceAdd": 0,
+          "categoryAdd": "Sabores da Pizza",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 1563929,
+          "AddCode": 324454,
+          "nameAdd": "Quatro Queijos",
+          "priceAdd": 0,
+          "categoryAdd": "Sabores da Pizza",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        }
+      ]
+    },
+    {
+      "codeProd": 1751976,
+      "nameProd": "Paes",
+      "priceProd": 0.5,
+      "categoryProd": "COMIDAS",
+      "description": "Paes",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1754977,
+      "nameProd": "Gas Cozinha",
+      "priceProd": 0,
+      "categoryProd": "COMIDAS",
+      "description": "Gas Cozinha",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1754977,
+      "nameProd": "Gas Cozinha",
+      "priceProd": 95,
+      "categoryProd": "COMIDAS",
+      "description": "Gas Cozinha",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1856875,
+      "nameProd": "Rodizio",
+      "priceProd": 40,
+      "categoryProd": "COMIDAS",
+      "description": "Rodizio",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1981280,
+      "nameProd": "PRODUTO TESTE",
+      "priceProd": 20,
+      "categoryProd": "COMIDAS",
+      "description": "PRODUTO TESTE",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 1982988,
+      "nameProd": "PIZZA",
+      "priceProd": 20,
+      "categoryProd": "COMIDAS",
+      "description": "PIZZA",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 2153046,
+      "nameProd": "bolo de chocolate",
+      "priceProd": 8,
+      "categoryProd": "COMIDAS",
+      "description": "bolo de chocolate",
+      "AdditionalList": [
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489062,
+          "nameAdd": "Banana com Canela",
+          "priceAdd": 0,
+          "categoryAdd": "Frutas",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489063,
+          "nameAdd": "Cobertura Morango",
+          "priceAdd": 0,
+          "categoryAdd": "Frutas",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489064,
+          "nameAdd": "Morango",
+          "priceAdd": 2,
+          "categoryAdd": "Frutas",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489065,
+          "nameAdd": "Nutella",
+          "priceAdd": 2,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489066,
+          "nameAdd": "Bis",
+          "priceAdd": 1.5,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489067,
+          "nameAdd": "Morango",
+          "priceAdd": 2,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489068,
+          "nameAdd": "Leite em Po",
+          "priceAdd": 1,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489069,
+          "nameAdd": "Banana",
+          "priceAdd": 0,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489070,
+          "nameAdd": "Granola",
+          "priceAdd": 0,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489071,
+          "nameAdd": "Bis",
+          "priceAdd": 1.5,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489072,
+          "nameAdd": "Cobertura Chocolate",
+          "priceAdd": 0,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489073,
+          "nameAdd": "Cobertura Morango",
+          "priceAdd": 0,
+          "categoryAdd": "Sorvetes",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489074,
+          "nameAdd": "Creme chocolate",
+          "priceAdd": 0,
+          "categoryAdd": "Creme",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 2153046,
+          "AddCode": 1489075,
+          "nameAdd": "Creme Morango",
+          "priceAdd": 2.5,
+          "categoryAdd": "Creme",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        }
+      ]
+    },
+    {
+      "codeProd": 2153048,
+      "nameProd": "bolo de cenoura",
+      "priceProd": 70,
+      "categoryProd": "COMIDAS",
+      "description": "bolo de cenoura",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 2153059,
+      "nameProd": "Bombom de Morango",
+      "priceProd": 70,
+      "categoryProd": "COMIDAS",
+      "description": "Bombom de Morango",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 2574599,
+      "nameProd": "Molho ao sugo",
+      "priceProd": 0,
+      "categoryProd": "COMIDAS",
+      "description": "Molho ao sugo",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 3187384,
+      "nameProd": "Comida a Kg",
+      "priceProd": 0.5,
+      "categoryProd": "COMIDAS",
+      "description": "Comida a Kg",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 3387702,
+      "nameProd": "Galeto inteiro",
+      "priceProd": 20.2,
+      "categoryProd": "COMIDAS",
+      "description": "Galeto inteiro",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 3387702,
+      "nameProd": "Galeto inteiro",
+      "priceProd": 20.2,
+      "categoryProd": "COMIDAS",
+      "description": "Galeto inteiro",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 3387705,
+      "nameProd": "Galeto banda",
+      "priceProd": 0,
+      "categoryProd": "COMIDAS",
+      "description": "Galeto banda",
+      "AdditionalList": []
+    },
+    {
+      "codeProd": 3612051,
+      "nameProd": "PASTEL PROMOCAO",
+      "priceProd": 0,
+      "categoryProd": "COMIDAS",
+      "description": "PASTEL PROMOCAO",
+      "AdditionalList": [
+        {
+          "ProductCode": 3612051,
+          "AddCode": 3098165,
+          "nameAdd": "QUEIJO",
+          "priceAdd": 0,
+          "categoryAdd": "SABORES",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 3612051,
+          "AddCode": 3098166,
+          "nameAdd": "Presunto",
+          "priceAdd": 0,
+          "categoryAdd": "SABORES",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 3612051,
+          "AddCode": 3098167,
+          "nameAdd": "Bacon",
+          "priceAdd": 1,
+          "categoryAdd": "SABORES",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 3612051,
+          "AddCode": 3098168,
+          "nameAdd": "Frango",
+          "priceAdd": 0,
+          "categoryAdd": "SABORES",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        }
+      ]
+    },
+    {
+      "codeProd": 3612051,
+      "nameProd": "PASTEL PROMOCAO",
+      "priceProd": 20,
+      "categoryProd": "COMIDAS",
+      "description": "PASTEL PROMOCAO",
+      "AdditionalList": [
+        {
+          "ProductCode": 3612051,
+          "AddCode": 3098165,
+          "nameAdd": "QUEIJO",
+          "priceAdd": 0,
+          "categoryAdd": "SABORES",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 3612051,
+          "AddCode": 3098166,
+          "nameAdd": "Presunto",
+          "priceAdd": 0,
+          "categoryAdd": "SABORES",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 3612051,
+          "AddCode": 3098167,
+          "nameAdd": "Bacon",
+          "priceAdd": 1,
+          "categoryAdd": "SABORES",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        },
+        {
+          "ProductCode": 3612051,
+          "AddCode": 3098168,
+          "nameAdd": "Frango",
+          "priceAdd": 0,
+          "categoryAdd": "SABORES",
+          "enabledAdd": true,
+          "qtdMinAdd": 0,
+          "qtdMaxAdd": 0
+        }
+      ]
+    }
+  ]

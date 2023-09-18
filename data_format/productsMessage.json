@@ -1,0 +1,38 @@
+[
+    "3",
+    [
+      {
+        "codeProd": "1229618",
+        "nameProd": "XBacon", 
+        "priceProd": 13,      
+        "orderQtdProd": 1,    
+        "AdditionalList": []  
+      },
+      {
+        "codeProd": "1272635",
+        "nameProd": "Pizza 4 sabores",
+        "priceProd": 51.9,
+        "orderQtdProd": 2,
+        "AdditionalList": [
+          {
+            "ProductCode": "1272635",
+            "AddCode": "12344",
+            "orderQtdAdd": "1"
+          },
+          {
+            "ProductCode": "1272635",
+            "AddCode": "77732",
+            "orderQtdAdd": "3"
+          }
+        ]
+      },
+      {
+        "codeProd": "1560447",
+        "nameProd": "XSalada",
+        "priceProd": 13,
+        "orderQtdProd": 1,
+        "AdditionalList": []
+      }
+    ],
+    null
+  ]
