@@ -4,11 +4,11 @@ export interface BotAdditional {
     AddCode?: string; // Buscador 2
     nameAdd?: string;
     priceAdd?: number;
+    qtdMinAdd?: number;
+    qtdMaxAdd?: number;
     categoryAdd?: string;
     enabledAdd?: boolean;
     orderQtdAdd?: number;
-    qtdMinAdd?: number;
-    qtdMaxAdd?: number;
 }
 
 export interface BotProduct {
@@ -17,31 +17,36 @@ export interface BotProduct {
     codeProd: string; // Buscador 2
     nameProd: string;
     priceProd: number;
+    imageProdUrl?: string;
     categoryProd?: string;
     orderQtdProd?: number;
     qtdStockProd?: number;
     descriptionProd?: string;
-    observationProd?: string;
+    observationClient?: string;
     preparationTime?: number;
     qtdMaxAdditionals?: number;
     qtdMinAdditionals?: number;
-    previewAdditionals?: boolean;
-    AdditionalList: BotAdditional[];
+    recommendedProductCode?: string;
+    AdditionalList: Record<string, BotAdditional>;
 }
 
 export interface BotClient {
     ID?: number; // Primary Key autoincrement
     botNumberID?: string; // Buscador 1
     orderCodeClient: string; // Buscador 2
-    phoneNumberClient: string; 
     nameClient: string;
+    phoneNumberClient: string; 
     contextClient: string;
     addressClient?: string;
+    textMessage?: string;
     currentProductIndex?: number;
     tableClient?: number;
     orderMessageId?: string;
     totalOrderPrice?: number;
     editingOrder?: boolean;
+    recomendedProduct?: any;
+    errorQtdAdd?: number;
     chatHistory: string[];
     productListClient: BotProduct[];
+    fullAdditionalList?: any[];
 }

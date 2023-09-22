@@ -36,9 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var controller_1 = require("./controller");
+var business_1 = require("./business");
 var XLSX = require("xlsx");
-var controller = new controller_1.default();
+var controller = new business_1.default();
 var Marcelo_Lanches = {
     name: "AAAAAAAAAAAAAAA",
     FBTOKEN: "5234523452345234523452345234aaaaaaaaaaaaaaaaaaaaaaaaa",

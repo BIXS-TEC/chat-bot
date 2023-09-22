@@ -10,7 +10,7 @@ const port = 3000;
 app.use(express.json());
 
 const VERIFYTOKEN = process.env.VERIFYTOKEN;
-let business: Business = new Business(113343625148900);
+let business: Business = new Business(3264);
 
 app.get("/webhook", (req, res) => {
   let mode = req.query["hub.mode"];

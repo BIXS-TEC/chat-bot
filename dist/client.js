@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Client = /** @class */ (function () {
-    function Client(request, response) {
+var ClientReq = /** @class */ (function () {
+    function ClientReq(request, response) {
         this._contacts = false;
         this._messages = false;
         this._statuses = false;
@@ -21,7 +21,7 @@ var Client = /** @class */ (function () {
             this._messages = true;
             var __messages = __entry.changes[0].value.messages[0];
             this._from = __messages.from;
-            this._idMessage = __messages.id;
+            this._MessageId = __messages.id;
             this._timestamp = __messages.timestamp;
             this._type = __messages.type;
             if (this._type === "text") {
@@ -29,25 +29,32 @@ var Client = /** @class */ (function () {
             }
             else if (this._type === "interactive") {
                 this._typeInteractive = __messages.interactive.type;
-                this._idButton = __messages.interactive.button_reply.id;
-                this._titleButton = __messages.interactive.button_reply.title;
+                if (this._typeInteractive === "button") {
+                    this._idButton = __messages.interactive.button_reply.id;
+                    this._titleButton = __messages.interactive.button_reply.title;
+                }
             }
         }
         else if (__entry.changes[0].value.statuses && __entry.changes[0].value.statuses[0]) {
             this._statuses = true;
             var __statuses = __entry.changes[0].value.statuses[0];
+            this._sentMessageId = __statuses.id;
             this._status = __statuses.status;
             this._recipient_id = __statuses.recipient_id;
-            this._idConversation = __statuses.conversation.id;
-            this._typeOrigin = __statuses.conversation.origin.type;
-            this._billable = __statuses.pricing.billable;
-            this._pricing_model = __statuses.pricing.pricing_model;
-            this._category = __statuses.pricing.category;
-            if (this._status === "sent")
-                this._expiration_timestamp = __statuses.conversation.expiration_timestamp;
+            if (__statuses.conversation) {
+                if (this._status === "sent")
+                    this._expiration_timestamp = __statuses.conversation.expiration_timestamp;
+                this._idConversation = __statuses.conversation.id;
+                this._typeOrigin = __statuses.conversation.origin.type;
+            }
+            if (__statuses.pricing) {
+                this._billable = __statuses.pricing.billable;
+                this._pricing_model = __statuses.pricing.pricing_model;
+                this._category = __statuses.pricing.category;
+            }
         }
     }
-    Object.defineProperty(Client.prototype, "idWABA", {
+    Object.defineProperty(ClientReq.prototype, "idWABA", {
         /**
          * The ID of Whatsapp Business Accounts this Webhook belongs to.
          * O ID das Contas Empresariais do WhatsApp a que pertence este Webhook.
@@ -62,7 +69,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "messagingProduct", {
+    Object.defineProperty(ClientReq.prototype, "messagingProduct", {
         /**
          * The messaging service used for Webhooks. For WhatsApp messages, this value needs to be set to “whatsapp”.
          * O serviço de mensagens usado para os Webhooks. Para mensagens do WhatsApp, este valor precisa ser definido como "whatsapp".
@@ -77,7 +84,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "botNumber", {
+    Object.defineProperty(ClientReq.prototype, "botNumber", {
         // METADATA
         /**
          * The phone number of the business account that is receiving the Webhooks.
@@ -93,7 +100,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "botNumberID", {
+    Object.defineProperty(ClientReq.prototype, "botNumberID", {
         /**
          * The ID of the phone number receiving the Webhooks. You can use this phone_number_id to send messages back to customers.
          * O ID do número de telefone que está recebendo os Webhooks. Você pode usar este phone_number_id para enviar mensagens de volta para os clientes.
@@ -109,7 +116,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "costumerName", {
+    Object.defineProperty(ClientReq.prototype, "costumerName", {
         // CONTACTS
         /**
          * Specifies the sender's profile name.
@@ -122,7 +129,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "costumerWAId", {
+    Object.defineProperty(ClientReq.prototype, "costumerWAId", {
         /**
          * The WhatsApp ID (phone number) of the customer. You can send messages using this wa_id.
          * O ID (numero do celular) do WhatsApp do cliente. Você pode enviar mensagens usando este wa_id.
@@ -134,7 +141,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "messagesObject", {
+    Object.defineProperty(ClientReq.prototype, "messagesObject", {
         // MESSAGES
         /**
          * An array of message objects. Added to Webhooks for incoming message notifications.
@@ -146,7 +153,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "costumerFromNumber", {
+    Object.defineProperty(ClientReq.prototype, "costumerFromNumber", {
         /**
          * The customer's phone number.
          * O número de telefone do cliente.
@@ -158,19 +165,19 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "costumerMessageId", {
+    Object.defineProperty(ClientReq.prototype, "costumerMessageId", {
         /**
          * The unique identifier of incoming message, you can use messages endpoint to mark it as read.
          * O identificador único da mensagem recebida, você pode usar o endpoint de mensagens para marcá-la como lida.
          * @returns
          */
         get: function () {
-            return this._idMessage;
+            return this._MessageId;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "timestampCostumer", {
+    Object.defineProperty(ClientReq.prototype, "timestampCostumer", {
         /**
          * The timestamp when a customer sends a message.
          * O horário em que um cliente envia uma mensagem.
@@ -182,7 +189,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "textMessage", {
+    Object.defineProperty(ClientReq.prototype, "textMessage", {
         /**
          * The text of the text message.
          * O texto da mensagem de texto.
@@ -194,7 +201,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "typeMessage", {
+    Object.defineProperty(ClientReq.prototype, "typeMessage", {
         /**
          * The type of message being received.
          * O tipo da mensagem recebida.
@@ -206,7 +213,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "typeInteractive", {
+    Object.defineProperty(ClientReq.prototype, "typeInteractive", {
         /**
          *
          */
@@ -216,7 +223,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "idButton", {
+    Object.defineProperty(ClientReq.prototype, "idButton", {
         /**
          *
          */
@@ -226,7 +233,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "titleButton", {
+    Object.defineProperty(ClientReq.prototype, "titleButton", {
         /**
          *
          */
@@ -236,7 +243,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "statusesObject", {
+    Object.defineProperty(ClientReq.prototype, "statusesObject", {
         // STATUSES
         /**
          * An array of message status objects. Added to Webhooks for message status update.
@@ -248,19 +255,19 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "messageId", {
+    Object.defineProperty(ClientReq.prototype, "sentMessageId", {
         /**
          * The message ID.
          * O ID da mensagem
          * @returns
          */
         get: function () {
-            return this._req.body.entry[0].changes[0].value.statuses[0].id;
+            return this._sentMessageId;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "messageStatus", {
+    Object.defineProperty(ClientReq.prototype, "messageStatus", {
         /**
          * The status of the message. Valid values are: read, delivered, sent, failed, or deleted.
          * O status da mensagem. Valores validos são: read, delivered, sent, failed, or deleted.
@@ -272,31 +279,31 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "messageTimestamp", {
+    Object.defineProperty(ClientReq.prototype, "messageTimestamp", {
         /**
          * The timestamp of the status message.
          * O horário da mensagem de status.
          * @returns
          */
         get: function () {
-            return this._req.body.entry[0].changes[0].value.statuses[0].timestamp;
+            return this._timestamp;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "recipientId", {
+    Object.defineProperty(ClientReq.prototype, "recipientId", {
         /**
          * The WhatsApp ID of the recipient.
          * ID do WhatsApp do destinatário.
          * @returns
          */
         get: function () {
-            return this._req.body.entry[0].changes[0].value.statuses[0].recipient_id;
+            return this._recipient_id;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "openConversationId", {
+    Object.defineProperty(ClientReq.prototype, "openConversationId", {
         /**
          * The conversation object tracks the attributes of your current conversation.
          * O objeto de conversa acompanha os atributos da sua conversa atual.
@@ -308,7 +315,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Client.prototype, "expirationTimestamp", {
+    Object.defineProperty(ClientReq.prototype, "expirationTimestamp", {
         /**
          * The timestamp when the current ongoing conversation expires. This field is not present in all Webhook types.
          * O horário em que a conversa atual em andamento expira. Este campo não está presente em todos os tipos de Webhooks.
@@ -320,7 +327,7 @@ var Client = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    return Client;
+    return ClientReq;
 }());
-exports.default = Client;
+exports.default = ClientReq;
 //# sourceMappingURL=client.js.map

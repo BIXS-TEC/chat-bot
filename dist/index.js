@@ -1,17 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var controller_1 = require("./controller");
+var business_1 = require("./business");
 require("dotenv").config();
 var express = require("express");
 var axios = require("axios");
-var hm = require("../old_js/handleMessages");
 var app = express();
 var port = 3000;
 app.use(express.json());
 var VERIFYTOKEN = process.env.VERIFYTOKEN;
-var controller = new controller_1.default();
-// INICIALIZAÇÃO DE UM BUSINESS TESTE
-controller.writeBusinessDB(controller.createBusiness('Marcelo Pizzaria', 'ALTERARTOKEN123', '113343625148900', '15550107122'));
+var business = new business_1.default(3264);
 app.get("/webhook", function (req, res) {
     var mode = req.query["hub.mode"];
     var token = req.query["hub.verify_token"];
@@ -27,7 +24,7 @@ app.get("/webhook", function (req, res) {
     }
 });
 app.post("/webhook", function (req, res) {
-    controller.postRequest(req, res);
+    business.postRequest(req, res);
 });
 app.post("/business", function (req, res) {
     // Criar business a partir do request
