@@ -14,7 +14,7 @@ namespace PrintAPI.BotModels
         [DataType("ForeignKey da tabela BotProdutoPedido")] /* Tabela BotProdutoPedido mudou para BotProduct*/
         public required string ProductCode { get; set; }     // (Foreing Key) Codigo do produto ao qual este adicional pertence  (BUSCADOR 1) *antigo CodigoPedido*
         public virtual BotProducts? Products { get; set; }
-        public int AddCode { get; set; }            // Codigo do adicional (BUSCADOR 2)  *novo*
+        public int codeAdd { get; set; }            // Codigo do adicional (BUSCADOR 2)  *novo*
         public string? nameAdd { get; set; }         // Nome do adicional *antigo Nome*
         public double priceAdd { get; set; }        // Preço do adicional *antigo preco*
         public string? categoryAdd { get; set; }     // Categoria do adicional   *novo*

@@ -18,6 +18,7 @@ export default class ClientReq {
     private _bodyText: string
     private _type: string
 
+    private _interactive: string
     private _typeInteractive: string
     private _idButton: string
     private _titleButton: string
@@ -57,7 +58,8 @@ export default class ClientReq {
                 this._bodyText = __messages.text.body
             } else if (this._type === "interactive") {
                 this._typeInteractive = __messages.interactive.type
-                if (this._typeInteractive === "button") {
+                this._interactive = JSON.stringify(__messages.interactive)
+                if (this._typeInteractive === "button_reply") {
                     this._idButton = __messages.interactive.button_reply.id
                     this._titleButton = __messages.interactive.button_reply.title
                 }
@@ -209,6 +211,13 @@ export default class ClientReq {
      */
     public get typeInteractive(): string {
         return this._typeInteractive
+    }
+
+    /**
+     * 
+     */
+    public get interactive(): string {
+        return this._interactive
     }
 
     /**

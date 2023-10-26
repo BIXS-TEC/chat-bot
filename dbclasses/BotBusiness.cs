@@ -10,21 +10,24 @@ namespace PrintAPI.Models
     public class BotBusiness
     {
         [Key]
-        public int ID { get; set; }                         // (Primary Key) AutoIncrement      *novo*
+        public int ID { get; set; }
         [DataType("ForeignKey da tabela Filial")]
-        public int codFilial { get; set; }                  // (BUSCADOR 1) ID da Filial ao qual o bot pertence (Origem BD Retaguarda) (Foreing Key) *antigo IdFilial* 
-                                                            // api/BotBusiness/{IdFilial}
+        /*Buscador 1 api/BotBusiness/codFilial={codFilial}*/
+        public int codFilial { get; set; }
         public virtual Filial? Filial { get; set; }
-        public string nameBs { get; set; }                  // Nome do estabelecimento que vai aparecer no bot      *antigo name *
-        public string FBTOKEN { get; set; }                 // Token de autorização do Facebook API
-        public string botNumberID { get; set; }             // (BUSCADOR 1) Numero ID do bot para envio de mensagens
-                                                            // api/BotBusiness/{botNumberID}
-        public string botNumber { get; set; }               // Numero de telefone do bot
-        public string botName { get; set; }                 // Nome do Bot/Assistente Virtual
-        public ICollection<BotProduct>? productListBs { get; set; }// Lista de produtos da Filial  *novo*
-        public ICollection<BotClient> clientListBs { get; set; }  // Lista de clientes cadastrados da Filial  *novo*
-        public ICollection<BotArrayString> orderCodeList { get; set; }  // Lista de codigos de pedidos dos clientes  *novo*
-        public int secondsToTimeOut { get; set; }             // Timeout para a mensagem ser ignorada
-        public int showPrepTime { get; set; }                 // Enviar tempo de preparo do pedido ou não para o cliente
+        public string name { get; set; }
+        public string FBTOKEN { get; set; }
+        /*Buscador 1 api/BotBusiness/botNumberID={botNumberID}*/
+        public string botNumberID { get; set; }
+        public string botNumber { get; set; }
+        public string botName { get; set; }
+        public int secondsToTimeOut { get; set; }
+        public bool showPrepTime { get; set; }
+        public bool showPrice { get; set; }
+        public string menuLink { get; set; }
+        public ICollection<BotProduct>? productList { get; set; }
+        public ICollection<BotClient> clientList { get; set; }
+        public ICollection<BotArrayString> orderCodeList { get; set; }
+        
     }
 }

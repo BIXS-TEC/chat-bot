@@ -1,7 +1,7 @@
 export interface BotAdditional {
     ID?: number; // Primary Key autoincrement
     ProductCode?: number; // Buscador 1
-    AddCode?: string; // Buscador 2
+    codeAdd?: string; // Buscador 2
     nameAdd?: string;
     priceAdd?: number;
     qtdMinAdd?: number;
@@ -9,21 +9,25 @@ export interface BotAdditional {
     categoryAdd?: string;
     enabledAdd?: boolean;
     orderQtdAdd?: number;
+    selectedAdd?: boolean;
+    ProductsID?: string;
 }
 
 export interface BotProduct {
     ID?: number; // Primary Key autoincrement
     botNumberID?: string; // Buscador 1
+    IdClient?: number;
     codeProd: string; // Buscador 2
     nameProd: string;
     priceProd: number;
-    imageProdUrl?: string;
+    imageUrlProd?: string;
     categoryProd?: string;
     orderQtdProd?: number;
     qtdStockProd?: number;
     descriptionProd?: string;
     observationClient?: string;
     preparationTime?: number;
+    quickResale?: boolean;
     qtdMaxAdditionals?: number;
     qtdMinAdditionals?: number;
     recommendedProductCode?: string;
@@ -38,15 +42,31 @@ export interface BotClient {
     phoneNumberClient: string; 
     contextClient: string;
     addressClient?: string;
-    textMessage?: string;
+    cpf_cnpjClient ?: string;
     currentProductIndex?: number;
     tableClient?: number;
     orderMessageId?: string;
     totalOrderPrice?: number;
     editingOrder?: boolean;
-    recomendedProduct?: any;
+    recommendedProduct?: RecommendProduct;
     errorQtdAdd?: number;
+    timeoutID?: NodeJS.Timeout;
     chatHistory: string[];
-    productListClient: BotProduct[];
+    BotBusinessID?: number;
+    ProductListClient: BotProduct[];
     fullAdditionalList?: any[];
 }
+
+export interface RecommendProduct {
+    count: number;
+    recCodeProd: string;    // Recommended code product
+    refCodeProd: string;    // Referenced code product
+}
+
+export interface BotArrayString {
+    Id?: number,
+    texto: string,
+    botNumberID?: string,
+    BotBusinessID?: number,
+    BotClientID?: number
+  }

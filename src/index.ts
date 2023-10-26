@@ -1,8 +1,11 @@
 import Business from "./business";
 
 require("dotenv").config();
+
 const express = require("express");
 const axios = require("axios");
+const { AsyncLocalStorage } = require("node:async_hooks");
+const asyncLocalStorage = new AsyncLocalStorage();
 
 const app = express();
 const port = 3000;
@@ -10,7 +13,8 @@ const port = 3000;
 app.use(express.json());
 
 const VERIFYTOKEN = process.env.VERIFYTOKEN;
-let business: Business = new Business(3264);
+let business: Business = new Business('113343625148900');
+
 
 app.get("/webhook", (req, res) => {
   let mode = req.query["hub.mode"];
@@ -28,11 +32,6 @@ app.get("/webhook", (req, res) => {
 
 app.post("/webhook", (req, res) => {
   business.postRequest(req, res)
-});
-
-app.post("/business", (req, res) => {
-  // Criar business a partir do request
-  // controller.postRequest(req, res)
 });
 
 app.use((error, req, res, next) => {

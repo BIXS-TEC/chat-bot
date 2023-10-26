@@ -1,0 +1,33 @@
+Dados do negócio
+
+- ID do numero do bot (Gerado pelo Facebook)
+- ID do numero de celular do bot
+- Nome do negócio
+- Nome do Bot (Padrão = 'o Assistente virtual') [Deve conter o artigo masculino/feminino]
+- Token permantente de usuário do facebook (Gerado no Facebook)
+- Tempo para rejeitar mensagens (Opcional - Dado de implementação)
+- Informar o tempo de preparo do pedido para o cliente se existir (sim/não)
+- Mostrar preços dos produtos (sim/não)
+
+Dados do produto
+
+- Nome do produto
+- Preço do produto
+- Imagem do produto
+- Categoria do produto (Existentes:  VESTUARIO'👕', BEBIDAS'🥤', COMIDAS'🍽️', OUTROS'📦', SORVETERIA'🍦', SERVICOS'👩‍💼', CONSUMACAO'💳', PIZZA'🍕', HORTIFRUTI'🥦', FICHAS'🎟️', BATATA'🥔', ACAI'🍨', LANCHES'🍔')
+- Quantidade em estoque do produto (Opcional - Integração com o sistema)
+- Descrição do produto (Ingredientes e outros)
+- Tempo de preparo (minutos)
+- Quantidade Maxima de adicionais que podem ser incluido
+- Quantidade Minima de adicionais que devem ser incluido
+- Protudo recomendado (Deve escolher um produto que combina com aquele produto para oferecer para o cliente comprar junto)
+- Lista de adicionais
+
+Dados dos adicionais
+
+- Nome do adicional
+- Preço do adicional
+- Quantidade maxima (Opcional)
+- Quantidade mínima (Opcional)
+- Categoria do adicional
+

@@ -20,5 +20,3 @@ function treatLongMessage(message: string): string[] {
     }
     return messageList
 }
-
-console.log(treatLongMessage(text))
