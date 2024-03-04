@@ -1,39 +1,43 @@
 const axios = require("axios");
 const fs = require('fs');
 const qs = require('qs');
+const uuid = require('uuid');
+require("dotenv").config();
 
-import * as uuid from 'uuid';
-import { Request, Response } from 'express';
+const express = require("express");
 import ClientReq from './client';
 import { BotAdditional, BotProduct, BotClient, RecommendProduct, BotArrayString } from './interfaces';
 
 export default class Business {
 
-    private BotBusinessID: number
-    private codFilial: number
-    private name: string
-    private FBTOKEN: string
-    private botNumberID: string
-    private botNumber: string
-    private botName: string
-    private productList: Record<string, BotProduct>
-    private clientList: Record<string, BotClient>
-    private clientRequestList: Record<string, ClientReq>
+    private BotBusinessID!: number
+    private codFilial!: number
+    private name!: string
+    private FBTOKEN!: string
+    /**Identificação do número de telefone */
+    private botNumberID!: string
+    private botNumber!: string
+    private botName!: string
+    private productList!: Record<string, BotProduct>
+    private clientList!: Record<string, BotClient>
+    private clientRequestList!: Record<string, ClientReq>
     private orderCodeList: Set<string> = new Set<string>()
     private contexts: Record<string, (clientRequest: ClientReq) => void> = {};
-    private secondsToTimeOut: number
-    private showPrepTime: boolean
-    private showPrice: boolean
-    private menuLink: string
+    private secondsToTimeOut!: number
+    private showRecommendedProduct!: boolean
+    private showPrepTime!: boolean
+    private showPrice!: boolean
+    private minutesToEndSession!: number
+    private menuLink!: string
 
     /*CONFIGURATION*/
 
     constructor(botNumberID: string) {
-        this.botNumberID = botNumberID
+        this.botNumberID = botNumberID 
         this.initializeBusinessData()
     }
 
-    private async initializeBusinessData() {
+    public async initializeBusinessData() {
         try {
             const response = await axios.get(`http://lojas.vlks.com.br/api/BotBusiness/botNumberID=${this.botNumberID}`)
 
@@ -62,14 +66,23 @@ export default class Business {
                 this.clientList = businessData.clientListBs ?
                     businessData.clientListBs : (() => { console.warn("\x1b[33m%s\x1b[0m", 'clientList vazia. Usando {}.'); return {} })();
 
-                this.showPrepTime = businessData.showPrepTime ?
+                this.showRecommendedProduct = 'showRecommendedProduct' in businessData ? 
+                    businessData.clientListBs : (() => { console.warn("\x1b[33m%s\x1b[0m", 'AVISO! showRecommendedProduct não inicializado. Usando true.'); return true })();
+
+                this.showPrepTime = 'showPrepTime' in businessData ?
                     businessData.showPrepTime : (() => { console.warn("\x1b[33m%s\x1b[0m", 'AVISO! showPrepTime não inicializado. Usando true.'); return true })();
 
-                this.showPrice = businessData.showPrice ?
+                this.showPrice = 'showPrice' in businessData ?
                     businessData.showPrice : (() => { console.warn("\x1b[33m%s\x1b[0m", 'AVISO! showPrice não inicializado. Usando true.'); return true })();
 
+                this.minutesToEndSession = 'minutesToEndSession' in businessData ?
+                    businessData.minutesToEndSession : (() => { console.warn("\x1b[33m%s\x1b[0m", 'AVISO! minutesToEndSession não inicializado. Usando 30.'); return 30 })();
+
                 this.secondsToTimeOut = businessData.secondsToTimeOut ?
-                    businessData.secondsToTimeOut : (() => { console.warn("\x1b[33m%s\x1b[0m", 'AVISO! secondsToTimeOut não inicializado. Usando 30.'); return 50 })();
+                    businessData.secondsToTimeOut : (() => { console.warn("\x1b[33m%s\x1b[0m", 'AVISO! secondsToTimeOut não inicializado. Usando 50.'); return 50 })();
+
+                this.menuLink = businessData.menuLink ?
+                    businessData.menuLink : (() => { console.warn("\x1b[33m%s\x1b[0m", 'AVISO! menuLink não inicializado. Usando "link".'); return 'link' })();
 
                 this.productList = Array.isArray(businessData.productListBs) && businessData.productListBs.length ?
                     await this.rebuildProductListToBotProductList(businessData.productListBs) : await this.initializeProducts()
@@ -82,14 +95,14 @@ export default class Business {
                     '\nFBTOKEN: ', this.FBTOKEN,
                     '\nbotNumberID: ', this.botNumberID,
                     '\nbotNumber: ', this.botNumber,
-                    '\nclientList: ', this.clientList,
+                    // '\nclientList: ', this.clientList,
                     '\nshowPrepTime: ', this.showPrepTime,
                     '\nsecondsToTimeOut: ', this.secondsToTimeOut)
 
                 if (Object.values(this.productList).length) {
 
                     console.log('productList: ')
-                    console.table(this.productList)
+                    // console.table(this.productList)
                     console.info(`Dados '${this.name}' carregados do banco (${Object.keys(this.productList).length} produtos)`)
                     console.info(`Aguardando clientes...`)
 
@@ -136,7 +149,7 @@ export default class Business {
     }
 
     private initializeIntents() {
-        this.addContext('nenhum', (clientRequest: ClientReq) => {
+        this.addContext('inicio', (clientRequest: ClientReq) => {
             try {
                 const orderListData = this.extractProductOrdersFromMessage(clientRequest.textMessage ? clientRequest.textMessage : '')
                 if (orderListData.products?.length) {       // Mostrar lista de adicionais
@@ -147,7 +160,7 @@ export default class Business {
                     this.greatingsMessage(clientRequest)
                 }
             } catch (error) {
-                console.error("\x1b[31m%s\x1b[0m", 'Erro em nenhum', error)
+                console.error("\x1b[31m%s\x1b[0m", 'Erro em inicial', error)
             }
         });
 
@@ -156,7 +169,7 @@ export default class Business {
                 const BotClient = this.clientList[clientRequest.costumerWAId]
                 if (clientRequest.textMessage === '0' || clientRequest.textMessage.toLowerCase() === 'nao' || clientRequest.textMessage.toLowerCase() === 'não') {    // 0 - Revisar e finalizar pedido
                     if (!this.mustIncludeAdditional(clientRequest)) {
-                        if (!BotClient.recommendedProduct) {
+                        if (!BotClient.recommendedProduct && this.showRecommendedProduct) {
                             this.mostRecommendProduct(clientRequest)
                             this.clientList[clientRequest.costumerWAId].contextClient = 'produto_recomendado'
                         } else {
@@ -266,7 +279,6 @@ export default class Business {
                 } else if (clientRequest.idButton === '0') {    //  0 - Usar dados cadastrados
                     this.sendToPreparation(clientRequest)
                     this.clientList[clientRequest.costumerWAId].contextClient = 'aguardar_pedido'
-                    this.quickResaleProduct(clientRequest)
                 } else {
                     this.noContextMessage(clientRequest)
                 }
@@ -314,13 +326,31 @@ export default class Business {
 
         });
 
-        this.addContext('aguardar_pedido', (clientRequest: ClientReq) => {
+        this.addContext('revenda_rapida', (clientRequest: ClientReq) => {
             try {
-                if (true) {
-                    if (this.validateCPF_CNPJ(clientRequest)) {
-                        this.sendToPreparation(clientRequest)
-                        this.clientList[clientRequest.costumerWAId].contextClient = 'aguardar_pedido'
-                    }
+                if (clientRequest.idButton === '0') {   // VER CARDÁPIO
+                    this.greatingsMessage(clientRequest)
+                    this.clientList[clientRequest.costumerWAId].contextClient = 'inicio'
+                } else if (clientRequest.idButton === '1' || (this.quickResaleClientProducts(clientRequest).length >= 2 && clientRequest.idButton === '2')) {   //  Pedir produto
+                    this.addQuickResaleProductOrder(clientRequest)
+                } else if (clientRequest.idButton === 'fechar_conta'){
+                    this.paymentForm(clientRequest)
+                    this.clientList[clientRequest.costumerWAId].contextClient = 'pagamento'
+                } else {
+                    this.noContextMessage(clientRequest)
+                }
+            } catch (error) {
+                console.error("\x1b[31m%s\x1b[0m", 'Erro em dados_cpf', error)
+            }
+
+        });
+
+        this.addContext('pagamento', (clientRequest: ClientReq) => {
+            try {
+                if (clientRequest.idButton === 'pix' || clientRequest.idButton === 'c_credito' || clientRequest.idButton === 'c_debito') {
+                    this.payBill(clientRequest)
+                } else {
+                    this.noContextMessage(clientRequest)
                 }
             } catch (error) {
                 console.error("\x1b[31m%s\x1b[0m", 'Erro em dados_cpf', error)
@@ -345,7 +375,7 @@ export default class Business {
                 if (currentTimestamp - parseInt(this.clientRequestList[wa_id].timestampCostumer) < this.secondsToTimeOut) {
 
                     if (!this.clientList[wa_id]) {
-                        await this.writeClientToBusinessClientListDB(this.createClient(this.clientRequestList[wa_id].costumerName, wa_id))
+                        this.clientList[wa_id] = this.createClient(this.clientRequestList[wa_id].costumerName, wa_id);
                     }
 
                     if (this.clientList[wa_id].timeoutID) {
@@ -354,7 +384,7 @@ export default class Business {
                     const clientRequest = this.clientRequestList[wa_id]
                     this.clientList[wa_id].timeoutID = setTimeout(() => {
                         this.endClientSession(clientRequest)
-                    }, 300 * 1000);
+                    }, this.minutesToEndSession * 60 * 1000);
 
                     if (this.clientRequestList[wa_id].typeMessage === "text" || this.clientRequestList[wa_id].typeMessage === "interactive") {
                         this.handleContext(this.clientRequestList[wa_id])
@@ -405,7 +435,7 @@ export default class Business {
 
     private handleContext(clientRequest: ClientReq): void {
 
-        const contextClient = this.clientList[clientRequest.costumerWAId] ? this.clientList[clientRequest.costumerWAId].contextClient : 'nenhum'
+        const contextClient = this.clientList[clientRequest.costumerWAId] ? this.clientList[clientRequest.costumerWAId].contextClient : 'inicio'
         if (this.contexts[contextClient] && typeof this.contexts[contextClient] === 'function') {
             this.contexts[contextClient](clientRequest)
             console.log(`client '${clientRequest.costumerWAId}' context: ${contextClient}`)
@@ -448,7 +478,8 @@ export default class Business {
                     categoryProd: product.categoryProd,
                     qtdStockProd: product.qtdStockProd,
                     descriptionProd: product.descriptionProd,
-                    preparationTime: product.preparationTime ? product.preparationTime : 10,
+                    preparationTime: product.preparationTime ? product.preparationTime : 5,
+                    quickResale: product.quickResale ? product.quickResale : true, //RETIRAR ESSA CONDIÇÃO
                     qtdMaxAdditionals: product.qtdMaxAdditionals,
                     qtdMinAdditionals: product.qtdMinAdditionals,
                     recommendedProductCode: product.recommendedProductCode ? product.recommendedProductCode : '845031', //products[Math.floor(Math.random() * products.length)].codeProd,
@@ -467,7 +498,7 @@ export default class Business {
         phoneNumberClient: string,
         addressClient: string = "",
         chatHistory: string[] = [],
-        contextClient: string = 'nenhum',
+        contextClient: string = 'inicio',
         tableClient: number = 0,
         BotProductList: BotProduct[] = [],
         orderMessageId: string = '',
@@ -661,8 +692,6 @@ export default class Business {
 
             const botClient = this.clientList[clientRequest.costumerWAId]
 
-            const axios = require('axios');
-
             let config = {
                 method: 'delete',
                 maxBodyLength: Infinity,
@@ -676,7 +705,7 @@ export default class Business {
                     resolve(response);
                 })
                 .catch((error) => {
-                    console.error("\x1b[31m%s\x1b[0m", `Erro GET BotClient '${botClient.phoneNumberClient}'`, error.response.status, error.response.statusText);
+                    console.error("\x1b[31m%s\x1b[0m", `Erro DELETE BotClient '${botClient.phoneNumberClient}'`, error.response.status, error.response.statusText);
                     reject(error);
                 });
         });
@@ -752,7 +781,7 @@ export default class Business {
             BotBusinessID: this.BotBusinessID
         }
 
-        console.log('----------------------------------------\nDATA = ', JSON.stringify(data, null, 2))
+        // console.log('DATA = ', JSON.stringify(data, null, 2))
 
         let config = {
             method: 'post',
@@ -765,11 +794,6 @@ export default class Business {
         };
 
         await axios.request(config)
-            .then((response) => {
-                console.log('response', JSON.stringify(response.data))
-                // this.writeBotArrayStringDB(clientRequest)
-                // this.writeProductListClientDB(clientRequest)
-            })
             .then((response) => {
                 console.log(`Pedido Client '${clientRequest.costumerWAId}' salvo no banco`);
             })
@@ -1056,18 +1080,18 @@ export default class Business {
 
     private addProductsToClientProductsList(clientRequest: ClientReq, productList: BotProduct[]): void {
         try {
-
-            const productClient = this.clientList[clientRequest.costumerWAId].ProductListClient;
+            const botClient = this.clientList[clientRequest.costumerWAId]
+            const productClient = botClient.ProductListClient;
             for (const prod of productList) {
                 for (let qtd = 0; qtd < prod.orderQtdProd; qtd++) {
+                    botClient.totalOrderPrice += prod.priceProd
                     const productCopy = { ...this.productList[prod.codeProd] };
                     productCopy.AdditionalList = {}
                     productCopy.orderQtdProd = 1
                     productClient.push(productCopy)
                 }
             }
-            // console.log('addProductsToClientProductsList, ProductListClient')
-            // console.table(this.clientList[clientRequest.costumerWAId].ProductListClient)
+            this.addAdditionalsToFullAdditionalList(clientRequest)
         } catch (error) {
             if (!this.clientList[clientRequest.costumerWAId]) {
                 console.error(`Cliente ${clientRequest.costumerWAId} não existe!`)
@@ -1078,7 +1102,7 @@ export default class Business {
 
     private addAdditionalsToFullAdditionalList(clientRequest: ClientReq): void {
         try {
-            const fullAdditionalList = []
+            const fullAdditionalList = this.clientList[clientRequest.costumerWAId].fullAdditionalList = []
             const productListClient = this.clientList[clientRequest.costumerWAId].ProductListClient
             const product = this.productList
             for (let prod of productListClient) {
@@ -1118,7 +1142,26 @@ export default class Business {
         }
     }
 
-    private async sendSingleMessage(message: string, costumerWAId: string, functionName: string, arg: { message_id?: string, buttons?: Array<string> } = {}): Promise<void> {
+    private splitLongMessage(message: string): string[] {
+        message += '\n'
+        const maxIndex = 4096
+        let NLindex = 0
+        let messageList: string[] = []
+        const times = message.length / maxIndex
+        for (let j = 0; j < times; j++) {
+            for (let i = maxIndex; i > 0; i--) {
+                if (message[i] === '\n') {
+                    NLindex = i
+                    break
+                }
+            }
+            messageList.push(message.slice(0, NLindex))
+            message = message.slice(NLindex)
+        }
+        return messageList
+    }
+
+    private async sendSingleMessage(message: string, costumerWAId: string, functionName: string, arg: { message_id?: string, buttons?: Array<string>, id_buttons?: Array<string> } = {}): Promise<void> {
         // Tornar essa função automatica e unificada
         return new Promise(async (resolve, reject) => {
 
@@ -1136,7 +1179,7 @@ export default class Business {
                             buttons.push({
                                 type: 'reply',
                                 reply: {
-                                    id: i,
+                                    id: arg.id_buttons ? arg.id_buttons[i] : i,
                                     title: arg.buttons[i]
                                 }
                             });
@@ -1204,7 +1247,7 @@ export default class Business {
         });
     }
 
-    private async sendWATextMessage(message: string, costumerWAId: string, functionName: string, arg: { message_id?: string, buttons?: Array<string> } = {}): Promise<void> {
+    private async sendWATextMessage(message: string, costumerWAId: string, functionName: string, arg: { message_id?: string, buttons?: Array<string>, id_buttons?: Array<string> } = {}): Promise<void> {
         return new Promise(async (resolve, reject) => {
 
             try {
@@ -1215,7 +1258,7 @@ export default class Business {
                 }
                 for (let i = 0; i < messageList.length; i++) {
                     if (arg && i === (messageList.length - 1)) {
-                        await this.sendSingleMessage(messageList[i], costumerWAId, functionName, { message_id: arg.message_id, buttons: arg.buttons })
+                        await this.sendSingleMessage(messageList[i], costumerWAId, functionName, arg)
                     } else {
                         await this.sendSingleMessage(messageList[i], costumerWAId, functionName)
                     }
@@ -1228,25 +1271,6 @@ export default class Business {
             }
 
         });
-    }
-
-    private splitLongMessage(message: string): string[] {
-        message += '\n'
-        const maxIndex = 4096
-        let NLindex = 0
-        let messageList: string[] = []
-        const times = message.length / maxIndex
-        for (let j = 0; j < times; j++) {
-            for (let i = maxIndex; i > 0; i--) {
-                if (message[i] === '\n') {
-                    NLindex = i
-                    break
-                }
-            }
-            messageList.push(message.slice(0, NLindex))
-            message = message.slice(NLindex)
-        }
-        return messageList
     }
 
     private sendWAImageMessage(imageUrl: string, costumerWAId: string, functionName: string = "", message_id: string = ''): Promise<any> {
@@ -1475,11 +1499,20 @@ export default class Business {
 
     /*INTENTIONS*/
 
-    /**
-     * Envia mensagem de boas vindas
-     * @param recipientId 
-     * @param botNumberId 
-     */
+    private testMessage(clientRequest: ClientReq) {
+        try {
+
+            let message = `Olá! 😄 Eu sou *${this.botName}*, assistente virtual da *${this.name}*!🤖\nEstou pronto para agilizar e facilitar o seu atendimento. 🚀`
+            message += `\n\nUse os números para pedir e, pronto, o pedido está feito! 🌮 Simples assim! 🌟`
+            message += `\n\nPara dar uma olhada no nosso *cardápio*, é só clicar no link! 🍔👀 \n\nhttp://printweb.vlks.com.br/Empresas/3264/Cardapio3/Index.html`
+
+            this.clientList[clientRequest.costumerWAId].chatHistory.push(clientRequest.textMessage)
+            this.sendWATextMessage(message, clientRequest.costumerWAId, 'testMessage')
+        } catch (error) {
+            console.error("\x1b[31m%s\x1b[0m", 'Erro ao criar a mensagem em testMessage', error)
+        }
+    }
+
     private greatingsMessage(clientRequest: ClientReq) {
         try {
 
@@ -1499,9 +1532,7 @@ export default class Business {
             const BotClient = this.clientList[clientRequest.costumerWAId]
             if (orderListData.products?.length) {
                 BotClient.tableClient = orderListData.table
-                BotClient.totalOrderPrice = orderListData.totalCost
                 this.addProductsToClientProductsList(clientRequest, orderListData.products)
-                this.addAdditionalsToFullAdditionalList(clientRequest)
                 console.log(`Pedido de ${clientRequest.costumerName}:`)
                 console.table(BotClient.ProductListClient)
             }
@@ -1572,6 +1603,7 @@ export default class Business {
                         message += `\n\nQual a *quantidade* desejada?\nVocê pode adicionar até ${additional.qtdMaxAdd} ${additional.nameAdd}!`
                         this.clientList[clientRequest.costumerWAId].contextClient = 'qtd_adicionais'
                     } else {
+                        BotClient.totalOrderPrice += additional.priceAdd
                         message += `\nMais alguma coisa?\n`
                     }
                 }
@@ -1599,6 +1631,7 @@ export default class Business {
                 message = `Ok, então fica *${clientRequest.textMessage} ${additional.nameAdd}*${this.showPrice ? `, no total de +R$ ${(parseInt(clientRequest.textMessage) * additional.priceAdd).toFixed(2).replace('.', ',')}` : ''}`
                 message = `\n\nDigite o numero do adicional para continuar incluindo.`
                 message = `\n\n*_0_* • Voltar para a lista de pedidos.\n`
+                BotClient.totalOrderPrice += additional.priceAdd * parseInt(clientRequest.textMessage)
             }
 
             this.clientList[clientRequest.costumerWAId].chatHistory.push(clientRequest.textMessage)
@@ -1728,7 +1761,7 @@ export default class Business {
             product.orderQtdProd = parseInt(clientRequest.textMessage)
             product.AdditionalList = {}
             // BotClient.totalOrderPrice += parseInt(clientRequest.textMessage) * product.priceProd
-            let message = `Certo, ${parseInt(clientRequest.textMessage)} ${product.nameProd} incluídos!`
+            let message = `Certo, _*${parseInt(clientRequest.textMessage)} ${product.nameProd}*_ incluídos!`
             await this.sendWATextMessage(message, clientRequest.costumerWAId, 'quantityRecommendedProduct')
             let orderListData = {
                 table: BotClient.tableClient,
@@ -1764,21 +1797,21 @@ export default class Business {
         try {
             const botClient = this.clientList[clientRequest.costumerWAId]
             clientRequest.textMessage ? botClient.chatHistory.push(clientRequest.textMessage) : botClient.chatHistory.push(clientRequest.interactive)
-            let totalOrderPrice = botClient.totalOrderPrice = 0
+            let totalOrderPrice = botClient.totalOrderPrice// = 0
             let message = `Seu pedido:\n`
             for (let product of botClient.ProductListClient) {
                 let orderQtdProd = product.orderQtdProd ? product.orderQtdProd : 1
-                totalOrderPrice += orderQtdProd * product.priceProd
+                // totalOrderPrice += orderQtdProd * product.priceProd
                 message += `\n• *${orderQtdProd} ${product.nameProd}*${this.showPrice ? ` - R$ ${(orderQtdProd * product.priceProd).toFixed(2).replace('.', ',')}` : ''}`
                 for (let add of Object.values(product.AdditionalList)) {
                     let orderQtdAdd = add.orderQtdAdd ? add.orderQtdAdd : 1
-                    totalOrderPrice += orderQtdAdd * add.priceAdd
+                    // totalOrderPrice += orderQtdAdd * add.priceAdd
                     message += `\n\t${orderQtdAdd} ${add.nameAdd}${this.showPrice ? ` + R$ ${(orderQtdAdd * add.priceAdd).toFixed(2).replace('.', ',')}` : ''}`
                 }
                 if (product.observationClient) message += `\n\tObservação: "${product.observationClient}"`
                 message += `\n`
             }
-            message += `\`\`\`${this.showPrice ? `\nTotal do pedido: R$ ${totalOrderPrice.toFixed(2).replace('.', ',')}` : ''}\`\`\``
+            message += `${this.showPrice ? `\`\`\`\nTotal do pedido: R$ ${totalOrderPrice.toFixed(2).replace('.', ',')}\`\`\`` : ''}`
             const button1 = `Editar pedido ✏️`
             const button2 = `Finalizar pedido ✅`
 
@@ -1807,7 +1840,11 @@ export default class Business {
     }
 
     private editOrder(clientRequest: ClientReq) {
-        const productClient = this.clientList[clientRequest.costumerWAId].ProductListClient[parseInt(clientRequest.textMessage) - 1]
+        const botClient = this.clientList[clientRequest.costumerWAId]
+        const productClient = botClient.ProductListClient[parseInt(clientRequest.textMessage) - 1]
+        for (let add of Object.values(productClient.AdditionalList)){
+            botClient.totalOrderPrice -= add.priceAdd * (add.orderQtdAdd ? add.orderQtdAdd : 1)
+        }
         productClient.AdditionalList = {}
         productClient.observationClient = ''
         let message = `Certo! Deletei as inclusões de _*${productClient.nameProd}*_.\n\n`
@@ -1881,7 +1918,7 @@ export default class Business {
         this.sendWATextMessage(message, clientRequest.costumerWAId, 'askClientCPF')
     }
 
-    private validateCPF_CNPJ(clientRequest: ClientReq) {
+    private validateCPF_CNPJ(clientRequest: ClientReq): boolean {
         try {
 
             const digits = clientRequest.textMessage.replace(/[^\d]/g, '');
@@ -1922,34 +1959,37 @@ export default class Business {
                 .then((response) => {
                     console.log(`Pedido ${clientRequest.costumerName} :`)
                     console.table(botClient.ProductListClient)
-                    // delete this.clientList[clientRequest.costumerWAId]
-                    // delete this.clientRequestList[clientRequest.costumerWAId]
+                    this.quickResaleProductMessage(clientRequest)
                 });
         } catch (error) {
             console.error("\x1b[31m%s\x1b[0m", 'Erro na funcao sendToPreparation', error)
         }
     }
 
-    private async quickResaleProduct(clientRequest): Promise<void> {
+    private async quickResaleProductMessage(clientRequest: ClientReq): Promise<void> {
 
         return new Promise((resolve, reject) => {
 
             try {
                 if (this.clientList[clientRequest.costumerWAId].tableClient) {
                     const prepTime = this.largestPrepTime(clientRequest)
-                    const quickResaleProductsCode = this.quickResaleClientProducts(clientRequest)
-                    if (quickResaleProductsCode.length) {
-                        setTimeout(() => {
+                    const quickResaleProductsCodeList = this.quickResaleClientProducts(clientRequest)
+                    if (quickResaleProductsCodeList.length) {
+                        setTimeout(async () => {
+                            const message_check = 'Caso queira pedir a conta, clique no botão abaixo'
+                            const arg = {buttons: ['FECHAR CONTA'], id_buttons: ['fechar_conta']}
+                            await this.sendWATextMessage(message_check, clientRequest.costumerWAId, 'quickResaleProductMessage', arg)
                             const botClient = this.clientList[clientRequest.costumerWAId]
                             const productList = this.productList
                             let message = `${botClient.nameClient}, gostaria de ver o cardápio ou pedir novamente um dos itens abaixo?`
-                            message = `\n\nÉ só clicar e já trazemos seu pedido`
+                            message += `\n\nÉ só clicar e já trazemos seu pedido`
                             let buttons = []
                             buttons.push('VER CARDÁPIO')
-                            buttons.push(productList[quickResaleProductsCode[0]].nameProd)
-                            if (quickResaleProductsCode[1]) buttons.push(productList[quickResaleProductsCode[1]].nameProd)
+                            buttons.push(productList[quickResaleProductsCodeList[0]].nameProd)
+                            if (quickResaleProductsCodeList[1]) buttons.push(productList[quickResaleProductsCodeList[1]].nameProd)
+                            botClient.contextClient = 'revenda_rapida'
                             this.sendWATextMessage(message, clientRequest.costumerWAId, 'quickResaleProduct', { buttons: buttons })
-                        }, Math.floor(prepTime * 0.8 * 60000));
+                        }, Math.floor(prepTime * 0.1 * 60000));
                     }
                 }
                 resolve();
@@ -1961,8 +2001,48 @@ export default class Business {
         });
     }
 
+    private addQuickResaleProductOrder(clientRequest: ClientReq): void {
+        const productList = this.productList
+        const quickProductCode = this.quickResaleClientProducts(clientRequest)[parseInt(clientRequest.idButton) - 1]
+        const productClient = this.productList[quickProductCode]
+        const quickResaleProductsCodeList = this.quickResaleClientProducts(clientRequest)
+        this.addProductsToClientProductsList(clientRequest, [productClient])
+        this.writeClientOrderDB(clientRequest)
+
+        let message = `Show!`
+        message += `\n1 _*${productClient.nameProd}*_ saindoo!💨`
+        message += `\n\nClique no botão abaixo para pedir mais um agora mesmo ou mais tarde!`
+        let buttons = []
+        buttons.push('VER CARDÁPIO')
+        buttons.push(productList[quickResaleProductsCodeList[0]].nameProd)
+        if (quickResaleProductsCodeList.length > 1) buttons.push(productList[quickResaleProductsCodeList[1]].nameProd)
+        this.sendWATextMessage(message, clientRequest.costumerWAId, 'quickResaleProduct', { buttons: buttons })
+    }
+
+    private paymentForm(clientRequest: ClientReq): void {
+        const botClient = this.clientList[clientRequest.costumerWAId]
+        let message = `Certo! A conta ficou R$ ${botClient.totalOrderPrice.toFixed(2).replace('.', ',')}`
+        message += `\nQual a forma de pagamento?`
+        this.sendWATextMessage(message, clientRequest.costumerWAId, 'paymentForm', {buttons: ['PIX', 'Cartão de crédito', 'Cartão de débito'], id_buttons: ['pix', 'c_credito', 'c_debito']})
+    }
+
+    private payBill(clientRequest: ClientReq): void {
+        let message = ''
+        if (clientRequest.idButton === '0'){
+            message = 'PIX'
+        } else if (clientRequest.idButton === '1'){
+            message = 'Cartão de crédito'
+        } else if (clientRequest.idButton === '2'){
+            message = 'Cartão de débito'
+        }
+        message += `\n\nPagamento confirmado!\nObrigado pela confiança\nVolte sempre!!!  `
+        this.sendWATextMessage(message, clientRequest.costumerWAId, 'payBill')
+        delete this.clientList[clientRequest.costumerWAId]
+        delete this.clientRequestList[clientRequest.costumerWAId]
+    }
+
     private endClientSession(clientRequest: ClientReq) {
-        let message = `Como não recebi nenhum retorno, vou encerrar nossa conversa para esse pedido.\n\n`
+        let message = `Como não recebi retorno, vou encerrar nossa conversa para esse pedido.\n\n`
         message += `Para iniciar um novo pedido, é só me chamar novamente 😉`
 
         this.sendWATextMessage(message, clientRequest.costumerWAId, 'endClientSession')

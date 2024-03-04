@@ -8,31 +8,31 @@ export default class ClientReq {
     private _phone_number_id: string
 
     private _contacts: boolean = false
-    private _name: string
-    private _wa_id: string
+    private _name!: string
+    private _wa_id!: string
 
     private _messages: boolean = false
-    private _from: string
-    private _MessageId: string
-    private _timestamp: string
-    private _bodyText: string
-    private _type: string
+    private _from!: string
+    private _MessageId!: string
+    private _timestamp!: string
+    private _bodyText!: string
+    private _type!: string
 
-    private _interactive: string
-    private _typeInteractive: string
-    private _idButton: string
-    private _titleButton: string
+    private _interactive!: string
+    private _typeInteractive!: string
+    private _idButton!: string
+    private _titleButton!: string
 
     private _statuses: boolean = false
-    private _sentMessageId: string
-    private _status: string
-    private _recipient_id: string
-    private _idConversation: string
-    private _expiration_timestamp: string // Sent
-    private _typeOrigin: string
-    private _billable: boolean
-    private _pricing_model: string
-    private _category: string
+    private _sentMessageId!: string
+    private _status!: string
+    private _recipient_id!: string
+    private _idConversation!: string
+    private _expiration_timestamp!: string // Sent
+    private _typeOrigin!: string
+    private _billable!: boolean
+    private _pricing_model!: string
+    private _category!: string
 
     constructor(request, response) {
         this._req = request

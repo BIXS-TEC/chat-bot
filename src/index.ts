@@ -1,20 +1,18 @@
-import Business from "./business";
+import { Controller } from "./controller";
+import { buildIntegration } from "./graphapi";
 
 require("dotenv").config();
 
 const express = require("express");
-const axios = require("axios");
-const { AsyncLocalStorage } = require("node:async_hooks");
-const asyncLocalStorage = new AsyncLocalStorage();
-
 const app = express();
 const port = 3000;
 
+const VERIFYTOKEN = String(process.env.VERIFYTOKEN);
+const WHATSAPP_BUSINESS_ACCOUNT_ID = String(process.env.WHATSAPP_BUSINESS_ACCOUNT_ID);
+
+const controller: Controller = new Controller();
+
 app.use(express.json());
-
-const VERIFYTOKEN = process.env.VERIFYTOKEN;
-let business: Business = new Business('113343625148900');
-
 
 app.get("/webhook", (req, res) => {
   let mode = req.query["hub.mode"];
@@ -22,6 +20,7 @@ app.get("/webhook", (req, res) => {
   let challenge = req.query["hub.challenge"];
   if (mode && token) {
     if (mode === "subscribe" && token === VERIFYTOKEN) {
+      console.log("Webhook connected!")
       res.status(200).send(challenge);
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
@@ -30,8 +29,31 @@ app.get("/webhook", (req, res) => {
   }
 });
 
+
 app.post("/webhook", (req, res) => {
-  business.postRequest(req, res)
+  controller.accessBusiness(req, res)
+});
+
+app.get("/integration", async (req, res) => {
+  try {
+    const message = await buildIntegration(WHATSAPP_BUSINESS_ACCOUNT_ID);
+    res.status(200).send('message');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+})
+
+app.get("/update", (req, res) => {
+  try {
+    if (req.body.business.id && controller.businessExist(req.body.business.id)) {
+      controller.updateBusinessData(req.body.business)
+    } else {
+      res.sendStatus(400).send('Business ID does not match or does not exist!')
+    }
+
+  } catch (error) {
+    res.sendStatus(500).send('Invalid request format.')
+  }
 });
 
 app.use((error, req, res, next) => {

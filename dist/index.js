@@ -1,20 +1,29 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var business_1 = require("./business");
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+import { Controller } from "./controller";
+import { buildIntegration } from "./graphapi";
 require("dotenv").config();
-var express = require("express");
-var axios = require("axios");
-var app = express();
-var port = 3000;
+const express = require("express");
+const app = express();
+const port = 3000;
+const VERIFYTOKEN = String(process.env.VERIFYTOKEN);
+const WHATSAPP_BUSINESS_ACCOUNT_ID = String(process.env.WHATSAPP_BUSINESS_ACCOUNT_ID);
+const controller = new Controller();
 app.use(express.json());
-var VERIFYTOKEN = process.env.VERIFYTOKEN;
-var business = new business_1.default(3264);
-app.get("/webhook", function (req, res) {
-    var mode = req.query["hub.mode"];
-    var token = req.query["hub.verify_token"];
-    var challenge = req.query["hub.challenge"];
+app.get("/webhook", (req, res) => {
+    let mode = req.query["hub.mode"];
+    let token = req.query["hub.verify_token"];
+    let challenge = req.query["hub.challenge"];
     if (mode && token) {
         if (mode === "subscribe" && token === VERIFYTOKEN) {
+            console.log("Webhook connected!");
             res.status(200).send(challenge);
         }
         else {
@@ -23,18 +32,36 @@ app.get("/webhook", function (req, res) {
         }
     }
 });
-app.post("/webhook", function (req, res) {
-    business.postRequest(req, res);
+app.post("/webhook", (req, res) => {
+    controller.accessBusiness(req, res);
 });
-app.post("/business", function (req, res) {
-    // Criar business a partir do request
-    // controller.postRequest(req, res)
+app.get("/integration", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const message = yield buildIntegration(WHATSAPP_BUSINESS_ACCOUNT_ID);
+        res.status(200).send('message');
+    }
+    catch (error) {
+        res.status(500).send(error);
+    }
+}));
+app.get("/update", (req, res) => {
+    try {
+        if (req.body.business.id && controller.businessExist(req.body.business.id)) {
+            controller.updateBusinessData(req.body.business);
+        }
+        else {
+            res.sendStatus(400).send('Business ID does not match or does not exist!');
+        }
+    }
+    catch (error) {
+        res.sendStatus(500).send('Invalid request format.');
+    }
 });
-app.use(function (error, req, res, next) {
+app.use((error, req, res, next) => {
     res.status(500);
     res.send({ error: error });
     console.error(error.stack);
     next(error);
 });
-app.listen(port, function () { return console.log("Listening at http://localhost:".concat(port)); });
+app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 //# sourceMappingURL=index.js.map

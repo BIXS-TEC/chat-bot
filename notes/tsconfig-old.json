@@ -1,0 +1,20 @@
+{
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "compilerOptions": {
+    "target": "es6",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    // "allowImportingTsExtensions": true,
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
