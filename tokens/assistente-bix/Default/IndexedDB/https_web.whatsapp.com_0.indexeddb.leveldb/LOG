@@ -1,0 +1,13 @@
+2024/03/22-10:05:42.326 6428 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/03/22-10:05:42.328 6428 Recovering log #355
+2024/03/22-10:05:42.409 6428 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000355.log 
+2024/03/22-10:05:52.895 5860 Level-0 table #360: started
+2024/03/22-10:05:52.916 5860 Level-0 table #360: 559264 bytes OK
+2024/03/22-10:05:52.918 5860 Delete type=0 #355
+2024/03/22-10:05:52.922 6428 Manual compaction at level-0 from '\x00p\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00q\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/03/22-10:05:54.304 5860 Compacting 1@1 + 1@2 files
+2024/03/22-10:05:54.410 5860 Generated table #361@1: 48249 keys, 1699673 bytes
+2024/03/22-10:05:54.411 5860 Compacted 1@1 + 1@2 files => 1699673 bytes
+2024/03/22-10:05:54.411 5860 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/03/22-10:05:54.412 5860 Delete type=2 #357
+2024/03/22-10:05:54.412 5860 Delete type=2 #360
