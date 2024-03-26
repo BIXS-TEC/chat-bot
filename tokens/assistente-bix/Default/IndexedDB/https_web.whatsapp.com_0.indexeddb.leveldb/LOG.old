@@ -1,13 +1,13 @@
-2024/03/21-20:00:27.666 1428 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/03/21-20:00:27.667 1428 Recovering log #351
-2024/03/21-20:00:27.682 1428 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000351.log 
-2024/03/21-20:00:38.283 8414 Level-0 table #356: started
-2024/03/21-20:00:38.306 8414 Level-0 table #356: 320754 bytes OK
-2024/03/21-20:00:38.311 8414 Delete type=0 #351
-2024/03/21-20:00:38.312 74f8 Manual compaction at level-0 from '\x00o\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00p\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/03/21-20:00:40.034 8414 Compacting 1@1 + 1@2 files
-2024/03/21-20:00:40.171 8414 Generated table #357@1: 46338 keys, 1621091 bytes
-2024/03/21-20:00:40.171 8414 Compacted 1@1 + 1@2 files => 1621091 bytes
-2024/03/21-20:00:40.172 8414 compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/03/21-20:00:40.172 8414 Delete type=2 #353
-2024/03/21-20:00:40.173 8414 Delete type=2 #356
+2024/03/25-10:35:52.630 3744 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/03/25-10:35:52.631 3744 Recovering log #400
+2024/03/25-10:35:52.640 3744 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000400.log 
+2024/03/25-10:36:03.112 365c Level-0 table #405: started
+2024/03/25-10:36:03.122 365c Level-0 table #405: 185407 bytes OK
+2024/03/25-10:36:03.123 365c Delete type=0 #400
+2024/03/25-10:36:03.124 3744 Manual compaction at level-0 from '\x00{\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00|\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/03/25-10:36:04.388 24e8 Compacting 1@1 + 1@2 files
+2024/03/25-10:36:04.491 24e8 Generated table #406@1: 63635 keys, 2229723 bytes
+2024/03/25-10:36:04.491 24e8 Compacted 1@1 + 1@2 files => 2229723 bytes
+2024/03/25-10:36:04.492 24e8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/03/25-10:36:04.492 24e8 Delete type=2 #402
+2024/03/25-10:36:04.492 24e8 Delete type=2 #405

@@ -1,5 +1,6 @@
 import Chatbot from "../classes/chatbot.js";
 import getContextList from "./context.js";
+import { productList } from "./productList.js";
 
 export default function getChatbotList() {
   const chatbotList = {};
@@ -9,7 +10,7 @@ export default function getChatbotList() {
     'bix',
     '5548991620244',
     {},
-    {},
+    productList,
     getContextList(),
   );
 
