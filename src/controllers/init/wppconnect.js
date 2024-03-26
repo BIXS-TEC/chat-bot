@@ -1,5 +1,6 @@
 import wppconnect from "@wppconnect-team/wppconnect";
 import { handleRequest } from "../system/selector.js";
+import { defaultToWPPConnectResponse } from "../../interfaces/wppconnect.js";
 
 export async function startWppConnection() {
   return new Promise((resolve, reject) => {
@@ -41,7 +42,6 @@ export async function startWppConnection() {
           },
         })
         .then((client) => {
-          console.log('\x1b[35;1m%s\x1b[0m','Aguardando mensagens...');
           start(client);
         })
         .then(() => {
@@ -58,39 +58,30 @@ export async function startWppConnection() {
 }
 
 async function start(client) {
+  console.log('\x1b[35;1m%s\x1b[0m','Aguardando mensagens...');
   client.onMessage(async (message) => {
     (async () => {
       message.platform = "wppconnect";
       const response = await handleRequest(message);
+
       console.log("message.from: ", message.from);
       console.log("response: ", response);
-      client
-        .sendText(message.from, response, {
-          useTemplateButtons: true, // False for legacy
-          buttons: [
-            {
-              url: 'https://wppconnect.io/',
-              text: 'WPPConnect Site'
-            },
-            {
-              phoneNumber: '+55 11 22334455',
-              text: 'Call me'
-            },
-            {
-              id: 'your custom id 1',
-              text: 'Some text'
-            },
-            {
-              id: 'another id 2',
-              text: 'Another text'
-            }
-          ],
-          title: 'Title text',
-          footer: 'Footer text'
-         })
-        .catch((erro) => {
-          console.error("Erro ao enviar mensagem:", erro);
-        });
+
+      const wppRes = defaultToWPPConnectResponse(response);
+
+      if (wppRes.buttonsConfig) {
+        client
+          .sendText(message.from, wppRes.message, wppRes.buttonsConfig)
+          .catch((erro) => {
+            console.error("Erro ao enviar mensagem:", erro);
+          });
+      } else {
+        client
+          .sendText(message.from, wppRes.message)
+          .catch((erro) => {
+            console.error("Erro ao enviar mensagem:", erro);
+          });
+      }
     })();
   });
 }

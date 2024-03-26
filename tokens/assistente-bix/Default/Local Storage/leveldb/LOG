@@ -1,3 +1,6 @@
-2024/03/22-10:05:40.563 36b4 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\Local Storage\leveldb/MANIFEST-000001
-2024/03/22-10:05:40.565 36b4 Recovering log #32
-2024/03/22-10:05:40.573 36b4 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\Local Storage\leveldb/000032.log 
+2024/03/25-10:37:32.251 590 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\Local Storage\leveldb/MANIFEST-000001
+2024/03/25-10:37:32.255 590 Recovering log #43
+2024/03/25-10:37:32.261 590 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\tokens\assistente-bix\Default\Local Storage\leveldb/000043.log 
+2024/03/25-10:39:33.682 590 Level-0 table #47: started
+2024/03/25-10:39:33.691 590 Level-0 table #47: 14986 bytes OK
+2024/03/25-10:39:33.693 590 Delete type=0 #43

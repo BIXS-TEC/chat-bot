@@ -15,7 +15,7 @@ export default class Chatbot {
     if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
   }
 
-  async handleProductAditionalFlow(client) {
+  async handleProductAdditionalFlow(client) {
     console.log("\x1b[36m%s\x1b[0m", `Cliente padronizado: [${client.platform}] ${JSON.stringify(client, null, 2)}`);
     if (!this.clientList[client.phoneNumber]) {
       this.addClientToList(client);
@@ -31,6 +31,7 @@ export default class Chatbot {
       this.contextList[matchedContextName]
         .runContext(this, this.clientList[client.phoneNumber])
         .then((response) => {
+          console.log('Context response data: \n', JSON.stringify(response, null, 2));
           resolve(this.formatResponse(response));
         })
         .catch((error) => {
@@ -41,7 +42,7 @@ export default class Chatbot {
   }
 
   formatResponse(response) {
-    return response.message;
+    return response;
   }
 
   findBestContext(client) {

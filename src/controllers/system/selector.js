@@ -20,8 +20,7 @@ export async function handleRequest(request) {
 
     switch (client.chatbot.interaction) {
       case "adicionais":
-        const response = await chatbotList[client.chatbot.chatbotPhoneNumber].handleProductAditionalFlow(client);
-        return response;
+        return await chatbotList[client.chatbot.chatbotPhoneNumber].handleProductAdditionalFlow(client);;
 
       default:
         break;
