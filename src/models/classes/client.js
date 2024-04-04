@@ -1,12 +1,12 @@
 export default class Client{
 
-    constructor(id, name, phoneNumber, platform, chatbotPhoneNumber){
+    constructor(id, name, phoneNumber, platform, chatbot){
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.platform = platform;
-        this.chatbot = {};
-        this.chatbot.chatbotPhoneNumber = chatbotPhoneNumber;
+        this.chatbot = chatbot;
+        // this.chatbot.chatbotPhoneNumber = chatbotPhoneNumber;
         this.chatbot.context = 'nenhum';
     }
 

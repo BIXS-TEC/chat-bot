@@ -1,6 +1,8 @@
 import express from 'express';
 import message from './routes/client-msg.js';
 
+import '@wppconnect/server/dist/server.js';
+
 const app = express();
 const port = 3000;
 

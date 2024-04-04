@@ -9,7 +9,7 @@ export default class Context {
    * @param {Array.<string>} [activationKeywords=[]] - The keywords that specifies the triggering of this context
    * @param {Array.<string>} [buttons=[]] - (optional) The list of buttons to be sent within the message
    */
-  constructor({id, name, previousContexts, response, action, activationKeywords = [], buttons = []}) {
+  constructor({id, name, type, previousContexts, response, action, activationKeywords = [], buttons = [], itemsList = {}}) {
     if (buttons.length > 0) this.checkButtonsRestrictions(buttons);
 
     this.id = id;
@@ -29,15 +29,21 @@ export default class Context {
           })();
     this.activationKeywords = Array.isArray(activationKeywords) ? activationKeywords : [activationKeywords]; //verificar estrutura
     this.buttons = Array.isArray(buttons) ? buttons : [buttons];
+    this.itemsList = itemsList;
+    this.type = type;
   }
 
   async runContext(chatbot, client) {
     this.action(chatbot, client);
 
     const response = {};
+    response.clientPhone = client.phoneNumber;
+    response.platform = client.platform;
     response.message = this.response(chatbot, client);
-    console.log('this.buttons: ', this.buttons);
-    if (this.buttons.length) {
+    response.type = this.type;
+    if (this.type === 'items-list') {
+      response.itemsList = this.itemsList;
+    } else if (this.type === 'buttons') {
       response.buttons = this.buttons;
     }
     return response;

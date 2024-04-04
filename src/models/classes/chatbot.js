@@ -15,34 +15,45 @@ export default class Chatbot {
     if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
   }
 
+  /**
+   *  {
+        "id": "id",
+        "name": "Client Name",
+        "phoneNumber": "55DD########",
+        "platform": "plataformName",
+        "chatbot": {
+          "currentMessage": "text",
+          "interaction": "interaction title",
+          "chatbotPhoneNumber": "55DD########"
+        }
+      }
+   * 
+   * @param {*} Sender 
+   * @param {*} client 
+   * @returns 
+   */
   async handleProductAdditionalFlow(client) {
-    console.log("\x1b[36m%s\x1b[0m", `Cliente padronizado: [${client.platform}] ${JSON.stringify(client, null, 2)}`);
     if (!this.clientList[client.phoneNumber]) {
       this.addClientToList(client);
     } else {
       this.clientList[client.phoneNumber].message = client.message; // Criar um metodo na classe client para fazer isso e salvar as msg anteriores
     }
+    console.log("\x1b[36m%s\x1b[0m", `Cliente padronizado: [${client.platform}] ${JSON.stringify(this.clientList[client.phoneNumber], null, 2)}`);
 
     const matchedContextName = this.findBestContext(this.clientList[client.phoneNumber]);
-    this.clientList[client.phoneNumber].context = matchedContextName;
-    console.log("\x1b[36m%s\x1b[0m", "\nMatched context: ", matchedContextName);
 
     return new Promise((resolve, reject) => {
       this.contextList[matchedContextName]
         .runContext(this, this.clientList[client.phoneNumber])
         .then((response) => {
-          console.log('Context response data: \n', JSON.stringify(response, null, 2));
-          resolve(this.formatResponse(response));
+          console.log("Context response data: \n", JSON.stringify(response, null, 2));
+          resolve(response);
         })
         .catch((error) => {
           console.log("Erro ao processar o contexto: ", error);
           reject(error);
         });
     });
-  }
-
-  formatResponse(response) {
-    return response;
   }
 
   findBestContext(client) {
@@ -61,15 +72,28 @@ export default class Chatbot {
 
       /* Exclui contextos da lista que não possuem a mensagem atual do cliente como keyword */
       /* Pelo menos um contexto é mantido */
+      const keyword = (()=>{
+        switch (client.chatbot.messageType) {
+          case 'chat':
+            return client.chatbot.currentMessage
+          case 'list_response':
+            return client.chatbot.itemId
+          default:
+            break;
+        }
+      })()
+      console.log('keyword: ', keyword, '----' , client.chatbot.messageType);
+
       for (let i = matchedContext.length - 1; i >= 0; i--) {
-        if (matchedContext.length > 1) {
-          if (!matchedContext[i].activationKeywords.includes(client.chatbot.currentMessage)) {
-            matchedContext.splice(i, 1);
-          }
+        if (matchedContext.length > 1 && !matchedContext[i].activationKeywords.includes(keyword)) {
+          matchedContext.splice(i, 1);
         }
       }
 
       /* Contextos adicionados primeiro a matchedContext tem prioridade */
+      this.clientList[client.phoneNumber].context = matchedContext[0].name;
+      console.log("\x1b[36m%s\x1b[0m", "\nMatched context: ", matchedContext[0].name);
+
       return matchedContext[0].name;
     } catch (error) {
       console.log("Error in findBestContext function", error);
@@ -81,7 +105,7 @@ export default class Chatbot {
     try {
       if (!this.clientList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' adicionado!`);
       else if (this.clientList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' alterado!`);
-      this.clientList[client.phoneNumber] = new Client(client.id, client.name, client.phoneNumber, client.platform, this.phoneNumber, client.message);
+      this.clientList[client.phoneNumber] = new Client(client.id, client.name, client.phoneNumber, client.platform, client.chatbot);
       return true;
     } catch (error) {
       console.log("Error on addClientToList function", error);
