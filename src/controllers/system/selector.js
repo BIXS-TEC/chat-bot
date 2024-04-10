@@ -1,8 +1,6 @@
 import creator from "./creator.js";
 import standardizeRequestToDefault from "../../interfaces/index.js";
 
-import { ResponseSender } from "../../models/classes/sender.js";
-
 /**
  * Plataforma - De onde vem?
  * Interação - Qual o tipo de interação?
@@ -13,7 +11,6 @@ import { ResponseSender } from "../../models/classes/sender.js";
  */
 
 const chatbotList = creator();
-const Sender = new ResponseSender();
 
 export async function handleRequest(request) {
   try {
@@ -21,8 +18,7 @@ export async function handleRequest(request) {
 
     switch (client.chatbot.interaction) {
       case "adicionais":
-        const response = await chatbotList[client.chatbot.chatbotPhoneNumber].handleProductAdditionalFlow(client);
-        Sender.sendResponse(response);
+        chatbotList[client.chatbot.chatbotPhoneNumber].handleProductAdditionalFlow(client);
       default:
         break;
     }

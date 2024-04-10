@@ -39,28 +39,26 @@ export const productList = {
       },
     },
   },
+  Bebidas: {
+    4: {
+      id: 4,
+      name: "Coca-Cola Lata",
+      price: 5.5,
+    },
+    5: {
+      id: 5,
+      name: "Guaraná Lata",
+      price: 5.0,
+    },
+    6: {
+      id: 6,
+      name: "Coca-Cola 2L",
+      price: 13.0,
+    },
+    7: {
+      id: 7,
+      name: "Agua com gás",
+      price: 4.0,
+    },
+  },
 };
-
-
-// Bebidas: {
-//     4: {
-//       id: 4,
-//       name: "Coca-Cola Lata",
-//       price: 5.5,
-//     },
-//     5: {
-//       id: 5,
-//       name: "Guaraná Lata",
-//       price: 5.0,
-//     },
-//     6: {
-//       id: 6,
-//       name: "Coca-Cola 2L",
-//       price: 13.0,
-//     },
-//     7: {
-//       id: 7,
-//       name: "Agua com gás",
-//       price: 4.0,
-//     },
-//   },

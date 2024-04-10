@@ -1,5 +1,7 @@
 export function WPPConnectRequestToDefault(req) {
   try {
+    // console.log('original request: ', req);
+
     const client = {
       id: req.id,
       name: req.notifyName,
@@ -12,9 +14,9 @@ export function WPPConnectRequestToDefault(req) {
         chatbotPhoneNumber: formatPhoneWPPConnect(req.to),
       },
     };
-    if(req.type === 'list_response') {
+    if (req.type === "list_response") {
       client.chatbot.itemId = req.listResponse.singleSelectReply.selectedRowId;
-    };
+    }
 
     return client;
   } catch (error) {
@@ -34,7 +36,7 @@ export function defaultToWPPConnectResponseTextMessage(response) {
   try {
     const client = {
       phone: response.clientPhone,
-      message: response.message,
+      message: response.responseObjects.text.message,
       isNewsletter: false,
       isGroup: false,
     };
@@ -74,15 +76,46 @@ export function defaultToWPPConnectResponseListMessage(response) {
     const wppRes = {
       phone: response.clientPhone,
       isGroup: false,
-      description: response.message,
-      buttonText: response.itemsList.buttonText,
-      sections: response.itemsList.sections,
+      description: response.responseObjects.listMessage.description,
+      buttonText: response.responseObjects.listMessage.buttonText,
+      sections: response.responseObjects.listMessage.sections,
     };
 
     console.log(`\nwppRes: ${JSON.stringify(wppRes, null, 2)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [ListMessage]\n", error);
+  }
+}
+
+export function defaultToWPPConnectResponseReplyMessage(response) {
+  try {
+    const wppRes = {
+      phone: response.clientPhone,
+      message: response.responseObjects.replyMessage.message,
+      messageId: response.responseObjects.replyMessage.messageId
+    };
+    
+    console.log(`\nwppRes: ${JSON.stringify(wppRes, null, 2)}\n`);
+    return wppRes;
+  } catch (error) {
+    throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [ReplyMessage]\n", error);
+  }
+}
+
+export function defaultToWPPConnectResponseLinkPreview(response) {
+  try {
+    const wppRes = {
+      phone: response.clientPhone,
+      url: response.responseObjects.linkPreview.url,
+    };
+    if (response.responseObjects.linkPreview.caption)
+      wppRes.caption = response.responseObjects.linkPreview.caption;
+    
+    console.log(`\nwppRes: ${JSON.stringify(wppRes, null, 2)}\n`);
+    return wppRes;
+  } catch (error) {
+    throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [PreviewLink]\n", error);
   }
 }
 

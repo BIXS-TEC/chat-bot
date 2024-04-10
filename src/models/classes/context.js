@@ -9,43 +9,26 @@ export default class Context {
    * @param {Array.<string>} [activationKeywords=[]] - The keywords that specifies the triggering of this context
    * @param {Array.<string>} [buttons=[]] - (optional) The list of buttons to be sent within the message
    */
-  constructor({id, name, type, previousContexts, response, action, activationKeywords = [], buttons = [], itemsList = {}}) {
-    if (buttons.length > 0) this.checkButtonsRestrictions(buttons);
+  constructor({id, name, type, previousContexts, action, activationKeywords, responseObjects}) {
+    if(typeof action !== "function") throw new Error("\x1b[31m%s\x1b[0m", `O parâmetro action deve ser uma função [context: ${this.name}].`);
+    // if (buttons.length > 0) this.checkButtonsRestrictions(buttons);
 
     this.id = id;
     this.name = name;
     this.previousContexts = Array.isArray(previousContexts) ? previousContexts : [previousContexts];
-    this.response =
-      typeof response === "function"
-        ? response
-        : (() => {
-            throw new Error("\x1b[31m%s\x1b[0m", `O parâmetro response deve ser uma função [context: ${this.name}].`);
-          })();
-    this.action =
-      typeof action === "function"
-        ? action
-        : (() => {
-            throw new Error("\x1b[31m%s\x1b[0m", `O parâmetro action deve ser uma função [context: ${this.name}].`);
-          })();
-    this.activationKeywords = Array.isArray(activationKeywords) ? activationKeywords : [activationKeywords]; //verificar estrutura
-    this.buttons = Array.isArray(buttons) ? buttons : [buttons];
-    this.itemsList = itemsList;
-    this.type = type;
+    this.action = action;
+    this.activationKeywords = Array.isArray(activationKeywords) ? activationKeywords : [activationKeywords];
+    this.responseObjects = responseObjects;
   }
 
   async runContext(chatbot, client) {
     this.action(chatbot, client);
-
+    
     const response = {};
     response.clientPhone = client.phoneNumber;
     response.platform = client.platform;
-    response.message = this.response(chatbot, client);
-    response.type = this.type;
-    if (this.type === 'items-list') {
-      response.itemsList = this.itemsList;
-    } else if (this.type === 'buttons') {
-      response.buttons = this.buttons;
-    }
+    response.responseObjects = this.responseObjects(chatbot, client);
+    
     return response;
   }
 
