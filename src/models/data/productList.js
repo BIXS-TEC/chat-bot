@@ -6,37 +6,45 @@ export const productList = {
       id: 0,
       name: "X-Bacon",
       price: 22.5,
-      additionalList: {
-        [additionalList[0].id]: additionalList[0],
-        [additionalList[1].id]: additionalList[1],
-      },
+      additionalList: [
+        {
+          [additionalList[0].id]: additionalList[0],
+          [additionalList[1].id]: additionalList[1],
+        },
+      ],
     },
     1: {
       id: 1,
       name: "X-Burguer",
       price: 23.0,
-      additionalList: {
-        [additionalList[0].id]: additionalList[0],
-        [additionalList[2].id]: additionalList[2],
-      },
+      additionalList: [
+        {
+          [additionalList[0].id]: additionalList[0],
+          [additionalList[2].id]: additionalList[2],
+        },
+      ],
     },
     2: {
       id: 2,
       name: "X-Salada",
       price: 22.5,
-      additionalList: {
-        [additionalList[0].id]: additionalList[0],
-      },
+      additionalList: [
+        {
+          [additionalList[0].id]: additionalList[0],
+        },
+      ],
     },
     3: {
       id: 3,
       name: "X-Tudo",
       price: 26.0,
-      additionalList: {
-        [additionalList[0].id]: additionalList[0],
-        [additionalList[1].id]: additionalList[1],
-        [additionalList[2].id]: additionalList[2],
-      },
+      additionalList: [
+        {
+          [additionalList[0].id]: additionalList[0],
+          [additionalList[1].id]: additionalList[1],
+          [additionalList[2].id]: additionalList[2],
+        },
+      ],
     },
   },
   Bebidas: {

@@ -7,6 +7,7 @@ export function WPPConnectRequestToDefault(req) {
       name: req.notifyName,
       phoneNumber: formatPhoneWPPConnect(req.from),
       platform: req.platform,
+      timestamp: req.t,
       chatbot: {
         currentMessage: req.body,
         messageType: req.type,

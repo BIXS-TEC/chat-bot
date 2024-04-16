@@ -7,7 +7,7 @@ export default function getChatbotList() {
 
   chatbotList["554891487526"] = new Chatbot(
     '0',
-    'bix',
+    'Restaurante Bix',
     '554891487526',
     {},
     productList,

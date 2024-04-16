@@ -28,6 +28,11 @@ export default class Chatbot {
       "adm"
     );
 
+    this.contextList["faq"].previousContexts = this.getAllContextNames();
+    this.contextList["atendente"].previousContexts = this.getAllContextNames();
+    this.contextList["invalido"].previousContexts = this.getAllContextNames();
+    console.log('this.contextList["invalido"].previousContexts :', this.contextList["invalido"].previousContexts);
+
     if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
   }
 
@@ -49,7 +54,6 @@ export default class Chatbot {
    * @returns 
    */
   async handleProductAdditionalFlow(client) {
-    console.log("\x1b[35m%s\x1b[0m", `Cliente padronizado: [${JSON.stringify(client, null, 2)}]`);
     if (!this.clientList[client.phoneNumber]) {
       this.addClientToList(client);
     } else {
@@ -63,13 +67,11 @@ export default class Chatbot {
       this.contextList[matchedContextName]
         .runContext(this, this.clientList[client.phoneNumber])
         .then((message) => {
-          console.log("Context message data: \n", JSON.stringify(message, null, 2));
           if (this.clientList[client.phoneNumber].humanChating) {
             resolve(null);
           } else {
             this.MessageSender.sendMessage(message)
               .then((responseList) => {
-                console.log("responseList: ", responseList);
                 this.clientList[client.phoneNumber].saveResponse(responseList);
                 resolve(message);
               })
@@ -80,7 +82,7 @@ export default class Chatbot {
           }
         })
         .catch((error) => {
-          console.log("Erro em runContext: ", error);
+          console.log("Erro ao processar contexto: ", error);
           reject(error);
         });
     });
@@ -114,15 +116,16 @@ export default class Chatbot {
       })();
       console.log("keyword: ", keyword, "----", client.chatbot.messageType);
 
-      console.log("matchedContext: ", matchedContext);
-      for (let i = matchedContext.length - 1; i >= 0; i--) {
-        if (matchedContext.length > 1 && !matchedContext[i].activationKeywords.includes(keyword)) {
-          console.log(matchedContext[i].name, " removido!");
-          matchedContext.splice(i, 1);
+      console.log(matchedContext.map((context) => context.name));
+      const matchedContextCopy = [...matchedContext];
+
+      for (const context of matchedContextCopy) {
+        if (matchedContext.length > 1 && !context.activationKeywords.includes(keyword)) {
+          matchedContext.splice(matchedContext.indexOf(context), 1);
         }
       }
 
-      /* Contextos adicionados primeiro a matchedContext tem prioridade */
+      /* Contextos adicionados primeiro a contextList tem prioridade */
       this.clientList[client.phoneNumber].context = matchedContext[0].name;
       console.log("\x1b[36m%s\x1b[0m", "\nMatched context: ", matchedContext[0].name);
 
@@ -132,7 +135,17 @@ export default class Chatbot {
     }
   }
 
-  getSectionProductList() {
+  getProductById(id) {
+    for (let category in this.productList) {
+      if (id in this.productList[category]) {
+        return this.productList[category][id];
+      }
+    }
+    throw new Error("Error em getProductById. Produto não encontrado!\n", error);
+  }
+
+  getProductsIdsAndSections() {
+    const ids = [];
     const sections = [];
     for (let category in this.productList) {
       const products = this.productList[category];
@@ -140,6 +153,7 @@ export default class Chatbot {
 
       for (let productId in products) {
         const product = products[productId];
+        ids.push(`${productId}`);
         rows.push({
           rowId: `${product.id}`,
           title: product.name,
@@ -151,27 +165,106 @@ export default class Chatbot {
         rows: rows,
       });
     }
-    return sections;
+    return [ids, sections];
   }
 
-  getProductIds() {
-    const ids = [];
+  getAdditionalIdsAndSections(client) {
+    try {
+      const ids = [];
+      const sections = [];
+      const orderList = this.clientList[client.phoneNumber].orderList;
 
-    for (const category in this.productList) {
-      for (const productId in this.productList[category]) {
-        ids.push(`${this.productList[category][productId].id}`);
+      for (const productId in orderList) {
+        const product = this.getProductById(productId);
+        if (product.additionalList && product.additionalList.length) {
+          const additionalList = product.additionalList[0];
+          console.log("additionalList: ", additionalList);
+          const clientProduct = orderList[productId];
+          console.log("clientProduct: ", clientProduct);
+          for (let i = 0; i < clientProduct.quantity; i++) {
+            const rows = [];
+            for (let additionalId in additionalList) {
+              const additional = additionalList[additionalId];
+              console.log("additionalId: ", additionalId);
+              ids.push(`${productId}:${i}:${additionalId}`);
+              rows.push({
+                rowId: `${productId}:${i}:${additionalId}`,
+                title: additional.name,
+                description: `+R$ ${additional.price.toFixed(2).replace(".", ",")}`,
+              });
+            }
+            sections.push({
+              title: `${clientProduct.name} nº ${i + 1}`,
+              rows: rows,
+            });
+          }
+        }
       }
+
+      if (sections.length === 0) {
+        sections.push({
+          title: `Não há adicionais para os itens do seu pedido`,
+          rows: [
+            {
+              rowId: "cardapio",
+              title: "Ver cardápio 🍔",
+              description: "Volte ao cardápio para adicionar mais itens em seu pedido!",
+            },
+          ],
+        });
+      }
+
+      console.log("getProductsAdditionalIds ids: ", ids);
+      return [ids, sections];
+    } catch (error) {
+      console.error("Error in getProductsAdditionalIds: ", error);
     }
-    return ids;
   }
 
-  getProductById(id) {
-    for (let category in this.productList) {
-      if (id in this.productList[category]) {
-        return this.productList[category][id];
+  getProductsAndAdditionalIdsAndSections(client) {
+    try {
+      const ids = [];
+      const sections = [];
+      const orderList = this.clientList[client.phoneNumber].orderList;
+
+      for (const productId in orderList) {
+        let rows = [];
+        const clientProduct = orderList[productId];
+        console.log("clientProduct :", JSON.stringify(clientProduct, null, 2));
+        for (let i = 0; i < clientProduct.quantity; i++) {
+          rows = [];
+          ids.push(`${productId}:${i}`);
+          rows.push({
+            rowId: `${productId}:${i}`,
+            title: clientProduct.name,
+            description: `R$ ${clientProduct.price.toFixed(2).replace(".", ",")}`,
+          });
+          if (clientProduct.additionalList && clientProduct.additionalList.length) {
+            for (let additionalId in clientProduct.additionalList[i]) {
+              const additional = clientProduct.additionalList[i][additionalId];
+              ids.push(`${productId}:${i}:${additionalId}`);
+              rows.push({
+                rowId: `${productId}:${i}:${additionalId}`,
+                title: additional.name,
+                description: `R$ ${additional.price.toFixed(2).replace(".", ",")}`,
+              });
+            }
+          }
+          sections.push({
+            title: `${clientProduct.name} nº ${i + 1}`,
+            rows: rows,
+          });
+        }
       }
+      console.log("getProductsAndAdditionalIdsAndSections:\nids: ", ids, "\nsections: ", sections);
+      return [ids, sections];
+    } catch (error) {
+      console.error("Error in getProductsAndAdditionalIdsAndSections: ", error);
     }
-    return null;
+  }
+
+  getRecommendedProduct() {
+    return this.productList["Bebidas"][4];
   }
 
   addClientToList(client) {
@@ -184,6 +277,14 @@ export default class Chatbot {
     } catch (error) {
       console.log("Error on addClientToList function", error);
     }
+  }
+
+  getAllContextNames() {
+    const contextNames = [];
+    for (const contextName in this.contextList) {
+      contextNames.push(`${contextName}`);
+    }
+    return contextNames;
   }
 
   getClientList() {

@@ -14,7 +14,12 @@ const chatbotList = creator();
 
 export async function handleRequest(request) {
   try {
+    console.log(request);
+
     const client = standardizeRequestToDefault(request);
+    
+    if (Math.floor(Date.now() / 1000) - client.timestamp > 30)
+      return
 
     switch (client.chatbot.interaction) {
       case "adicionais":

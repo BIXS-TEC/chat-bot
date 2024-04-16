@@ -14,19 +14,78 @@ export default class Client {
     this.messageIds.saveResponse = "";
   }
 
-  addProductToOrderList(product) {
+  addProductToOrderList(product, quantity = 1) {
     if (!this.orderList[product.id]) {
-      this.orderList[product.id] = product;
-      this.orderList[product.id].quantity = 1;
+      const { additionalList, ...noAddProduct } = product;
+      this.orderList[product.id] = noAddProduct;
+      this.orderList[product.id].quantity = quantity;
     } else {
-      this.orderList[product.id].quantity += 1;
+      this.orderList[product.id].quantity += quantity;
     }
+  }
+
+  addAdditionalToOrderList(productId, additional, index, quantity=1) {
+    console.log("addAdditionalToOrderList: ", productId, additional, index);
+    const product = this.orderList[productId];
+    if (!product.additionalList) product.additionalList = [];
+    console.log("product.additionalList: ", product.additionalList);
+    if (!product.additionalList[index]) product.additionalList[index] = {};
+    console.log("product.additionalList: ", product.additionalList);
+    if (!product.additionalList[index][additional.id]) {
+      product.additionalList[index][additional.id] = additional;
+      product.additionalList[index][additional.id].quantity = quantity;
+    } else {
+      product.additionalList[index][additional.id].quantity += quantity;
+    }
+    console.log("this.orderList", JSON.stringify(this.orderList, null, 2));
+  }
+
+  removeFromOrderList(productId, index, additionalId){
+    console.log('this.orderList: ', JSON.stringify(this.orderList, null, 2));
+    if (additionalId === undefined) {
+      this.orderList[productId].quantity -= 1;
+      if (this.orderList[productId].additionalList)
+        this.orderList[productId].additionalList.splice(index, 1);
+      if (this.orderList[productId].quantity === 0) {
+        delete this.orderList[productId];
+      }
+    } else {
+      console.log('additionalList[index][additionalId]: ', JSON.stringify(this.orderList[productId].additionalList[index][additionalId], null, 2));
+      delete this.orderList[productId].additionalList[index][additionalId];
+      this.orderList[productId].additionalList.splice(index, 1);
+    } 
+    console.log('this.orderList: ', JSON.stringify(this.orderList, null, 2));
+  }
+
+  getOrderMessage() {
+    let message = "Seu pedido:";
+    const orderList = this.orderList;
+    console.log('this.orderList :', JSON.stringify(this.orderList, null, 2));
+    for (const productId in orderList) {
+      if (orderList[productId].additionalList) {
+        for (let i = 0; i < orderList[productId].quantity; i++) {
+          message += `\n> ${orderList[productId].name} nº ${i + 1}`;
+          if (orderList[productId].additionalList[i]) {
+            for (const additionalId in orderList[productId].additionalList[i]) {
+              const additional = orderList[productId].additionalList[i][additionalId];
+              message += '\n  +  `'+ `${additional.name} x${additional.quantity}`  + '`';
+            }
+          } else {
+            message += '\n  •  `tradicional`';
+          }
+        }
+      } else {
+        message += `\n> ${orderList[productId].name} x${orderList[productId].quantity}`;
+      }
+    }
+    return message;
   }
 
   updateClientData(client) {
     this.platform = client.platform;
     Object.assign(this.chatbot, client.chatbot);
-    this.messageHistory.push(client.chatbot.currentMessage);
+    const itemId = client.chatbot.itemId || 'text' ;
+    this.messageHistory.push(+'#'+client.chatbot.currentMessage);
     console.log("\x1b[32m%s\x1b[0m", `\nDados cliente '${client.phoneNumber}' alterado!`);
   }
 
@@ -40,7 +99,7 @@ export default class Client {
         }
         this.messageIds[this.messageIds.saveResponse] = idList;
         this.messageIds.saveResponse = "";
-        console.log('this.messageIds: ', this.messageIds);
+        console.log("this.messageIds: ", this.messageIds);
       }
     } catch (error) {
       throw new Error("Error in saveResponse: ", error);
@@ -60,8 +119,14 @@ export default class Client {
     this.humanChating = isChating;
   }
 
-  whoIsThere() {
-    console.log(`Hello, im ${this.name}\nMy phone number is ${this.phoneNumber}`);
-    return this.name;
+  async sendClientOrder(client){
+    return new Promise((resolve, reject)=>{
+      try {
+        resolve(true);
+      } catch (error) {
+        console.log('Error in sendClientOrder: ', error);
+        reject(error);
+      }
+    })
   }
 }

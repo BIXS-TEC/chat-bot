@@ -9,8 +9,8 @@ export default class Context {
    * @param {Array.<string>} [activationKeywords=[]] - The keywords that specifies the triggering of this context
    * @param {Array.<string>} [buttons=[]] - (optional) The list of buttons to be sent within the message
    */
-  constructor({id, name, type, previousContexts, action, activationKeywords, responseObjects}) {
-    if(typeof action !== "function") throw new Error("\x1b[31m%s\x1b[0m", `O parâmetro action deve ser uma função [context: ${this.name}].`);
+  constructor({ id, name, type, previousContexts, action, activationKeywords, responseObjects }) {
+    if (typeof action !== "function") throw new Error("\x1b[31m%s\x1b[0m", `O parâmetro action deve ser uma função [context: ${this.name}].`);
     // if (buttons.length > 0) this.checkButtonsRestrictions(buttons);
 
     this.id = id;
@@ -22,14 +22,19 @@ export default class Context {
   }
 
   async runContext(chatbot, client) {
-    this.action(chatbot, client);
-    
-    const response = {};
-    response.clientPhone = client.phoneNumber;
-    response.platform = client.platform;
-    response.responseObjects = this.responseObjects(chatbot, client);
-    
-    return response;
+    try {
+      const args = this.action(chatbot, client);
+      console.log('args: ', args);
+
+      const response = {};
+      response.clientPhone = client.phoneNumber;
+      response.platform = client.platform;
+      response.responseObjects = args ? this.responseObjects(chatbot, client, args) : this.responseObjects(chatbot, client);
+
+      return response;
+    } catch (error) {
+      console.error(`Erro em runContext [${this.name}]: `, error);
+    }
   }
 
   checkButtonsRestrictions(buttons) {
