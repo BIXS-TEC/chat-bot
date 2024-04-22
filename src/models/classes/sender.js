@@ -11,49 +11,49 @@ export class MessageSender {
     this.WppSender = new WppSender();
   }
 
-  async sendMessage(message) {
-    switch (message.platform) {
+  async sendMessage(response) {
+    switch (response.platform) {
       case "wppconnect": {
-        let responseList = [];
-        for (let messageType in message.responseObjects) {
-          switch (messageType) {
+        let requestResponseList = [];
+        for (let message of response.responseObjects) {
+          switch (message.type) {
             case "text": {
-              const msg = defaultToWPPConnectResponseTextMessage(message);
-              await this.WppSender.setTyping(msg.phone, true);
-              const requestResponse = await this.WppSender.sendMessage(msg.phone, msg.message);
-              await this.WppSender.setTyping(msg.phone, false);
-              responseList.push(requestResponse);
+              const WppMessage = defaultToWPPConnectResponseTextMessage(message);
+              await this.WppSender.setTyping(response.clientPhone, true);
+              const requestResponse = await this.WppSender.sendMessage(response.clientPhone, WppMessage);
+              await this.WppSender.setTyping(response.clientPhone, false);
+              requestResponseList.push(requestResponse);
               break;
             }
             case "listMessage": {
-              const msg = defaultToWPPConnectResponseListMessage(message);
-              await this.WppSender.setTyping(msg.phone, true);
-              const requestResponse = await this.WppSender.sendListMessage(msg.phone, msg.description, msg.buttonText, msg.sections);
-              await this.WppSender.setTyping(msg.phone, false);
-              responseList.push(requestResponse);
+              const WppMessage = defaultToWPPConnectResponseListMessage(message);
+              await this.WppSender.setTyping(response.clientPhone, true);
+              const requestResponse = await this.WppSender.sendListMessage(response.clientPhone, WppMessage);
+              await this.WppSender.setTyping(response.clientPhone, false);
+              requestResponseList.push(requestResponse);
               break;
             }
             case "replyMessage": {
-              const msg = defaultToWPPConnectResponseReplyMessage(message);
-              await this.WppSender.setTyping(msg.phone, true);
-              const requestResponse = await this.WppSender.sendReplyMessage(msg.phone, msg.message, msg.messageId);
-              await this.WppSender.setTyping(msg.phone, false);
-              responseList.push(requestResponse);
+              const WppMessage = defaultToWPPConnectResponseReplyMessage(message);
+              await this.WppSender.setTyping(response.clientPhone, true);
+              const requestResponse = await this.WppSender.sendReplyMessage(response.clientPhone, WppMessage);
+              await this.WppSender.setTyping(response.clientPhone, false);
+              requestResponseList.push(requestResponse);
               break;
             }
             case "linkPreview": {
-              const msg = defaultToWPPConnectResponseLinkPreview(message);
-              await this.WppSender.setTyping(msg.phone, true);
-              const requestResponse = await this.WppSender.sendLinkPreviewMessage(msg.phone, msg.url);
-              await this.WppSender.setTyping(msg.phone, false);
-              responseList.push(requestResponse);
+              const WppMessage = defaultToWPPConnectResponseLinkPreview(message);
+              await this.WppSender.setTyping(response.clientPhone, true);
+              const requestResponse = await this.WppSender.sendLinkPreviewMessage(response.clientPhone, WppMessage);
+              await this.WppSender.setTyping(response.clientPhone, false);
+              requestResponseList.push(requestResponse);
               break;
             }
             default:
               break;
           }
         }
-        return responseList
+        return requestResponseList
       }
       default:
         break;

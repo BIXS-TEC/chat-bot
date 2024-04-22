@@ -5,18 +5,26 @@ export default class Client {
     this.phoneNumber = phoneNumber;
     this.platform = platform;
     this.chatbot = chatbot;
-    // this.chatbot.chatbotPhoneNumber = chatbotPhoneNumber;
     this.chatbot.context = context;
-    this.messageHistory = [`${chatbot.currentMessage}`];
+    this.messageHistory = [`${context}&&${chatbot.currentMessage}`];
     this.orderList = {};
     this.humanChating = false;
     this.messageIds = {};
     this.messageIds.saveResponse = "";
   }
 
+  updateClientData(client) {
+    console.log("updateClientData client: ", JSON.stringify(client));
+    this.platform = client.platform;
+    Object.assign(this.chatbot, client.chatbot);
+    const itemId = client.chatbot.itemId;
+    this.messageHistory.push(`${this.chatbot.context}&&${itemId ? itemId : client.chatbot.currentMessage}`);
+    console.log("\x1b[32m%s\x1b[0m", `\nDados cliente '${client.phoneNumber}' alterado!`);
+  }
+
   addProductToOrderList(product, quantity = 1) {
     if (!this.orderList[product.id]) {
-      const { additionalList, ...noAddProduct } = product;
+      const { additionalList, ...noAddProduct } = { ...product };
       this.orderList[product.id] = noAddProduct;
       this.orderList[product.id].quantity = quantity;
     } else {
@@ -24,69 +32,57 @@ export default class Client {
     }
   }
 
-  addAdditionalToOrderList(productId, additional, index, quantity=1) {
-    console.log("addAdditionalToOrderList: ", productId, additional, index);
+  addAdditionalToOrderList(productId, additional, index, quantity = 1) {
     const product = this.orderList[productId];
     if (!product.additionalList) product.additionalList = [];
-    console.log("product.additionalList: ", product.additionalList);
     if (!product.additionalList[index]) product.additionalList[index] = {};
-    console.log("product.additionalList: ", product.additionalList);
     if (!product.additionalList[index][additional.id]) {
-      product.additionalList[index][additional.id] = additional;
+      product.additionalList[index][additional.id] = { ...additional };
       product.additionalList[index][additional.id].quantity = quantity;
     } else {
       product.additionalList[index][additional.id].quantity += quantity;
     }
-    console.log("this.orderList", JSON.stringify(this.orderList, null, 2));
+    console.log("addAdditionalToOrderList orderList:", JSON.stringify(this.orderList, null, 2));
   }
 
-  removeFromOrderList(productId, index, additionalId){
-    console.log('this.orderList: ', JSON.stringify(this.orderList, null, 2));
+  removeFromOrderList(productId, index, additionalId) {
+    console.log("this.orderList: ", JSON.stringify(this.orderList, null, 2));
     if (additionalId === undefined) {
       this.orderList[productId].quantity -= 1;
-      if (this.orderList[productId].additionalList)
-        this.orderList[productId].additionalList.splice(index, 1);
+      if (this.orderList[productId].additionalList) this.orderList[productId].additionalList.splice(index, 1);
       if (this.orderList[productId].quantity === 0) {
         delete this.orderList[productId];
       }
     } else {
-      console.log('additionalList[index][additionalId]: ', JSON.stringify(this.orderList[productId].additionalList[index][additionalId], null, 2));
+      console.log("additionalList[index][additionalId]: ", JSON.stringify(this.orderList[productId].additionalList[index][additionalId], null, 2));
       delete this.orderList[productId].additionalList[index][additionalId];
       this.orderList[productId].additionalList.splice(index, 1);
-    } 
-    console.log('this.orderList: ', JSON.stringify(this.orderList, null, 2));
+    }
+    console.log("this.orderList: ", JSON.stringify(this.orderList, null, 2));
   }
 
   getOrderMessage() {
     let message = "Seu pedido:";
     const orderList = this.orderList;
-    console.log('this.orderList :', JSON.stringify(this.orderList, null, 2));
+    console.log("this.orderList :", JSON.stringify(this.orderList, null, 2));
     for (const productId in orderList) {
       if (orderList[productId].additionalList) {
         for (let i = 0; i < orderList[productId].quantity; i++) {
-          message += `\n> ${orderList[productId].name} nº ${i + 1}`;
+          message += `\n• ${orderList[productId].name} nº ${i + 1}`;
           if (orderList[productId].additionalList[i]) {
             for (const additionalId in orderList[productId].additionalList[i]) {
               const additional = orderList[productId].additionalList[i][additionalId];
-              message += '\n  +  `'+ `${additional.name} x${additional.quantity}`  + '`';
+              message += "\n> +`" + `${additional.name} x${additional.quantity}` + "`";
             }
           } else {
-            message += '\n  •  `tradicional`';
+            message += "\n> `tradicional`";
           }
         }
       } else {
-        message += `\n> ${orderList[productId].name} x${orderList[productId].quantity}`;
+        message += `\n• ${orderList[productId].name} x${orderList[productId].quantity}`;
       }
     }
     return message;
-  }
-
-  updateClientData(client) {
-    this.platform = client.platform;
-    Object.assign(this.chatbot, client.chatbot);
-    const itemId = client.chatbot.itemId || 'text' ;
-    this.messageHistory.push(+'#'+client.chatbot.currentMessage);
-    console.log("\x1b[32m%s\x1b[0m", `\nDados cliente '${client.phoneNumber}' alterado!`);
   }
 
   saveResponse(responseList) {
@@ -106,6 +102,13 @@ export default class Client {
     }
   }
 
+  saveLastChatbotMessage(message) {
+    if (this.chatbot.context !== "invalido") {
+      this.chatbot.lastChatbotMessage = message;
+    }
+    console.log('saveLastChatbotMessage message: ', message);
+  }
+
   changeContext(context) {
     try {
       if (typeof context === "string") this.chatbot.context = context;
@@ -119,14 +122,14 @@ export default class Client {
     this.humanChating = isChating;
   }
 
-  async sendClientOrder(client){
-    return new Promise((resolve, reject)=>{
+  async sendClientOrder(client) {
+    return new Promise((resolve, reject) => {
       try {
         resolve(true);
       } catch (error) {
-        console.log('Error in sendClientOrder: ', error);
+        console.log("Error in sendClientOrder: ", error);
         reject(error);
       }
-    })
+    });
   }
 }

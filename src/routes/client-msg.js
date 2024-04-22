@@ -8,16 +8,14 @@ message.get("/message", (req, res) => {
 });
 
 message.post("/message", async (req, res) => {
-  // console.log('\nreq.body:', req.body, '\n');
-  handleRequest(req.body)
-    .then((response) => {
-      res.status(200).json(response);
-    })
-    .catch((error) => {
-      res.status(500).json("Erro ao enviar a resposta!");
-      console.log('\x1b[31m%s\x1b[0m',error);
-    });
-  res.status(200).json({response: "OK"});
+  try {
+    const response = await handleRequest(req.body);
+    console.log('\x1b[33m%s\x1b[0m', 'handleRequest response: ', response);
+    res.status(200).json('OK');
+  } catch (error) {
+    res.status(500).json("Erro ao enviar a resposta!");
+    console.log('\x1b[31m%s\x1b[0m',error);
+  }
 });
 
 export default message;

@@ -4,6 +4,7 @@ import { MessageSender } from "./sender.js";
 const verbose = true;
 
 export default class Chatbot {
+
   constructor(id, businessName, phoneNumber, clientList, productList, contextList) {
     this.id = id;
     this.businessName = businessName;
@@ -28,52 +29,31 @@ export default class Chatbot {
       "adm"
     );
 
-    this.contextList["faq"].previousContexts = this.getAllContextNames();
-    this.contextList["atendente"].previousContexts = this.getAllContextNames();
-    this.contextList["invalido"].previousContexts = this.getAllContextNames();
-    console.log('this.contextList["invalido"].previousContexts :', this.contextList["invalido"].previousContexts);
-
     if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
   }
 
-  /**
-   *  {
-        "id": "id",
-        "name": "Client Name",
-        "phoneNumber": "55DD########",
-        "platform": "plataformName",
-        "chatbot": {
-          "currentMessage": "text",
-          "interaction": "interaction title",
-          "chatbotPhoneNumber": "55DD########"
-        }
-      }
-   * 
-   * @param {*} Sender 
-   * @param {*} client 
-   * @returns 
-   */
-  async handleProductAdditionalFlow(client) {
+  async handleOrderMenuFlow(client) {
     if (!this.clientList[client.phoneNumber]) {
       this.addClientToList(client);
     } else {
       this.clientList[client.phoneNumber].updateClientData(client);
     }
-    console.log("\x1b[36m%s\x1b[0m", `Cliente padronizado: [${client.platform}] ${JSON.stringify(this.clientList[client.phoneNumber], null, 2)}`);
+    console.log("\x1b[36m%s\x1b[0m", `Cliente padronizado: [${client.platform}] ${JSON.stringify(this.clientList[client.phoneNumber])}`);
 
     const matchedContextName = this.findBestContext(this.clientList[client.phoneNumber]);
 
     return new Promise((resolve, reject) => {
-      this.contextList[matchedContextName]
+      this.contextList[client.chatbot.interaction][matchedContextName]
         .runContext(this, this.clientList[client.phoneNumber])
-        .then((message) => {
+        .then((response) => {
           if (this.clientList[client.phoneNumber].humanChating) {
             resolve(null);
           } else {
-            this.MessageSender.sendMessage(message)
-              .then((responseList) => {
-                this.clientList[client.phoneNumber].saveResponse(responseList);
-                resolve(message);
+            this.clientList[client.phoneNumber].saveLastChatbotMessage(response.responseObjects);
+            this.MessageSender.sendMessage(response)
+              .then((requestResponseList) => {
+                this.clientList[client.phoneNumber].saveResponse(requestResponseList);
+                resolve(response);
               })
               .catch((error) => {
                 console.log("Erro em sendMessage: ", error);
@@ -90,12 +70,13 @@ export default class Chatbot {
 
   findBestContext(client) {
     const matchedContext = [];
+    const interaction = client.chatbot.interaction;
 
     try {
       /* Procura quais contextos aceitam o contexto atual (ultima mensagem) do cliente */
-      for (const contextName in this.contextList) {
-        if (this.contextList[contextName].previousContexts.includes(client.chatbot.context)) {
-          matchedContext.push(this.contextList[contextName]);
+      for (const contextName in this.contextList[interaction]) {
+        if (this.contextList[interaction][contextName].previousContexts.includes(client.chatbot.context)) {
+          matchedContext.push(this.contextList[interaction][contextName]);
         }
       }
 
@@ -114,11 +95,9 @@ export default class Chatbot {
             break;
         }
       })();
-      console.log("keyword: ", keyword, "----", client.chatbot.messageType);
+      console.log("keyword: ", keyword, "; messageType: ", client.chatbot.messageType);
 
-      console.log(matchedContext.map((context) => context.name));
       const matchedContextCopy = [...matchedContext];
-
       for (const context of matchedContextCopy) {
         if (matchedContext.length > 1 && !context.activationKeywords.includes(keyword)) {
           matchedContext.splice(matchedContext.indexOf(context), 1);
@@ -277,14 +256,6 @@ export default class Chatbot {
     } catch (error) {
       console.log("Error on addClientToList function", error);
     }
-  }
-
-  getAllContextNames() {
-    const contextNames = [];
-    for (const contextName in this.contextList) {
-      contextNames.push(`${contextName}`);
-    }
-    return contextNames;
   }
 
   getClientList() {

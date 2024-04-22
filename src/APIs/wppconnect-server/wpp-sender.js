@@ -69,13 +69,13 @@ export class WppSender {
    * @param {*} isNewsletter
    * @param {*} isGroup
    */
-  async sendMessage(phone, message, isNewsletter = false, isGroup = false, retryCount = 3) {
+  async sendMessage(phone, WppMessage, retryCount = 3) {
     return new Promise((resolve, reject) => {
       let data = JSON.stringify({
         phone: phone,
-        message: message,
-        isNewsletter: isNewsletter,
-        isGroup: isGroup,
+        message: WppMessage.message,
+        isNewsletter: WppMessage.isNewsletter,
+        isGroup: WppMessage.isGroup,
       });
 
       let config = {
@@ -99,7 +99,7 @@ export class WppSender {
         .catch((error) => {
           console.log("Erro in sendMessage", error);
           if (retryCount > 0) {
-            this.sendMessage(phone, message, isNewsletter, isGroup, retryCount - 1)
+            this.sendMessage(phone, WppMessage, retryCount - 1)
               .then(resolve)
               .catch(reject);
           } else {
@@ -139,15 +139,15 @@ export class WppSender {
    * @param {*} sections 
    * @param {*} isGroup 
    */
-  async sendListMessage(phone, description, buttonText, sections, isGroup = false, retryCount = 3) {
+  async sendListMessage(phone, WppMessage, retryCount = 3) {
     // Sections options must have between 1 and 10 options - Error: Sections options must have between 1 and 10 options
     return new Promise((resolve, reject) => {
       const data = JSON.stringify({
         phone: phone,
-        isGroup: isGroup,
-        description: description,
-        buttonText: buttonText,
-        sections: sections,
+        isGroup: WppMessage.isGroup,
+        description: WppMessage.description,
+        buttonText: WppMessage.buttonText,
+        sections: WppMessage.sections,
       });
 
       let config = {
@@ -171,7 +171,7 @@ export class WppSender {
         .catch((error) => {
           console.log("Erro in sendListMessage", error);
           if (retryCount > 0) {
-            this.sendListMessage(phone, description, buttonText, sections, isGroup, retryCount - 1)
+            this.sendListMessage(phone, WppMessage, retryCount - 1)
               .then(resolve)
               .catch(reject);
           } else {
@@ -181,7 +181,7 @@ export class WppSender {
     });
   }
 
-  async sendReplyMessage(phone, message, messageId, isGroup = false, retryCount = 3) {
+  async sendReplyMessage(phone, WppMessage, retryCount = 3) {
     return new Promise((resolve, reject) => {
       let data = JSON.stringify({
         phone: phone,
@@ -208,9 +208,9 @@ export class WppSender {
           resolve(response.data.response[0]);
         })
         .catch((error) => {
-          console.log(error);
+          console.log("Error in sendReplyMessage", error);
           if (retryCount > 0) {
-            this.sendReplyMessage(phone, message, messageId, isGroup, retryCount - 1)
+            this.sendReplyMessage(phone, WppMessage, retryCount - 1)
               .then(resolve)
               .catch(reject);
           } else {
@@ -220,14 +220,14 @@ export class WppSender {
     });
   }
 
-  async sendLinkPreviewMessage(phone, url, caption = "", retryCount = 3) {
+  async sendLinkPreviewMessage(phone, WppMessage, retryCount = 3) {
     return new Promise((resolve, reject) => {
       let data = {
         phone: phone,
-        url: url,
+        url: WppMessage.url,
       };
 
-      if (caption) data.caption = caption;
+      if (WppMessage.caption) data.caption = WppMessage.caption;
 
       data = JSON.stringify(data);
 
@@ -249,9 +249,9 @@ export class WppSender {
           resolve(response.data.response[0]);
         })
         .catch((error) => {
-          console.log(error);
+          console.log('Error in sendLinkPreviewMessage: ', error);
           if (retryCount > 0) {
-            this.sendLinkPreviewMessage(phone, url, caption, retryCount - 1)
+            this.sendLinkPreviewMessage(phone, WppMessage, retryCount - 1)
               .then(resolve)
               .catch(reject);
           } else {
@@ -286,7 +286,7 @@ export class WppSender {
           resolve(response.data);
         })
         .catch((error) => {
-          console.log(error);
+          console.log("Erro in setTyping", error);
           if (retryCount > 0) {
             this.setTyping(phone, isTyping, retryCount - 1)
               .then(resolve)
@@ -330,7 +330,7 @@ export class WppSender {
    * @param {*} phone 
    * @param {*} message 
    */
-  async sendMessageWithButtons(phone, message, options) {
+  async sendMessageWithButtons(phone, WppMessage, retryCount = 3) {
     return new Promise((resolve, reject) => {
       let data = JSON.stringify({
         phone: phone,
@@ -357,7 +357,13 @@ export class WppSender {
         })
         .catch((error) => {
           console.log("Erro in sendMessageWithButtons", error);
-          reject(error);
+          if (retryCount > 0) {
+            this.setTyping(phone, WppMessage, retryCount - 1)
+              .then(resolve)
+              .catch(reject);
+          } else {
+            reject(error);
+          }
         });
     });
   }

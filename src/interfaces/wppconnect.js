@@ -11,8 +11,9 @@ export function WPPConnectRequestToDefault(req) {
       chatbot: {
         currentMessage: req.body,
         messageType: req.type,
-        interaction: req.interaction || "adicionais",
+        interaction: req.interaction || "cardapio-whatsapp",
         chatbotPhoneNumber: formatPhoneWPPConnect(req.to),
+        itemId: '',
       },
     };
     if (req.type === "list_response") {
@@ -35,13 +36,14 @@ export function WPPConnectRequestToDefault(req) {
 */
 export function defaultToWPPConnectResponseTextMessage(response) {
   try {
-    const client = {
-      phone: response.clientPhone,
-      message: response.responseObjects.text.message,
+    const wppRes = {
+      message: response.message,
       isNewsletter: false,
       isGroup: false,
     };
-    return client;
+    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
+
+    return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [TextMessage]\n", error);
   }
@@ -75,14 +77,13 @@ export function defaultToWPPConnectResponseTextMessage(response) {
 export function defaultToWPPConnectResponseListMessage(response) {
   try {
     const wppRes = {
-      phone: response.clientPhone,
       isGroup: false,
-      description: response.responseObjects.listMessage.description,
-      buttonText: response.responseObjects.listMessage.buttonText,
-      sections: response.responseObjects.listMessage.sections,
+      description: response.description,
+      buttonText: response.buttonText,
+      sections: response.sections,
     };
 
-    console.log(`\nwppRes: ${JSON.stringify(wppRes, null, 2)}\n`);
+    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [ListMessage]\n", error);
@@ -92,12 +93,11 @@ export function defaultToWPPConnectResponseListMessage(response) {
 export function defaultToWPPConnectResponseReplyMessage(response) {
   try {
     const wppRes = {
-      phone: response.clientPhone,
-      message: response.responseObjects.replyMessage.message,
-      messageId: response.responseObjects.replyMessage.messageId
+      message: response.message,
+      messageId: response.messageId
     };
     
-    console.log(`\nwppRes: ${JSON.stringify(wppRes, null, 2)}\n`);
+    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [ReplyMessage]\n", error);
@@ -107,13 +107,12 @@ export function defaultToWPPConnectResponseReplyMessage(response) {
 export function defaultToWPPConnectResponseLinkPreview(response) {
   try {
     const wppRes = {
-      phone: response.clientPhone,
-      url: response.responseObjects.linkPreview.url,
+      url: response.url,
     };
-    if (response.responseObjects.linkPreview.caption)
-      wppRes.caption = response.responseObjects.linkPreview.caption;
+    if (response.caption)
+      wppRes.caption = response.caption;
     
-    console.log(`\nwppRes: ${JSON.stringify(wppRes, null, 2)}\n`);
+    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [PreviewLink]\n", error);

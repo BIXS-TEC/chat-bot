@@ -13,21 +13,35 @@ import standardizeRequestToDefault from "../../interfaces/index.js";
 const chatbotList = creator();
 
 export async function handleRequest(request) {
-  try {
-    console.log(request);
+  return new Promise((resolve, reject) => {
+    try {
+      // console.log(request);
 
-    const client = standardizeRequestToDefault(request);
-    
-    if (Math.floor(Date.now() / 1000) - client.timestamp > 30)
-      return
+      const client = standardizeRequestToDefault(request);
 
-    switch (client.chatbot.interaction) {
-      case "adicionais":
-        chatbotList[client.chatbot.chatbotPhoneNumber].handleProductAdditionalFlow(client);
-      default:
-        break;
+      if (Math.floor(Date.now() / 1000) - client.timestamp > 30)
+        resolve({ statusCode: 408, message: "Request took more than 30 seconds to arrive!" });
+
+      switch (client.chatbot.interaction) {
+        case "cardapio-whatsapp":
+        case "cardapio-online":
+          chatbotList[client.chatbot.chatbotPhoneNumber]
+            .handleOrderMenuFlow(client)
+            .then((result) => {
+              console.log('result: ', result);
+              resolve({ statusCode: 200, message: "OK" });
+            })
+            .catch((err) => {
+              reject(err);
+            });
+            break;
+        default:
+          console.log('client.chatbot: ', client.chatbot);
+          resolve({ statusCode: 204, message: `req.chatbot.interaction must be a valid tag. ${client.chatbot.interaction} is not` })
+      }
+    } catch (error) {
+      console.log("Error in handleRequest function:\n", error);
+      reject("Error in handleRequest function:\n", error);
     }
-  } catch (error) {
-    console.log("Error in handleRequest function:\n", error);
-  }
+  });
 }

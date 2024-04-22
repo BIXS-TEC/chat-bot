@@ -1,5 +1,5 @@
 import Chatbot from "../classes/chatbot.js";
-import getContextList from "./context.js";
+import getContextList from "./Contexts/index.js";
 import { productList } from "./productList.js";
 
 export default function getChatbotList() {
