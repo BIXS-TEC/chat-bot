@@ -1,12 +1,24 @@
 import express from 'express';
-import message from './routes/client-msg.js';
+import message from './routes/message.js';
+import auth from './routes/auth.js';
+import data from './routes/data.js';
+import { systemSetup } from './controllers/system/selector.js';
 
+systemSetup();
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
-app.use('/', message);
+app.use('/message', message);
+
+app.use('/auth', auth);
+
+app.use('/data', data);
+
+app.get('/', (req, res) => {
+  res.status(200).json('Home!');
+})
 
 app.listen(port, () => {
   console.log(`Servidor ouvindo na porta ${port}`);

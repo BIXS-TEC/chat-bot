@@ -4,11 +4,13 @@ import { MessageSender } from "./sender.js";
 const verbose = true;
 
 export default class Chatbot {
-
-  constructor(id, businessName, phoneNumber, clientList, productList, contextList) {
+  constructor(id, businessName, phoneNumber, url, clientList, productList, contextList) {
     this.id = id;
     this.businessName = businessName;
     this.phoneNumber = phoneNumber;
+    this.url = {};
+    this.url.faq = url.faq;
+    this.url.cardapio = url.cardapio;
     this.clientList = clientList;
     this.productList = productList;
     this.contextList = contextList;
@@ -112,6 +114,10 @@ export default class Chatbot {
     } catch (error) {
       console.log("Error in findBestContext function", error);
     }
+  }
+
+  saveClientOrder(client) {
+    this.addClientToList(client)
   }
 
   getProductById(id) {
@@ -256,11 +262,6 @@ export default class Chatbot {
     } catch (error) {
       console.log("Error on addClientToList function", error);
     }
-  }
-
-  getClientList() {
-    if (verbose) console.log(`\nClientes de ${this.name}:\n${JSON.stringify(this.clientList, null, 2)}`);
-    return this.clientList;
   }
 
   removeClient(phoneNumber) {

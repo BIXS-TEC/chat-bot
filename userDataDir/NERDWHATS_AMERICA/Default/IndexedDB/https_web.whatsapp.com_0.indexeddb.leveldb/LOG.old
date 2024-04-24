@@ -1,27 +1,27 @@
-2024/04/22-12:49:57.588 31b0 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/04/22-12:49:57.590 31b0 Recovering log #1745
-2024/04/22-12:49:57.594 31b0 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001745.log 
-2024/04/22-12:50:08.043 2a48 Level-0 table #1757: started
-2024/04/22-12:50:08.049 2a48 Level-0 table #1757: 72061 bytes OK
-2024/04/22-12:50:08.050 2a48 Delete type=0 #1745
-2024/04/22-12:50:08.051 120 Manual compaction at level-0 from ' T\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' U\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/04/22-12:50:09.286 38e0 Compacting 1@1 + 8@2 files
-2024/04/22-12:50:09.459 38e0 Generated table #1758@1: 85720 keys, 2234523 bytes
-2024/04/22-12:50:09.608 38e0 Generated table #1759@1: 96798 keys, 2247723 bytes
-2024/04/22-12:50:09.713 38e0 Generated table #1760@1: 100620 keys, 2255687 bytes
-2024/04/22-12:50:09.801 38e0 Generated table #1761@1: 2463 keys, 2810476 bytes
-2024/04/22-12:50:09.879 38e0 Generated table #1762@1: 9963 keys, 2552163 bytes
-2024/04/22-12:50:09.945 38e0 Generated table #1763@1: 11054 keys, 2162836 bytes
-2024/04/22-12:50:10.075 38e0 Generated table #1764@1: 71517 keys, 2235503 bytes
-2024/04/22-12:50:10.287 38e0 Generated table #1765@1: 33848 keys, 655332 bytes
-2024/04/22-12:50:10.287 38e0 Compacted 1@1 + 8@2 files => 17154243 bytes
-2024/04/22-12:50:10.331 38e0 compacted to: files[ 0 0 8 0 0 0 0 ]
-2024/04/22-12:50:10.331 38e0 Delete type=2 #1747
-2024/04/22-12:50:10.332 38e0 Delete type=2 #1748
-2024/04/22-12:50:10.332 38e0 Delete type=2 #1749
-2024/04/22-12:50:10.332 38e0 Delete type=2 #1750
-2024/04/22-12:50:10.333 38e0 Delete type=2 #1751
-2024/04/22-12:50:10.333 38e0 Delete type=2 #1752
-2024/04/22-12:50:10.333 38e0 Delete type=2 #1753
-2024/04/22-12:50:10.333 38e0 Delete type=2 #1754
-2024/04/22-12:50:10.333 38e0 Delete type=2 #1757
+2024/04/23-18:36:12.584 10fc Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/04/23-18:36:12.585 10fc Recovering log #1798
+2024/04/23-18:36:12.646 10fc Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001798.log 
+2024/04/23-18:36:23.068 3c48 Level-0 table #1810: started
+2024/04/23-18:36:23.101 3c48 Level-0 table #1810: 496081 bytes OK
+2024/04/23-18:36:23.102 3c48 Delete type=0 #1798
+2024/04/23-18:36:23.103 3c48 Manual compaction at level-0 from ' W\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' X\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/04/23-18:36:24.325 10fc Compacting 1@1 + 8@2 files
+2024/04/23-18:36:24.448 10fc Generated table #1811@1: 85072 keys, 2234335 bytes
+2024/04/23-18:36:24.623 10fc Generated table #1812@1: 96432 keys, 2248711 bytes
+2024/04/23-18:36:24.721 10fc Generated table #1813@1: 101736 keys, 2254452 bytes
+2024/04/23-18:36:24.807 10fc Generated table #1814@1: 12192 keys, 2765450 bytes
+2024/04/23-18:36:25.073 10fc Generated table #1815@1: 10277 keys, 2643992 bytes
+2024/04/23-18:36:25.170 10fc Generated table #1816@1: 2828 keys, 2145663 bytes
+2024/04/23-18:36:25.310 10fc Generated table #1817@1: 54802 keys, 2230809 bytes
+2024/04/23-18:36:25.389 10fc Generated table #1818@1: 63743 keys, 1234846 bytes
+2024/04/23-18:36:25.389 10fc Compacted 1@1 + 8@2 files => 17758258 bytes
+2024/04/23-18:36:25.390 10fc compacted to: files[ 0 0 8 0 0 0 0 ]
+2024/04/23-18:36:25.390 10fc Delete type=2 #1800
+2024/04/23-18:36:25.391 10fc Delete type=2 #1801
+2024/04/23-18:36:25.391 10fc Delete type=2 #1802
+2024/04/23-18:36:25.391 10fc Delete type=2 #1803
+2024/04/23-18:36:25.391 10fc Delete type=2 #1804
+2024/04/23-18:36:25.391 10fc Delete type=2 #1805
+2024/04/23-18:36:25.392 10fc Delete type=2 #1806
+2024/04/23-18:36:25.392 10fc Delete type=2 #1807
+2024/04/23-18:36:25.392 10fc Delete type=2 #1810

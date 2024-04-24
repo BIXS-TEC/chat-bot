@@ -9,6 +9,7 @@ export default function getChatbotList() {
     '0',
     'Restaurante Bix',
     '554891487526',
+    {faq: "https://printweb.vlks.com.br/", cardapio: "https://printweb.vlks.com.br/"},
     {},
     productList,
     getContextList(),

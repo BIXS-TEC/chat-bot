@@ -1,4 +1,4 @@
-export function standardizeDefaultRequest(req) {
+export function standardizeMessageToDefault(req) {
     try {
       const client = {
         id: req.message.id,

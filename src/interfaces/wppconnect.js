@@ -1,4 +1,4 @@
-export function WPPConnectRequestToDefault(req) {
+export function WPPConnectMessageToDefault(req) {
   try {
     // console.log('original request: ', req);
 

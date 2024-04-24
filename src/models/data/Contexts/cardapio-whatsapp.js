@@ -133,7 +133,7 @@ Mais informações no link abaixo`,
         },
         {
           type: "linkPreview",
-          url: "https://printweb.vlks.com.br/",
+          url: chatbot.url.faq,
         },
       ];
     },
@@ -168,227 +168,30 @@ Mais informações no link abaixo`,
         chatbot.clientList[client.phoneNumber].changeContext(this.name);
 
         /* Atualiza a lista de activationKeywords do contexto 'adicionar-produto' */
-        let sections = [];
-        [chatbot.contextList[client.chatbot.interaction]["adicionar-produto"].activationKeywords, sections] = chatbot.getProductsIdsAndSections(); // retornar para responseObjects com obj sections
-        chatbot.contextList[client.chatbot.interaction]["adicionar-produto"].activationKeywords.push("adicionar-produto");
+        // let sections = [];
+        // [chatbot.contextList[client.chatbot.interaction]["adicionar-produto"].activationKeywords, sections] = chatbot.getProductsIdsAndSections(); // retornar para responseObjects com obj sections
+        // chatbot.contextList[client.chatbot.interaction]["adicionar-produto"].activationKeywords.push("adicionar-produto");
 
-        return { sections: sections };
+        // return { sections: sections };
       } catch (error) {
         console.error('Erro em action no contexto "cardápio"', error);
       }
     },
     responseObjects: function (chatbot, client, args = {}) {
       try {
-        const sections = args.sections;
-        sections.push({
-          title: "🔽 Outras opções",
-          rows: [
-            {
-              rowId: "atendente",
-              title: "Falar com um atendente 📲",
-              description: "Tranferir para um atendente, caso precise resolver um problema específico",
-            },
-          ],
-        });
-
-        /* Caso tenha sido redirecionado pelo contexto "editar-produto" e ja contenha itens na lista */
-        if (Object.keys(chatbot.clientList[client.phoneNumber].orderList).length) {
-          sections[sections.length - 1].rows.unshift(
-            {
-              rowId: "adicionais",
-              title: "Finalizar e incluir adicionais ⭐️",
-              description: "Inclua adicionais em seu pedido!",
-            },
-            {
-              rowId: "editar-pedido",
-              title: "Editar pedido ✏️",
-              description: "Mudou de ideia? Remova um item da sua lista!",
-            },
-            {
-              rowId: "recomendar-produto",
-              title: "Finalizar pedido ✅",
-              description: "Se estiver tudo pronto, finalize seu pedido!",
-            }
-          );
-        }
 
         return [
           {
-            type: "listMessage",
-            description: "Utilize a lista abaixo para montar seu pedido\n\n*Selecione QUANTAS VEZES QUISER!* 🤩😋",
-            buttonText: "Ver Cardápio 🍔",
-            sections: sections,
+            type: "text",
+            message: `Faça seu pedido em nosso Cardápio Online\nQualquer dúvida estarei a disposição!\n\nAcesse o cardápio clicando link abaixo`,
+          },
+          {
+            type: "linkPreview",
+            url: chatbot.url.cardapio,
           },
         ];
       } catch (error) {
         console.error('Erro em responseObjects no contexto "cardápio"', error);
-      }
-    },
-  });
-
-  contextList["adicionar-produto"] = new Context({
-    id: "4",
-    name: "adicionar-produto",
-    previousContexts: ["cardapio", "atendente"],
-    action: function (chatbot, client) {
-      const id = parseInt(client.chatbot.itemId);
-      let product = chatbot.getProductById(id);
-      chatbot.clientList[client.phoneNumber].addProductToOrderList(product);
-      chatbot.clientList[client.phoneNumber].changeContext("cardapio");
-    },
-    responseObjects: function (chatbot, client, args = {}) {
-      try {
-        let message = chatbot.clientList[client.phoneNumber].getOrderMessage();
-        message += "\n\nSelecione umas das opções do botão abaixo"; // \n* `Inclua mais itens`\n\n* `Finalizar e incluir adicionais`\n\n* `Ou selecione editar ou finalizar pedido`";
-        const [, sections] = chatbot.getProductsIdsAndSections();
-        sections.push({
-          title: "🔽 Outras opções",
-          rows: [
-            {
-              rowId: "adicionais",
-              title: "Finalizar e incluir adicionais ⭐️",
-              description: "Inclua adicionais em seu pedido!",
-            },
-            {
-              rowId: "editar-pedido",
-              title: "Editar pedido ✏️",
-              description: "Mudou de ideia? Remova um item da sua lista!",
-            },
-            {
-              rowId: "recomendar-produto",
-              title: "Finalizar pedido ✅",
-              description: "Se estiver tudo pronto, finalize seu pedido!",
-            },
-            {
-              rowId: "atendente",
-              title: "Falar com um atendente 📲",
-              description: "Tranferir para um atendente, caso precise resolver um problema específico",
-            },
-          ],
-        });
-
-        return [
-          {
-            type: "listMessage",
-            description: message,
-            buttonText: "Ver Cardápio 🍔",
-            sections: sections,
-          },
-        ];
-      } catch (error) {
-        console.error('Erro em responseObjects no contexto "adicionar-produto"', error);
-      }
-    },
-  });
-
-  contextList["adicionais"] = new Context({
-    id: "5",
-    name: "adicionais",
-    previousContexts: ["cardapio", "editar-pedido"],
-    activationKeywords: ["adicionais"],
-    action: function (chatbot, client) {
-      try {
-        chatbot.clientList[client.phoneNumber].changeContext(this.name);
-
-        /* Atualiza a lista de activationKeywords do contexto 'adicionais' */
-        let sections = [];
-        [chatbot.contextList[client.chatbot.interaction]["incluir-adicionais"].activationKeywords, sections] = chatbot.getAdditionalIdsAndSections(client);
-        console.log("sections: ", sections);
-        return { sections: sections };
-      } catch (error) {
-        console.error("Error in action [adicionais]", error);
-      }
-    },
-    responseObjects: function (chatbot, client, args = {}) {
-      try {
-        console.log("args.sections: ", args.sections);
-        const sections = args.sections;
-        sections.push({
-          title: "🔽 Outras opções",
-          rows: [
-            {
-              rowId: "editar-pedido",
-              title: "Editar pedido ✏️",
-              description: "Mudou de ideia? Remova um item da sua lista!",
-            },
-            {
-              rowId: "recomendar-produto",
-              title: "Finalizar pedido ✅",
-              description: "Se estiver tudo pronto, finalize seu pedido!",
-            },
-            {
-              rowId: "atendente",
-              title: "Falar com um atendente 📲",
-              description: "Tranferir para um atendente, caso precise resolver um problema específico",
-            },
-          ],
-        });
-
-        return [
-          {
-            type: "listMessage",
-            description: "Selecione o adicional que deseja incluir!", //\n* `Para incluir clique no botão`\n\n* `Ou selecione editar ou finalizar pedido`",
-            buttonText: "Ver Adicionais",
-            sections: sections,
-          },
-        ];
-      } catch (error) {
-        console.error("Error in responseObjects [adicionais]", error);
-      }
-    },
-  });
-
-  contextList["incluir-adicionais"] = new Context({
-    id: "6",
-    name: "incluir-adicionais",
-    previousContexts: ["adicionais"],
-    action: function (chatbot, client) {
-      try {
-        const [productId, index, additionalId] = client.chatbot.itemId.split(":").map((num) => parseInt(num));
-        // console.log("productId, index, additionalId: ", productId, index, additionalId);
-        const additional = chatbot.getProductById(productId).additionalList[0][additionalId];
-        // console.log("additional: ", additional);
-        client.addAdditionalToOrderList(productId, additional, index);
-      } catch (error) {
-        console.error("Error in action [incluir-adicionais]", error);
-      }
-    },
-    responseObjects: function (chatbot, client, args = {}) {
-      try {
-        let message = chatbot.clientList[client.phoneNumber].getOrderMessage();
-        const [, sections] = chatbot.getAdditionalIdsAndSections(client); // Melhorar performace
-        console.log("sections: ", sections);
-        sections.push({
-          title: "🔽 Outras opções",
-          rows: [
-            {
-              rowId: "editar-pedido",
-              title: "Editar pedido ✏️",
-              description: "Mudou de ideia? Remova um item da sua lista!",
-            },
-            {
-              rowId: "recomendar-produto",
-              title: "Finalizar pedido ✅",
-              description: "Se estiver tudo pronto, finalize seu pedido!",
-            },
-            {
-              rowId: "atendente",
-              title: "Falar com um atendente 📲",
-              description: "Tranferir para um atendente, caso precise resolver um problema específico",
-            },
-          ],
-        });
-
-        return [
-          {
-            type: "listMessage",
-            description: message + "\n\nInclua mais adicionais em seu pedido ou selecione outra opção", //\n* `Para incluir clique no botão`\n\n* `Ou selecione editar ou finalizar pedido`",
-            buttonText: "Ver Adicionais",
-            sections: sections,
-          },
-        ];
-      } catch (error) {
-        console.error("Erro in responseObjects [incluir-adicionais]", error);
       }
     },
   });

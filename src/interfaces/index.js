@@ -1,17 +1,36 @@
-import { ManychatRequestToDefault } from "./manychat.js";
-import { WPPConnectRequestToDefault } from "./wppconnect.js";
-import { standardizeDefaultRequest } from "./default.js";
+import { standardizeMessageToDefault } from "./default.js";
+import { ManychatMessageToDefault } from "./manychat.js";
+import { WPPConnectMessageToDefault } from "./wppconnect.js";
+import { PrintWebDataToDefault } from "./printweb.js";
 
-export default function standardizeRequestToClientObject(req) {
+export function standardizeMessageRequestToDefault(req) {
   switch (req.platform) {
     case undefined:
-      return standardizeDefaultRequest(req);
+      return standardizeMessageToDefault(req);
 
     case 'manychat':
-      return ManychatRequestToDefault(req);
+      return ManychatMessageToDefault(req);
 
     case 'wppconnect':
-      return WPPConnectRequestToDefault(req);
+      return WPPConnectMessageToDefault(req);
+    default:
+      break;
+  }
+};
+
+export function standardizeDataRequestToDefault(req) {
+  switch (req.platform) {
+    case undefined:
+      return ;
+
+    case 'manychat':
+      return ;
+
+    case 'wppconnect':
+      return ;
+
+    case 'printweb':
+      return PrintWebDataToDefault(req);
     default:
       break;
   }

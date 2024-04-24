@@ -11,6 +11,6 @@
  * }
  */
 
-export function ManychatRequestToDefault(req) {
+export function ManychatMessageToDefault(req) {
   throw new Error("Não foi possivel padronizar a requisição de Manychat!");
 }
