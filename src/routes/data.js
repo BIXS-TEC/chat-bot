@@ -9,8 +9,9 @@ data.get("/", (req, res) => {
 
 data.post("/", async (req, res) => {
   try {
-    const response = await handleDataRequest(req.body);
-    console.log('\x1b[33m%s\x1b[0m', 'handleDataRequest response: ', response);
+    console.log('\x1b[33m%s\x1b[0m', 'handleDataRequest req: ', req);
+    // const response = await handleDataRequest(req.body);
+    // console.log('\x1b[33m%s\x1b[0m', 'handleDataRequest response: ', response);
     res.status(200).json('OK');
   } catch (error) {
     res.status(500).json("Erro ao enviar a resposta!");

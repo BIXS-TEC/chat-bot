@@ -1,5 +1,5 @@
 import Chatbot from "../classes/chatbot.js";
-import getContextList from "./Contexts/index.js";
+import getContextList from "./contexts/index.js";
 import { productList } from "./productList.js";
 
 export default function getChatbotList() {
@@ -12,7 +12,6 @@ export default function getChatbotList() {
     {faq: "https://printweb.vlks.com.br/", cardapio: "https://printweb.vlks.com.br/"},
     {},
     productList,
-    getContextList(),
   );
 
   // chatbotList["123123123"] = new Chatbot(

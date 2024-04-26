@@ -1,20 +1,26 @@
+import getContextList from "../data/contexts/index.js";
 import Client from "./client.js";
 import { MessageSender } from "./sender.js";
 
 const verbose = true;
 
 export default class Chatbot {
-  constructor(id, businessName, phoneNumber, url, clientList, productList, contextList) {
+  constructor(id, businessName, phoneNumber, url, clientList, productList) {
     this.id = id;
     this.businessName = businessName;
     this.phoneNumber = phoneNumber;
+    this.botName = "Assistente Virtual";
+
     this.url = {};
     this.url.faq = url.faq;
     this.url.cardapio = url.cardapio;
+
+    this.identifiers = Array.from({ length: 1000 }, (_, index) => index);
+
     this.clientList = clientList;
     this.productList = productList;
-    this.contextList = contextList;
-    this.botName = "Assistente Virtual";
+    this.contextList = getContextList(this);
+
     this.MessageSender = new MessageSender();
 
     this.clientList[this.phoneNumber] = new Client(
@@ -44,6 +50,7 @@ export default class Chatbot {
 
     const matchedContextName = this.findBestContext(this.clientList[client.phoneNumber]);
 
+    console.log('interaction: ', client.chatbot.interaction);
     return new Promise((resolve, reject) => {
       this.contextList[client.chatbot.interaction][matchedContextName]
         .runContext(this, this.clientList[client.phoneNumber])

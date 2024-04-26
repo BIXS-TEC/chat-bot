@@ -14747,3 +14747,438 @@
   level: 'info',
   timestamp: '2024-04-23T21:52:51.525Z'
 }
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:28.866Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:28.875Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:28.876Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:35.965Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:37.219Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:45.610Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:45.785Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:46.218Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:46.233Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:46.714Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-24T16:26:46.986Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T19:24:50.150Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-24T19:24:50.282Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T19:24:50.746Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T19:24:50.748Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-24T19:24:50.757Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:11.516Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:11.524Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:11.525Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:16.592Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:17.812Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:26.296Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:53.936Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:53.942Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:53.943Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:58.737Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-24T20:26:59.953Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-25T16:44:58.951Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-25T16:44:58.958Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-25T16:44:58.959Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-25T17:33:16.496Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-25T17:33:16.501Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-25T17:33:16.502Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-25T17:43:33.856Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-25T17:43:33.863Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-25T17:43:33.864Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T17:43:40.026Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T17:43:41.263Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T17:43:51.208Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T17:43:51.244Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-25T17:44:23.784Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-25T17:44:23.790Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-25T17:44:23.791Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-04-25T17:45:56.444Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T17:45:56.476Z'
+}
+{
+  level: 'error',
+  message: 'req.client.close is not a function',
+  stack: 'TypeError: req.client.close is not a function\n' +
+    '    at closeSession (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\controller\\sessionController.js:245:24)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\middleware\\auth.js:75:11',
+  timestamp: '2024-04-25T17:47:38.532Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:14.228Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:14.236Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:14.236Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:30.548Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:37.844Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:37.948Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:39.156Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:39.652Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:40.748Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-04-25T17:48:40.905Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T19:57:51.274Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T19:57:51.362Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T19:57:51.822Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T19:57:51.825Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T19:57:51.837Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T20:58:45.334Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T20:58:45.422Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T20:58:45.867Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T20:58:45.870Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T20:58:45.881Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:28:17.137Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T21:28:17.227Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:28:17.909Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:28:17.912Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T21:28:17.921Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:34:30.466Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T21:34:30.555Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:34:31.021Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:34:31.024Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T21:34:31.029Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:38:24.695Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T21:38:24.781Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:38:25.228Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-25T21:38:25.231Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-25T21:38:25.237Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T00:05:36.629Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T00:05:36.712Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T00:05:37.156Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T00:05:37.161Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T00:05:37.165Z'
+}

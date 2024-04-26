@@ -1,5 +1,5 @@
-import { closeSession } from "@wppconnect/server/dist/controller/sessionController.js";
 import Context from "../../classes/context.js";
+import { f } from "./templates/cardapio-functions.js";
 
 function contextSetup(contextList) {
   const contextNames = [];
@@ -12,7 +12,7 @@ function contextSetup(contextList) {
   contextList["invalido"].previousContexts = contextNames;
 }
 
-export default function getCardapioOnlineContexts() {
+export default function getCardapioOnlineContexts(chatbot) {
   const contextList = {};
 
   /**
@@ -63,43 +63,23 @@ export default function getCardapioOnlineContexts() {
     id: "0",
     name: "bem-vindo",
     previousContexts: ["nenhum"],
-    action: function (chatbot, client) {
-      try {
-        chatbot.clientList[client.phoneNumber].changeContext(this.name);
-      } catch (error) {
-        console.error('Erro no contexto "bem-vindo"', error);
-      }
+    action: function (client) {
+      return f.faq.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      return [
-        {
-          type: "listMessage",
-          description: `*Olá ${client.name}!*\nBem-vindo ao _*${chatbot.businessName}*_\n\n` + "Selecione uma das opções a partir do botão abaixo", //"`Por favor, selecione uma das opções a partir do botão abaixo`",
-          buttonText: "Clique para ver as opções",
-          sections: [
-            {
-              title: "Escolha uma das opções",
-              rows: [
-                {
-                  rowId: "cardapio",
-                  title: "Ver cardápio 🍔",
-                  description: "Fazer um pedido",
-                },
-                {
-                  rowId: "atendente",
-                  title: "Falar com um atendente 📲",
-                  description: "Tranferir para um atendente, caso precise resolver um problema específico",
-                },
-                {
-                  rowId: "faq",
-                  title: "Perguntas Frequentes ❔",
-                  description: "Horário de funcionamento, localização, eventos etc...",
-                },
-              ],
-            },
-          ],
-        },
-      ];
+    responseObjects: function (client, args = {}) {
+      return f.faq.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["informar-id"] = new Context({
+    id: "0",
+    name: "informar-id",
+    previousContexts: ["informar-id"],
+    action: function (client) {
+      return f.informar_id.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.informar_id.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -108,35 +88,11 @@ export default function getCardapioOnlineContexts() {
     name: "faq",
     previousContexts: [], // Initialized as all context names in chatbot constructor
     activationKeywords: ["faq"],
-    action: function (chatbot, client) {
-      // função para previousContexts = todos os contextos
+    action: function (client) {
+      return f.faq.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      return [
-        {
-          type: "text",
-          message: `_*Perguntas Frequentes*_
-    
-*Horário de funcionamento*:
-* seg-sex 11:00 as 20:00
-* sab-dom 11:00 as 23:00
-
-*Endereço Local*:
-Av. Paulista, 3527 - Bela Vista, São Paulo
-
-*Proxímos eventos*:
-* Night Show - Blues ao vivo
-12/05 - 19:00
-* Dazaranha - ao vivo
-20/05 - 19:00
-
-Mais informações no link abaixo`,
-        },
-        {
-          type: "linkPreview",
-          url: "https://printweb.vlks.com.br/",
-        },
-      ];
+    responseObjects: function (client, args = {}) {
+      return f.faq.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -145,14 +101,11 @@ Mais informações no link abaixo`,
     name: "atendente",
     previousContexts: [], // Initialized as all context names in chatbot constructor
     activationKeywords: ["atendente"],
-    action: function (chatbot, client) {
-      chatbot.clientList[client.phoneNumber].changeContext(this.name);
-      setTimeout(() => {
-        chatbot.clientList[client.phoneNumber].setHumanChat(true);
-      }, 500);
+    action: function (client) {
+      return f.atendente.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      return [{ type: "text", message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar." }];
+    responseObjects: function (client, args = {}) {
+      return f.atendente.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -161,14 +114,11 @@ Mais informações no link abaixo`,
     name: "invalido",
     previousContexts: [], // Initialized as all context names in chatbot constructor
     activationKeywords: [],
-    action: function (chatbot, client) {
-      console.log(`Mensagem invalida do cliente [${client.phoneNumber}]: ${client.chatbot.currentMessage}`);
+    action: function (client) {
+      return f.invalido.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      const message = chatbot.clientList[client.phoneNumber].chatbot.lastChatbotMessage;
-      message.unshift({ type: "text", message: `Desculpe, mas esse comando é inválido!\nPor favor, selecione uma das opções.` });
-      console.log("Context [invalido] message: ", message);
-      return message;
+    responseObjects: function (client, args = {}) {
+      return f.invalido.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -177,11 +127,11 @@ Mais informações no link abaixo`,
     name: "end-session",
     previousContexts: ["adm"],
     activationKeywords: ["#end-session"],
-    action: function (chatbot, client) {
+    action: function (client) {
       console.log("\x1b[31;1m%s\x1b[0m", "Encerrando a sessão a pedido do comando via chat adm!");
       closeSession();
     },
-    responseObjects: function (chatbot, client, args = {}) {
+    responseObjects: function (client, args = {}) {
       return [{ type: "text", message: `A sessão será encerrada!` }];
     },
   });

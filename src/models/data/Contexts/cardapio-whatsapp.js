@@ -1,5 +1,5 @@
-import { closeSession } from "@wppconnect/server/dist/controller/sessionController.js";
 import Context from "../../classes/context.js";
+import { f } from "./templates/cardapio-functions.js";
 
 function contextSetup(contextList) {
   const contextNames = [];
@@ -12,7 +12,7 @@ function contextSetup(contextList) {
   contextList["invalido"].previousContexts = contextNames;
 }
 
-export default function getCardapioWhatsAppContexts() {
+export default function getCardapioWhatsAppContexts(chatbot) {
   const contextList = {};
   /**
    * contextList["context-name"] = new Context({
@@ -62,43 +62,23 @@ export default function getCardapioWhatsAppContexts() {
     id: "0",
     name: "bem-vindo",
     previousContexts: ["nenhum"],
-    action: function (chatbot, client) {
-      try {
-        chatbot.clientList[client.phoneNumber].changeContext(this.name);
-      } catch (error) {
-        console.error('Erro no contexto "bem-vindo"', error);
-      }
+    action: function (client) {
+      return f.bem_vindo.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      return [
-        {
-          type: "listMessage",
-          description: `*Olá ${client.name}!*\nBem-vindo ao _*${chatbot.businessName}*_\n\n` + "Selecione uma das opções a partir do botão abaixo", //"`Por favor, selecione uma das opções a partir do botão abaixo`",
-          buttonText: "Clique para ver as opções",
-          sections: [
-            {
-              title: "Escolha uma das opções",
-              rows: [
-                {
-                  rowId: "cardapio",
-                  title: "Ver cardápio 🍔",
-                  description: "Fazer um pedido",
-                },
-                {
-                  rowId: "atendente",
-                  title: "Falar com um atendente 📲",
-                  description: "Tranferir para um atendente, caso precise resolver um problema específico",
-                },
-                {
-                  rowId: "faq",
-                  title: "Perguntas Frequentes ❔",
-                  description: "Horário de funcionamento, localização, eventos etc...",
-                },
-              ],
-            },
-          ],
-        },
-      ];
+    responseObjects: function (client, args = {}) {
+      return f.bem_vindo.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["informar-id"] = new Context({
+    id: "0",
+    name: "informar-id",
+    previousContexts: ["informar-id"],
+    action: function (client) {
+      return f.informar_id.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.informar_id.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -107,35 +87,11 @@ export default function getCardapioWhatsAppContexts() {
     name: "faq",
     previousContexts: [], // Initialized as all context names in chatbot constructor
     activationKeywords: ["faq"],
-    action: function (chatbot, client) {
-      // função para previousContexts = todos os contextos
+    action: function (client) {
+      return f.faq.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      return [
-        {
-          type: "text",
-          message: `_*Perguntas Frequentes*_
-
-*Horário de funcionamento*:
-* seg-sex 11:00 as 20:00
-* sab-dom 11:00 as 23:00
-
-*Endereço Local*:
-Av. Paulista, 3527 - Bela Vista, São Paulo
-
-*Proxímos eventos*:
-* Night Show - Blues ao vivo
-12/05 - 19:00
-* Dazaranha - ao vivo
-20/05 - 19:00
-
-Mais informações no link abaixo`,
-        },
-        {
-          type: "linkPreview",
-          url: chatbot.url.faq,
-        },
-      ];
+    responseObjects: function (client, args = {}) {
+      return f.faq.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -144,14 +100,11 @@ Mais informações no link abaixo`,
     name: "atendente",
     previousContexts: [], // Initialized as all context names in chatbot constructor
     activationKeywords: ["atendente"],
-    action: function (chatbot, client) {
-      chatbot.clientList[client.phoneNumber].changeContext(this.name);
-      setTimeout(() => {
-        chatbot.clientList[client.phoneNumber].setHumanChat(true);
-      }, 500);
+    action: function (client) {
+      return f.atendente.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      return [{ type: "text", message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar." }];
+    responseObjects: function (client, args = {}) {
+      return f.atendente.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -163,21 +116,14 @@ Mais informações no link abaixo`,
     itemsList: {
       buttonText: "Ver Cardápio 🍔",
     },
-    action: function (chatbot, client) {
+    action: function (client) {
       try {
         chatbot.clientList[client.phoneNumber].changeContext(this.name);
-
-        /* Atualiza a lista de activationKeywords do contexto 'adicionar-produto' */
-        // let sections = [];
-        // [chatbot.contextList[client.chatbot.interaction]["adicionar-produto"].activationKeywords, sections] = chatbot.getProductsIdsAndSections(); // retornar para responseObjects com obj sections
-        // chatbot.contextList[client.chatbot.interaction]["adicionar-produto"].activationKeywords.push("adicionar-produto");
-
-        // return { sections: sections };
       } catch (error) {
         console.error('Erro em action no contexto "cardápio"', error);
       }
     },
-    responseObjects: function (chatbot, client, args = {}) {
+    responseObjects: function (client, args = {}) {
       try {
 
         return [
@@ -201,70 +147,11 @@ Mais informações no link abaixo`,
     name: "recomendar-produto",
     previousContexts: ["cardapio", "adicionais", "editar-pedido"],
     activationKeywords: ["recomendar-produto"],
-    action: function (chatbot, client) {
-      try {
-        chatbot.clientList[client.phoneNumber].changeContext(this.name);
-      } catch (error) {
-        console.error("Erro in action [recomendar-produto]", error);
-      }
+    action: function (client) {
+      return f.recomendar_produto.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      try {
-        const recommended = chatbot.getRecommendedProduct();
-        let message = `Sabe o que vai muito bem com seu pedido?\n\n*${recommended.name}!!!*🤩😋\n\nGostaria de incluir em seu pedido?`;
-        message += "\nSelecione incluir ou outra opção"; // "\n* `Selecione uma opção abaixo`";
-        return [
-          {
-            type: "listMessage",
-            description: message,
-            buttonText: "Incluir ou finalizar",
-            sections: [
-              {
-                title: `Selecione a quantidade de ${recommended.name}`,
-                rows: [
-                  {
-                    rowId: "incluir-recomendado1",
-                    title: "Incluir +1 no meu pedido",
-                    description: `+R$ ${recommended.price.toFixed(2).replace(".", ",")}`,
-                  },
-                  {
-                    rowId: "incluir-recomendado2",
-                    title: "Incluir +2 no meu pedido",
-                    description: `+R$ ${recommended.price.toFixed(2).replace(".", ",")} cada`,
-                  },
-                  {
-                    rowId: "incluir-recomendado3",
-                    title: "Incluir +3 no meu pedido",
-                    description: `+R$ ${recommended.price.toFixed(2).replace(".", ",")} cada`,
-                  },
-                ],
-              },
-              {
-                title: "🔽 Outras opções",
-                rows: [
-                  {
-                    rowId: "editar-pedido",
-                    title: "Editar pedido ✏️",
-                    description: "Mudou de ideia? Remova um item da sua lista!",
-                  },
-                  {
-                    rowId: "finalizar-pedido",
-                    title: "Finalizar pedido ✅",
-                    description: "Se estiver tudo pronto, finalize seu pedido!",
-                  },
-                  {
-                    rowId: "atendente",
-                    title: "Falar com um atendente 📲",
-                    description: "Tranferir para um atendente, caso precise resolver um problema específico",
-                  },
-                ],
-              },
-            ],
-          },
-        ];
-      } catch (error) {
-        console.error("Error in responseObjects [recomendar-produto]", error);
-      }
+    responseObjects: function (client, args = {}) {
+      return f.recomendar_produto.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -273,74 +160,11 @@ Mais informações no link abaixo`,
     name: "incluir-recomendado",
     previousContexts: ["recomendar-produto"],
     activationKeywords: ["incluir-recomendado1", "incluir-recomendado2", "incluir-recomendado3"],
-    action: function (chatbot, client) {
-      try {
-        const quantity = client.chatbot.itemId[client.chatbot.itemId.length - 1].split(":").map((num) => parseInt(num));
-        const recommended = chatbot.getRecommendedProduct();
-        chatbot.clientList[client.phoneNumber].addProductToOrderList(recommended, parseInt(quantity));
-      } catch (error) {
-        console.error("Erro em action", error);
-      }
+    action: function (client) {
+      return f.incluir_recomendado.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      try {
-        const recommended = chatbot.getRecommendedProduct();
-        let message = chatbot.clientList[client.phoneNumber].getOrderMessage();
-
-        message += `\n\nInclua mais ${recommended.name} ou selecione outra opção`; // "\n\nGostaria de incluir mais?\n* `Para incluir selecione a quantidade.`\n\n* `Ou selecione a opção de editar ou finalizar.`";
-
-        return [
-          {
-            type: "listMessage",
-            description: message,
-            buttonText: "Incluir ou finalizar",
-            sections: [
-              {
-                title: `Selecione a quantidade de ${recommended.name}`,
-                rows: [
-                  {
-                    rowId: "incluir-recomendado1",
-                    title: "Incluir +1 no meu pedido",
-                    description: `+R$ ${recommended.price.toFixed(2).replace(".", ",")}`,
-                  },
-                  {
-                    rowId: "incluir-recomendado2",
-                    title: "Incluir +2 no meu pedido",
-                    description: `+R$ ${recommended.price.toFixed(2).replace(".", ",")} cada`,
-                  },
-                  {
-                    rowId: "incluir-recomendado3",
-                    title: "Incluir +3 no meu pedido",
-                    description: `+R$ ${recommended.price.toFixed(2).replace(".", ",")} cada`,
-                  },
-                ],
-              },
-              {
-                title: "🔽 Outras opções",
-                rows: [
-                  {
-                    rowId: "editar-pedido",
-                    title: "Editar pedido ✏️",
-                    description: "Mudou de ideia? Remova um item da sua lista!",
-                  },
-                  {
-                    rowId: "finalizar-pedido",
-                    title: "Finalizar pedido ✅",
-                    description: "Se estiver tudo pronto, finalize seu pedido!",
-                  },
-                  {
-                    rowId: "atendente",
-                    title: "Falar com um atendente 📲",
-                    description: "Tranferir para um atendente, caso precise resolver um problema específico",
-                  },
-                ],
-              },
-            ],
-          },
-        ];
-      } catch (error) {
-        console.error("Erro em responseObjects", error);
-      }
+    responseObjects: function (client, args = {}) {
+      return f.incluir_recomendado.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -349,14 +173,14 @@ Mais informações no link abaixo`,
     name: "editar-pedido",
     previousContexts: ["cardapio", "adicionais", "recomendar-produto"],
     activationKeywords: ["editar-pedido"],
-    action: function (chatbot, client) {
+    action: function (client) {
       try {
         chatbot.clientList[client.phoneNumber].changeContext(this.name);
       } catch (error) {
         console.error("Error em action", error);
       }
     },
-    responseObjects: function (chatbot, client, args = {}) {
+    responseObjects: function (client, args = {}) {
       try {
         /* Atualiza a lista de activationKeywords do contexto 'remover-item' */
         let sections = [];
@@ -410,11 +234,11 @@ Mais informações no link abaixo`,
     id: "10",
     name: "remover-item",
     previousContexts: ["editar-pedido"],
-    action: function (chatbot, client) {
+    action: function (client) {
       const [productId, index, additionalId] = client.chatbot.itemId.split(":").map((num) => parseInt(num));
       chatbot.clientList[client.phoneNumber].removeFromOrderList(productId, index, additionalId);
     },
-    responseObjects: function (chatbot, client, args = {}) {
+    responseObjects: function (client, args = {}) {
       try {
         let sections = [];
         [, sections] = chatbot.getProductsAndAdditionalIdsAndSections(client); // Melhorar performace
@@ -462,7 +286,7 @@ Mais informações no link abaixo`,
     name: "finalizar-pedido",
     previousContexts: ["recomendar-produto", "editar-pedido"],
     activationKeywords: ["finalizar-pedido"],
-    action: function (chatbot, client) {
+    action: function (client) {
       chatbot.clientList[client.phoneNumber].changeContext(this.name);
       chatbot.clientList[client.phoneNumber]
         .sendClientOrder()
@@ -473,7 +297,7 @@ Mais informações no link abaixo`,
           console.log("Error in action [finalizar-pedido]:", err);
         });
     },
-    responseObjects: function (chatbot, client, args = {}) {
+    responseObjects: function (client, args = {}) {
       const sections = [
         {
           title: "🔽 Selecione uma das opções",
@@ -517,15 +341,11 @@ Mais informações no link abaixo`,
     name: "invalido",
     previousContexts: [], // Initialized as all context names in chatbot constructor
     activationKeywords: [],
-    action: function (chatbot, client) {
-      console.log(`Mensagem invalida do cliente [${client.phoneNumber}]: ${client.chatbot.currentMessage}`);
+    action: function (client) {
+      return f.invalido.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      const message = chatbot.clientList[client.phoneNumber].chatbot.lastChatbotMessage;
-      console.log(message);
-      message.unshift({ type: "text", message: `Desculpe, mas esse comando é inválido!\nPor favor, selecione uma das opções.` });
-      console.log("Context [invalido] message: ", message);
-      return message;
+    responseObjects: function (client, args = {}) {
+      return f.invalido.responseObjects(this, chatbot, client, args);
     },
   });
 
@@ -534,12 +354,11 @@ Mais informações no link abaixo`,
     name: "end-session",
     previousContexts: ["adm"],
     activationKeywords: ["#end-session"],
-    action: function (chatbot, client) {
-      console.log("\x1b[31;1m%s\x1b[0m", "Encerrando a sessão a pedido do comando via chat adm!");
-      closeSession();
+    action: function (client) {
+      return f.end_session.action(this, chatbot, client);
     },
-    responseObjects: function (chatbot, client, args = {}) {
-      return [{ type: "text", message: `A sessão será encerrada!` }];
+    responseObjects: function (client, args = {}) {
+      return f.end_session.responseObjects(this, chatbot, client, args);
     },
   });
 

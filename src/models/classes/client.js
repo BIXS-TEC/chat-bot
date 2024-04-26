@@ -122,9 +122,11 @@ export default class Client {
     this.humanChating = isChating;
   }
 
-  async sendClientOrder(client) {
+  async sendClientOrder() {
     return new Promise((resolve, reject) => {
       try {
+        console.log('\x1b[32;1m%s\x1b[0m', `Pedido de [${this.phoneNumber}] enviado para o banco:`);
+        console.log('\x1b[34;1m%s\x1b[0m', JSON.stringify(this.orderList));
         resolve(true);
       } catch (error) {
         console.log("Error in sendClientOrder: ", error);
