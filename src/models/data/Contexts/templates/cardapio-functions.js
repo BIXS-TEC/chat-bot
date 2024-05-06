@@ -1,5 +1,5 @@
 import { closeSession } from "@wppconnect/server/dist/controller/sessionController.js";
-import { buildSection } from "./message-functions";
+import { buildSection, checkMessageIDCode } from "./message-functions.js";
 
 export const f = {};
 
@@ -28,20 +28,19 @@ export const f = {};
 
 f.bem_vindo = {};
 
-// Mensagem exemplo: 'Olá gostaria de ver as opções! #Mesa: 3'
+// Mensagem exemplo: 'Olá gostaria de ver as opções! #Mesa:3 #ID:7baf3'
 // https://api.whatsapp.com/send/?phone=554891620244&text=Ol%C3%A1+gostaria+de+ver+as+op%C3%A7%C3%B5es%21+%23Mesa%3A%203
 f.bem_vindo.action = function (context, chatbot, client) {
   try {
-    // Expressão regular para extrair o número
-    const code = client.chatbot.currentMessage.match(/\d+/);
-
-    if (code && code[0]) {
-      chatbot.clientList[client.phoneNumber].changeContext(context.name);
-      chatbot.clientList[client.phoneNumber].chatbot.code = code[0];
-    } else {
-      chatbot.clientList[client.phoneNumber].changeContext("informar-id");
+    const [modality, id] = checkMessageIDCode(client.chatbot.currentMessage);
+    if (id && modality) {
+      client.changeContext(context.name);
+      client.chatbot.modalityId = id;
+      client.chatbot.modality = modality;
+      return;
     }
-    return { code: code }
+    client.changeContext("informar-id");
+    return;
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
   }
@@ -49,13 +48,15 @@ f.bem_vindo.action = function (context, chatbot, client) {
 
 f.bem_vindo.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    if (args.code) {
+    console.log("client.messageHistory: ", !client.messageHistory.map((msg) => msg.includes("informar-id"))[0]);
+    let message = `*Olá ${client.name}!*\nBem-vindo ao _*${chatbot.businessName}*_\n\n`;
+    if (client.chatbot.modalityId && client.chatbot.modality) {
       return [
         {
           type: "listMessage",
-          description: `*Olá ${client.name}!*\nBem-vindo ao _*${chatbot.businessName}*_\n\n` + "Selecione uma das opções a partir do botão abaixo", //"`Por favor, selecione uma das opções a partir do botão abaixo`",
-          buttonText: "Clique para ver as opções",
-          sections: [buildSection("Escolha uma das opções", ["cardapio", "atendente", "faq"])]
+          description: message + "Selecione uma das opções a partir do botão abaixo", //"`Por favor, selecione uma das opções a partir do botão abaixo`",
+          buttonText: "SELECIONE UMA OPÇÃO",
+          sections: [buildSection(chatbot, "Escolha uma das opções", ["cardapio", "garcom", "atendente", "faq"])],
         },
       ];
     } else {
@@ -63,8 +64,8 @@ f.bem_vindo.responseObjects = function (context, chatbot, client, args = {}) {
         {
           type: "text",
           message:
-            `*Olá ${client.name}!* 😄\nBem-vindo ao _*${chatbot.businessName}*_\n\n` +
-            "*Puxa...*\n\nA mensagem que você enviou não possui o numero da sua _Mesa_ ou _Comanda_.\n\nPor favor, informe o numero da sua mesa ou comanda.",
+            message +
+            "Puxa...\nA mensagem que você enviou não possui o numero da sua _Mesa_ ou _Comanda_.\n\n*Por favor, informe o numero da sua mesa ou comanda.*",
         },
       ];
     }
@@ -79,7 +80,7 @@ f.informar_id = {};
 
 f.informar_id.action = function (context, chatbot, client) {
   try {
-    if (chatbot.identifiers.includes(parseInt(client.chatbot.currentMessage.match(/\d+/)[0]))) {
+    if (chatbot.identifiers.includes(client.chatbot.currentMessage.match(/\d+/)[0])) {
       chatbot.clientList[client.phoneNumber].changeContext("bem-vindo");
       return { includes: true };
     }
@@ -95,9 +96,9 @@ f.informar_id.responseObjects = function (context, chatbot, client, args = {}) {
       return [
         {
           type: "listMessage",
-          description: `*Olá ${client.name}!*\nBem-vindo ao _*${chatbot.businessName}*_\n\n` + "Selecione uma das opções a partir do botão abaixo", //"`Por favor, selecione uma das opções a partir do botão abaixo`",
+          description: "Agora sim, tudo pronto!!\n\nSelecione uma das opções a partir do botão abaixo", //"`Por favor, selecione uma das opções a partir do botão abaixo`",
           buttonText: "Clique para ver as opções",
-          sections: [buildSection("Escolha uma das opções", ["cardapio", "atendente", "faq"])]
+          sections: [buildSection(chatbot, "Escolha uma das opções", ["cardapio", "garcom", "atendente", "faq"])],
         },
       ];
     }
@@ -142,7 +143,7 @@ Mais informações no link abaixo`,
       },
       {
         type: "linkPreview",
-        url: chatbot.url.faq,
+        url: chatbot.config.url.faq,
       },
     ];
   } catch (error) {
@@ -168,7 +169,34 @@ f.atendente.action = function (context, chatbot, client) {
 
 f.atendente.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    return [{ type: "text", message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar." }];
+    return [
+      { type: "text", message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar." },
+      {
+        type: "text",
+        message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar.",
+        groupPhone: chatbot.groupList,
+      },
+    ];
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+/** Garçom */
+
+f.garcom = {};
+
+f.garcom.action = function (context, chatbot, client) {
+  try {
+    return;
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+f.garcom.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    return [{ type: "text", message: "Ok!\nUm garçom foi notificado e já irá atende-lo, por favor aguarde." }];
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
   }
@@ -201,9 +229,12 @@ f.recomendar_produto.responseObjects = function (context, chatbot, client, args 
         type: "listMessage",
         description: message,
         buttonText: "Incluir ou finalizar",
-        sections: [ 
-          buildSection(`Selecione a quantidade de ${recommended.name}`, ["incluir-recomendado"], {recommended: recommended, qtdRecommended: 3}),
-          buildSection("🔽 Outras opções", ["editar-pedido", "finalizar-pedido", "atendente"]),
+        sections: [
+          buildSection(chatbot, `Selecione a quantidade de ${recommended.name}`, ["incluir-recomendado"], {
+            recommended: recommended,
+            qtdRecommended: 3,
+          }),
+          buildSection(chatbot, "🔽 Outras opções", ["editar-pedido", "finalizar-pedido", "garcom", "atendente"]),
         ],
       },
     ];
@@ -239,14 +270,12 @@ f.incluir_recomendado.responseObjects = function (context, chatbot, client, args
         type: "listMessage",
         description: message,
         buttonText: "Incluir ou finalizar",
-        sections: [ 
-          buildSection(`Selecione a quantidade de ${recommended.name}`, 
-                        ["incluir-recomendado"], 
-                        {recommended: recommended, qtdRecommended: 3}
-                      ),
-          buildSection("🔽 Outras opções", 
-                        ["editar-pedido", "finalizar-pedido", "atendente"]
-                      ),
+        sections: [
+          buildSection(chatbot, `Selecione a quantidade de ${recommended.name}`, ["incluir-recomendado"], {
+            recommended: recommended,
+            qtdRecommended: 3,
+          }),
+          buildSection(chatbot, "🔽 Outras opções", ["editar-pedido", "finalizar-pedido", "garcom", "atendente"]),
         ],
       },
     ];
@@ -272,6 +301,7 @@ f.invalido.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     const message = [{ type: "text", message: `Desculpe, mas esse comando é inválido!\nPor favor, selecione uma das opções.` }];
     message.push(chatbot.clientList[client.phoneNumber].chatbot.lastChatbotMessage);
+    console.log("lastChatbotMessage: ", message);
     return message;
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);

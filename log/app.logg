@@ -15182,3 +15182,1797 @@
   level: 'info',
   timestamp: '2024-04-26T00:05:37.165Z'
 }
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:07.646Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:07.653Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:07.654Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:11.487Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:12.700Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:21.390Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:21.468Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:22.076Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:22.080Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:22.602Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-26T12:16:22.892Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:41.740Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:41.746Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:41.747Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:45.818Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:47.047Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:55.717Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:56.045Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:56.349Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:56.353Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:56.807Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-26T12:23:57.177Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T13:25:34.264Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T13:25:34.275Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T13:25:35.090Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-26T13:25:35.092Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T13:25:35.103Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-04-26T16:07:00.366Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-29T12:33:16.732Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-29T12:33:16.750Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-29T12:33:16.751Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-29T12:33:24.827Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T12:33:24.890Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-29T12:33:25.612Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T12:33:25.809Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T12:33:26.725Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-29T16:21:19.379Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-29T16:21:19.385Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-29T16:21:19.386Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T16:21:26.248Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T16:21:27.477Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-29T16:21:27.516Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T16:21:27.704Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T19:16:39.352Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T19:16:39.443Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T19:16:39.890Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T19:16:39.893Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T19:16:39.904Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T20:00:14.863Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T20:00:14.947Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T20:00:15.413Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T20:00:15.416Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T20:00:15.426Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T20:52:33.621Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T20:52:33.708Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T20:52:34.176Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T20:52:34.179Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T20:52:34.188Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:12:13.188Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T21:12:13.273Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:12:13.957Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:12:13.961Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T21:12:13.969Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:22:08.995Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T21:22:09.088Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:22:09.541Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:22:09.544Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T21:22:09.553Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:35:43.468Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T21:35:43.558Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:35:44.039Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T21:35:44.042Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T21:35:44.046Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T22:15:05.687Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T22:15:05.772Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T22:15:06.217Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-29T22:15:06.221Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-29T22:15:06.228Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-04-30T17:38:22.997Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-04-30T17:38:23.004Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-04-30T17:38:23.005Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-30T17:38:30.457Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-04-30T17:38:30.709Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-30T17:38:31.839Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T17:38:31.924Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-04-30T17:38:31.947Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T20:40:40.363Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-30T20:40:40.477Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T20:40:40.939Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T20:40:40.944Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-30T20:40:40.954Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T23:44:22.108Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-30T23:44:22.236Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T23:44:22.876Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T23:44:22.904Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-30T23:44:22.950Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T23:48:23.116Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-30T23:48:23.208Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T23:48:23.657Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-04-30T23:48:23.660Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-04-30T23:48:23.669Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T03:53:18.542Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-01T16:04:42.372Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-01T16:04:42.379Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-01T16:04:42.380Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-01T16:04:49.173Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T16:04:49.242Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-01T16:04:50.433Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T16:04:50.450Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T16:04:50.466Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T18:26:16.724Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T18:26:16.817Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T18:26:17.272Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T18:26:17.276Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T18:26:17.294Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-01T18:50:19.291Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-01T18:50:19.314Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-01T18:50:19.317Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T18:50:37.360Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T18:50:37.872Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T18:50:38.086Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T18:50:38.260Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T19:31:06.116Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T19:31:06.203Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T19:31:06.700Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T19:31:06.716Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T19:31:06.720Z'
+}
+{
+  code: 'group_you_are_not_admin',
+  level: 'error',
+  message: 'You are not admin in 120363274428874126@g.us',
+  stack: 'Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at t.ensureGroup (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:240724)\n' +
+    '    at async t.ensureGroupAndParticipants (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:241045)\n' +
+    '    at async t.addParticipants (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:234647)\n' +
+    '    at async pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:26\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupId = _a.groupId, participantId = _a.participantId;\n' +
+    '                            return WPP.group.addParticipants(groupId, participantId);\n' +
+    '                        }',
+  timestamp: '2024-05-01T23:09:34.586Z'
+}
+{
+  code: 'group_you_are_not_admin',
+  level: 'error',
+  message: 'You are not admin in 120363274428874126@g.us',
+  stack: 'Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at t.ensureGroup (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:240724)\n' +
+    '    at async t.ensureGroupAndParticipants (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:241045)\n' +
+    '    at async t.promoteParticipants (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:249879)\n' +
+    '    at async pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:26\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupId = _a.groupId, participantId = _a.participantId;\n' +
+    '                            return WPP.group.promoteParticipants(groupId, participantId);\n' +
+    '                        }',
+  timestamp: '2024-05-01T23:10:36.781Z'
+}
+{
+  code: 'group_you_are_not_admin',
+  level: 'error',
+  message: 'You are not admin in 120363274428874126@g.us',
+  stack: 'Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at t.ensureGroup (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:240724)\n' +
+    '    at async t.getInviteCode (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:242861)\n' +
+    '    at async pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:26\n' +
+    'Function: function (chatId) { return WPP.group.getInviteCode(chatId); }',
+  timestamp: '2024-05-01T23:13:45.649Z'
+}
+{
+  code: 'group_you_are_not_admin',
+  level: 'error',
+  message: 'You are not admin in 120363274428874126@g.us',
+  stack: 'Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at t.ensureGroup (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:240724)\n' +
+    '    at async t.removeParticipants (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:251788)\n' +
+    '    at async pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:26\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupId = _a.groupId, participantId = _a.participantId;\n' +
+    '                            return WPP.group.removeParticipants(groupId, participantId);\n' +
+    '                        }',
+  timestamp: '2024-05-01T23:19:08.190Z'
+}
+{
+  code: 'group_you_are_not_admin',
+  level: 'error',
+  message: 'You are not admin in 120363274428874126@g.us',
+  stack: 'Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: You are not admin in 120363274428874126@g.us\n' +
+    '    at t.ensureGroup (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:240724)\n' +
+    '    at async t.getInviteCode (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:242861)\n' +
+    '    at async pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:26\n' +
+    'Function: function (chatId) { return WPP.group.getInviteCode(chatId); }',
+  timestamp: '2024-05-01T23:27:29.673Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T23:33:26.101Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T23:33:26.139Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-01T23:34:23.682Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-01T23:34:23.693Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-01T23:34:23.694Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T23:34:32.578Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T23:35:33.135Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T23:35:33.487Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-05-01T23:35:33.489Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-01T23:36:31.363Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-01T23:36:31.373Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-01T23:36:31.374Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T23:36:52.619Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T23:37:04.202Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-05-01T23:37:04.244Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-01T23:37:05.451Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-05-01T23:37:05.829Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-01T23:37:08.828Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-02T01:50:08.559Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-02T01:50:08.656Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-02T01:50:09.490Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-02T01:50:09.498Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-02T01:50:09.501Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-03T02:43:54.846Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-03T02:43:54.852Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-03T02:43:54.853Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T02:44:01.493Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T02:44:02.723Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-03T02:44:10.957Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T02:44:11.099Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T02:44:11.603Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T02:44:11.606Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T02:44:12.012Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-03T02:44:12.449Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T02:46:10.772Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T02:46:10.842Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-03T02:47:02.544Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-03T02:47:02.598Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-03T02:47:02.610Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-03T02:47:08.441Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T02:47:08.765Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-03T02:47:09.923Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T02:47:09.986Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T02:47:10.106Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T02:47:38.108Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T02:47:38.149Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T02:57:01.349Z'
+}
+{
+  name: 'TargetCloseError',
+  cause: ProtocolError
+      at <instance_members_initializer> (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:93:14)
+      at new Callback (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:97:16)
+      at CallbackRegistry.create (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:22:26)
+      at Connection._rawSend (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Connection.js:80:26)
+      at CdpCDPSession.send (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\CDPSession.js:66:33)
+      at #evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:202:50)
+      at runNextTicks (node:internal/process/task_queues:60:5)
+      at process.processImmediate (node:internal/timers:449:9)
+      at async ExecutionContext.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:117:16)
+      at async IsolatedWorld.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:124:16)
+      at async CdpFrame.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:342:20)
+      at async CdpPage.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:823:20),
+  level: 'error',
+  message: 'Protocol error (Runtime.callFunctionOn): Target closed',
+  stack: 'TargetCloseError: Protocol error (Runtime.callFunctionOn): Target closed\n' +
+    '    at CallbackRegistry.clear (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\common\\CallbackRegistry.js:72:36)\n' +
+    '    at CdpCDPSession._onClosed (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\cdp\\CDPSession.js:101:25)\n' +
+    '    at #onClose (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\cdp\\Connection.js:157:21)\n' +
+    '    at Immediate.<anonymous> (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\node\\NodeWebSocketTransport.js:50:34)\n' +
+    '    at process.processImmediate (node:internal/timers:478:21)',
+  timestamp: '2024-05-03T02:57:01.351Z'
+}
+{
+  name: 'TargetCloseError',
+  cause: ProtocolError
+      at <instance_members_initializer> (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:93:14)
+      at new Callback (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:97:16)
+      at CallbackRegistry.create (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:22:26)
+      at Connection._rawSend (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Connection.js:80:26)
+      at CdpCDPSession.send (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\CDPSession.js:66:33)
+      at #evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:202:50)
+      at runNextTicks (node:internal/process/task_queues:60:5)
+      at process.processImmediate (node:internal/timers:449:9)
+      at async ExecutionContext.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:117:16)
+      at async IsolatedWorld.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:124:16)
+      at async CdpFrame.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:342:20)
+      at async CdpPage.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:823:20),
+  level: 'error',
+  message: 'Protocol error (Runtime.callFunctionOn): Target closed',
+  stack: 'TargetCloseError: Protocol error (Runtime.callFunctionOn): Target closed\n' +
+    '    at CallbackRegistry.clear (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\common\\CallbackRegistry.js:72:36)\n' +
+    '    at CdpCDPSession._onClosed (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\cdp\\CDPSession.js:101:25)\n' +
+    '    at #onClose (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\cdp\\Connection.js:157:21)\n' +
+    '    at Immediate.<anonymous> (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\node\\NodeWebSocketTransport.js:50:34)\n' +
+    '    at process.processImmediate (node:internal/timers:478:21)',
+  timestamp: '2024-05-03T02:57:01.353Z'
+}
+{
+  name: 'TargetCloseError',
+  cause: ProtocolError
+      at <instance_members_initializer> (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:93:14)
+      at new Callback (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:97:16)
+      at CallbackRegistry.create (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\common\CallbackRegistry.js:22:26)
+      at Connection._rawSend (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Connection.js:80:26)
+      at CdpCDPSession.send (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\CDPSession.js:66:33)
+      at #evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:202:50)
+      at async ExecutionContext.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:117:16)
+      at async IsolatedWorld.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:124:16)
+      at async CdpFrame.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:342:20)
+      at async CdpPage.evaluate (C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:823:20),
+  level: 'error',
+  message: 'Protocol error (Runtime.callFunctionOn): Target closed',
+  stack: 'TargetCloseError: Protocol error (Runtime.callFunctionOn): Target closed\n' +
+    '    at CallbackRegistry.clear (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\common\\CallbackRegistry.js:72:36)\n' +
+    '    at CdpCDPSession._onClosed (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\cdp\\CDPSession.js:101:25)\n' +
+    '    at #onClose (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\cdp\\Connection.js:157:21)\n' +
+    '    at Immediate.<anonymous> (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\node\\NodeWebSocketTransport.js:50:34)\n' +
+    '    at process.processImmediate (node:internal/timers:478:21)',
+  timestamp: '2024-05-03T02:57:01.354Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-03T13:15:04.510Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-03T13:15:04.516Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-03T13:15:04.517Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-03T13:15:10.890Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T13:15:11.159Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T13:15:11.991Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-03T13:15:12.103Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T13:15:12.387Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T13:23:29.637Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T13:23:29.734Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T13:23:30.462Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T13:23:30.466Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T13:23:30.473Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T16:39:54.862Z'
+}
+{
+  level: 'error',
+  message: "Attempted to use detached Frame '90E77926ADC628B0EF5344F01E3E895A'.",
+  stack: "Error: Attempted to use detached Frame '90E77926ADC628B0EF5344F01E3E895A'.\n" +
+    '    at CdpFrame.<anonymous> (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\util\\decorators.js:96:23)\n' +
+    '    at CdpPage.evaluate (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\api\\Page.js:823:43)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:99:56\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:24:71\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at __awaiter (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:20:12)\n' +
+    '    at evaluateAndReturn (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:71:12)\n' +
+    '    at Whatsapp.<anonymous> (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:642:82)\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:60:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:41:53)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:35:71\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at __awaiter (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:31:12)\n' +
+    '    at HostLayer.isConnected (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:639:16)\n' +
+    '    at statusConnection (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\middleware\\statusConnection.js:33:137)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\middleware\\auth.js:75:11',
+  timestamp: '2024-05-03T19:54:05.292Z'
+}
+{
+  level: 'error',
+  message: "Attempted to use detached Frame '90E77926ADC628B0EF5344F01E3E895A'.",
+  stack: "Error: Attempted to use detached Frame '90E77926ADC628B0EF5344F01E3E895A'.\n" +
+    '    at CdpFrame.<anonymous> (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\util\\decorators.js:96:23)\n' +
+    '    at CdpPage.evaluate (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\puppeteer-core\\lib\\cjs\\puppeteer\\api\\Page.js:823:43)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:99:56\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:24:71\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at __awaiter (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:20:12)\n' +
+    '    at evaluateAndReturn (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:71:12)\n' +
+    '    at Whatsapp.<anonymous> (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:642:82)\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:60:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:41:53)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:35:71\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at __awaiter (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:31:12)\n' +
+    '    at HostLayer.isConnected (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\layers\\host.layer.js:639:16)\n' +
+    '    at statusConnection (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\middleware\\statusConnection.js:33:137)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\middleware\\auth.js:75:11',
+  timestamp: '2024-05-03T19:54:05.302Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-03T19:54:44.359Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-03T19:54:44.365Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-03T19:54:44.366Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T19:54:50.443Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-03T19:54:50.551Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T19:54:51.666Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T19:54:51.819Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-03T19:54:52.185Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T20:20:12.787Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T20:20:12.889Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T20:20:13.315Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T20:20:13.318Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T20:20:13.334Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    '    at runNextTicks (node:internal/process/task_queues:60:5)\n' +
+    '    at process.processImmediate (node:internal/timers:449:9)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T20:34:02.385Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T20:34:02.389Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T20:34:02.403Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T20:34:02.408Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    '    at runNextTicks (node:internal/process/task_queues:60:5)\n' +
+    '    at process.processImmediate (node:internal/timers:449:9)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T20:35:36.342Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T20:35:36.347Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T20:35:36.404Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-03T20:35:36.552Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T21:16:28.040Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T21:16:28.126Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T21:16:28.558Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-03T21:16:28.561Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-03T21:16:28.567Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-04T00:11:38.618Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-04T00:11:38.704Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-04T00:11:39.159Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-04T00:11:39.162Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-04T00:11:39.167Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-04T00:16:28.269Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-04T00:16:28.356Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-04T00:16:28.796Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-04T00:16:28.799Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-04T00:16:28.803Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-04T01:19:39.458Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-04T01:19:39.908Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-04T01:19:39.963Z'
+}
+{
+  name: 'ServerStatusCodeError',
+  status: 429,
+  statusCode: 429,
+  level: 'error',
+  message: 'rate-overlimit',
+  stack: 'ServerStatusCodeError: rate-overlimit\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ServerStatusCodeError: rate-overlimit\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:257:35634)\n' +
+    '    at new i (https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:268:456562)\n' +
+    '    at https://web.whatsapp.com/app.a325b87cf6fdeb29465c.js:263:157864\n' +
+    '    at Generator.next (<anonymous>)\n' +
+    '    at t (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66487)\n' +
+    '    at s (https://web.whatsapp.com/vendor1~app.264a01b6133c4a120327.js:2:66698)\n' +
+    'Function: function (_a) {\n' +
+    '                            var groupName = _a.groupName, contacts = _a.contacts;\n' +
+    '                            return WPP.group.create(groupName, contacts, null);\n' +
+    '                        }',
+  timestamp: '2024-05-04T01:19:40.000Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-06T13:46:53.458Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-06T13:46:53.463Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-06T13:46:53.464Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-06T13:46:59.074Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-06T13:46:59.234Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:00.104Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:00.467Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:00.597Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:20.224Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:20.230Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.1',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:20.231Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:24.987Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:25.208Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:26.148Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:26.473Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-05-06T13:47:26.479Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-06T17:41:29.125Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-06T17:41:29.214Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-06T17:41:29.652Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-06T17:41:29.657Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-06T17:41:29.668Z'
+}
+{
+  message: 'State Change OPENING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-06T18:38:53.103Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-06T18:38:53.193Z'
+}
+{
+  message: 'State Change PAIRING: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-06T18:38:53.634Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-05-06T18:38:53.644Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-05-06T18:38:53.653Z'
+}

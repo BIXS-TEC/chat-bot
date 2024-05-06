@@ -1,3 +1,6 @@
+const pwInterface = {};
+export default pwInterface;
+
 /** Standard printweb income structure
  * {
  *  "plataform": "printweb"
@@ -11,6 +14,6 @@
  * }
  */
 
-export function PrintWebDataToDefault(req) {
+pwInterface.PrintWebDataToDefault = function(req) {
   throw new Error("Não foi possivel padronizar a requisição de PrintWeb!");
 }

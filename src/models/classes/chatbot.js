@@ -1,27 +1,33 @@
 import getContextList from "../data/contexts/index.js";
+import getGroupList from "../data/groups.js";
 import Client from "./client.js";
-import { MessageSender } from "./sender.js";
+import { sendMessage } from "./sender.js";
 
 const verbose = true;
 
 export default class Chatbot {
-  constructor(id, businessName, phoneNumber, url, clientList, productList) {
+  constructor(id, businessName, phoneNumber, url, clientList, productList, groupList) {
     this.id = id;
     this.businessName = businessName;
     this.phoneNumber = phoneNumber;
     this.botName = "Assistente Virtual";
 
-    this.url = {};
-    this.url.faq = url.faq;
-    this.url.cardapio = url.cardapio;
+    this.config = {
+      atendente: true,
+      garcom: true,
+      groupNames: ['Cozinha', 'Bar', 'Garçom', 'Atendente'],
+      url: {
+        faq: url.faq,
+        cardapio: url.cardapio,
+      }
+    };
 
-    this.identifiers = Array.from({ length: 1000 }, (_, index) => index);
+    this.identifiers = Array.from({ length: 1000 }, (_, index) => String(index));
 
     this.clientList = clientList;
     this.productList = productList;
     this.contextList = getContextList(this);
-
-    this.MessageSender = new MessageSender();
+    this.groupList = getGroupList(this);
 
     this.clientList[this.phoneNumber] = new Client(
       0,
@@ -53,13 +59,13 @@ export default class Chatbot {
     console.log('interaction: ', client.chatbot.interaction);
     return new Promise((resolve, reject) => {
       this.contextList[client.chatbot.interaction][matchedContextName]
-        .runContext(this, this.clientList[client.phoneNumber])
+        .runContext(this.clientList[client.phoneNumber])
         .then((response) => {
           if (this.clientList[client.phoneNumber].humanChating) {
             resolve(null);
           } else {
             this.clientList[client.phoneNumber].saveLastChatbotMessage(response.responseObjects);
-            this.MessageSender.sendMessage(response)
+            sendMessage(response)
               .then((requestResponseList) => {
                 this.clientList[client.phoneNumber].saveResponse(requestResponseList);
                 resolve(response);
@@ -105,6 +111,7 @@ export default class Chatbot {
         }
       })();
       console.log("keyword: ", keyword, "; messageType: ", client.chatbot.messageType);
+      console.log("matchedContexts: ", matchedContext.map(context => context.name));
 
       const matchedContextCopy = [...matchedContext];
       for (const context of matchedContextCopy) {
@@ -116,6 +123,7 @@ export default class Chatbot {
       /* Contextos adicionados primeiro a contextList tem prioridade */
       this.clientList[client.phoneNumber].context = matchedContext[0].name;
       console.log("\x1b[36m%s\x1b[0m", "\nMatched context: ", matchedContext[0].name);
+      console.log("\x1b[36m%s\x1b[0m", "\nActivations keywords: ", matchedContext[0].activationKeywords);
 
       return matchedContext[0].name;
     } catch (error) {

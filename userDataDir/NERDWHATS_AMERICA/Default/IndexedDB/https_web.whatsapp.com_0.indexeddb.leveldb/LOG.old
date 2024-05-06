@@ -1,3 +1,13 @@
-2024/04/25-21:03:39.028 24c4 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/04/25-21:03:39.029 24c4 Recovering log #347
-2024/04/25-21:03:39.082 24c4 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000347.log 
+2024/05/06-10:46:55.806 16c0 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/05/06-10:46:55.807 16c0 Recovering log #698
+2024/05/06-10:46:55.861 16c0 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000698.log 
+2024/05/06-10:46:57.493 44ac Level-0 table #703: started
+2024/05/06-10:46:57.538 44ac Level-0 table #703: 787031 bytes OK
+2024/05/06-10:46:57.542 44ac Delete type=0 #698
+2024/05/06-10:46:57.545 44ac Manual compaction at level-0 from '\x00\xac\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xad\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/05/06-10:46:59.012 44ac Compacting 1@1 + 1@2 files
+2024/05/06-10:46:59.133 44ac Generated table #704@1: 53964 keys, 1815978 bytes
+2024/05/06-10:46:59.133 44ac Compacted 1@1 + 1@2 files => 1815978 bytes
+2024/05/06-10:46:59.134 44ac compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/05/06-10:46:59.134 44ac Delete type=2 #700
+2024/05/06-10:46:59.134 44ac Delete type=2 #703

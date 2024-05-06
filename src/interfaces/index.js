@@ -1,18 +1,18 @@
-import { standardizeMessageToDefault } from "./default.js";
-import { ManychatMessageToDefault } from "./manychat.js";
-import { WPPConnectMessageToDefault } from "./wppconnect.js";
-import { PrintWebDataToDefault } from "./printweb.js";
+import df from "./default.js";
+import mc from "./manychat.js";
+import wpp from "./wppconnect.js";
+import pw from "./printweb.js";
 
 export function standardizeMessageRequestToDefault(req) {
   switch (req.platform) {
     case undefined:
-      return standardizeMessageToDefault(req);
+      return df.standardizeMessageToDefault(req);
 
     case 'manychat':
-      return ManychatMessageToDefault(req);
+      return mc.ManychatMessageToDefault(req);
 
     case 'wppconnect':
-      return WPPConnectMessageToDefault(req);
+      return wpp.WPPConnectMessageToDefault(req);
     default:
       break;
   }
@@ -30,7 +30,7 @@ export function standardizeDataRequestToDefault(req) {
       return ;
 
     case 'printweb':
-      return PrintWebDataToDefault(req);
+      return pw.PrintWebDataToDefault(req);
     default:
       break;
   }

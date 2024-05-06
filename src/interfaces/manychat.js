@@ -1,3 +1,6 @@
+const mcInterface = {}
+export default mcInterface;
+
 /** Standard manychat income structure
  * {
  *  "plataform": "manychat"
@@ -11,6 +14,6 @@
  * }
  */
 
-export function ManychatMessageToDefault(req) {
+mcInterface.ManychatMessageToDefault = function(req) {
   throw new Error("Não foi possivel padronizar a requisição de Manychat!");
 }

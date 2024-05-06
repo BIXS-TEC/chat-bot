@@ -1,7 +1,7 @@
 import Context from "../../classes/context.js";
 import { f } from "./templates/cardapio-functions.js";
 
-function contextSetup(contextList) {
+function contextSetup(contextList, chatbot) {
   const contextNames = [];
   for (const contextName in contextList) {
     contextNames.push(`${contextName}`);
@@ -10,6 +10,8 @@ function contextSetup(contextList) {
   contextList["faq"].previousContexts = contextNames;
   contextList["atendente"].previousContexts = contextNames;
   contextList["invalido"].previousContexts = contextNames;
+  contextList["garcom"].previousContexts = contextNames;
+  contextList["informar-id"].activationKeywords = chatbot.identifiers;
 }
 
 export default function getCardapioOnlineContexts(chatbot) {
@@ -109,6 +111,53 @@ export default function getCardapioOnlineContexts(chatbot) {
     },
   });
 
+  contextList["garcom"] = new Context({
+    id: "2",
+    name: "garcom",
+    previousContexts: [], // Initialized as all context names in chatbot constructor
+    activationKeywords: ["garcom"],
+    action: function (client) {
+      return f.garcom.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.garcom.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["cardapio"] = new Context({
+    id: "3",
+    name: "cardapio",
+    previousContexts: ["bem-vindo", "editar-pedido", "finalizar-pedido", "adicionais"],
+    activationKeywords: ["cardapio"],
+    itemsList: {
+      buttonText: "Ver Cardápio 🍔",
+    },
+    action: function (client) {
+      try {
+        chatbot.clientList[client.phoneNumber].changeContext(this.name);
+      } catch (error) {
+        console.error('Erro em action no contexto "cardápio"', error);
+      }
+    },
+    responseObjects: function (client, args = {}) {
+      try {
+
+        return [
+          {
+            type: "text",
+            message: `Faça seu pedido em nosso Cardápio Online\nQualquer dúvida estarei a disposição!\n\nAcesse o cardápio clicando link abaixo`,
+          },
+          {
+            type: "linkPreview",
+            url: chatbot.config.url.cardapio,
+          },
+        ];
+      } catch (error) {
+        console.error('Erro em responseObjects no contexto "cardápio"', error);
+      }
+    },
+  });
+
   contextList["invalido"] = new Context({
     id: "999",
     name: "invalido",
@@ -136,7 +185,7 @@ export default function getCardapioOnlineContexts(chatbot) {
     },
   });
 
-  contextSetup(contextList);
+  contextSetup(contextList, chatbot);
 
   return contextList;
 }

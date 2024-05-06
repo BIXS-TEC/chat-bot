@@ -9,8 +9,7 @@ export default class Client {
     this.messageHistory = [`${context}&&${chatbot.currentMessage}`];
     this.orderList = {};
     this.humanChating = false;
-    this.messageIds = {};
-    this.messageIds.saveResponse = "";
+    this.messageIds = {saveResponse: ""};
   }
 
   updateClientData(client) {
@@ -102,11 +101,11 @@ export default class Client {
     }
   }
 
-  saveLastChatbotMessage(message) {
+  saveLastChatbotMessage(responseObjects) {
     if (this.chatbot.context !== "invalido") {
-      this.chatbot.lastChatbotMessage = message;
+      this.chatbot.lastChatbotMessage = responseObjects[0];
+      console.log('saveLastChatbotMessage: ', responseObjects);
     }
-    console.log('saveLastChatbotMessage message: ', message);
   }
 
   changeContext(context) {

@@ -1,6 +1,5 @@
 export default class Context {
   /**
-   *
    * @param {number} id - Context ID
    * @param {string} name - Context name
    * @param {Array.<string>} previousContexts - The list of context names that precede this context
@@ -21,15 +20,15 @@ export default class Context {
     this.responseObjects = responseObjects;
   }
 
-  async runContext(chatbot, client) {
+  async runContext(client) {
     try {
-      const args = this.action(chatbot, client);
+      const args = this.action(client);
       console.log('args: ', args);
 
       const response = {};
       response.clientPhone = client.phoneNumber;
       response.platform = client.platform;
-      response.responseObjects = args ? this.responseObjects(chatbot, client, args) : this.responseObjects(chatbot, client);
+      response.responseObjects = args ? this.responseObjects(client, args) : this.responseObjects(client);
 
       return response;
     } catch (error) {

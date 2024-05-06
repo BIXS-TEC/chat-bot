@@ -16,3 +16,7 @@ Texto com inversão
 2. Fila de requisições para espera em caso de inatividade do sistema
 3. Bearer Token de Autentificação para API
 4. Criar classes para product e additional
+5. Tornar WhatsApp 100% independente
+6. Init do bot pela conversa com proprio numero
+7. Data Source produtos via excel
+8. Registrar produtos na loja do WhatsApp

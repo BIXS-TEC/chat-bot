@@ -1,3 +1,51 @@
-2024/04/25-21:03:39.102 24c4 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/04/25-21:03:39.103 24c4 Recovering log #347
-2024/04/25-21:03:39.156 24c4 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000347.log 
+2024/05/06-10:47:21.782 1be4 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/05/06-10:47:21.783 1be4 Recovering log #702
+2024/05/06-10:47:21.826 1be4 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000702.log 
+2024/05/06-10:47:23.402 268 Level-0 table #707: started
+2024/05/06-10:47:23.436 268 Level-0 table #707: 455898 bytes OK
+2024/05/06-10:47:23.438 268 Delete type=0 #702
+2024/05/06-10:47:23.439 a58 Manual compaction at level-0 from '\x00\xad\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xae\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/05/06-10:47:24.943 a58 Compacting 1@1 + 1@2 files
+2024/05/06-10:47:25.291 a58 Generated table #708@1: 54785 keys, 1840319 bytes
+2024/05/06-10:47:25.291 a58 Compacted 1@1 + 1@2 files => 1840319 bytes
+2024/05/06-10:47:25.319 a58 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/05/06-10:47:25.319 a58 Delete type=2 #704
+2024/05/06-10:47:25.320 a58 Delete type=2 #707
+2024/05/06-10:52:26.047 268 Level-0 table #710: started
+2024/05/06-10:52:26.057 268 Level-0 table #710: 236886 bytes OK
+2024/05/06-10:52:26.058 268 Delete type=0 #706
+2024/05/06-10:52:26.059 a58 Manual compaction at level-0 from '\x00\xae\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xaf\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/05/06-10:52:36.071 a58 Compacting 1@1 + 1@2 files
+2024/05/06-10:52:36.147 a58 Generated table #711@1: 55380 keys, 1862480 bytes
+2024/05/06-10:52:36.147 a58 Compacted 1@1 + 1@2 files => 1862480 bytes
+2024/05/06-10:52:36.147 a58 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/05/06-10:52:36.148 a58 Delete type=2 #708
+2024/05/06-10:52:36.148 a58 Delete type=2 #710
+2024/05/06-12:03:18.667 a58 Level-0 table #713: started
+2024/05/06-12:03:18.703 a58 Level-0 table #713: 1368460 bytes OK
+2024/05/06-12:03:18.705 a58 Delete type=0 #709
+2024/05/06-12:04:52.810 1b84 Compacting 1@1 + 1@2 files
+2024/05/06-12:04:52.893 1b84 Generated table #714@1: 59455 keys, 1983659 bytes
+2024/05/06-12:04:52.893 1b84 Compacted 1@1 + 1@2 files => 1983659 bytes
+2024/05/06-12:04:52.894 1b84 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/05/06-12:04:52.894 1b84 Delete type=2 #711
+2024/05/06-12:04:52.895 1b84 Delete type=2 #713
+2024/05/06-14:22:33.403 a58 Level-0 table #716: started
+2024/05/06-14:22:33.442 a58 Level-0 table #716: 1277706 bytes OK
+2024/05/06-14:22:33.444 a58 Delete type=0 #712
+2024/05/06-14:24:18.408 1b84 Compacting 1@1 + 1@2 files
+2024/05/06-14:24:18.507 1b84 Generated table #717@1: 63678 keys, 2188050 bytes
+2024/05/06-14:24:18.508 1b84 Compacted 1@1 + 1@2 files => 2188050 bytes
+2024/05/06-14:24:18.508 1b84 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/05/06-14:24:18.509 1b84 Delete type=2 #714
+2024/05/06-14:24:18.509 1b84 Delete type=2 #716
+2024/05/06-15:35:40.137 1b84 Level-0 table #719: started
+2024/05/06-15:35:40.176 1b84 Level-0 table #719: 1302948 bytes OK
+2024/05/06-15:35:40.178 1b84 Delete type=0 #715
+2024/05/06-15:35:46.972 268 Compacting 1@1 + 1@2 files
+2024/05/06-15:35:47.073 268 Generated table #720@1: 61495 keys, 2261773 bytes
+2024/05/06-15:35:47.082 268 Generated table #721@1: 6331 keys, 156793 bytes
+2024/05/06-15:35:47.082 268 Compacted 1@1 + 1@2 files => 2418566 bytes
+2024/05/06-15:35:47.083 268 compacted to: files[ 0 0 2 0 0 0 0 ]
+2024/05/06-15:35:47.084 268 Delete type=2 #717
+2024/05/06-15:35:47.084 268 Delete type=2 #719

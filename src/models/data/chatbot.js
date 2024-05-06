@@ -12,6 +12,7 @@ export default function getChatbotList() {
     {faq: "https://printweb.vlks.com.br/", cardapio: "https://printweb.vlks.com.br/"},
     {},
     productList,
+    ['Cozinha', 'Bar', 'Garçom', 'Atendente'],
   );
 
   // chatbotList["123123123"] = new Chatbot(
