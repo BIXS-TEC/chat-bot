@@ -1,5 +1,3 @@
-import { error } from "console";
-
 const wppInterface = {};
 export default wppInterface;
 
@@ -20,29 +18,44 @@ wppInterface.WPPConnectMessageToDefault = function (req) {
     console.log("Não foi possivel padronizar a requisição de WPPConnect!\n", error);
   }
 };
+
 wppInterface.WPPConnectTextToDefault = function (req) {
   try {
-    // console.log('original request: ', req);
-
-    const client = {
-      id: req.id,
-      name: req.notifyName,
-      phoneNumber: formatPhoneWPPConnect(req.from),
-      platform: req.platform,
-      timestamp: req.t,
-      chatbot: {
-        currentMessage: req.body,
-        messageType: req.type,
-        interaction: req.interaction || "cardapio-whatsapp",
-        chatbotPhoneNumber: formatPhoneWPPConnect(req.to),
-        itemId: "",
-      },
-    };
-    if (req.type === "list_response") {
-      client.chatbot.itemId = req.listResponse.singleSelectReply.selectedRowId;
+    if (req.sender.isMe) {
+      return {
+        id: req.from,
+        name: req.sender.pushname,
+        phoneNumber: formatPhoneWPPConnect(req.from),
+        platform: req.platform,
+        timestamp: req.t,
+        isChatbot: true,
+        chatbot: {
+          currentMessage: req.body,
+          messageType: req.type,
+          messageTo: formatPhoneWPPConnect(req.to),
+          interaction: "admin",
+          chatbotPhoneNumber: formatPhoneWPPConnect(req.from),
+          itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
+        },
+      };
+    } else {
+      return {
+        id: req.from,
+        name: req.notifyName,
+        phoneNumber: formatPhoneWPPConnect(req.from),
+        platform: req.platform,
+        timestamp: req.t,
+        isChatbot: false,
+        chatbot: {
+          currentMessage: req.body,
+          messageType: req.type,
+          messageTo: formatPhoneWPPConnect(req.to),
+          interaction: req.interaction || "cardapio-whatsapp",
+          chatbotPhoneNumber: formatPhoneWPPConnect(req.to),
+          itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
+        },
+      };
     }
-
-    return client;
   } catch (error) {
     console.log("Não foi possivel padronizar a mensagem Text de WPPConnect!\n", error);
   }
@@ -140,6 +153,20 @@ wppInterface.defaultToWPPConnectResponseLinkPreview = function (response) {
   }
 };
 
+wppInterface.defaultToWPPConnectContactVcard = function (response) {
+  try {
+    const wppRes = {
+      contactsId: response.contactsId,
+      isGroup: response.isGroup || false,
+    };
+
+    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
+    return wppRes;
+  } catch (error) {
+    throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [ContactVcard]\n", error);
+  }
+};
+
 function formatPhoneWPPConnect(phoneNumber) {
   return phoneNumber.slice(0, phoneNumber.indexOf("@"));
 }
@@ -150,7 +177,6 @@ wppInterface.WppGroupsToDefault = function (response) {
   try {
     let groups = [];
     for (let group of response) {
-
       const participants = { admin: [], member: [] };
       for (let participant of group.groupMetadata.participants) {
         if (participant.isAdmin || participant.isSuperAdmin) {

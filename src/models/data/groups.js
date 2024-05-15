@@ -1,6 +1,9 @@
-import { sendGroupRequests } from "../classes/sender.js";
+import sender from "../classes/sender.js";
 
-export default async function getGroupList(chatbot) {
+const group = {};
+export default group;
+
+group.initializeGroupList = async function (chatbot) {
   try {
     /**
     * [{
@@ -14,7 +17,7 @@ export default async function getGroupList(chatbot) {
         participants: groupMetadata.participants
     }]
     */
-    const existingGroups = (await sendGroupRequests([{ type: "get-all-groups" }])).flat();
+    let existingGroups = (await sender.sendGroupRequests([{ type: "get-all-groups" }])).flat();
     console.log('existingGroups: ', existingGroups.map(group => group.name));
     
     const groupNames = chatbot.config.groupNames.filter(name => !existingGroups.some(group => group.name === name));
@@ -27,12 +30,15 @@ export default async function getGroupList(chatbot) {
         participants: chatbot.phoneNumber,
       });
     });
-    const newGroups = await sendGroupRequests(groupList);
+    existingGroups = existingGroups.concat(await sender.sendGroupRequests(groupList));
+
+    const newGroups = {};
     existingGroups.forEach(group => {
-      newGroups.push(group);
+      newGroups[group.name] = group;
     });
-    console.log('newGroups: ', newGroups.map(group => group.name));
-    return newGroups;
+    chatbot.groupList = newGroups;
+    console.log('groupList: ', chatbot.groupList);
+    return;
 
   } catch (error) {
     console.error("Error in getGroupList:", error);

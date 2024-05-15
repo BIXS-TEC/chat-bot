@@ -1,5 +1,5 @@
 import creator from "./creator.js";
-import { standardizeMessageRequestToDefault, standardizeDataRequestToDefault} from "../../interfaces/index.js";
+import { standardizeMessageRequestToDefault, standardizeDataRequestToDefault } from "../../interfaces/index.js";
 
 /**
  * Plataforma - De onde vem?
@@ -27,29 +27,48 @@ export function systemSetup() {
 export async function handleMessageRequest(request) {
   return new Promise((resolve, reject) => {
     try {
-      // console.log('request: ', request);
+      // console.log('\n\n\n\nrequest: ', request, '\n\n\n\n');
 
       const client = standardizeMessageRequestToDefault(request);
-      if (!client){
-        resolve({ statusCode: 200, message: "OK" });
+      if (!client) {
+        resolve({ statusCode: 200, message: "No data" });
         return;
       }
 
-      if (Math.floor(Date.now() / 1000) - client.timestamp > 30)
-        resolve({ statusCode: 408, message: "Request took more than 30 seconds to arrive!" });
+      if (Math.floor(Date.now() / 1000) - client.timestamp > 30) {
+        resolve({ statusCode: 200, message: "Request took more than 30 seconds to arrive!" });
+        return;
+      }
+      
+      const chatbot = chatbotList[client.chatbot.chatbotPhoneNumber];
 
       switch (client.chatbot.interaction) {
         case "cardapio-whatsapp":
         case "cardapio-online":
-          chatbotList[client.chatbot.chatbotPhoneNumber]
-            .handleOrderMenuFlow(client)
-            .then((result) => {
-              console.log("result: ", JSON.stringify(result));
-              resolve({ statusCode: 200, message: "OK" });
-            })
-            .catch((err) => {
-              reject(err);
-            });
+          if (!chatbot.clientList[client.phoneNumber]?.humanChating) {
+            chatbot
+              .handleOrderMenuFlow(client)
+              .then((result) => {
+                console.log("result: ", JSON.stringify(result));
+                resolve({ statusCode: 200, message: "OK" });
+              })
+              .catch((err) => {
+                reject(err);
+              });
+          }
+          break;
+        case "admin":
+          if (chatbot.clientList[client.chatbot.messageTo]?.humanChating) {
+            chatbot
+              .handleAdminCommand(client)
+              .then((result) => {
+                console.log("result: ", JSON.stringify(result));
+                resolve({ statusCode: 200, message: "OK" });
+              })
+              .catch((err) => {
+                reject(err);
+              });
+          }
           break;
 
         default:

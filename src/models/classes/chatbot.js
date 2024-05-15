@@ -1,7 +1,8 @@
-import getContextList from "../data/contexts/index.js";
-import getGroupList from "../data/groups.js";
+import order from "../../interfaces/wa-order.js";
+import context from "../data/contexts/index.js";
+import group from "../data/groups.js";
+import sender from "./sender.js";
 import Client from "./client.js";
-import { sendMessage } from "./sender.js";
 
 const verbose = true;
 
@@ -13,37 +14,85 @@ export default class Chatbot {
     this.botName = "Assistente Virtual";
 
     this.config = {
-      atendente: true,
-      garcom: true,
-      groupNames: ['Cozinha', 'Bar', 'Garçom', 'Atendente'],
+      flow: ["WhatsApp"], // Opções: ['WhatsApp', 'PrintWeb']
+      modality: ["Mesa"], // Opções: ['Mesa', 'Comanda']
+      serviceOptions: {
+        atendente: true,
+        garcom: true,
+        faq: true,
+      },
+      groupNames: ["Cozinha", "Bar", "Garçom", "Atendente"],
       url: {
         faq: url.faq,
         cardapio: url.cardapio,
-      }
+      },
     };
 
     this.identifiers = Array.from({ length: 1000 }, (_, index) => String(index));
 
     this.clientList = clientList;
     this.productList = productList;
-    this.contextList = getContextList(this);
-    this.groupList = getGroupList(this);
+    this.contextList = context.getContextList(this);
 
-    this.clientList[this.phoneNumber] = new Client(
-      0,
-      this.businessName,
-      this.phoneNumber,
-      "wppconnect",
-      {
+    group.initializeGroupList(this);
+
+    this.clientList[this.phoneNumber] = new Client({
+      id: 0,
+      name: this.businessName,
+      phoneNumber: this.phoneNumber,
+      platform: "wppconnect",
+      context: "admin",
+      humanChating: true,
+      chatbot: {
         currentMessage: "start",
         messageType: "chat",
         interaction: "adicionais",
         chatbotPhoneNumber: this.phoneNumber,
       },
-      "adm"
-    );
+    });
 
     if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
+  }
+
+  async handleAdminCommand(client) {
+    return new Promise((resolve, reject) => {
+      try {
+        // console.log("handleAdminCommand client:", client);
+        this.clientList[this.phoneNumber].updateClientData(client);
+
+        if (client.chatbot.messageTo === this.phoneNumber) {
+          console.log("\x1b[31m%s\x1b[0m", "Admin command not implemented yet");
+          resolve();
+        } else {
+          const command = this.contextList["admin"][client.chatbot.currentMessage];
+          if (command) {
+            command
+              .runContext(this.clientList[client.chatbot.messageTo])
+              .then((response) => {
+                this.clientList[client.phoneNumber].saveLastChatbotMessage(response.responseObjects);
+                sender
+                  .sendMessage(response)
+                  .then((requestResponseList) => {
+                    this.clientList[client.phoneNumber].saveResponse(requestResponseList);
+                    console.log("\x1b[36m%s\x1b[0m", `Cliente: [${client.platform}] ${JSON.stringify(this.clientList[client.phoneNumber])}`);
+                    resolve(response);
+                  })
+                  .catch((error) => {
+                    console.log("Erro em sendMessage: ", error);
+                    reject(error);
+                  });
+              })
+              .catch((error) => {
+                console.log("Erro ao processar contexto: ", error);
+                reject(error);
+              });
+          }
+        }
+      } catch (error) {
+        console.error("Error in handleAdminCommand:", error);
+        return error;
+      }
+    });
   }
 
   async handleOrderMenuFlow(client) {
@@ -52,29 +101,26 @@ export default class Chatbot {
     } else {
       this.clientList[client.phoneNumber].updateClientData(client);
     }
-    console.log("\x1b[36m%s\x1b[0m", `Cliente padronizado: [${client.platform}] ${JSON.stringify(this.clientList[client.phoneNumber])}`);
 
     const matchedContextName = this.findBestContext(this.clientList[client.phoneNumber]);
 
-    console.log('interaction: ', client.chatbot.interaction);
+    // console.log("interaction: ", client.chatbot.interaction);
     return new Promise((resolve, reject) => {
       this.contextList[client.chatbot.interaction][matchedContextName]
         .runContext(this.clientList[client.phoneNumber])
         .then((response) => {
-          if (this.clientList[client.phoneNumber].humanChating) {
-            resolve(null);
-          } else {
-            this.clientList[client.phoneNumber].saveLastChatbotMessage(response.responseObjects);
-            sendMessage(response)
-              .then((requestResponseList) => {
-                this.clientList[client.phoneNumber].saveResponse(requestResponseList);
-                resolve(response);
-              })
-              .catch((error) => {
-                console.log("Erro em sendMessage: ", error);
-                reject(error);
-              });
-          }
+          this.clientList[client.phoneNumber].saveLastChatbotMessage(response.responseObjects);
+          sender
+            .sendMessage(response)
+            .then((requestResponseList) => {
+              this.clientList[client.phoneNumber].saveResponse(requestResponseList);
+              console.log("\x1b[36m%s\x1b[0m", `Cliente: [${client.platform}] ${JSON.stringify(this.clientList[client.phoneNumber])}`);
+              resolve(response);
+            })
+            .catch((error) => {
+              console.log("Erro em sendMessage: ", error);
+              reject(error);
+            });
         })
         .catch((error) => {
           console.log("Erro ao processar contexto: ", error);
@@ -111,11 +157,18 @@ export default class Chatbot {
         }
       })();
       console.log("keyword: ", keyword, "; messageType: ", client.chatbot.messageType);
-      console.log("matchedContexts: ", matchedContext.map(context => context.name));
+      console.log(
+        "matchedContexts: ",
+        matchedContext.map((context) => context.name)
+      );
 
       const matchedContextCopy = [...matchedContext];
       for (const context of matchedContextCopy) {
-        if (matchedContext.length > 1 && !context.activationKeywords.includes(keyword)) {
+        if (
+          matchedContext.length > 1 &&
+          !context.activationKeywords.includes(keyword) &&
+          !(context.activationRegex && context.activationRegex.test(keyword))
+        ) {
           matchedContext.splice(matchedContext.indexOf(context), 1);
         }
       }
@@ -131,10 +184,6 @@ export default class Chatbot {
     }
   }
 
-  saveClientOrder(client) {
-    this.addClientToList(client)
-  }
-
   getProductById(id) {
     for (let category in this.productList) {
       if (id in this.productList[category]) {
@@ -142,125 +191,6 @@ export default class Chatbot {
       }
     }
     throw new Error("Error em getProductById. Produto não encontrado!\n", error);
-  }
-
-  getProductsIdsAndSections() {
-    const ids = [];
-    const sections = [];
-    for (let category in this.productList) {
-      const products = this.productList[category];
-      const rows = [];
-
-      for (let productId in products) {
-        const product = products[productId];
-        ids.push(`${productId}`);
-        rows.push({
-          rowId: `${product.id}`,
-          title: product.name,
-          description: `R$ ${product.price.toFixed(2).replace(".", ",")}`,
-        });
-      }
-      sections.push({
-        title: category,
-        rows: rows,
-      });
-    }
-    return [ids, sections];
-  }
-
-  getAdditionalIdsAndSections(client) {
-    try {
-      const ids = [];
-      const sections = [];
-      const orderList = this.clientList[client.phoneNumber].orderList;
-
-      for (const productId in orderList) {
-        const product = this.getProductById(productId);
-        if (product.additionalList && product.additionalList.length) {
-          const additionalList = product.additionalList[0];
-          console.log("additionalList: ", additionalList);
-          const clientProduct = orderList[productId];
-          console.log("clientProduct: ", clientProduct);
-          for (let i = 0; i < clientProduct.quantity; i++) {
-            const rows = [];
-            for (let additionalId in additionalList) {
-              const additional = additionalList[additionalId];
-              console.log("additionalId: ", additionalId);
-              ids.push(`${productId}:${i}:${additionalId}`);
-              rows.push({
-                rowId: `${productId}:${i}:${additionalId}`,
-                title: additional.name,
-                description: `+R$ ${additional.price.toFixed(2).replace(".", ",")}`,
-              });
-            }
-            sections.push({
-              title: `${clientProduct.name} nº ${i + 1}`,
-              rows: rows,
-            });
-          }
-        }
-      }
-
-      if (sections.length === 0) {
-        sections.push({
-          title: `Não há adicionais para os itens do seu pedido`,
-          rows: [
-            {
-              rowId: "cardapio",
-              title: "Ver cardápio 🍔",
-              description: "Volte ao cardápio para adicionar mais itens em seu pedido!",
-            },
-          ],
-        });
-      }
-
-      console.log("getProductsAdditionalIds ids: ", ids);
-      return [ids, sections];
-    } catch (error) {
-      console.error("Error in getProductsAdditionalIds: ", error);
-    }
-  }
-
-  getProductsAndAdditionalIdsAndSections(client) {
-    try {
-      const ids = [];
-      const sections = [];
-      const orderList = this.clientList[client.phoneNumber].orderList;
-
-      for (const productId in orderList) {
-        let rows = [];
-        const clientProduct = orderList[productId];
-        console.log("clientProduct :", JSON.stringify(clientProduct, null, 2));
-        for (let i = 0; i < clientProduct.quantity; i++) {
-          rows = [];
-          ids.push(`${productId}:${i}`);
-          rows.push({
-            rowId: `${productId}:${i}`,
-            title: clientProduct.name,
-            description: `R$ ${clientProduct.price.toFixed(2).replace(".", ",")}`,
-          });
-          if (clientProduct.additionalList && clientProduct.additionalList.length) {
-            for (let additionalId in clientProduct.additionalList[i]) {
-              const additional = clientProduct.additionalList[i][additionalId];
-              ids.push(`${productId}:${i}:${additionalId}`);
-              rows.push({
-                rowId: `${productId}:${i}:${additionalId}`,
-                title: additional.name,
-                description: `R$ ${additional.price.toFixed(2).replace(".", ",")}`,
-              });
-            }
-          }
-          sections.push({
-            title: `${clientProduct.name} nº ${i + 1}`,
-            rows: rows,
-          });
-        }
-      }
-      console.log("getProductsAndAdditionalIdsAndSections:\nids: ", ids, "\nsections: ", sections);
-      return [ids, sections];
-    } catch (error) {
-      console.error("Error in getProductsAndAdditionalIdsAndSections: ", error);
-    }
   }
 
   getRecommendedProduct() {
@@ -272,11 +202,27 @@ export default class Chatbot {
     try {
       if (!this.clientList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' adicionado!`);
       else if (this.clientList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' alterado!`);
-      this.clientList[client.phoneNumber] = new Client(client.id, client.name, client.phoneNumber, client.platform, client.chatbot);
+      this.clientList[client.phoneNumber] = new Client({
+        id: client.id,
+        name: client.name,
+        phoneNumber: client.phoneNumber,
+        platform: client.platform,
+        chatbot: client.chatbot,
+      });
       return true;
     } catch (error) {
       console.log("Error on addClientToList function", error);
     }
+  }
+
+  sendClientOrder(client) {
+    if (this.config.flow.includes("PrintWeb")) {
+      throw new Error("Enviar pedido para PrintWeb ainda não diponível");
+    }
+    if (this.config.flow.includes("WhatsApp")) {
+      return order.convertToMessage(client);
+    }
+    return;
   }
 
   removeClient(phoneNumber) {

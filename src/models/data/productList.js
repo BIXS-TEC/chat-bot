@@ -5,7 +5,9 @@ export const productList = {
     0: {
       id: 0,
       name: "X-Bacon",
-      price: 22.5,
+      description: 'Pão, hamburguer, bacon, queijo, tomate, alface',
+      price: 25.5,
+      maxAddQt: 3,
       additionalList: [
         {
           [additionalList[0].id]: additionalList[0],
@@ -16,7 +18,9 @@ export const productList = {
     1: {
       id: 1,
       name: "X-Burguer",
-      price: 23.0,
+      description: 'Pão, hamburguer, queijo',
+      price: 19.0,
+      maxAddQt: 3,
       additionalList: [
         {
           [additionalList[0].id]: additionalList[0],
@@ -27,7 +31,9 @@ export const productList = {
     2: {
       id: 2,
       name: "X-Salada",
+      description: 'Pão, hamburguer, queijo, tomate, alface',
       price: 22.5,
+      maxAddQt: 3,
       additionalList: [
         {
           [additionalList[0].id]: additionalList[0],
@@ -37,7 +43,9 @@ export const productList = {
     3: {
       id: 3,
       name: "X-Tudo",
+      description: 'Pão, hamburguer, bacon, ovo, calabresa, queijo, tomate, alface',
       price: 26.0,
+      maxAddQt: 3,
       additionalList: [
         {
           [additionalList[0].id]: additionalList[0],
@@ -70,3 +78,96 @@ export const productList = {
     },
   },
 };
+
+// Pizzas: {
+//   8: {
+//     id: 8,
+//     name: "Pizza BROTO 1 Sabor",
+//     description: '30 cm',
+//     price: 55.0,
+//     flavorQt: 1,
+//     flavorPriceIsProductPrice: true,
+//     flavorList: [
+//       {
+//         [flavorList[0].id]: flavorList[0],
+//         [flavorList[1].id]: flavorList[1],
+//         [flavorList[2].id]: flavorList[2],
+//       },
+//     ],
+//   },
+//   9: {
+//     id: 9,
+//     name: "Pizza GRANDE 1 Sabor",
+//     description: '40 cm',
+//     price: 72.0,
+//     flavorQt: 1,
+//     flavorPriceIsProductPrice: true,
+//     flavorList: [
+//       {
+//         [flavorList[0].id]: flavorList[0],
+//         [flavorList[1].id]: flavorList[1],
+//         [flavorList[2].id]: flavorList[2],
+//       },
+//     ],
+//   },
+//   9: {
+//     id: 9,
+//     name: "Pizza GRANDE 2 Sabores",
+//     description: '40 cm',
+//     price: 72.0,
+//     flavorQt: 2,
+//     flavorPriceIsProductPrice: true,
+//     flavorList: [
+//       {
+//         [flavorList[0].id]: flavorList[0],
+//         [flavorList[1].id]: flavorList[1],
+//         [flavorList[2].id]: flavorList[2],
+//       },
+//     ],
+//   },
+//   12: {
+//     id: 12,
+//     name: "Pizza GIGANTE 2 Sabores",
+//     description: '50 cm',
+//     price: 86.0,
+//     flavorQt: 2,
+//     flavorPriceIsProductPrice: true,
+//     flavorList: [
+//       {
+//         [flavorList[0].id]: flavorList[0],
+//         [flavorList[1].id]: flavorList[1],
+//         [flavorList[2].id]: flavorList[2],
+//       },
+//     ],
+//   },
+//   13: {
+//     id: 13,
+//     name: "Pizza GIGANTE 3 Sabores",
+//     description: '50 cm',
+//     price: 86.0,
+//     flavorQt: 3,
+//     flavorPriceIsProductPrice: true,
+//     flavorList: [
+//       {
+//         [flavorList[0].id]: flavorList[0],
+//         [flavorList[1].id]: flavorList[1],
+//         [flavorList[2].id]: flavorList[2],
+//       },
+//     ],
+//   },
+//   14: {
+//     id: 14,
+//     name: "Pizza GIGANTE 4 Sabores",
+//     description: '50 cm',
+//     price: 86.0,
+//     flavorQt: 4,
+//     flavorPriceIsProductPrice: true,
+//     flavorList: [
+//       {
+//         [flavorList[0].id]: flavorList[0],
+//         [flavorList[1].id]: flavorList[1],
+//         [flavorList[2].id]: flavorList[2],
+//       },
+//     ],
+//   },
+// },

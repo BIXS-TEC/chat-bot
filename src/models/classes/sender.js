@@ -1,7 +1,10 @@
 import WppSender from "../../APIs/wppconnect-server/wpp-sender.js";
 import wpp from "../../interfaces/wppconnect.js";
 
-export async function sendMessage(response) {
+const sender = {};
+export default sender;
+
+sender.sendMessage = async function (response) {
   try {
     switch (response.platform) {
       case "wppconnect": {
@@ -11,9 +14,9 @@ export async function sendMessage(response) {
           switch (message.type) {
             case "text": {
               const WppMessage = wpp.defaultToWPPConnectResponseTextMessage(message);
-              await WppSender.setTyping(phone, true);
+              if (!message.isGroup) await WppSender.setTyping(phone, true);
               const requestResponse = await WppSender.sendMessage(phone, WppMessage);
-              await WppSender.setTyping(phone, false);
+              if (!message.isGroup) await WppSender.setTyping(phone, false);
               requestResponseList.push(requestResponse);
               break;
             }
@@ -41,6 +44,14 @@ export async function sendMessage(response) {
               requestResponseList.push(requestResponse);
               break;
             }
+            case "contactVcard": {
+              const WppMessage = wpp.defaultToWPPConnectContactVcard(message);
+              await WppSender.setTyping(phone, true);
+              const requestResponse = await WppSender.sendContactVcard(phone, WppMessage);
+              await WppSender.setTyping(phone, false);
+              requestResponseList.push(requestResponse);
+              break;
+            }
             default:
               break;
           }
@@ -55,7 +66,7 @@ export async function sendMessage(response) {
   }
 }
 
-export async function sendGroupRequests(requestList) {
+sender.sendGroupRequests = async function (requestList) {
   try {
     const responseList = await Promise.all(
       requestList.map(async (request) => {

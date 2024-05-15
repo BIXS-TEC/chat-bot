@@ -1,9 +1,12 @@
-2024/05/06-10:47:21.254 4dc Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/MANIFEST-000001
-2024/05/06-10:47:21.261 4dc Recovering log #334
-2024/05/06-10:47:21.285 4dc Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/000334.log 
-2024/05/06-12:02:21.525 495c Level-0 table #339: started
-2024/05/06-12:02:21.533 495c Level-0 table #339: 12044 bytes OK
-2024/05/06-12:02:21.535 495c Delete type=0 #334
-2024/05/06-14:20:21.515 495c Level-0 table #341: started
-2024/05/06-14:20:21.524 495c Level-0 table #341: 9828 bytes OK
-2024/05/06-14:20:21.526 495c Delete type=0 #338
+2024/05/14-16:15:28.372 bb8 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/MANIFEST-000001
+2024/05/14-16:15:28.375 bb8 Recovering log #380
+2024/05/14-16:15:28.381 bb8 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/000380.log 
+2024/05/14-17:47:28.847 2c20 Level-0 table #385: started
+2024/05/14-17:47:28.854 2c20 Level-0 table #385: 11314 bytes OK
+2024/05/14-17:47:28.856 2c20 Delete type=0 #380
+2024/05/14-20:06:28.838 2c20 Level-0 table #387: started
+2024/05/14-20:06:28.846 2c20 Level-0 table #387: 10602 bytes OK
+2024/05/14-20:06:28.850 2c20 Delete type=0 #384
+2024/05/14-22:19:28.851 2c20 Level-0 table #389: started
+2024/05/14-22:19:28.858 2c20 Level-0 table #389: 10151 bytes OK
+2024/05/14-22:19:28.860 2c20 Delete type=0 #386

@@ -85,44 +85,50 @@ export default function getCardapioOnlineContexts(chatbot) {
     },
   });
 
-  contextList["faq"] = new Context({
-    id: "1",
-    name: "faq",
-    previousContexts: [], // Initialized as all context names in chatbot constructor
-    activationKeywords: ["faq"],
-    action: function (client) {
-      return f.faq.action(this, chatbot, client);
-    },
-    responseObjects: function (client, args = {}) {
-      return f.faq.responseObjects(this, chatbot, client, args);
-    },
-  });
+  if (chatbot.config.serviceOptions.faq) {
+    contextList["faq"] = new Context({
+      id: "1",
+      name: "faq",
+      previousContexts: [], // Initialized as all context names in chatbot constructor
+      activationKeywords: ["faq"],
+      action: function (client) {
+        return f.faq.action(this, chatbot, client);
+      },
+      responseObjects: function (client, args = {}) {
+        return f.faq.responseObjects(this, chatbot, client, args);
+      },
+    });
+  }
 
-  contextList["atendente"] = new Context({
-    id: "2",
-    name: "atendente",
-    previousContexts: [], // Initialized as all context names in chatbot constructor
-    activationKeywords: ["atendente"],
-    action: function (client) {
-      return f.atendente.action(this, chatbot, client);
-    },
-    responseObjects: function (client, args = {}) {
-      return f.atendente.responseObjects(this, chatbot, client, args);
-    },
-  });
+  if (chatbot.config.serviceOptions.atendente) {
+    contextList["atendente"] = new Context({
+      id: "2",
+      name: "atendente",
+      previousContexts: [], // Initialized as all context names in chatbot constructor
+      activationKeywords: ["atendente"],
+      action: function (client) {
+        return f.atendente.action(this, chatbot, client);
+      },
+      responseObjects: function (client, args = {}) {
+        return f.atendente.responseObjects(this, chatbot, client, args);
+      },
+    });
+  }
 
-  contextList["garcom"] = new Context({
-    id: "2",
-    name: "garcom",
-    previousContexts: [], // Initialized as all context names in chatbot constructor
-    activationKeywords: ["garcom"],
-    action: function (client) {
-      return f.garcom.action(this, chatbot, client);
-    },
-    responseObjects: function (client, args = {}) {
-      return f.garcom.responseObjects(this, chatbot, client, args);
-    },
-  });
+  if (chatbot.config.serviceOptions.garcom) {
+    contextList["garcom"] = new Context({
+      id: "2",
+      name: "garcom",
+      previousContexts: [], // Initialized as all context names in chatbot constructor
+      activationKeywords: ["garcom"],
+      action: function (client) {
+        return f.garcom.action(this, chatbot, client);
+      },
+      responseObjects: function (client, args = {}) {
+        return f.garcom.responseObjects(this, chatbot, client, args);
+      },
+    });
+  }
 
   contextList["cardapio"] = new Context({
     id: "3",
@@ -141,7 +147,6 @@ export default function getCardapioOnlineContexts(chatbot) {
     },
     responseObjects: function (client, args = {}) {
       try {
-
         return [
           {
             type: "text",

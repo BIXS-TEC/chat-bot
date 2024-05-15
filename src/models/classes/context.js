@@ -8,8 +8,9 @@ export default class Context {
    * @param {Array.<string>} [activationKeywords=[]] - The keywords that specifies the triggering of this context
    * @param {Array.<string>} [buttons=[]] - (optional) The list of buttons to be sent within the message
    */
-  constructor({ id, name, type, previousContexts, action, activationKeywords, responseObjects }) {
+  constructor({ id, name, previousContexts, action, activationKeywords, activationRegex, responseObjects }) {
     if (typeof action !== "function") throw new Error("\x1b[31m%s\x1b[0m", `O parâmetro action deve ser uma função [context: ${this.name}].`);
+    if (typeof responseObjects !== "function") throw new Error("\x1b[31m%s\x1b[0m", `O parâmetro responseObjects deve ser uma função [context: ${this.name}].`);
     // if (buttons.length > 0) this.checkButtonsRestrictions(buttons);
 
     this.id = id;
@@ -17,6 +18,7 @@ export default class Context {
     this.previousContexts = Array.isArray(previousContexts) ? previousContexts : [previousContexts];
     this.action = action;
     this.activationKeywords = Array.isArray(activationKeywords) ? activationKeywords : [activationKeywords];
+    this.activationRegex = activationRegex;
     this.responseObjects = responseObjects;
   }
 
@@ -28,7 +30,7 @@ export default class Context {
       const response = {};
       response.clientPhone = client.phoneNumber;
       response.platform = client.platform;
-      response.responseObjects = args ? this.responseObjects(client, args) : this.responseObjects(client);
+      response.responseObjects = this.responseObjects(client, args ? args : {});
 
       return response;
     } catch (error) {
