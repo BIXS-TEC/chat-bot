@@ -1,34 +1,25 @@
-2024/05/14-15:47:52.838 3538 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/05/14-15:47:52.839 3538 Recovering log #996
-2024/05/14-15:47:52.863 3538 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000996.log 
-2024/05/14-15:47:54.537 4f58 Level-0 table #1004: started
-2024/05/14-15:47:54.568 4f58 Level-0 table #1004: 327957 bytes OK
-2024/05/14-15:47:54.570 4f58 Delete type=0 #996
-2024/05/14-15:47:54.573 4a18 Manual compaction at level-0 from '\x00\xc9\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xca\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/05/14-15:47:56.061 4a18 Compacting 1@1 + 4@2 files
-2024/05/14-15:47:56.177 4a18 Generated table #1005@1: 86030 keys, 2235031 bytes
-2024/05/14-15:47:56.296 4a18 Generated table #1006@1: 69776 keys, 2423643 bytes
-2024/05/14-15:47:56.385 4a18 Generated table #1007@1: 13131 keys, 2410008 bytes
-2024/05/14-15:47:56.449 4a18 Generated table #1008@1: 41474 keys, 1111848 bytes
-2024/05/14-15:47:56.449 4a18 Compacted 1@1 + 4@2 files => 8180530 bytes
-2024/05/14-15:47:56.450 4a18 compacted to: files[ 0 0 4 0 0 0 0 ]
-2024/05/14-16:12:15.929 2b08 Level-0 table #1010: started
-2024/05/14-16:12:16.011 2b08 Level-0 table #1010: 1342593 bytes OK
-2024/05/14-16:12:16.013 2b08 Delete type=2 #998
-2024/05/14-16:12:16.013 2b08 Delete type=2 #999
-2024/05/14-16:12:16.014 2b08 Delete type=2 #1000
-2024/05/14-16:12:16.014 2b08 Delete type=2 #1001
-2024/05/14-16:12:16.014 2b08 Delete type=0 #1003
-2024/05/14-16:12:16.014 2b08 Delete type=2 #1004
-2024/05/14-16:12:16.614 2b08 Compacting 1@1 + 4@2 files
-2024/05/14-16:12:16.962 2b08 Generated table #1011@1: 86004 keys, 2235818 bytes
-2024/05/14-16:12:17.151 2b08 Generated table #1012@1: 72621 keys, 2409990 bytes
-2024/05/14-16:12:17.271 2b08 Generated table #1013@1: 11267 keys, 2430743 bytes
-2024/05/14-16:12:17.373 2b08 Generated table #1014@1: 44829 keys, 1287348 bytes
-2024/05/14-16:12:17.373 2b08 Compacted 1@1 + 4@2 files => 8363899 bytes
-2024/05/14-16:12:17.413 2b08 compacted to: files[ 0 0 4 0 0 0 0 ]
-2024/05/14-16:12:17.414 2b08 Delete type=2 #1005
-2024/05/14-16:12:17.414 2b08 Delete type=2 #1006
-2024/05/14-16:12:17.414 2b08 Delete type=2 #1007
-2024/05/14-16:12:17.414 2b08 Delete type=2 #1008
-2024/05/14-16:12:17.414 2b08 Delete type=2 #1010
+2024/05/19-22:31:33.086 1970 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/05/19-22:31:33.088 1970 Recovering log #1412
+2024/05/19-22:31:33.104 1970 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001412.log 
+2024/05/19-22:31:35.153 6d8 Level-0 table #1423: started
+2024/05/19-22:31:35.170 6d8 Level-0 table #1423: 230303 bytes OK
+2024/05/19-22:31:35.171 6d8 Delete type=0 #1412
+2024/05/19-22:31:35.172 1970 Manual compaction at level-0 from '\x00\xda\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xdb\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/05/19-22:31:36.764 6d8 Compacting 1@1 + 7@2 files
+2024/05/19-22:31:37.255 6d8 Generated table #1424@1: 84548 keys, 2235054 bytes
+2024/05/19-22:31:37.444 6d8 Generated table #1425@1: 96824 keys, 2248087 bytes
+2024/05/19-22:31:37.707 6d8 Generated table #1426@1: 97069 keys, 2282742 bytes
+2024/05/19-22:31:38.048 6d8 Generated table #1427@1: 2619 keys, 2824241 bytes
+2024/05/19-22:31:38.241 6d8 Generated table #1428@1: 11249 keys, 2427629 bytes
+2024/05/19-22:31:38.394 6d8 Generated table #1429@1: 26246 keys, 2201170 bytes
+2024/05/19-22:31:38.560 6d8 Generated table #1430@1: 66396 keys, 1649314 bytes
+2024/05/19-22:31:38.561 6d8 Compacted 1@1 + 7@2 files => 15868237 bytes
+2024/05/19-22:31:38.562 6d8 compacted to: files[ 0 0 7 0 0 0 0 ]
+2024/05/19-22:31:38.563 6d8 Delete type=2 #1414
+2024/05/19-22:31:38.563 6d8 Delete type=2 #1415
+2024/05/19-22:31:38.563 6d8 Delete type=2 #1416
+2024/05/19-22:31:38.563 6d8 Delete type=2 #1417
+2024/05/19-22:31:38.564 6d8 Delete type=2 #1418
+2024/05/19-22:31:38.564 6d8 Delete type=2 #1419
+2024/05/19-22:31:38.564 6d8 Delete type=2 #1420
+2024/05/19-22:31:38.564 6d8 Delete type=2 #1423

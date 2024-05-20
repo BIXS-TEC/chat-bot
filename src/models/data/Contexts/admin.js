@@ -25,14 +25,13 @@ export default function getAdminContexts(chatbot) {
     id: "0",
     name: "finalizar-atendimento",
     previuosContext: ['admin'],
+    activationKeywords: ["."],
     action: function(client) {
         chatbot.clientList[client.phoneNumber].humanChating = false;
-        console.log('client :', chatbot.clientList[client.phoneNumber]);
         return true;
     },
-    activationKeywords: ["."],
     responseObjects: function(client, args = {}) {
-        const returnMessage = chatbot.clientList[client.phoneNumber].chatbot.lastChatbotMessage;
+        const returnMessage = [...chatbot.clientList[client.phoneNumber].chatbot.lastChatbotMessage];
         returnMessage.unshift({
           type: 'text',
           message: 'Vamos continuar de onde paramos?'

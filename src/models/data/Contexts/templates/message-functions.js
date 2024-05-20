@@ -9,22 +9,22 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
       cardapio: {
         rowId: "cardapio",
         title: "Ver cardápio 🍔",
-        description: "Fazer um pedido",
+        description: "Monte seu pedido",
       },
       "voltar-cardapio": {
         rowId: "cardapio",
-        title: "Ver cardápio 🍔",
-        description: "Volte ao cardápio para adicionar mais itens em seu pedido",
+        title: "Voltar ao cardápio 🍔",
+        description: "",
       },
       atendente: {
         rowId: "atendente",
-        title: "Falar com um atendente 📲",
-        description: "Transferir para um atendente, caso precise resolver um problema específico",
+        title: "Transferir conversa para atendente 📲",
+        description: "",
       },
       garcom: {
         rowId: "garcom",
         title: "Solicitar garçom à mesa 🤵",
-        description: "Chame um garçom se precisar de algo que não esta no menu",
+        description: "",
       },
       faq: {
         rowId: "faq",
@@ -33,23 +33,23 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
       },
       adicionais: {
         rowId: "adicionais",
-        title: "Finalizar e incluir adicionais ⭐️",
-        description: "Inclua adicionais em seu pedido",
+        title: "Incluir adicionais ⭐️",
+        description: "",
       },
       "recomendar-produto": {
         rowId: "recomendar-produto",
         title: "Finalizar pedido ✅",
-        description: "Se estiver tudo pronto, finalize seu pedido",
+        description: "",
       },
       "editar-pedido": {
         rowId: "editar-pedido",
-        title: "Remover item ✏️",
-        description: "Mudou de ideia? Remova um item da sua lista",
+        title: "Remover item da lista ✏️",
+        description: "",
       },
       "finalizar-pedido": {
         rowId: "finalizar-pedido",
         title: "Finalizar pedido ✅",
-        description: "Se estiver tudo pronto, finalize seu pedido",
+        description: "",
       },
     };
 
@@ -77,7 +77,7 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
       rows: rows,
     };
   } catch (error) {
-    console.log("Error in buildSection: ", error);
+    console.error("Error in buildSection: ", error);
   }
 };
 
@@ -91,7 +91,7 @@ mf.checkMessageIDCode = function (currentMessage) {
         const [, code] = info[info.length - 1].split(":");
         if (modality && idNum && code) {
           const hash = CryptoJS.MD5(idNum).toString();
-          console.log(`checkMessageIDCode:  int:${modality} - id:${idNum} - code:${code} - hash:${hash.slice(-5)}`);
+          // console.log(`checkMessageIDCode:  int:${modality} - id:${idNum} - code:${code} - hash:${hash.slice(-5)}`);
           if (code === hash.slice(-5)) return [modality, idNum];
         }
       }
@@ -141,7 +141,7 @@ mf.getAdditionalIdsAndSections = function (chatbot, client) {
         const rows = [];
         // console.log('clientProduct.additionalList.length: ', clientProduct.additionalList.length);
         // console.log('product.maxAddQt: ', product.maxAddQt);
-        if (product.additionalList?.length && clientProduct.additionalList.length < product.maxAddQt) {
+        if (product.additionalList?.length && getAdditionalQuantity(clientProduct.additionalList[i]) < product.maxAddQt) {
           const additionalList = product.additionalList[0];
           for (let additionalId in additionalList) {
             const additional = additionalList[additionalId];
@@ -161,7 +161,7 @@ mf.getAdditionalIdsAndSections = function (chatbot, client) {
           description: 'Ex: "Retirar um ingrediente", "Copo com gelo e limão" ...',
         });
         sections.push({
-          title: `${clientProduct.name} nº ${i + 1}`,
+          title: `Adicionais de ${clientProduct.name} (${i + 1}º/${clientProduct.quantity})`,
           rows: rows,
         });
       }
@@ -189,7 +189,7 @@ mf.getProductsAndAdditionalIdsAndSections = function (chatbot, client) {
         ids.push(`${productId}:${i}`);
         rows.push({
           rowId: `${productId}:${i}`,
-          title: clientProduct.name,
+          title: `Remover ${clientProduct.name}`,
           description: `R$ ${clientProduct.price.toFixed(2).replace(".", ",")}`,
         });
         if (clientProduct.additionalList?.length) {
@@ -198,13 +198,13 @@ mf.getProductsAndAdditionalIdsAndSections = function (chatbot, client) {
             ids.push(`${productId}:${i}:${additionalId}`);
             rows.push({
               rowId: `${productId}:${i}:${additionalId}`,
-              title: additional.name,
+              title: `Remover ${additional.name}`,
               description: additionalId === "observation" ? additional.text : `R$ ${additional.price.toFixed(2).replace(".", ",")}`,
             });
           }
         }
         sections.push({
-          title: `${clientProduct.name} nº ${i + 1}`,
+          title: `${clientProduct.name} (${i + 1}º/${clientProduct.quantity})`,
           rows: rows,
         });
       }
@@ -233,16 +233,16 @@ mf.getOrderMessage = function (client) {
         if (Object.keys(orderList[productId].additionalList[i]).length) {
           for (const additionalId in orderList[productId].additionalList[i]) {
             const additional = orderList[productId].additionalList[i][additionalId];
-            console.log('\x1b[34;1m%s\x1b[0m','additional: ', additional);
+            // console.log('\x1b[34;1m%s\x1b[0m','additional: ', additional);
             if (additional.name === 'Observação') {
-              message += "\n> +`Obs: " + additional.text + "`";
+              message += "\n   +`Obs: " + additional.text + "`";
             } else {
-              message += "\n> +`" + `${additional.name} x${additional.quantity}` + "`";
+              message += "\n   +`" + `${additional.name} x${additional.quantity}` + "`";
               totalPrice += additional.price;
             }
           }
         } else {
-          message += "\n> `tradicional`";
+          message += "\n   `tradicional`";
         }
       }
     } else {
@@ -253,3 +253,14 @@ mf.getOrderMessage = function (client) {
   message = `Seu pedido: (Total R$ ${totalPrice.toFixed(2).replace(".", ",")})` + message;
   return message;
 };
+
+function getAdditionalQuantity(additionalList) {
+  let quantity = 0;
+  for (const additionalId in additionalList) {
+    const additional = additionalList[additionalId];
+    if (additional.quantity) {
+      quantity += additional.quantity;
+    }
+  }
+  return quantity;
+}

@@ -60,7 +60,7 @@ export default class Client {
       if (clientProduct.additionalList && clientProduct.additionalList.length) this.orderList[productId].additionalList.splice(index, 1);
       if (clientProduct.quantity === 0) delete this.orderList[productId];
     } else {
-      console.log("additionalList[index][additionalId]: ", JSON.stringify(this.orderList[productId].additionalList[index][additionalId], null, 2));
+      // console.log("additionalList[index][additionalId]: ", JSON.stringify(this.orderList[productId].additionalList[index][additionalId], null, 2));
       this.orderList[productId].additionalList[index][additionalId].quantity -= 1;
       if (clientProduct.additionalList[index][additionalId].quantity === 0) {
         delete this.orderList[productId].additionalList[index][additionalId];
@@ -88,9 +88,10 @@ export default class Client {
   }
 
   saveLastChatbotMessage(responseObjects) {
+    console.log('\x1b[35;1m%s\x1b[0m', 'saveLastChatbotMessage Context: ', this.chatbot.context);
     if (this.chatbot.context !== "invalido" && this.chatbot.context !== "atendente") {
       this.chatbot.lastChatbotMessage = responseObjects;
-      // console.log("saveLastChatbotMessage: ", responseObjects);
+      console.log('\x1b[35;1m%s\x1b[0m', "saveLastChatbotMessage: ", responseObjects);
     }
   }
 
@@ -99,7 +100,7 @@ export default class Client {
       if (typeof context === "string") this.chatbot.context = context;
       else throw new Error("Nome do context deve ser uma string");
     } catch (error) {
-      console.log("Erro em changeContext da classe Client", error);
+      console.error("Erro em changeContext da classe Client", error);
     }
   }
 

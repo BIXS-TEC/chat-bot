@@ -18,7 +18,7 @@ order.convertToMessage = function (client) {
         const additionals = Object.values(product.additionalList[i]);
         if (additionals.length) {
           for (let j=0; j<additionals.length; j++) {
-            message += `    ${j>0 ? '      ' : '' }${additionals[j].name} - ${additionals[j].quantity}x\n`;
+            message += `    ${j>0 ? '      ' : '' }${additionals[j].name} - ${additionals[j].quantity ? `${additionals[j].quantity}x` : additionals[j].text}\n`;
           }
         } else {
           message += `    Tradicional\n`;

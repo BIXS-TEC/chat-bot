@@ -25,12 +25,14 @@ export default class Context {
   async runContext(client) {
     try {
       const args = this.action(client);
-      console.log('args: ', args);
-
+      // console.log('args: ', args);
+      
       const response = {};
       response.clientPhone = client.phoneNumber;
       response.platform = client.platform;
+      console.log('runContext client.chatbot:', client.chatbot.lastChatbotMessage);
       response.responseObjects = this.responseObjects(client, args ? args : {});
+      console.log('runContext client.chatbot:', client.chatbot.lastChatbotMessage);
 
       return response;
     } catch (error) {

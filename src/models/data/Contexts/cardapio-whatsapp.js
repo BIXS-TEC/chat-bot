@@ -133,7 +133,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   contextList["cardapio"] = new Context({
     id: "5",
     name: "cardapio",
-    previousContexts: ["bem-vindo", "editar-pedido", "finalizar-pedido", "adicionais"],
+    previousContexts: ["bem-vindo", "editar-pedido", "finalizar-pedido", "adicionais", "atendente", "recorrente", "recomendar-produto"],
     activationKeywords: ["cardapio"],
     itemsList: {
       buttonText: "Ver Cardápio 🍔",
@@ -224,7 +224,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   contextList["incluir-recomendado"] = new Context({
     id: "12",
     name: "incluir-recomendado",
-    previousContexts: ["recomendar-produto"],
+    previousContexts: ["recomendar-produto", "recorrente"],
     activationKeywords: ["incluir-recomendado1", "incluir-recomendado2", "incluir-recomendado3"],
     action: function (client) {
       return f.incluir_recomendado.action(this, chatbot, client);
@@ -272,6 +272,19 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
   });
 
+  contextList["recorrente"] = new Context({
+    id: "16",
+    name: "recorrente",
+    previousContexts: ["finalizar-pedido"],
+    activationKeywords: ["recorrente"],
+    action: function (client) {
+      return f.recorrente.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.recorrente.responseObjects(this, chatbot, client, args);
+    },
+  });
+
   contextList["invalido"] = new Context({
     id: "999",
     name: "invalido",
@@ -282,19 +295,6 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
     responseObjects: function (client, args = {}) {
       return f.invalido.responseObjects(this, chatbot, client, args);
-    },
-  });
-
-  contextList["end-session"] = new Context({
-    id: "1000",
-    name: "end-session",
-    previousContexts: ["adm"],
-    activationKeywords: ["#end-session"],
-    action: function (client) {
-      return f.end_session.action(this, chatbot, client);
-    },
-    responseObjects: function (client, args = {}) {
-      return f.end_session.responseObjects(this, chatbot, client, args);
     },
   });
 

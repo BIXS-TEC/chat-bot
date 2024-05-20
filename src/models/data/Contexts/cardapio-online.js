@@ -135,9 +135,6 @@ export default function getCardapioOnlineContexts(chatbot) {
     name: "cardapio",
     previousContexts: ["bem-vindo", "editar-pedido", "finalizar-pedido", "adicionais"],
     activationKeywords: ["cardapio"],
-    itemsList: {
-      buttonText: "Ver Cardápio 🍔",
-    },
     action: function (client) {
       try {
         chatbot.clientList[client.phoneNumber].changeContext(this.name);
@@ -173,20 +170,6 @@ export default function getCardapioOnlineContexts(chatbot) {
     },
     responseObjects: function (client, args = {}) {
       return f.invalido.responseObjects(this, chatbot, client, args);
-    },
-  });
-
-  contextList["end-session"] = new Context({
-    id: "1000",
-    name: "end-session",
-    previousContexts: ["adm"],
-    activationKeywords: ["#end-session"],
-    action: function (client) {
-      console.log("\x1b[31;1m%s\x1b[0m", "Encerrando a sessão a pedido do comando via chat adm!");
-      closeSession();
-    },
-    responseObjects: function (client, args = {}) {
-      return [{ type: "text", message: `A sessão será encerrada!` }];
     },
   });
 

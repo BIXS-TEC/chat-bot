@@ -27,7 +27,7 @@ export function systemSetup() {
 export async function handleMessageRequest(request) {
   return new Promise((resolve, reject) => {
     try {
-      // console.log('\n\n\n\nrequest: ', request, '\n\n\n\n');
+      // console.log('\x1b[36;1m','\n\n\n\nrequest: ', request, '\n\n\n\n', '\x1b[0m');
 
       const client = standardizeMessageRequestToDefault(request);
       if (!client) {
@@ -49,7 +49,7 @@ export async function handleMessageRequest(request) {
             chatbot
               .handleOrderMenuFlow(client)
               .then((result) => {
-                console.log("result: ", JSON.stringify(result));
+                // console.log("result: ", JSON.stringify(result));
                 resolve({ statusCode: 200, message: "OK" });
               })
               .catch((err) => {
@@ -62,7 +62,7 @@ export async function handleMessageRequest(request) {
             chatbot
               .handleAdminCommand(client)
               .then((result) => {
-                console.log("result: ", JSON.stringify(result));
+                // console.log("result: ", JSON.stringify(result));
                 resolve({ statusCode: 200, message: "OK" });
               })
               .catch((err) => {
@@ -72,7 +72,7 @@ export async function handleMessageRequest(request) {
           break;
 
         default:
-          console.log("client.chatbot: ", client.chatbot);
+          console.log("client.chatbot: ", client);
           resolve({ statusCode: 204, message: `req.chatbot.interaction must be a valid tag. ${client.chatbot.interaction} is not` });
       }
     } catch (error) {

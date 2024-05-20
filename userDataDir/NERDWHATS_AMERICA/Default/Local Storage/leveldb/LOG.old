@@ -1,15 +1,6 @@
-2024/05/14-15:47:52.480 3aec Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/MANIFEST-000001
-2024/05/14-15:47:52.482 3aec Recovering log #377
-2024/05/14-15:47:52.498 3aec Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/000377.log 
-2024/05/14-15:48:52.525 49e4 Level-0 table #381: started
-2024/05/14-15:48:52.533 49e4 Level-0 table #381: 11349 bytes OK
-2024/05/14-15:48:52.535 49e4 Delete type=0 #377
-2024/05/14-15:48:52.536 49e4 Compacting 4@0 + 1@1 files
-2024/05/14-15:48:52.544 49e4 Generated table #382@0: 83 keys, 6335 bytes
-2024/05/14-15:48:52.544 49e4 Compacted 4@0 + 1@1 files => 6335 bytes
-2024/05/14-15:48:52.545 49e4 compacted to: files[ 0 1 0 0 0 0 0 ]
-2024/05/14-15:48:52.546 49e4 Delete type=2 #370
-2024/05/14-15:48:52.546 49e4 Delete type=2 #373
-2024/05/14-15:48:52.547 49e4 Delete type=2 #376
-2024/05/14-15:48:52.547 49e4 Delete type=2 #378
-2024/05/14-15:48:52.547 49e4 Delete type=2 #381
+2024/05/19-22:31:32.607 12d0 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/MANIFEST-000001
+2024/05/19-22:31:32.612 12d0 Recovering log #435
+2024/05/19-22:31:32.623 12d0 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/000435.log 
+2024/05/19-22:33:32.818 2658 Level-0 table #439: started
+2024/05/19-22:33:32.826 2658 Level-0 table #439: 15494 bytes OK
+2024/05/19-22:33:32.828 2658 Delete type=0 #435
