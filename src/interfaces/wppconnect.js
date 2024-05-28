@@ -1,5 +1,9 @@
+import Group from "../models/classes/group.js";
+
 const wppInterface = {};
 export default wppInterface;
+
+const verbose = false;
 
 ////////////////////////////////////* Messages *////////////////////////////////////
 
@@ -9,6 +13,12 @@ wppInterface.WPPConnectMessageToDefault = function (req) {
       case "list_response":
       case "chat": {
         return wppInterface.WPPConnectTextToDefault(req);
+      }
+      case "vcard": {
+        return wppInterface.WPPConnectVcardToDefault(req);
+      }
+      case "poll": {
+        return wppInterface.WPPConnectPollToDefault(req);
       }
       default: {
         return;
@@ -21,37 +31,58 @@ wppInterface.WPPConnectMessageToDefault = function (req) {
 
 wppInterface.WPPConnectTextToDefault = function (req) {
   try {
-    if (req.sender.isMe) {
+    if (!req.isGroupMsg) {
+      if (req.sender.isMe) {
+        return {
+          id: req.from,
+          name: req.sender.pushname,
+          phoneNumber: formatPhoneWPPConnect(req.from),
+          platform: req.platform,
+          timestamp: req.t,
+          isChatbot: true, // req.sender.isMe
+          chatbot: {
+            currentMessage: req.body,
+            messageType: req.type,
+            messageTo: formatPhoneWPPConnect(req.to),
+            interaction: "admin",
+            chatbotPhoneNumber: formatPhoneWPPConnect(req.from),
+            itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
+          },
+        };
+      } else {
+        return {
+          id: req.from,
+          name: req.notifyName,
+          phoneNumber: formatPhoneWPPConnect(req.from),
+          platform: req.platform,
+          timestamp: req.t,
+          isChatbot: false, // req.sender.isMe
+          chatbot: {
+            currentMessage: req.body,
+            messageType: req.type,
+            messageTo: formatPhoneWPPConnect(req.to),
+            interaction: req.interaction || "cardapio-whatsapp",
+            chatbotPhoneNumber: formatPhoneWPPConnect(req.to),
+            itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
+          },
+        };
+      }
+    } else {
       return {
         id: req.from,
         name: req.sender.pushname,
         phoneNumber: formatPhoneWPPConnect(req.from),
+        isGroupMsg: true,
         platform: req.platform,
         timestamp: req.t,
-        isChatbot: true,
+        isChatbot: true, // req.sender.isMe
         chatbot: {
+          messageId: req.id.split("_")[2],
           currentMessage: req.body,
           messageType: req.type,
           messageTo: formatPhoneWPPConnect(req.to),
-          interaction: "admin",
+          interaction: "group",
           chatbotPhoneNumber: formatPhoneWPPConnect(req.from),
-          itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
-        },
-      };
-    } else {
-      return {
-        id: req.from,
-        name: req.notifyName,
-        phoneNumber: formatPhoneWPPConnect(req.from),
-        platform: req.platform,
-        timestamp: req.t,
-        isChatbot: false,
-        chatbot: {
-          currentMessage: req.body,
-          messageType: req.type,
-          messageTo: formatPhoneWPPConnect(req.to),
-          interaction: req.interaction || "cardapio-whatsapp",
-          chatbotPhoneNumber: formatPhoneWPPConnect(req.to),
           itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
         },
       };
@@ -61,14 +92,56 @@ wppInterface.WPPConnectTextToDefault = function (req) {
   }
 };
 
-/**
-  {
-    phone: '55DD########',
-    message: 'Text Message',
-    isNewsletter: false,
-    isGroup: false
+wppInterface.WPPConnectVcardToDefault = function (req) {
+  try {
+    const [id, chatId, messageId, phoneId] = req.id.split("_");
+    return {
+      chatId: chatId,
+      messageId: messageId,
+      phoneId: phoneId,
+      timestamp: req.t,
+      phoneNumber: formatPhoneWPPConnect(req.from),
+      isChatbot: req.sender.isMe,
+      platform: req.platform,
+      chatbot: {
+        messageType: req.type,
+        currentMessage: req.body,
+        messageTo: formatPhoneWPPConnect(req.to),
+        interaction: "group",
+        chatbotPhoneNumber: formatPhoneWPPConnect(req.from),
+        vcardContact: {
+          phoneNumber: req.body.match(/waid=(\d+)/)[1],
+          name: req.body.match(/FN:(.*)/)[1],
+        },
+      },
+    };
+  } catch (error) {
+    console.log("Não foi possivel padronizar a mensagem Vcard de WPPConnect!\n", error);
   }
-*/
+};
+
+wppInterface.WPPConnectPollToDefault = function (req) {
+  try {
+    return {
+      chatId: req.chatId,
+      messageId: req.msgId.id,
+      timestamp: req.timestamp,
+      phoneNumber: formatPhoneWPPConnect(req.sender),
+      platform: req.platform,
+      chatbot: {
+        selectedOptionName: req.selectedOptions[0].name,
+        selectedOptionId: req.selectedOptions[0].localId,
+        interaction: req.interaction,
+        chatbotPhoneNumber: undefined,
+      },
+    };
+  } catch (error) {
+    console.log("Não foi possivel padronizar a mensagem Vcard de WPPConnect!\n", error);
+  }
+};
+
+/** Chat */ // Juntar essas funções em uma defaultToWPPConnect('type', args)
+
 wppInterface.defaultToWPPConnectResponseTextMessage = function (response) {
   try {
     const wppRes = {
@@ -76,7 +149,7 @@ wppInterface.defaultToWPPConnectResponseTextMessage = function (response) {
       isNewsletter: response.isNewsletter || false,
       isGroup: response.isGroup || false,
     };
-    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
+    if (verbose) console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
 
     return wppRes;
   } catch (error) {
@@ -118,7 +191,7 @@ wppInterface.defaultToWPPConnectResponseListMessage = function (response) {
       sections: response.sections,
     };
 
-    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
+    if (verbose) console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [ListMessage]\n", error);
@@ -132,7 +205,7 @@ wppInterface.defaultToWPPConnectResponseReplyMessage = function (response) {
       messageId: response.messageId,
     };
 
-    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
+    if (verbose) console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [ReplyMessage]\n", error);
@@ -146,7 +219,7 @@ wppInterface.defaultToWPPConnectResponseLinkPreview = function (response) {
     };
     if (response.caption) wppRes.caption = response.caption;
 
-    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
+    if (verbose) console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [PreviewLink]\n", error);
@@ -160,12 +233,30 @@ wppInterface.defaultToWPPConnectContactVcard = function (response) {
       isGroup: response.isGroup || false,
     };
 
-    console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
+    if (verbose) console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [ContactVcard]\n", error);
   }
 };
+
+wppInterface.defaultToWPPConnectPollMessage = function (response) {
+  try {
+    const wppRes = {
+      isGroup: response.isGroup || false,
+      name: response.name,
+      choices: response.choices,
+      options: {
+          selectableCount: response.selectableCount || 1,
+      }
+  };
+
+    if (verbose) console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
+    return wppRes;
+  } catch (error) {
+    throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [defaultToWPPConnectPollMessage]\n", error);
+  }
+}
 
 function formatPhoneWPPConnect(phoneNumber) {
   return phoneNumber.slice(0, phoneNumber.indexOf("@"));
@@ -173,24 +264,28 @@ function formatPhoneWPPConnect(phoneNumber) {
 
 ////////////////////////////////////* Groups *////////////////////////////////////
 
-wppInterface.WppGroupsToDefault = function (response) {
+wppInterface.WppGetAllGroupsToDefault = function (response) {
   try {
     let groups = [];
     for (let group of response) {
-      const participants = { admin: [], member: [] };
+      const admin = [];
+      const member = [];
       for (let participant of group.groupMetadata.participants) {
         if (participant.isAdmin || participant.isSuperAdmin) {
-          participants.admin.push(participant.id.user);
+          admin.push(participant.id.user);
         } else {
-          participants.member.push(participant.id.user);
+          member.push(participant.id.user);
         }
       }
 
-      groups.push({
-        contact: group.contact.id.user,
-        name: group.contact.name,
-        participants: participants,
-      });
+      groups.push(
+        Group.createGroup({
+          chatId: group.contact.id.user,
+          name: group.contact.name,
+          admin: admin,
+          member: member,
+        })
+      );
     }
     return groups;
   } catch (error) {
@@ -203,13 +298,11 @@ wppInterface.WppCreatedGroupToDefault = function (response, participant) {
     if (response.statusText !== "Created") throw new Error("statusText is not 'Created'");
     response = response.data.response;
 
-    const participants = { admin: [participant], member: [] };
-
-    return {
-      contact: response.groupInfo[0].id,
+    return Group.createGroup({
+      id: response.groupInfo[0].id,
       name: response.groupInfo[0].name,
-      participants: participants,
-    };
+      admin: [participant],
+    });
   } catch (error) {
     console.error("Error in WppGroupsToDefault", error);
   }

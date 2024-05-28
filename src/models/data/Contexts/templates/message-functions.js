@@ -53,6 +53,31 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
       },
     };
 
+    if (sectionsName.includes("recorrente")) {
+      const approvedOrderList = args.client.approvedOrderList;
+      console.log("approvedOrderList", approvedOrderList);
+      console.log("");
+      const rows = [];
+      for (let productId in approvedOrderList) {
+        const category = approvedOrderList[productId].category;
+        console.log("category: ", category);
+        if (chatbot.config.recurrentCategories.includes(category)) {
+          const product = chatbot.getProductById(productId);
+          rows.push({
+            rowId: `${productId}`,
+            title: `${product.name}`,
+            description: `R$ ${product.price.toFixed(2).replace(".", ",")}`,
+          });
+        }
+      }
+      console.log("rows: ", rows);
+      if (rows.length) {
+        sectionMappings["recorrente"] = rows;
+      } else {
+        sectionsName.push("incluir-recomendado");
+      }
+    }
+
     // Adiciona as seções de incluir recomendado dinamicamente
     if (sectionsName.includes("incluir-recomendado")) {
       const rows = Array.from({ length: args.qtdRecommended }, (_, index) => ({
@@ -61,6 +86,17 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
         description: `+R$ ${args.recommended.price.toFixed(2).replace(".", ",")} cada`,
       }));
       sectionMappings["incluir-recomendado"] = rows;
+    }
+
+    if (sectionsName.includes("pesquisa-satisfacao")) {
+      const rows = [
+        { rowId: '0', title: "Excelente", description: "" },
+        { rowId: '1', title: "Bom", description: "" },
+        { rowId: '2', title: "Regular", description: "" },
+        { rowId: '3', title: "Ruim", description: "" },
+        { rowId: '4', title: "Péssimo", description: "" },
+      ];
+      sectionMappings["pesquisa-satisfacao"] = rows;
     }
 
     const rows = sectionsName
@@ -234,7 +270,7 @@ mf.getOrderMessage = function (client) {
           for (const additionalId in orderList[productId].additionalList[i]) {
             const additional = orderList[productId].additionalList[i][additionalId];
             // console.log('\x1b[34;1m%s\x1b[0m','additional: ', additional);
-            if (additional.name === 'Observação') {
+            if (additional.name === "Observação") {
               message += "\n   +`Obs: " + additional.text + "`";
             } else {
               message += "\n   +`" + `${additional.name} x${additional.quantity}` + "`";

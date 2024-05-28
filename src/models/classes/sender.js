@@ -6,6 +6,7 @@ export default sender;
 
 sender.sendMessage = async function (response) {
   try {
+    if (!response.responseObjects) return;
     switch (response.platform) {
       case "wppconnect": {
         let requestResponseList = [];
@@ -52,6 +53,14 @@ sender.sendMessage = async function (response) {
               requestResponseList.push(requestResponse);
               break;
             }
+            case "pollMessage": {
+              const WppMessage = wpp.defaultToWPPConnectPollMessage(message);
+              await WppSender.setTyping(phone, true);
+              const requestResponse = await WppSender.sendPollMessage(phone, WppMessage);
+              await WppSender.setTyping(phone, false);
+              requestResponseList.push(requestResponse);
+              break;
+            }
             default:
               break;
           }
@@ -73,7 +82,7 @@ sender.sendGroupRequests = async function (requestList) {
         switch (request.type) {
           case "get-all-groups": {
             let response = await WppSender.getAllGroups();
-            response = wpp.WppGroupsToDefault(response);
+            response = wpp.WppGetAllGroupsToDefault(response);
             return response;
           }
           case "create-group": {

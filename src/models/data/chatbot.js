@@ -10,12 +10,14 @@ export default function getChatbotList() {
     businessName: "Restaurante Bix",
     phoneNumber: "554891487526",
     clientList: {},
-    productList: filteredProductList,
+    productList: productList,
     config: {
       recurrentTime: 1 * 10 * 1000, // minutos * segundos * milisegundos
+      recurrentCategories: ['Bebidas', 'Drinks'],
       flow: ["WhatsApp"], // Opções: ['WhatsApp', 'PrintWeb']
-      modality: ["Mesa"], // Opções: ['Mesa', 'Comanda', 'Cartela', 'Fixa']
-      groupNames: ["Cozinha2", "Garçom2", "Atendente2"],
+      modality: ["Mesa"], // Opções: ['Mesa', 'Comanda', 'Cartela', 'Ficha']
+      groupNames: ["Cozinha", "Garçom", "Atendente", "Caixa"],
+      topProductsId: [0, 1, 4, 5],
       serviceOptions: {
         atendente: true,
         garcom: true,

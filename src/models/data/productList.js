@@ -8,6 +8,7 @@ export const productList = {
       description: 'Pão, hamburguer, bacon, queijo, tomate, alface',
       price: 25.5,
       maxAddQt: 3,
+      category: 'Lanches',
       additionalList: [
         {
           [additionalList[0].id]: additionalList[0],
@@ -21,6 +22,7 @@ export const productList = {
       description: 'Pão, hamburguer, queijo',
       price: 19.0,
       maxAddQt: 3,
+      category: 'Lanches',
       additionalList: [
         {
           [additionalList[0].id]: additionalList[0],
@@ -34,6 +36,7 @@ export const productList = {
       description: 'Pão, hamburguer, queijo, tomate, alface',
       price: 22.5,
       maxAddQt: 3,
+      category: 'Lanches',
       additionalList: [
         {
           [additionalList[0].id]: additionalList[0],
@@ -46,6 +49,7 @@ export const productList = {
       description: 'Pão, hamburguer, bacon, ovo, calabresa, queijo, tomate, alface',
       price: 26.0,
       maxAddQt: 3,
+      category: 'Lanches',
       additionalList: [
         {
           [additionalList[0].id]: additionalList[0],
@@ -60,21 +64,25 @@ export const productList = {
       id: 4,
       name: "Coca-Cola Lata",
       price: 5.5,
+      category: 'Bebidas',
     },
     5: {
       id: 5,
       name: "Guaraná Lata",
       price: 5.0,
+      category: 'Bebidas',
     },
     6: {
       id: 6,
       name: "Coca-Cola 2L",
       price: 13.0,
+      category: 'Bebidas',
     },
     7: {
       id: 7,
       name: "Agua com gás",
       price: 4.0,
+      category: 'Bebidas',
     },
   },
 };

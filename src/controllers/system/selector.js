@@ -27,7 +27,7 @@ export function systemSetup() {
 export async function handleMessageRequest(request) {
   return new Promise((resolve, reject) => {
     try {
-      // console.log('\x1b[36;1m','\n\n\n\nrequest: ', request, '\n\n\n\n', '\x1b[0m');
+      // console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
 
       const client = standardizeMessageRequestToDefault(request);
       if (!client) {
@@ -39,8 +39,9 @@ export async function handleMessageRequest(request) {
         resolve({ statusCode: 200, message: "Request took more than 30 seconds to arrive!" });
         return;
       }
-      
+
       const chatbot = chatbotList[client.chatbot.chatbotPhoneNumber];
+      if (!chatbot) throw new Error("Invalid chatbot");
 
       switch (client.chatbot.interaction) {
         case "cardapio-whatsapp":
@@ -69,6 +70,30 @@ export async function handleMessageRequest(request) {
                 reject(err);
               });
           }
+          break;
+
+        case "group":
+          chatbot
+            .handleGroupCommand(client)
+            .then((result) => {
+              // console.log("result: ", JSON.stringify(result));
+              resolve({ statusCode: 200, message: "OK" });
+            })
+            .catch((err) => {
+              reject(err);
+            });
+          break;
+
+        case "poll":
+          chatbot
+            .saveSatisfactionFeedback(client)
+            .then((result) => {
+              // console.log("result: ", JSON.stringify(result));
+              resolve({ statusCode: 200, message: "OK" });
+            })
+            .catch((err) => {
+              reject(err);
+            });
           break;
 
         default:

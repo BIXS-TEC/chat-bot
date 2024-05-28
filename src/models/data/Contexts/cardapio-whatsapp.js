@@ -262,7 +262,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   contextList["finalizar-pedido"] = new Context({
     id: "15",
     name: "finalizar-pedido",
-    previousContexts: ["recomendar-produto", "editar-pedido"],
+    previousContexts: ["recomendar-produto", "editar-pedido", "recorrente"],
     activationKeywords: ["finalizar-pedido"],
     action: function (client) {
       return f.finalizar_pedido.action(this, chatbot, client);
@@ -282,6 +282,45 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
     responseObjects: function (client, args = {}) {
       return f.recorrente.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["incluir-recorrente"] = new Context({
+    id: "17",
+    name: "incluir-recorrente",
+    previousContexts: ["recorrente"],
+    activationKeywords: [], // Definidos em action de "recorrente"
+    action: function (client) {
+      return f.incluir_recorrente.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.incluir_recorrente.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["pesquisa-satisfacao"] = new Context({
+    id: "18",
+    name: "pesquisa-satisfacao",
+    previousContexts: [],
+    activationKeywords: [],
+    action: function (client) {
+      return f.pesquisa_satisfacao.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.pesquisa_satisfacao.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["fechar-conta"] = new Context({
+    id: "18",
+    name: "fechar-conta",
+    previousContexts: ["pesquisa-satisfacao"],
+    activationKeywords: ['0', '1', '2', '3', '4'],
+    action: function (client) {
+      return f.fechar_conta.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.fechar_conta.responseObjects(this, chatbot, client, args);
     },
   });
 

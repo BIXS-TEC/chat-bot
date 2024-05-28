@@ -28,11 +28,9 @@ export default class Context {
       // console.log('args: ', args);
       
       const response = {};
-      response.clientPhone = client.phoneNumber;
+      response.clientPhone = client.chatbot.interaction === 'group' ? client.chatbot.messageTo : client.phoneNumber;
       response.platform = client.platform;
-      console.log('runContext client.chatbot:', client.chatbot.lastChatbotMessage);
       response.responseObjects = this.responseObjects(client, args ? args : {});
-      console.log('runContext client.chatbot:', client.chatbot.lastChatbotMessage);
 
       return response;
     } catch (error) {

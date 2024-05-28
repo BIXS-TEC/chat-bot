@@ -396,6 +396,51 @@ WppSender.sendContactVcard = async function (phone, WppMessage, retryCount = 3) 
   });
 }
 
+WppSender.sendPollMessage = async function (phone, WppMessage, retryCount = 3) {
+  return new Promise(async (resolve, reject) => {
+    token = await WppSender.generateWPPToken();
+    console.log('sendPollMessage WppMessage: ', WppMessage);
+
+    let data = JSON.stringify({
+      phone: phone,
+      isGroup: WppMessage.isGroup,
+      name: WppMessage.name,
+      choices: WppMessage.choices,
+      options: {
+          selectableCount: WppMessage.options.selectableCount
+      }
+  });
+    
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: `http://localhost:21465/api/${session}/send-poll-message`,
+      headers: { 
+        'Content-Type': 'application/json', 
+        'Authorization': `Bearer ${token}`,
+      },
+      data : data
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(`Mensagem enviada [${phone}]!`);
+        resolve(response.data.response[0]);
+      })
+      .catch((error) => {
+        console.log("Error in sendPollMessage: ", error);
+        if (retryCount > 0) {
+          sendContactVcard(phone, WppMessage, retryCount - 1)
+            .then(resolve)
+            .catch(reject);
+        } else {
+          reject(error);
+        }
+      });
+  });
+}
+
 WppSender.setTyping = async function (phone, isTyping, retryCount = 3) {
   if (isGroupNumber(phone)) return;
   return new Promise(async (resolve, reject) => {

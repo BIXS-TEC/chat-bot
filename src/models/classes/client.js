@@ -8,6 +8,7 @@ export default class Client {
     this.chatbot.context = context;
     this.messageHistory = [`${context}&&${chatbot.currentMessage}`];
     this.orderList = {};
+    this.approvedOrderList = {};
     this.humanChating = humanChating;
     this.messageIds = { saveResponse: "" };
   }
@@ -91,7 +92,7 @@ export default class Client {
     console.log('\x1b[35;1m%s\x1b[0m', 'saveLastChatbotMessage Context: ', this.chatbot.context);
     if (this.chatbot.context !== "invalido" && this.chatbot.context !== "atendente") {
       this.chatbot.lastChatbotMessage = responseObjects;
-      console.log('\x1b[35;1m%s\x1b[0m', "saveLastChatbotMessage: ", responseObjects);
+      // console.log('\x1b[35;1m%s\x1b[0m', "saveLastChatbotMessage: ", responseObjects);
     }
   }
 

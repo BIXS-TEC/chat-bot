@@ -180,19 +180,19 @@ f.atendente.action = function (context, chatbot, client) {
 
 f.atendente.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    // console.log("contact: ", chatbot.groupList["Atendente2"].contact);
+    // console.log("contact: ", chatbot.groupList["Atendente"].chatId);
     return [
       { type: "text", message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar." },
       {
         type: "text",
         message: `Cliente [${client.phoneNumber}] solicitou atendimento!\n*Clique para responde-lo.*`,
-        groupPhone: chatbot.groupList["Atendente2"].contact,
+        groupPhone: chatbot.groupList["Atendente"].chatId,
         isGroup: true,
       },
       {
         type: "contactVcard",
         contactsId: client.id,
-        groupPhone: chatbot.groupList["Atendente2"].contact,
+        groupPhone: chatbot.groupList["Atendente"].chatId,
         isGroup: true,
       },
     ];
@@ -217,14 +217,13 @@ f.garcom.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     const message = client.chatbot.lastChatbotMessage;
     message.unshift(
-      { type: "text", message: "Um garçom foi notificado e já irá atende-lo, por favor aguarde." },
+      { type: "text", message: "Um garçom foi notificado e já irá atende-lo, por favor aguarde.\n\nVocê pode continuar enquanto isso!" },
       {
         type: "text",
         message: `*Mesa ${client.chatbot.modalityId}* solicitou um garçom!`,
-        groupPhone: chatbot.groupList["Garçom2"].contact,
+        groupPhone: chatbot.groupList["Garçom"].chatId,
         isGroup: true,
       },
-      { type: "text", message: "Você pode continuar enquanto isso!" }
     );
     return message;
   } catch (error) {
@@ -425,7 +424,7 @@ f.salvar_observacao.action = function (context, chatbot, client) {
     const [productId, index] = code.split(":");
     // const additionalList = client.orderList[productId].additionalList;
     if (!client.orderList[productId].additionalList) client.orderList[productId].additionalList = [];
-    if (!client.orderList[productId].additionalList[index]) client.orderList[productId].additionalList[index] = [];
+    if (!client.orderList[productId].additionalList[index]) client.orderList[productId].additionalList[index] = {};
     client.orderList[productId].additionalList[index]["observation"] = {
       text: client.chatbot.currentMessage,
       name: "Observação",
@@ -465,11 +464,11 @@ f.recomendar_produto.action = function (context, chatbot, client) {
     try {
       client.changeContext(context.name);
     } catch (error) {
-      console.error("Erro in action [recomendar-produto]", error);
+      console.error(`Erro in action "${context.name}"`, error);
     }
     return;
   } catch (error) {
-    console.error(`Erro no contexto "${context.name}"`, error);
+    console.error(`Erro em action no contexto "${context.name}"`, error);
   }
 };
 
@@ -493,7 +492,7 @@ f.recomendar_produto.responseObjects = function (context, chatbot, client, args 
       },
     ];
   } catch (error) {
-    console.error(`Erro no contexto "${context.name}"`, error);
+    console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
   }
 };
 
@@ -652,7 +651,7 @@ f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = 
       {
         type: "text",
         message: args.order,
-        groupPhone: chatbot.groupList["Cozinha2"].contact,
+        groupPhone: chatbot.groupList["Cozinha"].chatId,
         isGroup: true,
       },
     ];
@@ -661,29 +660,137 @@ f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = 
   }
 };
 
+/** Recorrente */
+
 f.recorrente = {};
 
 f.recorrente.action = function (context, chatbot, client) {
   client.changeContext(context.name);
+  // Atualizar activationKeywords de "incluir-recorrente"
+  const activationKeywords = [];
+  for (let productId in client.approvedOrderList) {
+    const category = client.approvedOrderList[productId].category;
+    if (chatbot.config.recurrentCategories.includes(category)) {
+      activationKeywords.push(productId);
+    }
+  }
+  chatbot.contextList["cardapio-whatsapp"]["incluir-recorrente"].activationKeywords = activationKeywords;
 };
 
 f.recorrente.responseObjects = function (context, chatbot, client, args = {}) {
   const recommended = chatbot.getRecommendedProduct();
-  // Atualizar activationKeywords de "incluir-recomendado"
   return [
     {
       type: "listMessage",
-      description: `Gostaria de pedir um(a)\n*${recommended.name}?!*`,
+      description: `Gostaria de pedir novamente uma bebida?`,
       buttonText: "SELECIONE UMA OPÇÃO",
       sections: [
-        mf.buildSection(chatbot, `Incluir quantas ${recommended.name}?`, ["incluir-recomendado"], {
-          recommended: recommended,
-          qtdRecommended: 3,
-        }),
-        mf.buildSection(chatbot, "Escolha uma das opções", ["cardapio", "garcom", "atendente", "faq"]),
+        mf.buildSection(chatbot, `Selecione uma bebida.`, ["recorrente"], { client }),
+        mf.buildSection(chatbot, "🔽 Outras opções", ["cardapio", "garcom", "atendente", "faq"]),
       ],
     },
   ];
+};
+
+/** Incluir recorrente */
+
+f.incluir_recorrente = {};
+
+f.incluir_recorrente.action = function (context, chatbot, client) {
+  try {
+    client.changeContext("recorrente");
+    const id = parseInt(client.chatbot.itemId);
+    let product = chatbot.getProductById(id);
+    client.addProductToOrderList(product);
+    return;
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+f.incluir_recorrente.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    let message = mf.getOrderMessage(client);
+
+    return [
+      {
+        type: "listMessage",
+        description: message,
+        buttonText: "SELECIONE UMA DAS OPÇÕES",
+        sections: [
+          mf.buildSection(chatbot, "Selecione uma bebida", ["recorrente"], {client}),
+          mf.buildSection(chatbot, "🔽 Outras opções", ["cardapio", "editar-pedido", "finalizar-pedido", "garcom", "atendente"]),
+        ],
+      },
+    ];
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+/** Pesquisa de satisfação */
+
+f.pesquisa_satisfacao = {};
+
+f.pesquisa_satisfacao.action = function (context, chatbot, client) {
+  try {
+    client.changeContext(context.name);
+    console.log('PESQUISA DE SATISFAÇÃO client: ', client);
+    return;
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+f.pesquisa_satisfacao.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    return [
+      {
+        type: "listMessage",
+        description: 'Por favor, avalie nosso atendimento!',
+        buttonText: "AVALIAR",
+        sections: [
+          mf.buildSection(chatbot, "O que você achou do nosso atendimento?", ["pesquisa-satisfacao"]),
+        ],
+      },
+    ];
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+/** Fechar conta */
+
+f.fechar_conta = {};
+
+f.fechar_conta.action = function (context, chatbot, client) {
+  try {
+    client.changeContext(context.name);
+    // Salvar dados em um arquivo
+    chatbot.satisfactionPoll[client.chatbot.itemId].count += 1;
+    chatbot.satisfactionPoll[client.chatbot.itemId].voters.push(client.phoneNumber);
+    console.log('pesquisa: ', chatbot.satisfactionPoll);
+    // Salvar cliente no historico do chatbot
+    setTimeout(() => {
+      delete chatbot.clientList[client.phoneNumber];
+    }, 1000);
+    return;
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+f.fechar_conta.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    return [
+      {
+        type: "text",
+        message: "Obrigado pela avaliação!\n\nAgradecemos pela preferência.\n*Volte sempre!* 😊",
+      },
+    ];
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
 };
 
 /** Invalido */

@@ -1,6 +1,7 @@
 import getAdminContexts from "./admin.js";
 import getCardapioOnlineContexts from "./cardapio-online.js";
 import getCardapioWhatsAppContexts from "./cardapio-whatsapp.js";
+import getGroupContexts from "./groups.js";
 
 const context = {};
 export default context;
@@ -9,6 +10,7 @@ context.getContextList = function (chatbot) {
   const contextList = {};
 
   contextList["admin"] = getAdminContexts(chatbot);
+  contextList["group"] = getGroupContexts(chatbot);
   if (chatbot.config.flow.includes("PrintWeb")) contextList["cardapio-online"] = getCardapioOnlineContexts(chatbot);
   if (chatbot.config.flow.includes("WhatsApp")) contextList["cardapio-whatsapp"] = getCardapioWhatsAppContexts(chatbot);
 

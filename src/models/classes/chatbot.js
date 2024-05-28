@@ -1,7 +1,7 @@
 import order from "../../interfaces/wa-order.js";
 import context from "../data/contexts/index.js";
-import group from "../data/groups.js";
 import sender from "./sender.js";
+import group from "./group.js";
 import Client from "./client.js";
 
 const verbose = true;
@@ -19,24 +19,12 @@ export default class Chatbot {
 
     this.clientList = clientList;
     this.productList = productList;
+    this.productList = { ...this.getTopProductsCategory(config.topProductsId), ...this.productList };
+
     this.contextList = context.getContextList(this);
-
     group.initializeGroupList(this);
-
-    this.clientList[this.phoneNumber] = new Client({
-      id: 0,
-      name: this.businessName,
-      phoneNumber: this.phoneNumber,
-      platform: "wppconnect",
-      context: "admin",
-      humanChating: true,
-      chatbot: {
-        currentMessage: "start",
-        messageType: "chat",
-        interaction: "adicionais",
-        chatbotPhoneNumber: this.phoneNumber,
-      },
-    });
+    this.initializeSatisfactionPoll();
+    this.initializeAdminClient();
 
     if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
   }
@@ -71,15 +59,47 @@ export default class Chatbot {
     return await this.sendContextMessage(matchedContextName, this.clientList[client.phoneNumber]);
   }
 
+  /**
+   {
+      chatId: chatId,
+      messageId: messageId,
+      phoneId: phoneId,
+      timestamp: req.t,
+      phoneNumber: formatPhoneWPPConnect(req.from),
+      isChatbot: req.sender.isMe,
+      platform: req.platform,
+      chatbot: {
+        messageType: req.type,
+        currentMessage: req.body,
+        messageTo: formatPhoneWPPConnect(req.to),
+        interaction: 'group',
+        chatbotPhoneNumber: formatPhoneWPPConnect(req.from),
+        vcardContact: {
+          phoneNumber: req.body.match(/waid=(\d+)/)[1],
+          name: req.body.match(/FN:(.*)/)[1]
+        }
+      }
+    }
+   */
+  async handleGroupCommand(client) {
+    const groupName = Object.values(this.groupList).find(group => group.chatId === client.chatbot.messageTo).name;
+    console.log('groupName :', groupName);
+    if (!this.clientList[client.phoneNumber]) {
+      this.addClientToList(client);
+    } else {
+      this.clientList[client.phoneNumber].updateClientData(client);
+    }
+    return await this.sendContextMessage(groupName, this.clientList[client.phoneNumber]);
+  }
+
   async sendContextMessage(contextName, client) {
     if (this.contextList[client.chatbot.interaction][contextName]) {
-      const useClient = client.chatbot.interaction === 'admin' ? this.clientList[client.chatbot.messageTo] : client;
-      console.log("\x1b[36m%s\x1b[0m", `Cliente: [${useClient.platform}] ${JSON.stringify(useClient)}`);
+      const useClient = client.chatbot.interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
       this.contextList[client.chatbot.interaction][contextName]
-      .runContext(useClient)
-      .then((response) => {
-        console.log("\x1b[36m%s\x1b[0m", `Cliente: [${useClient.platform}] ${JSON.stringify(useClient)}`);
-        if (client.chatbot.interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
+        .runContext(useClient)
+        .then((response) => {
+          console.log('sendContextMessage response:', JSON.stringify(response, null, 2));
+          if (client.chatbot.interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
           sender
             .sendMessage(response)
             .then((requestResponseList) => {
@@ -126,11 +146,8 @@ export default class Chatbot {
             break;
         }
       })();
-      console.log('\x1b[33;1m', "keyword: ", keyword, "; messageType: ", client.chatbot.messageType, '\x1b[0m');
-      console.log(
-        "matchedContexts: ",
-        JSON.stringify(matchedContext.map((context) => context.name))
-      );
+      console.log("\x1b[33;1m", "keyword: ", keyword, "; messageType: ", client.chatbot.messageType, "\x1b[0m");
+      console.log("matchedContexts: ", JSON.stringify(matchedContext.map((context) => context.name)));
 
       const matchedContextCopy = [...matchedContext];
       for (const context of matchedContextCopy) {
@@ -154,17 +171,26 @@ export default class Chatbot {
     }
   }
 
+  getGroupById(groupId) {
+    for (let group of this.groupList) {
+      if (group.chatId === groupId) {
+        return group;
+      }
+    }
+    return null; // or return 'Group not found';
+  }
+
   getProductById(id) {
     for (let category in this.productList) {
       if (id in this.productList[category]) {
         return this.productList[category][id];
       }
     }
-    throw new Error("Error em getProductById. Produto não encontrado!\n", error);
+    throw new Error(`Error em getProductById. Produto não encontrado (${id})!\n`);
   }
 
   getRecommendedProduct() {
-    return this.productList["Bebidas"][1663289];
+    for (let productName in this.productList["Bebidas"]) return this.productList["Bebidas"][productName];
   }
 
   addClientToList(client) {
@@ -192,13 +218,91 @@ export default class Chatbot {
     if (this.config.flow.includes("WhatsApp")) {
       const clientCopy = { ...client };
       client.orderList = {};
+      for (let productId in clientCopy.orderList) {
+        if (client.approvedOrderList[productId]) {
+          client.approvedOrderList[productId].quantity += clientCopy.orderList[productId].quantity;
+          if (clientCopy.orderList[productId].additionalList?.length) {
+            if (!client.approvedOrderList[productId].additionalList?.length) client.approvedOrderList[productId].additionalList = [];
+            console.log("additionalList: ", clientCopy.orderList[productId].additionalList);
+            client.approvedOrderList[productId].additionalList.push([...clientCopy.orderList[productId].additionalList]);
+          }
+        } else {
+          const { additionalList, ...noAdditionalProd } = { ...clientCopy.orderList[productId] };
+          client.approvedOrderList[productId] = noAdditionalProd;
+          if (additionalList?.length) {
+            client.approvedOrderList[productId].additionalList = [];
+            client.approvedOrderList[productId].additionalList.push(additionalList);
+          }
+        }
+      }
+      // console.log("sendClientOrder client.approvedOrderList: \n", JSON.stringify(client.approvedOrderList, null, 2));
       return order.convertToMessage(clientCopy);
     }
     return;
   }
 
+  getTopProductsCategory(topProductsId) {
+    try {
+      const topProducts = { "Mais Pedidos": {} };
+      for (let productId of topProductsId) {
+        topProducts["Mais Pedidos"][productId] = this.getProductById(productId);
+      }
+      if (!Object.keys(topProducts["Mais Pedidos"]).length) return {};
+      return topProducts;
+    } catch (error) {
+      console.error("Error in getTopProductsCategory: ", error);
+    }
+  }
+
   removeClient(phoneNumber) {
     delete this.clientList[phoneNumber];
     if (verbose) console.log(`\nCliente removido: ${phoneNumber}`);
+  }
+
+  initializeAdminClient() {
+    this.clientList[this.phoneNumber] = new Client({
+      id: 0,
+      name: this.businessName,
+      phoneNumber: this.phoneNumber,
+      platform: "wppconnect",
+      context: "admin",
+      humanChating: true,
+      chatbot: {
+        currentMessage: "start",
+        messageType: "chat",
+        interaction: "adicionais",
+        chatbotPhoneNumber: this.phoneNumber,
+      },
+    });
+  }
+
+  initializeSatisfactionPoll(){
+    this.satisfactionPoll = {
+      0 : {
+        title: 'Exelente',
+        count: 0,
+        voters: [],
+      },
+      1 : {
+        title: 'Bom',
+        count: 0,
+        voters: [],
+      },
+      2 : {
+        title: 'Regular',
+        count: 0,
+        voters: [],
+      },
+      3 : {
+        title: 'Ruim',
+        count: 0,
+        voters: [],
+      },
+      4 : {
+        title: 'Péssimo',
+        count: 0,
+        voters: [],
+      },
+    }
   }
 }
