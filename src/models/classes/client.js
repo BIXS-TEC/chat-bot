@@ -90,9 +90,9 @@ export default class Client {
 
   saveLastChatbotMessage(responseObjects) {
     console.log('\x1b[35;1m%s\x1b[0m', 'saveLastChatbotMessage Context: ', this.chatbot.context);
-    if (this.chatbot.context !== "invalido" && this.chatbot.context !== "atendente") {
+    if (!["invalido", "atendente"].includes(this.chatbot.context)  && !["garcom", "faq"].includes(this.chatbot.itemId)) {
       this.chatbot.lastChatbotMessage = responseObjects;
-      // console.log('\x1b[35;1m%s\x1b[0m', "saveLastChatbotMessage: ", responseObjects);
+      console.log('\x1b[35;1m%s\x1b[0m', "Last Message Saved!");
     }
   }
 

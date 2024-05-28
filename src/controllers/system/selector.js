@@ -46,7 +46,7 @@ export async function handleMessageRequest(request) {
       switch (client.chatbot.interaction) {
         case "cardapio-whatsapp":
         case "cardapio-online":
-          if (!chatbot.clientList[client.phoneNumber]?.humanChating) {
+          if (!chatbot.clientList[client.phoneNumber]?.humanChating || ["voltar-chatbot", "faq", "atendente"].includes(client.chatbot.itemId)) {
             chatbot
               .handleOrderMenuFlow(client)
               .then((result) => {

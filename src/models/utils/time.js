@@ -1,16 +1,11 @@
-const nightTime = { hour: 14, minute: 2 }; // Exemplo: 14:00 (2 PM)
-const dayTime = { hour: 6, minute: 0 }; // Exemplo: 06:00 (6 AM)
-
-export function configureMenu(productList, nightTime, dayTime) {
-    let currentProductList;
+export function configureMenu(chatbot, productList, nightTime = { hour: 11, minute: 7 }, dayTime = { hour: 6, minute: 0 }) {
     
-    // Function to calculate the time until a specific hour and minute
+    // Calcular tempo até hora e minuto
     function calculateTimeUntil(hour, minute) {
         const now = new Date();
         const targetTime = new Date();
         targetTime.setHours(hour, minute, 0, 0);
         
-        // If the target time has already passed today, schedule for the next day
         if (targetTime <= now) {
             targetTime.setDate(targetTime.getDate() + 1);
         }
@@ -18,7 +13,7 @@ export function configureMenu(productList, nightTime, dayTime) {
         return targetTime - now;
     }
 
-    // Function to update the menu based on the current time
+    // Atualizar o cardapio com base no horario atual
     function updateMenu() {
         const now = new Date();
         const hour = now.getHours();
@@ -26,15 +21,17 @@ export function configureMenu(productList, nightTime, dayTime) {
 
         if (hour > nightTime.hour || (hour === nightTime.hour && minute >= nightTime.minute) || 
             (hour < dayTime.hour || (hour === dayTime.hour && minute < dayTime.minute))) {
-            currentProductList = productList.night;
-            console.log("Night menu activated:", currentProductList);
+            chatbot.productList = productList[1];
+            chatbot.createTopProductsCategory(chatbot.config.topProductsId[1]);
+            console.log("Night menu activated");
         } else {
-            currentProductList = productList.day;
-            console.log("Day menu activated:", currentProductList);
+            chatbot.productList = productList[0];
+            chatbot.createTopProductsCategory(chatbot.config.topProductsId[0]);
+            console.log("Day menu activated");
         }
     }
 
-    // Function to set up the next timeouts
+    // Configurar os proximos timeouts
     function setupNextTimeout() {
         const now = new Date();
         const hour = now.getHours();
@@ -43,13 +40,10 @@ export function configureMenu(productList, nightTime, dayTime) {
         let timeUntilNextSwitch;
 
         if (hour > nightTime.hour || (hour === nightTime.hour && minute >= nightTime.minute)) {
-            // After the nightTime, calculate the time until the dayTime the next day
             timeUntilNextSwitch = calculateTimeUntil(dayTime.hour, dayTime.minute);
         } else if (hour < dayTime.hour || (hour === dayTime.hour && minute < dayTime.minute)) {
-            // Before the dayTime, calculate the time until the dayTime today
             timeUntilNextSwitch = calculateTimeUntil(dayTime.hour, dayTime.minute);
         } else {
-            // Between the dayTime and nightTime, calculate the time until the nightTime today
             timeUntilNextSwitch = calculateTimeUntil(nightTime.hour, nightTime.minute);
         }
 
@@ -59,7 +53,6 @@ export function configureMenu(productList, nightTime, dayTime) {
         }, timeUntilNextSwitch);
     }
 
-    // Initialize the menu and set up the first timeout
     updateMenu();
     setupNextTimeout();
 }

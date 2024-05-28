@@ -1,3 +1,18 @@
-2024/05/27-17:08:07.569 1ccc Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/MANIFEST-000001
-2024/05/27-17:08:07.752 1ccc Recovering log #512
-2024/05/27-17:08:07.919 1ccc Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/000512.log 
+2024/05/28-09:55:31.871 3328 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/MANIFEST-000001
+2024/05/28-09:55:31.877 3328 Recovering log #515
+2024/05/28-09:55:31.889 3328 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/000515.log 
+2024/05/28-10:24:32.024 3328 Level-0 table #519: started
+2024/05/28-10:24:32.032 3328 Level-0 table #519: 10585 bytes OK
+2024/05/28-10:24:32.034 3328 Delete type=0 #515
+2024/05/28-12:41:32.028 3328 Level-0 table #521: started
+2024/05/28-12:41:32.022 3328 Level-0 table #521: 9836 bytes OK
+2024/05/28-12:41:32.024 3328 Delete type=0 #518
+2024/05/28-12:41:32.025 3328 Compacting 4@0 + 1@1 files
+2024/05/28-12:41:32.033 3328 Generated table #522@0: 72 keys, 5160 bytes
+2024/05/28-12:41:32.033 3328 Compacted 4@0 + 1@1 files => 5160 bytes
+2024/05/28-12:41:32.034 3328 compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/05/28-12:41:32.035 3328 Delete type=2 #511
+2024/05/28-12:41:32.035 3328 Delete type=2 #513
+2024/05/28-12:41:32.035 3328 Delete type=2 #516
+2024/05/28-12:41:32.035 3328 Delete type=2 #519
+2024/05/28-12:41:32.035 3328 Delete type=2 #521

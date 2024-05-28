@@ -3,11 +3,15 @@ import context from "../data/contexts/index.js";
 import sender from "./sender.js";
 import group from "./group.js";
 import Client from "./client.js";
+import { configureMenu } from "../utils/time.js";
 
 const verbose = true;
 
 export default class Chatbot {
   constructor({ id, businessName, phoneNumber, clientList, productList, config }) {
+    if (!Array.isArray(productList)) throw new Error('ProductList must be an array!');
+    if (!Array.isArray(config.topProductsId)) throw new Error('config.topProductsId must be an array!');
+
     this.id = id;
     this.businessName = businessName;
     this.phoneNumber = phoneNumber;
@@ -18,8 +22,8 @@ export default class Chatbot {
     this.identifiers = Array.from({ length: 1000 }, (_, index) => String(index));
 
     this.clientList = clientList;
-    this.productList = productList;
-    this.productList = { ...this.getTopProductsCategory(config.topProductsId), ...this.productList };
+
+    configureMenu(this, productList);
 
     this.contextList = context.getContextList(this);
     group.initializeGroupList(this);
@@ -82,8 +86,8 @@ export default class Chatbot {
     }
    */
   async handleGroupCommand(client) {
-    const groupName = Object.values(this.groupList).find(group => group.chatId === client.chatbot.messageTo).name;
-    console.log('groupName :', groupName);
+    const groupName = Object.values(this.groupList).find((group) => group.chatId === client.chatbot.messageTo).name;
+    console.log("groupName :", groupName);
     if (!this.clientList[client.phoneNumber]) {
       this.addClientToList(client);
     } else {
@@ -98,7 +102,7 @@ export default class Chatbot {
       this.contextList[client.chatbot.interaction][contextName]
         .runContext(useClient)
         .then((response) => {
-          console.log('sendContextMessage response:', JSON.stringify(response, null, 2));
+          // console.log("sendContextMessage response:", JSON.stringify(response, null, 2));
           if (client.chatbot.interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
           sender
             .sendMessage(response)
@@ -241,22 +245,25 @@ export default class Chatbot {
     return;
   }
 
-  getTopProductsCategory(topProductsId) {
+  removeClient(phoneNumber) {
+    delete this.clientList[phoneNumber];
+    if (verbose) console.log(`\nCliente removido: ${phoneNumber}`);
+  }
+
+  createTopProductsCategory(topProductsId) {
     try {
+      if (!this.productList["Mais Pedidos"]) {
       const topProducts = { "Mais Pedidos": {} };
       for (let productId of topProductsId) {
         topProducts["Mais Pedidos"][productId] = this.getProductById(productId);
       }
-      if (!Object.keys(topProducts["Mais Pedidos"]).length) return {};
-      return topProducts;
+      if (!Object.keys(topProducts["Mais Pedidos"]).length) return;
+      this.productList = { ...topProducts, ...this.productList };
+      }
+      return;
     } catch (error) {
       console.error("Error in getTopProductsCategory: ", error);
     }
-  }
-
-  removeClient(phoneNumber) {
-    delete this.clientList[phoneNumber];
-    if (verbose) console.log(`\nCliente removido: ${phoneNumber}`);
   }
 
   initializeAdminClient() {
@@ -276,33 +283,33 @@ export default class Chatbot {
     });
   }
 
-  initializeSatisfactionPoll(){
+  initializeSatisfactionPoll() {
     this.satisfactionPoll = {
-      0 : {
-        title: 'Exelente',
+      0: {
+        title: "Exelente",
         count: 0,
         voters: [],
       },
-      1 : {
-        title: 'Bom',
+      1: {
+        title: "Bom",
         count: 0,
         voters: [],
       },
-      2 : {
-        title: 'Regular',
+      2: {
+        title: "Regular",
         count: 0,
         voters: [],
       },
-      3 : {
-        title: 'Ruim',
+      3: {
+        title: "Ruim",
         count: 0,
         voters: [],
       },
-      4 : {
-        title: 'Péssimo',
+      4: {
+        title: "Péssimo",
         count: 0,
         voters: [],
       },
-    }
+    };
   }
 }

@@ -113,6 +113,19 @@ export default function getCardapioWhatsAppContexts(chatbot) {
         return f.atendente.responseObjects(this, chatbot, client, args);
       },
     });
+
+    contextList["voltar-chatbot"] = new Context({
+      id: "3",
+      name: "voltar-chatbot",
+      previousContexts: ["atendente"],
+      activationKeywords: ["voltar-chatbot"],
+      action: function (client) {
+        return f.voltar_chatbot.action(this, chatbot, client);
+      },
+      responseObjects: function (client, args = {}) {
+        return f.voltar_chatbot.responseObjects(this, chatbot, client, args);
+      },
+    });
   }
 
   if (chatbot.config.serviceOptions.garcom) {

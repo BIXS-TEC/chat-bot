@@ -17,7 +17,7 @@ export default function getChatbotList() {
       flow: ["WhatsApp"], // Opções: ['WhatsApp', 'PrintWeb']
       modality: ["Mesa"], // Opções: ['Mesa', 'Comanda', 'Cartela', 'Ficha']
       groupNames: ["Cozinha", "Garçom", "Atendente", "Caixa"],
-      topProductsId: [0, 1, 4, 5],
+      topProductsId: [[0, 1, 4, 5],[1, 3, 5, 6]],
       serviceOptions: {
         atendente: true,
         garcom: true,
