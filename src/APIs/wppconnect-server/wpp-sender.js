@@ -5,7 +5,7 @@ const WppSender = {}
 export default WppSender;
 
 const secretKey = config.default.secretKey || "BIXTOKEN";
-const session = "NERDWHATS_AMERICA";
+const session = "BIXASSISTANT";
 
 let token = null;
 let tokenPromise = null;
