@@ -29,19 +29,24 @@ export const f = {};
 f.bem_vindo = {};
 
 // Mensagem exemplo: 'Olá gostaria de ver as opções! #Mesa:3 #ID:7baf3'
-// https://api.whatsapp.com/send/?phone=554891620244&text=Ol%C3%A1+gostaria+de+ver+as+op%C3%A7%C3%B5es%21+%23Mesa%3A%203
+// https://api.whatsapp.com/send/?phone=554891487526&text=Ol%C3%A1+gostaria+de+ver+as+op%C3%A7%C3%B5es%21+%23Mesa%3A%203
 f.bem_vindo.action = function (context, chatbot, client) {
   try {
+    client.changeContext("informar-id");
     const [modality, id] = mf.checkMessageIDCode(client.chatbot.currentMessage);
     // console.log("modality: ", modality, "id:", id);
-    if (chatbot.config.modality.includes(modality)) {
-      client.changeContext(context.name);
-      client.chatbot.modalityId = id;
-      client.chatbot.modality = modality;
-      return;
+    let status = "invalid";
+    if (chatbot.config.modality.includes(modality) && Object.keys(chatbot.modalityIdList).includes(id)) {
+      status = "valid";
+      if (!chatbot.modalityIdList[id].occupied && !chatbot.modalityIdList[id].inactive) {
+        chatbot.modalityIdList[id].occupied = true;
+        client.chatbot.modalityId = id;
+        client.chatbot.modality = modality;
+        client.changeContext(context.name);
+        status = "accepted";
+      }
     }
-    client.changeContext("informar-id");
-    return;
+    return { status: status };
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
   }
@@ -49,15 +54,19 @@ f.bem_vindo.action = function (context, chatbot, client) {
 
 f.bem_vindo.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    // console.log("client.messageHistory: ", !client.messageHistory.map((msg) => msg.includes("informar-id"))[0]);
-    let message = `*Olá ${client.name}!*\nBem-vindo ao _*${chatbot.businessName}*_\n\n`;
     // console.log("modality:", client.chatbot.modalityId, client.chatbot.modality);
-    if (client.chatbot.modalityId && client.chatbot.modality) {
+    const welcome = {
+      type: "text",
+      message: `*Olá ${client.name}!*\nBem-vindo ao _*${chatbot.businessName}*_`,
+      dontSave: true,
+    };
+    if (args.status === "accepted") {
       return [
+        welcome,
         {
           type: "listMessage",
-          description: message + "Selecione uma das opções a partir do botão abaixo", //"`Por favor, selecione uma das opções a partir do botão abaixo`",
-          buttonText: "SELECIONE UMA OPÇÃO",
+          description: `${client.chatbot.modality}: ${client.chatbot.modalityId}\n\nSelecione uma opção no botão abaixo`,
+          buttonText: "VER OPÇÕES",
           sections: [mf.buildSection(chatbot, "Escolha uma das opções", ["cardapio", "garcom", "atendente", "faq"])],
         },
       ];
@@ -70,12 +79,24 @@ f.bem_vindo.responseObjects = function (context, chatbot, client, args = {}) {
         }
         modality += ` ou ${chatbot.config.modality[len - 1]}`;
       }
-      return [
-        {
-          type: "text",
-          message: message + `*Por favor, informe o numero da sua ${modality}.*`,
-        },
-      ];
+      if (args.status === "invalid") {
+        return [
+          welcome,
+          {
+            type: "text",
+            message: `*Por favor, informe o numero da sua ${modality}.*`,
+          },
+        ];
+      }
+      if (args.status === "valid") {
+        return [
+          welcome,
+          {
+            type: "text",
+            message: `Esta ${modality} esta ocupada!\nPor favor, informe o valor correto da sua ${modality} *ou escaneie novamente o QR Code.*`,
+          },
+        ];
+      }
     }
   } catch (error) {
     console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
@@ -88,14 +109,32 @@ f.informar_id = {};
 
 f.informar_id.action = function (context, chatbot, client) {
   try {
-    const modalityId = client.chatbot.currentMessage.match(/\d+/)[0];
-    if (chatbot.identifiers.includes(modalityId)) {
-      client.changeContext("bem-vindo");
-      client.chatbot.modalityId = modalityId;
-      client.chatbot.modality = chatbot.config.modality;
-      return { includes: true };
+    const [modality, id] = mf.checkMessageIDCode(client.chatbot.currentMessage);
+    // console.log("modality: ", modality, "id:", id);
+    let status = "invalid";
+    if (chatbot.config.modality.includes(modality) && Object.keys(chatbot.modalityIdList).includes(id)) {
+      status = "valid";
+      if (!chatbot.modalityIdList[id].occupied && !chatbot.modalityIdList[id].inactive) {
+        chatbot.modalityIdList[id].occupied = true;
+        client.chatbot.modalityId = id;
+        client.chatbot.modality = modality;
+        client.changeContext("bem-vindo");
+        status = "accepted";
+      }
+    } else {
+      const modalityId = client.chatbot.currentMessage.match(/\d+/)[0];
+      if (Object.keys(chatbot.modalityIdList).includes(modalityId)) {
+        status = "valid";
+        if (!chatbot.modalityIdList[modalityId].occupied && !chatbot.modalityIdList[modalityId].inactive) {
+          chatbot.modalityIdList[modalityId].occupied = true;
+          client.chatbot.modalityId = modalityId;
+          client.chatbot.modality = chatbot.config.modality.join("/");
+          client.changeContext("bem-vindo");
+          status = "accepted";
+        }
+      }
     }
-    return { includes: false };
+    return { status: status };
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
   }
@@ -103,22 +142,41 @@ f.informar_id.action = function (context, chatbot, client) {
 
 f.informar_id.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    if (args.includes) {
+    if (args.status === "accepted") {
       return [
         {
           type: "listMessage",
-          description: "Selecione uma das opções a partir do botão abaixo", //"`Por favor, selecione uma das opções a partir do botão abaixo`",
-          buttonText: "Clique para ver as opções",
+          description: `${client.chatbot.modality}: ${client.chatbot.modalityId}\n\nSelecione uma opção no botão abaixo`,
+          buttonText: "VER OPÇÕES",
           sections: [mf.buildSection(chatbot, "Escolha uma das opções", ["cardapio", "garcom", "atendente", "faq"])],
         },
       ];
+    } else {
+      let modality = chatbot.config.modality[0];
+      const len = chatbot.config.modality.length;
+      if (len > 1) {
+        for (let i = 1; i < len - 1; i++) {
+          modality += `, ${chatbot.config.modality[i]}`;
+        }
+        modality += ` ou ${chatbot.config.modality[len - 1]}`;
+      }
+      if (args.status === "invalid") {
+        return [
+          {
+            type: "text",
+            message: `*Por favor, informe o numero da sua ${modality}.*`,
+          },
+        ];
+      }
+      if (args.status === "valid") {
+        return [
+          {
+            type: "text",
+            message: `Esta ${modality} esta ocupada!\nPor favor, informe o valor correto da sua ${modality} *ou escaneie novamente o QR Code.*`,
+          },
+        ];
+      }
     }
-    return [
-      {
-        type: "text",
-        message: "Ops...\n Esse não é um numero válido\n\nPor favor, insira o numero da sua mesa",
-      },
-    ];
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
   }
@@ -138,12 +196,12 @@ f.faq.action = function (context, chatbot, client) {
 
 f.faq.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    console.log('faq lastChatbotMessage: ', client.chatbot.lastChatbotMessage);
+    console.log("faq lastChatbotMessage: ", client.chatbot.lastChatbotMessage);
     const returnMessage = [...client.chatbot.lastChatbotMessage];
-    returnMessage.unshift(
-      {
-        type: "text",
-        message: `_*Perguntas Frequentes*_
+    returnMessage.unshift({
+      type: "text",
+      dontSave: true,
+      message: `_*Perguntas Frequentes*_
 
 *Horário de funcionamento*:
 * seg-sex 11:00 as 20:00
@@ -152,9 +210,9 @@ f.faq.responseObjects = function (context, chatbot, client, args = {}) {
 *Endereço Local*:
 Av. Paulista, 3527 - Bela Vista, São Paulo
 
-Mais informações no link abaixo\n`+chatbot.config.url.faq,
-      }
-    );
+Mais informações no link abaixo
+${chatbot.config.url.faq}`,
+    });
     return returnMessage;
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
@@ -167,6 +225,8 @@ f.atendente = {};
 
 f.atendente.action = function (context, chatbot, client) {
   try {
+    const saveResponse = client.chatbot.lastChatbotMessage.filter((response) => !response.dontSave);
+    if (saveResponse.length && !["atendente"].includes(client.chatbot.context)) client.chatbot.lastResponseBeforeAtendente = saveResponse;
     client.changeContext(context.name);
     setTimeout(() => {
       client.setHumanChat(true);
@@ -181,7 +241,7 @@ f.atendente.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     // console.log("contact: ", chatbot.groupList["Atendente"].chatId);
     return [
-      { type: "text", message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar." },
+      { type: "text", message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar.", dontSave: true },
       {
         type: "listMessage",
         description: "Você pode voltar ao chatbot quando quiser, basta selecionar a opção",
@@ -214,12 +274,14 @@ f.atendente.responseObjects = function (context, chatbot, client, args = {}) {
         message: `Cliente [${client.phoneNumber}] solicitou atendimento!\n*Clique para responde-lo.*`,
         groupPhone: chatbot.groupList["Atendente"].chatId,
         isGroup: true,
+        dontSave: true,
       },
       {
         type: "contactVcard",
         contactsId: client.id,
         groupPhone: chatbot.groupList["Atendente"].chatId,
         isGroup: true,
+        dontSave: true,
       },
     ];
   } catch (error) {
@@ -242,11 +304,17 @@ f.voltar_chatbot.action = function (context, chatbot, client) {
 
 f.voltar_chatbot.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    const returnMessage = [...chatbot.clientList[client.phoneNumber].chatbot.lastChatbotMessage];
-    returnMessage.unshift({
-      type: "text",
-      message: "Vamos continuar de onde paramos?",
-    });
+    console.log("lastResponseBeforeAtendente: ", client.chatbot.lastResponseBeforeAtendente);
+    const returnMessage = [
+      {
+        type: "text",
+        message: "Vamos continuar de onde paramos?",
+        dontSave: true,
+      },
+    ];
+    returnMessage.push(...client.chatbot.lastResponseBeforeAtendente);
+    console.log("returnMessage :", returnMessage);
+    delete client.chatbot.lastResponseBeforeAtendente;
     return returnMessage;
   } catch (error) {
     console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
@@ -269,12 +337,17 @@ f.garcom.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     const message = [...client.chatbot.lastChatbotMessage];
     message.unshift(
-      { type: "text", message: "Um garçom foi notificado e já irá atende-lo, por favor aguarde.\n\nVocê pode continuar enquanto isso!" },
       {
         type: "text",
-        message: `*Mesa ${client.chatbot.modalityId}* solicitou um garçom!`,
+        message: "Um garçom foi notificado e já irá atende-lo, por favor aguarde.\n\nVocê pode continuar enquanto isso!",
+        dontSave: true,
+      },
+      {
+        type: "text",
+        message: `*Mesa ${client.chatbot.modalityId}* solicitou um garçom!\nCliente: ${client.name}`,
         groupPhone: chatbot.groupList["Garçom"].chatId,
         isGroup: true,
+        dontSave: true,
       }
     );
     return message;
@@ -353,7 +426,7 @@ f.adicionar_produto.responseObjects = function (context, chatbot, client, args =
       {
         type: "listMessage",
         description: message,
-        buttonText: "SELECIONE UMA OPÇÃO",
+        buttonText: "INCLUIR MAIS OU CONCLUIR",
         sections: sections,
       },
     ];
@@ -427,8 +500,8 @@ f.incluir_adicionais.responseObjects = function (context, chatbot, client, args 
     return [
       {
         type: "listMessage",
-        description: message + "\n\nInclua mais adicionais em seu pedido ou selecione outra opção",
-        buttonText: "SELECIONE UMA OPÇÃO",
+        description: message,
+        buttonText: "INCLUIR MAIS OU CONCLUIR",
         sections: sections,
       },
     ];
@@ -498,7 +571,7 @@ f.salvar_observacao.responseObjects = function (context, chatbot, client, args =
       {
         type: "listMessage",
         description: message + "\n\nObservação incluida!",
-        buttonText: "SELECIONE UMA OPÇÃO",
+        buttonText: "INCLUIR MAIS OU CONCLUIR",
         sections: sections,
       },
     ];
@@ -635,8 +708,8 @@ f.remover_item = {};
 
 f.remover_item.action = function (context, chatbot, client) {
   try {
-    const [productId, index, additionalId] = client.chatbot.itemId.split(":").map((num) => parseInt(num));
-    client.removeFromOrderList(productId, index, additionalId);
+    const [productId, index, additionalId] = client.chatbot.itemId.split(":");
+    client.removeFromOrderList(productId, parseInt(index), additionalId);
     return;
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
@@ -672,13 +745,13 @@ f.finalizar_pedido = {};
 f.finalizar_pedido.action = function (context, chatbot, client) {
   try {
     client.changeContext(context.name);
-    const order = chatbot.sendClientOrder(client);
+    const orderMessage = chatbot.sendClientOrder(client);
     setTimeout(() => {
       if (client.chatbot.context === "finalizar-pedido") {
         chatbot.sendContextMessage("recorrente", client);
       }
     }, chatbot.config.recurrentTime);
-    return { order: order };
+    return { orderMessage: orderMessage };
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
   }
@@ -687,7 +760,7 @@ f.finalizar_pedido.action = function (context, chatbot, client) {
 f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     const sections = [];
-    sections.push(mf.buildSection(chatbot, "🔽 Selecione uma das opções", ["voltar-cardapio", "garcom", "atendente", "faq"]));
+    sections.push(mf.buildSection(chatbot, "🔽 Selecione uma das opções", ["voltar-cardapio", "solicitar-fechamento", "garcom", "atendente", "faq"]));
 
     return [
       {
@@ -702,9 +775,10 @@ f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = 
       },
       {
         type: "text",
-        message: args.order,
+        message: args.orderMessage,
         groupPhone: chatbot.groupList["Cozinha"].chatId,
         isGroup: true,
+        dontSave: true,
       },
     ];
   } catch (error) {
@@ -730,16 +804,17 @@ f.recorrente.action = function (context, chatbot, client) {
 };
 
 f.recorrente.responseObjects = function (context, chatbot, client, args = {}) {
-  const recommended = chatbot.getRecommendedProduct();
+  const recurrent = mf.buildSection(chatbot, `Selecione uma bebida.`, ["recorrente"], { client });
+  let message = "";
+  for (let row of recurrent.rows) {
+    message += `\n*${row.title}*`;
+  }
   return [
     {
       type: "listMessage",
-      description: `Gostaria de pedir novamente uma bebida?`,
+      description: `Gostaria de pedir novamente?${message}`,
       buttonText: "SELECIONE UMA OPÇÃO",
-      sections: [
-        mf.buildSection(chatbot, `Selecione uma bebida.`, ["recorrente"], { client }),
-        mf.buildSection(chatbot, "🔽 Outras opções", ["cardapio", "garcom", "atendente", "faq"]),
-      ],
+      sections: [recurrent, mf.buildSection(chatbot, "🔽 Outras opções", ["cardapio", "solicitar-fechamento", "garcom", "atendente", "faq"])],
     },
   ];
 };
@@ -775,6 +850,55 @@ f.incluir_recorrente.responseObjects = function (context, chatbot, client, args 
         ],
       },
     ];
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+/** Solicitar fechamento de conta */
+
+f.solicitar_fechamento = {};
+
+f.solicitar_fechamento.action = function (context, chatbot, client) {
+  try {
+    client.changeContext(context.name);
+    return;
+  } catch (error) {
+    console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+f.solicitar_fechamento.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    let message = mf.getCompleteOrderMessage(client);
+
+    const returnMessage = [
+      {
+        type: "text",
+        message: message,
+      },
+      {
+        type: "text",
+        message: chatbot.config.groupNames.includes('Garçom') ? 'Um garçom irá trazer a conta.\nPor favor, aguarde.' : 'Por favor, dirija-se ao caixa para o pagamento.' ,
+      },
+      {
+        type: "text",
+        message: `Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.`,
+        groupPhone: chatbot.groupList["Caixa"].chatId,
+        isGroup: true,
+        dontSave: true,
+      }
+    ];
+    if (chatbot.config.groupNames.includes('Garçom')) {
+      returnMessage.push({
+        type: "text",
+        message: `Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.`,
+        groupPhone: chatbot.groupList["Garçom"].chatId,
+        isGroup: true,
+        dontSave: true,
+      });
+    }
+    return returnMessage;
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
   }
@@ -859,7 +983,7 @@ f.invalido.action = function (context, chatbot, client) {
 f.invalido.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     const message = client.chatbot.lastChatbotMessage;
-    message.unshift({ type: "text", message: `Por favor, selecione uma das opções.` });
+    message.unshift({ type: "text", message: `Por favor, selecione uma das opções.`, dontSave: true });
     // console.log("lastChatbotMessage: ", message);
     return message;
   } catch (error) {

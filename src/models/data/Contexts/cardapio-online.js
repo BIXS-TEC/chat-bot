@@ -11,7 +11,7 @@ function contextSetup(contextList, chatbot) {
   contextList["atendente"].previousContexts = contextNames;
   contextList["invalido"].previousContexts = contextNames;
   contextList["garcom"].previousContexts = contextNames;
-  contextList["informar-id"].activationKeywords = chatbot.identifiers;
+  contextList["informar-id"].activationKeywords = Object.keys(chatbot.modalityIdList);
 }
 
 export default function getCardapioOnlineContexts(chatbot) {

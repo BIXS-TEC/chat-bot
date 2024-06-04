@@ -1,5 +1,5 @@
 export default class Client {
-  constructor({id, name, phoneNumber, platform, chatbot, context = "nenhum", humanChating = false}) {
+  constructor({ id, name, phoneNumber, platform, chatbot, context = "nenhum", humanChating = false }) {
     this.id = id;
     this.name = name;
     this.phoneNumber = phoneNumber;
@@ -54,18 +54,24 @@ export default class Client {
   }
 
   removeFromOrderList(productId, index, additionalId) {
-    // console.log("this.orderList: ", JSON.stringify(this.orderList, null, 2));
+    console.log("this.orderList: ", JSON.stringify(this.orderList, null, 2));
+    console.log(`productId: ${productId}, index: ${index}, additionalId: ${additionalId}`);
     const clientProduct = this.orderList[productId];
     if (additionalId === undefined) {
       this.orderList[productId].quantity -= 1;
-      if (clientProduct.additionalList && clientProduct.additionalList.length) this.orderList[productId].additionalList.splice(index, 1);
+      if (clientProduct.additionalList?.length) this.orderList[productId].additionalList.splice(index, 1);
       if (clientProduct.quantity === 0) delete this.orderList[productId];
     } else {
       // console.log("additionalList[index][additionalId]: ", JSON.stringify(this.orderList[productId].additionalList[index][additionalId], null, 2));
-      this.orderList[productId].additionalList[index][additionalId].quantity -= 1;
-      if (clientProduct.additionalList[index][additionalId].quantity === 0) {
+      if (clientProduct.additionalList[index][additionalId].quantity) {
+        this.orderList[productId].additionalList[index][additionalId].quantity -= 1;
+        if (clientProduct.additionalList[index][additionalId].quantity === 0) {
+          delete this.orderList[productId].additionalList[index][additionalId];
+          // this.orderList[productId].additionalList.splice(index, 1);
+        }
+      } else {
+        // Para observações
         delete this.orderList[productId].additionalList[index][additionalId];
-        // this.orderList[productId].additionalList.splice(index, 1);
       }
     }
     // console.log("this.orderList: ", JSON.stringify(this.orderList, null, 2));
@@ -89,11 +95,9 @@ export default class Client {
   }
 
   saveLastChatbotMessage(responseObjects) {
-    console.log('\x1b[35;1m%s\x1b[0m', 'saveLastChatbotMessage Context: ', this.chatbot.context);
-    if (!["invalido", "atendente"].includes(this.chatbot.context)  && !["garcom", "faq"].includes(this.chatbot.itemId)) {
-      this.chatbot.lastChatbotMessage = responseObjects;
-      console.log('\x1b[35;1m%s\x1b[0m', "Last Message Saved!");
-    }
+    if (!responseObjects) return;
+    const saveResponse = responseObjects.filter((response) => !response.dontSave);
+    if (saveResponse.length) this.chatbot.lastChatbotMessage = saveResponse;
   }
 
   changeContext(context) {

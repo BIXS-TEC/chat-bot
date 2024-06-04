@@ -21,24 +21,30 @@ export default function getAdminContexts(chatbot) {
    });
    */
 
-   contextList["."] = new Context({
+  contextList["."] = new Context({
     id: "0",
     name: "finalizar-atendimento",
-    previuosContext: ['admin'],
+    previuosContext: ["admin"],
     activationKeywords: ["."],
-    action: function(client) {
-        chatbot.clientList[client.phoneNumber].humanChating = false;
-        return true;
+    action: function (client) {
+      chatbot.clientList[client.phoneNumber].humanChating = false;
+      return true;
     },
-    responseObjects: function(client, args = {}) {
-        const returnMessage = [...chatbot.clientList[client.phoneNumber].chatbot.lastChatbotMessage];
-        returnMessage.unshift({
-          type: 'text',
-          message: 'Vamos continuar de onde paramos?'
-        })
-        return returnMessage;
+    responseObjects: function (client, args = {}) {
+      console.log("lastResponseBeforeAtendente: ", client.chatbot.lastResponseBeforeAtendente);
+      const returnMessage = [
+        {
+          type: "text",
+          message: "Vamos continuar de onde paramos?",
+          dontSave: true,
+        },
+      ];
+      returnMessage.push(...client.chatbot.lastResponseBeforeAtendente);
+      console.log("returnMessage :", returnMessage);
+      delete client.chatbot.lastResponseBeforeAtendente;
+      return returnMessage;
     },
-   });
+  });
 
   contextSetup(contextList, chatbot);
 

@@ -51,16 +51,18 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
         title: "Finalizar pedido ✅",
         description: "",
       },
+      "solicitar-fechamento": {
+        rowId: "solicitar-fechamento",
+        title: "Fechar conta e pagar 🧾",
+        description: "",
+      },
     };
 
     if (sectionsName.includes("recorrente")) {
       const approvedOrderList = args.client.approvedOrderList;
-      console.log("approvedOrderList", approvedOrderList);
-      console.log("");
       const rows = [];
       for (let productId in approvedOrderList) {
         const category = approvedOrderList[productId].category;
-        console.log("category: ", category);
         if (chatbot.config.recurrentCategories.includes(category)) {
           const product = chatbot.getProductById(productId);
           rows.push({
@@ -70,7 +72,6 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
           });
         }
       }
-      console.log("rows: ", rows);
       if (rows.length) {
         sectionMappings["recorrente"] = rows;
       } else {
@@ -90,11 +91,9 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
 
     if (sectionsName.includes("pesquisa-satisfacao")) {
       const rows = [
-        { rowId: '0', title: "Excelente", description: "" },
-        { rowId: '1', title: "Bom", description: "" },
-        { rowId: '2', title: "Regular", description: "" },
-        { rowId: '3', title: "Ruim", description: "" },
-        { rowId: '4', title: "Péssimo", description: "" },
+        { rowId: "0", title: "Bom 🤩", description: "" },
+        { rowId: "1", title: "Regular 😐", description: "" },
+        { rowId: "2", title: "Ruim ☹️", description: "" },
       ];
       sectionMappings["pesquisa-satisfacao"] = rows;
     }
@@ -196,8 +195,10 @@ mf.getAdditionalIdsAndSections = function (chatbot, client) {
           title: `${clientProduct.additionalList?.[i]?.observation ? "Alterar" : "Incluir"} observação`,
           description: 'Ex: "Retirar um ingrediente", "Copo com gelo e limão" ...',
         });
+        const num = clientProduct.quantity < 2 ? "" : `${i + 1}º`;
+        const qntAdd = product.additionalList?.length ? `${getAdditionalQuantity(clientProduct.additionalList[i])}/${product.maxAddQt}` : "";
         sections.push({
-          title: `Adicionais de ${clientProduct.name} (${i + 1}º/${clientProduct.quantity})`,
+          title: `Adicionais ${num} ${clientProduct.name} (${qntAdd})`,
           rows: rows,
         });
       }
@@ -274,7 +275,7 @@ mf.getOrderMessage = function (client) {
               message += "\n   +`Obs: " + additional.text + "`";
             } else {
               message += "\n   +`" + `${additional.name} x${additional.quantity}` + "`";
-              totalPrice += additional.price;
+              totalPrice += additional.price * additional.quantity;
             }
           }
         } else {
@@ -283,11 +284,63 @@ mf.getOrderMessage = function (client) {
       }
     } else {
       message += `\n• ${orderList[productId].name} x${orderList[productId].quantity}`;
-      totalPrice += orderList[productId].price;
+      totalPrice += orderList[productId].price * orderList[productId].quantity;
     }
   }
   message = `Seu pedido: (Total R$ ${totalPrice.toFixed(2).replace(".", ",")})` + message;
   return message;
+};
+
+mf.getCompleteOrderMessage = function (client) {
+  let totalPrice = 0.0;
+  let message = "";
+  const orderList = client.approvedOrderList;
+  console.log("client.orderList :", JSON.stringify(orderList, null, 2));
+  for (const productId in orderList) {
+    if (
+      orderList[productId].additionalList?.length &&
+      !orderList[productId].additionalList.every((obj) => Object.keys(obj).length === 0)
+    ) {
+      for (let i = 0; i < orderList[productId].quantity; i++) {
+        message += `\n• ${orderList[productId].name} nº ${i + 1} (R$ ${orderList[productId].price.toFixed(2).replace(".", ",")})`;
+        totalPrice += orderList[productId].price;
+        if (Object.keys(orderList[productId].additionalList[i]).length) {
+          for (const additionalId in orderList[productId].additionalList[i]) {
+            const additional = orderList[productId].additionalList[i][additionalId];
+            // console.log('\x1b[34;1m%s\x1b[0m','additional: ', additional);
+            if (additional.name === "Observação") {
+              message += "\n   +`Obs: " + additional.text + "`";
+            } else {
+              message +=
+                "\n   +`" +
+                `${additional.name} x${additional.quantity} (R$ ${(additional.price * additional.quantity).toFixed(2).replace(".", ",")})` +
+                "`";
+              totalPrice += additional.price * additional.quantity;
+            }
+          }
+        } else {
+          message += "\n   `tradicional`";
+        }
+      }
+    } else {
+      const price = orderList[productId].price;
+      const qnt = orderList[productId].quantity;
+      message += `\n• ${orderList[productId].name} x${qnt} (R$ ${(price * qnt).toFixed(2).replace(".", ",")})`;
+      totalPrice += price * qnt;
+    }
+  }
+  message = `Seu pedido: (Total R$ ${totalPrice.toFixed(2).replace(".", ",")})` + message;
+  return message;
+};
+
+mf.getLastValidContext = function (messageHistory) {
+  for (let i = messageHistory.length - 1; i >= 0; i--) {
+    const message = messageHistory[i].split("&&")[0];
+    if (!["atendente", "garcom"].includes(message)) {
+      return message;
+    }
+  }
+  throw new Error("Error in getLastValidContext: No valid context found!");
 };
 
 function getAdditionalQuantity(additionalList) {

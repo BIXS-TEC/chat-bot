@@ -12,7 +12,7 @@ function contextSetup(contextList, chatbot) {
   contextList["atendente"].previousContexts = contextNames;
   contextList["invalido"].previousContexts = contextNames.filter(name => !uniqueContexts.includes(name));
   contextList["garcom"].previousContexts = contextNames;
-  contextList["informar-id"].activationKeywords = chatbot.identifiers;
+  contextList["informar-id"].activationKeywords = Object.keys(chatbot.modalityIdList);
 }
 
 export default function getCardapioWhatsAppContexts(chatbot) {
@@ -77,6 +77,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     id: "1",
     name: "informar-id",
     previousContexts: ["informar-id"],
+    activationRegex: /^.+ #\w+:\d+ #ID:[a-zA-Z0-9]{5}$/,
     action: function (client) {
       return f.informar_id.action(this, chatbot, client);
     },
@@ -311,8 +312,21 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
   });
 
-  contextList["pesquisa-satisfacao"] = new Context({
+  contextList["solicitar-fechamento"] = new Context({
     id: "18",
+    name: "solicitar-fechamento",
+    previousContexts: ["solicitar-fechamento", "recorrente","finalizar-pedido"],
+    activationKeywords: ["solicitar-fechamento"],
+    action: function (client) {
+      return f.solicitar_fechamento.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.solicitar_fechamento.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["pesquisa-satisfacao"] = new Context({
+    id: "19",
     name: "pesquisa-satisfacao",
     previousContexts: [],
     activationKeywords: [],
@@ -325,10 +339,10 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["fechar-conta"] = new Context({
-    id: "18",
+    id: "20",
     name: "fechar-conta",
     previousContexts: ["pesquisa-satisfacao"],
-    activationKeywords: ['0', '1', '2', '3', '4'],
+    activationKeywords: ['0', '1', '2'],
     action: function (client) {
       return f.fechar_conta.action(this, chatbot, client);
     },

@@ -19,7 +19,13 @@ export default class Chatbot {
 
     this.config = config;
 
-    this.identifiers = Array.from({ length: 1000 }, (_, index) => String(index));
+    this.modalityIdList = Array.from({ length: 11 }).reduce((acc, _, index) => {
+      acc[String(index)] = {
+        occupied: false,
+        inactive: false,
+      };
+      return acc;
+    }, {});
 
     this.clientList = clientList;
 
@@ -286,27 +292,17 @@ export default class Chatbot {
   initializeSatisfactionPoll() {
     this.satisfactionPoll = {
       0: {
-        title: "Exelente",
-        count: 0,
-        voters: [],
-      },
-      1: {
         title: "Bom",
         count: 0,
         voters: [],
       },
-      2: {
+      1: {
         title: "Regular",
         count: 0,
         voters: [],
       },
-      3: {
+      2: {
         title: "Ruim",
-        count: 0,
-        voters: [],
-      },
-      4: {
-        title: "Péssimo",
         count: 0,
         voters: [],
       },
