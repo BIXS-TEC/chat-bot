@@ -5,7 +5,8 @@ const WppSender = {}
 export default WppSender;
 
 const secretKey = config.default.secretKey || "BIXTOKEN";
-const session = "BIXASSISTANT";
+const session = "NERDWHATS_AMERICA";
+const path = "localhost:21400";
 
 let token = null;
 let tokenPromise = null;
@@ -16,7 +17,7 @@ WppSender.generateWPPToken = async function () {
       let config = {
         method: "post",
         maxBodyLength: Infinity,
-        url: `http://localhost:21465/api/${session}/${secretKey}/generate-token`,
+        url: `http://${path}/api/${session}/${secretKey}/generate-token`,
         headers: {
           Accept: "*/*",
         },
@@ -48,7 +49,7 @@ WppSender.closeSession = async function() {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/close-session`,
+      url: `http://${path}/api/${session}/close-session`,
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -79,7 +80,7 @@ WppSender.createGroup = async function (name, participants, retryCount = 0) {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/create-group`,
+      url: `http://${path}/api/${session}/create-group`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -117,7 +118,7 @@ WppSender.getAllGroups = async function (retryCount = 0) {
     const config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/list-chats`,
+      url: `http://${path}/api/${session}/list-chats`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -170,7 +171,7 @@ WppSender.sendMessage = async function (phone, WppMessage, retryCount = 3) {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/send-message`,
+      url: `http://${path}/api/${session}/send-message`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -244,7 +245,7 @@ WppSender.sendListMessage = async function (phone, WppMessage, retryCount = 3) {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/send-list-message`,
+      url: `http://${path}/api/${session}/send-list-message`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -286,7 +287,7 @@ WppSender.sendReplyMessage = async function (phone, WppMessage, retryCount = 3) 
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/send-reply`,
+      url: `http://${path}/api/${session}/send-reply`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -329,7 +330,7 @@ WppSender.sendLinkPreviewMessage = async function (phone, WppMessage, retryCount
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/send-link-preview`,
+      url: `http://${path}/api/${session}/send-link-preview`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -369,7 +370,7 @@ WppSender.sendContactVcard = async function (phone, WppMessage, retryCount = 3) 
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/contact-vcard`,
+      url: `http://${path}/api/${session}/contact-vcard`,
       headers: { 
         'Content-Type': 'application/json', 
         'Authorization': `Bearer ${token}`,
@@ -414,7 +415,7 @@ WppSender.sendPollMessage = async function (phone, WppMessage, retryCount = 3) {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/send-poll-message`,
+      url: `http://${path}/api/${session}/send-poll-message`,
       headers: { 
         'Content-Type': 'application/json', 
         'Authorization': `Bearer ${token}`,
@@ -455,7 +456,7 @@ WppSender.setTyping = async function (phone, isTyping, retryCount = 3) {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/typing`,
+      url: `http://${path}/api/${session}/typing`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -526,7 +527,7 @@ WppSender.sendMessageWithButtons = async function (phone, WppMessage, retryCount
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `http://localhost:21465/api/${session}/send-buttons`,
+      url: `http://${path}/api/${session}/send-buttons`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

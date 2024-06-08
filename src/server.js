@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Servidor ouvindo na porta ${port}`);
-  console.log(`Path: https://8577-200-225-115-74.ngrok-free.app/message`);
+  console.log(`Path: https://########.ngrok-free.app/message`);
 });
 
 // node_modules\@wppconnect\server\dist\util\createSessionUtil.js
