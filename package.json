@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/server.js",
     "wpp": "node ./src/wppconnect-server.js",
-    "start": "postinstall && node ./src/server.js"
+    "start": "npm run postinstall && node ./src/server.js"
   },
   "keywords": [],
   "author": "",
