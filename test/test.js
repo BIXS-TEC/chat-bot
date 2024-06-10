@@ -1,6 +1,6 @@
 // Importa os módulos necessários
-const express = require('express');
-const os = require('os');
+import express from 'express';
+import os from 'os';
 
 // Cria uma aplicação Express
 const app = express();
@@ -9,7 +9,7 @@ const app = express();
 const port = 3000;
 
 // Função para obter o endereço IP da máquina
-function getLocalIpAddress() {
+const getLocalIpAddress = () => {
   const interfaces = os.networkInterfaces();
   for (const name of Object.keys(interfaces)) {
     for (const iface of interfaces[name]) {
@@ -20,7 +20,7 @@ function getLocalIpAddress() {
     }
   }
   return '127.0.0.1'; // Caso nenhum IP externo seja encontrado
-}
+};
 
 // Define a rota para /home que responde com "Server running!"
 app.get('/home', (req, res) => {
