@@ -4,7 +4,7 @@ exports.default = void 0;
 var _default = exports.default = {
   secretKey: 'BIXTOKEN',
   host: '3.85.210.237',
-  port: '3000',
+  port: '5001',
   deviceName: 'WppConnect',
   poweredBy: 'WPPConnect-Server',
   startAllSession: true,
