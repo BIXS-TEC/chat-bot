@@ -6,7 +6,7 @@ import os from 'os';
 const app = express();
 
 // Define a porta em que o servidor irá escutar
-const port = 3000;
+const port = 5001;
 
 // Função para obter o endereço IP da máquina
 const getLocalIpAddress = () => {
