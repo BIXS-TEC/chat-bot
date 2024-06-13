@@ -6,7 +6,7 @@ export default WppSender;
 
 const secretKey = config.default.secretKey || "BIXTOKEN";
 const session = "NERDWHATS_AMERICA";
-const path = "54.226.73.247:5001";
+const path = "54.152.116.180:5001";
 
 let token = null;
 let tokenPromise = null;
