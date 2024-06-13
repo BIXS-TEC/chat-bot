@@ -1,12 +1,12 @@
 import axios from "axios";
 import config from "@wppconnect/server/dist/config.js";
 
-const WppSender = {}
+const WppSender = {};
 export default WppSender;
 
 const secretKey = config.default.secretKey || "BIXTOKEN";
 const session = "NERDWHATS_AMERICA";
-const path = "localhost:21400";
+const path = "54.226.73.247:5001";
 
 let token = null;
 let tokenPromise = null;
@@ -33,16 +33,16 @@ WppSender.generateWPPToken = async function () {
         })
         .catch((error) => {
           tokenPromise = null; // Reset a Promise se houver erro
-          reject("Error generating WPP token:\n", error);
+          reject("Error generating WPP token:", error);
         });
     });
   }
   return tokenPromise;
-}
+};
 
 WppSender.generateWPPToken();
 
-WppSender.closeSession = async function() {
+WppSender.closeSession = async function () {
   return new Promise(async (resolve, reject) => {
     token = await WppSender.generateWPPToken();
 
@@ -66,7 +66,7 @@ WppSender.closeSession = async function() {
         reject(error);
       });
   });
-}
+};
 
 WppSender.createGroup = async function (name, participants, retryCount = 0) {
   return new Promise(async (resolve, reject) => {
@@ -97,7 +97,7 @@ WppSender.createGroup = async function (name, participants, retryCount = 0) {
       .catch((error) => {
         console.log("Erro in createGroup", error);
         if (retryCount > 0) {
-          createGroup(name, participants, retryCount - 1)
+          WppSender.createGroup(name, participants, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -105,14 +105,14 @@ WppSender.createGroup = async function (name, participants, retryCount = 0) {
         }
       });
   });
-}
+};
 
 WppSender.getAllGroups = async function (retryCount = 0) {
   return new Promise(async (resolve, reject) => {
     token = await WppSender.generateWPPToken();
 
     let data = JSON.stringify({
-      "onlyGroups": true
+      onlyGroups: true,
     });
 
     const config = {
@@ -123,19 +123,19 @@ WppSender.getAllGroups = async function (retryCount = 0) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      data: data
+      data: data,
     };
 
     axios
       .request(config)
       .then((response) => {
-        const onlyGroups = response.data.filter(obj => obj.isGroup !== false);
+        const onlyGroups = response.data.filter((obj) => obj.isGroup !== false);
         resolve(onlyGroups);
       })
       .catch((error) => {
         console.log("Erro in getAllGroups");
         if (retryCount > 0) {
-          getAllGroups(retryCount - 1)
+          WppSender.getAllGroups(retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -143,7 +143,7 @@ WppSender.getAllGroups = async function (retryCount = 0) {
         }
       });
   });
-}
+};
 
 /**
  * {
@@ -189,7 +189,7 @@ WppSender.sendMessage = async function (phone, WppMessage, retryCount = 3) {
       .catch((error) => {
         console.log("Erro in sendMessage", error);
         if (retryCount > 0) {
-          sendMessage(phone, WppMessage, retryCount - 1)
+          WppSender.sendMessage(phone, WppMessage, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -197,7 +197,7 @@ WppSender.sendMessage = async function (phone, WppMessage, retryCount = 3) {
         }
       });
   });
-}
+};
 
 /**
    * {
@@ -263,7 +263,7 @@ WppSender.sendListMessage = async function (phone, WppMessage, retryCount = 3) {
       .catch((error) => {
         console.log("Erro in sendListMessage", error);
         if (retryCount > 0) {
-          sendListMessage(phone, WppMessage, retryCount - 1)
+          WppSender.sendListMessage(phone, WppMessage, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -271,7 +271,7 @@ WppSender.sendListMessage = async function (phone, WppMessage, retryCount = 3) {
         }
       });
   });
-}
+};
 
 WppSender.sendReplyMessage = async function (phone, WppMessage, retryCount = 3) {
   return new Promise(async (resolve, reject) => {
@@ -304,7 +304,7 @@ WppSender.sendReplyMessage = async function (phone, WppMessage, retryCount = 3) 
       .catch((error) => {
         console.log("Error in sendReplyMessage", error);
         if (retryCount > 0) {
-          sendReplyMessage(phone, WppMessage, retryCount - 1)
+          WppSender.sendReplyMessage(phone, WppMessage, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -312,7 +312,7 @@ WppSender.sendReplyMessage = async function (phone, WppMessage, retryCount = 3) 
         }
       });
   });
-}
+};
 
 WppSender.sendLinkPreviewMessage = async function (phone, WppMessage, retryCount = 3) {
   return new Promise(async (resolve, reject) => {
@@ -347,7 +347,7 @@ WppSender.sendLinkPreviewMessage = async function (phone, WppMessage, retryCount
       .catch((error) => {
         console.log("Error in sendLinkPreviewMessage: ", error);
         if (retryCount > 0) {
-          sendLinkPreviewMessage(phone, WppMessage, retryCount - 1)
+          WppSender.sendLinkPreviewMessage(phone, WppMessage, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -355,7 +355,7 @@ WppSender.sendLinkPreviewMessage = async function (phone, WppMessage, retryCount
         }
       });
   });
-}
+};
 
 WppSender.sendContactVcard = async function (phone, WppMessage, retryCount = 3) {
   return new Promise(async (resolve, reject) => {
@@ -364,18 +364,18 @@ WppSender.sendContactVcard = async function (phone, WppMessage, retryCount = 3) 
     let data = JSON.stringify({
       phone: phone,
       contactsId: WppMessage.contactsId,
-      isGroup: WppMessage.isGroup
+      isGroup: WppMessage.isGroup,
     });
-    
+
     let config = {
-      method: 'post',
+      method: "post",
       maxBodyLength: Infinity,
       url: `http://${path}/api/${session}/contact-vcard`,
-      headers: { 
-        'Content-Type': 'application/json', 
-        'Authorization': `Bearer ${token}`,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
-      data : data
+      data: data,
     };
 
     axios
@@ -387,7 +387,7 @@ WppSender.sendContactVcard = async function (phone, WppMessage, retryCount = 3) 
       .catch((error) => {
         console.log("Error in sendContactVcard: ", error);
         if (retryCount > 0) {
-          sendContactVcard(phone, WppMessage, retryCount - 1)
+          WppSender.sendContactVcard(phone, WppMessage, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -395,12 +395,12 @@ WppSender.sendContactVcard = async function (phone, WppMessage, retryCount = 3) 
         }
       });
   });
-}
+};
 
 WppSender.sendPollMessage = async function (phone, WppMessage, retryCount = 3) {
   return new Promise(async (resolve, reject) => {
     token = await WppSender.generateWPPToken();
-    console.log('sendPollMessage WppMessage: ', WppMessage);
+    console.log("sendPollMessage WppMessage: ", WppMessage);
 
     let data = JSON.stringify({
       phone: phone,
@@ -408,19 +408,19 @@ WppSender.sendPollMessage = async function (phone, WppMessage, retryCount = 3) {
       name: WppMessage.name,
       choices: WppMessage.choices,
       options: {
-          selectableCount: WppMessage.options.selectableCount
-      }
-  });
-    
+        selectableCount: WppMessage.options.selectableCount,
+      },
+    });
+
     let config = {
-      method: 'post',
+      method: "post",
       maxBodyLength: Infinity,
       url: `http://${path}/api/${session}/send-poll-message`,
-      headers: { 
-        'Content-Type': 'application/json', 
-        'Authorization': `Bearer ${token}`,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
-      data : data
+      data: data,
     };
 
     axios
@@ -432,7 +432,7 @@ WppSender.sendPollMessage = async function (phone, WppMessage, retryCount = 3) {
       .catch((error) => {
         console.log("Error in sendPollMessage: ", error);
         if (retryCount > 0) {
-          sendContactVcard(phone, WppMessage, retryCount - 1)
+          WppSender.sendPollMessage(phone, WppMessage, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -440,7 +440,7 @@ WppSender.sendPollMessage = async function (phone, WppMessage, retryCount = 3) {
         }
       });
   });
-}
+};
 
 WppSender.setTyping = async function (phone, isTyping, retryCount = 3) {
   if (isGroupNumber(phone)) return;
@@ -472,15 +472,22 @@ WppSender.setTyping = async function (phone, isTyping, retryCount = 3) {
       .catch((error) => {
         console.log("Erro in setTyping", error);
         if (retryCount > 0) {
-          setTyping(phone, isTyping, retryCount - 1)
+          WppSender.setTyping(phone, isTyping, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
-          reject(error);
+          if (isTyping) {
+            setTimeout(() => {
+              WppSender.setTyping(phone, false, retryCount - 1)
+                .then(resolve)
+                .catch(reject);
+            }, 1000);
+          }
+          resolve();
         }
       });
   });
-}
+};
 
 /**
    * DEPRECATED
@@ -544,7 +551,7 @@ WppSender.sendMessageWithButtons = async function (phone, WppMessage, retryCount
       .catch((error) => {
         console.log("Erro in sendMessageWithButtons", error);
         if (retryCount > 0) {
-          setTyping(phone, WppMessage, retryCount - 1)
+          WppSender.sendMessageWithButtons(phone, WppMessage, retryCount - 1)
             .then(resolve)
             .catch(reject);
         } else {
@@ -552,12 +559,12 @@ WppSender.sendMessageWithButtons = async function (phone, WppMessage, retryCount
         }
       });
   });
-}
+};
 
 /* Utils */
 
-function isGroupNumber(phone){
-  if(phone.length > 13){
+function isGroupNumber(phone) {
+  if (phone.length > 13) {
     return true;
   }
   return false;

@@ -3,14 +3,14 @@ import context from "../data/contexts/index.js";
 import sender from "./sender.js";
 import group from "./group.js";
 import Client from "./client.js";
-import { configureMenu } from "../utils/time.js";
+import { configureProductsList } from "../utils/time.js";
 
 const verbose = true;
 
 export default class Chatbot {
   constructor({ id, businessName, phoneNumber, clientList, productList, config }) {
-    if (!Array.isArray(productList)) throw new Error('ProductList must be an array!');
-    if (!Array.isArray(config.topProductsId)) throw new Error('config.topProductsId must be an array!');
+    if (!Array.isArray(productList)) throw new Error("ProductList must be an array!");
+    if (!Array.isArray(config.topProductsId)) throw new Error("config.topProductsId must be an array!");
 
     this.id = id;
     this.businessName = businessName;
@@ -19,7 +19,7 @@ export default class Chatbot {
 
     this.config = config;
 
-    this.modalityIdList = Array.from({ length: 11 }).reduce((acc, _, index) => {
+    this.modalityIdList = Array.from({ length: 501 }).reduce((acc, _, index) => {
       acc[String(index)] = {
         occupied: false,
         inactive: false,
@@ -29,7 +29,7 @@ export default class Chatbot {
 
     this.clientList = clientList;
 
-    configureMenu(this, productList);
+    configureProductsList(this, productList);
 
     this.contextList = context.getContextList(this);
     group.initializeGroupList(this);
@@ -41,7 +41,7 @@ export default class Chatbot {
 
   async handleAdminCommand(admClient) {
     try {
-      console.log("handleAdminCommand client:", admClient);
+      // console.log("handleAdminCommand client:", admClient);
       this.clientList[admClient.phoneNumber].updateClientData(admClient);
 
       if (admClient.chatbot.messageTo === admClient.phoneNumber) {
@@ -63,34 +63,13 @@ export default class Chatbot {
       this.clientList[client.phoneNumber].updateClientData(client);
     }
 
+    console.log("handleOrderMenuFlow client:", JSON.stringify(this.clientList[client.phoneNumber]));
     const matchedContextName = this.findBestContext(this.clientList[client.phoneNumber]);
 
     // console.log("interaction: ", client.chatbot.interaction);
     return await this.sendContextMessage(matchedContextName, this.clientList[client.phoneNumber]);
   }
 
-  /**
-   {
-      chatId: chatId,
-      messageId: messageId,
-      phoneId: phoneId,
-      timestamp: req.t,
-      phoneNumber: formatPhoneWPPConnect(req.from),
-      isChatbot: req.sender.isMe,
-      platform: req.platform,
-      chatbot: {
-        messageType: req.type,
-        currentMessage: req.body,
-        messageTo: formatPhoneWPPConnect(req.to),
-        interaction: 'group',
-        chatbotPhoneNumber: formatPhoneWPPConnect(req.from),
-        vcardContact: {
-          phoneNumber: req.body.match(/waid=(\d+)/)[1],
-          name: req.body.match(/FN:(.*)/)[1]
-        }
-      }
-    }
-   */
   async handleGroupCommand(client) {
     const groupName = Object.values(this.groupList).find((group) => group.chatId === client.chatbot.messageTo).name;
     console.log("groupName :", groupName);
@@ -105,10 +84,11 @@ export default class Chatbot {
   async sendContextMessage(contextName, client) {
     if (this.contextList[client.chatbot.interaction][contextName]) {
       const useClient = client.chatbot.interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
+      console.log('sendContextMessage useClient: ', client)
       this.contextList[client.chatbot.interaction][contextName]
         .runContext(useClient)
         .then((response) => {
-          // console.log("sendContextMessage response:", JSON.stringify(response, null, 2));
+          // console.log("\x1b[33m sendContextMessage response:", JSON.stringify(response));
           if (client.chatbot.interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
           sender
             .sendMessage(response)
@@ -141,8 +121,7 @@ export default class Chatbot {
         }
       }
 
-      if (matchedContext.length === 0)
-        throw new Error("\x1b[35m%s\x1b[0m", `Nenhum contexto esta configurado para suceder o contexto ${client.context}`);
+      if (matchedContext.length === 0) throw new Error(`\x1b[35mNenhum contexto esta configurado para suceder o contexto ${client.chatbot.context}`);
 
       /* Exclui contextos da lista que não possuem a mensagem atual do cliente como keyword */
       /* Pelo menos um contexto é mantido */
@@ -171,7 +150,7 @@ export default class Chatbot {
       }
 
       /* Contextos adicionados primeiro a contextList tem prioridade */
-      this.clientList[client.phoneNumber].context = matchedContext[0].name;
+      // this.clientList[client.phoneNumber].chatbot.context = matchedContext[0].name;
       console.log("\x1b[36m%s\x1b[0m", "Matched context: ", matchedContext[0].name);
       console.log("\x1b[36m%s\x1b[0m", "Activations keywords: ", matchedContext[0].activationKeywords);
 
@@ -205,6 +184,7 @@ export default class Chatbot {
 
   addClientToList(client) {
     //incluir verificação de objeto
+    console.log("1addClientToList client:", JSON.stringify(client));
     try {
       if (!this.clientList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' adicionado!`);
       else if (this.clientList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' alterado!`);
@@ -213,8 +193,17 @@ export default class Chatbot {
         name: client.name,
         phoneNumber: client.phoneNumber,
         platform: client.platform,
-        chatbot: client.chatbot,
+        chatbot: Object.assign(client.chatbot, {
+          context: "nenhum",
+          messageHistory: [`${"nenhum"}&&${client.chatbot.currentMessage}`],
+          orderList: {},
+          approvedOrderList: {},
+          humanChating: false,
+          messageIds: { saveResponse: "" },
+          timeouts: { recurrent: { trigged: false, time: this.config.recurrentTime } },
+        }),
       });
+      console.log("2addClientToList client:", JSON.stringify(this.clientList[client.phoneNumber]));
       return true;
     } catch (error) {
       console.log("Error on addClientToList function", error);
@@ -226,26 +215,7 @@ export default class Chatbot {
       throw new Error("Enviar pedido para PrintWeb ainda não diponível");
     }
     if (this.config.flow.includes("WhatsApp")) {
-      const clientCopy = { ...client };
-      client.orderList = {};
-      for (let productId in clientCopy.orderList) {
-        if (client.approvedOrderList[productId]) {
-          client.approvedOrderList[productId].quantity += clientCopy.orderList[productId].quantity;
-          if (clientCopy.orderList[productId].additionalList?.length) {
-            if (!client.approvedOrderList[productId].additionalList?.length) client.approvedOrderList[productId].additionalList = [];
-            console.log("additionalList: ", clientCopy.orderList[productId].additionalList);
-            client.approvedOrderList[productId].additionalList.push([...clientCopy.orderList[productId].additionalList]);
-          }
-        } else {
-          const { additionalList, ...noAdditionalProd } = { ...clientCopy.orderList[productId] };
-          client.approvedOrderList[productId] = noAdditionalProd;
-          if (additionalList?.length) {
-            client.approvedOrderList[productId].additionalList = [];
-            client.approvedOrderList[productId].additionalList.push(additionalList);
-          }
-        }
-      }
-      // console.log("sendClientOrder client.approvedOrderList: \n", JSON.stringify(client.approvedOrderList, null, 2));
+      const clientCopy = order.uniteClientProducts(client);
       return order.convertToMessage(clientCopy);
     }
     return;
@@ -259,12 +229,12 @@ export default class Chatbot {
   createTopProductsCategory(topProductsId) {
     try {
       if (!this.productList["Mais Pedidos"]) {
-      const topProducts = { "Mais Pedidos": {} };
-      for (let productId of topProductsId) {
-        topProducts["Mais Pedidos"][productId] = this.getProductById(productId);
-      }
-      if (!Object.keys(topProducts["Mais Pedidos"]).length) return;
-      this.productList = { ...topProducts, ...this.productList };
+        const topProducts = { "Mais Pedidos": {} };
+        for (let productId of topProductsId) {
+          topProducts["Mais Pedidos"][productId] = this.getProductById(productId);
+        }
+        if (!Object.keys(topProducts["Mais Pedidos"]).length) return;
+        this.productList = { ...topProducts, ...this.productList };
       }
       return;
     } catch (error) {
@@ -278,13 +248,15 @@ export default class Chatbot {
       name: this.businessName,
       phoneNumber: this.phoneNumber,
       platform: "wppconnect",
-      context: "admin",
-      humanChating: true,
       chatbot: {
+        humanChating: true,
         currentMessage: "start",
+        context: "admin",
         messageType: "chat",
         interaction: "adicionais",
         chatbotPhoneNumber: this.phoneNumber,
+        humanChating: true,
+        messageHistory: []
       },
     });
   }

@@ -51,6 +51,11 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
         title: "Finalizar pedido ✅",
         description: "",
       },
+      "cancelar-pedido": {
+        rowId: "cancelar-pedido",
+        title: "Cancelar este pedido ❌",
+        description: "Você será redirecionado para o menu.",
+      },
       "solicitar-fechamento": {
         rowId: "solicitar-fechamento",
         title: "Fechar conta e pagar 🧾",
@@ -59,7 +64,7 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
     };
 
     if (sectionsName.includes("recorrente")) {
-      const approvedOrderList = args.client.approvedOrderList;
+      const approvedOrderList = args.client.chatbot.approvedOrderList;
       const rows = [];
       for (let productId in approvedOrderList) {
         const category = approvedOrderList[productId].category;
@@ -72,11 +77,7 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
           });
         }
       }
-      if (rows.length) {
-        sectionMappings["recorrente"] = rows;
-      } else {
-        sectionsName.push("incluir-recomendado");
-      }
+      if (rows.length) sectionMappings["recorrente"] = rows;
     }
 
     // Adiciona as seções de incluir recomendado dinamicamente
@@ -125,7 +126,7 @@ mf.checkMessageIDCode = function (currentMessage) {
         const [modality, idNum] = info[info.length - 2].split(":");
         const [, code] = info[info.length - 1].split(":");
         if (modality && idNum && code) {
-          const hash = CryptoJS.MD5(idNum).toString();
+          const hash = CryptoJS.MD5(idNum + "BIX").toString();
           // console.log(`checkMessageIDCode:  int:${modality} - id:${idNum} - code:${code} - hash:${hash.slice(-5)}`);
           if (code === hash.slice(-5)) return [modality, idNum];
         }
@@ -167,7 +168,7 @@ mf.getAdditionalIdsAndSections = function (chatbot, client) {
     const addIds = [];
     const obsIds = [];
     const sections = [];
-    const orderList = chatbot.clientList[client.phoneNumber].orderList;
+    const orderList = chatbot.clientList[client.phoneNumber].chatbot.orderList;
 
     for (const productId in orderList) {
       const product = chatbot.getProductById(productId);
@@ -195,10 +196,10 @@ mf.getAdditionalIdsAndSections = function (chatbot, client) {
           title: `${clientProduct.additionalList?.[i]?.observation ? "Alterar" : "Incluir"} observação`,
           description: 'Ex: "Retirar um ingrediente", "Copo com gelo e limão" ...',
         });
-        const num = clientProduct.quantity < 2 ? "" : `${i + 1}º`;
-        const qntAdd = product.additionalList?.length ? `${getAdditionalQuantity(clientProduct.additionalList[i])}/${product.maxAddQt}` : "";
+        const num = clientProduct.quantity < 2 ? "" : `${i + 1}º `;
+        const qntAdd = product.additionalList?.length ? `(${getAdditionalQuantity(clientProduct.additionalList[i])}/${product.maxAddQt})` : "";
         sections.push({
-          title: `Adicionais ${num} ${clientProduct.name} (${qntAdd})`,
+          title: `Adicionais ${num}${clientProduct.name} ${qntAdd}`,
           rows: rows,
         });
       }
@@ -215,7 +216,7 @@ mf.getProductsAndAdditionalIdsAndSections = function (chatbot, client) {
   try {
     const ids = [];
     const sections = [];
-    const orderList = chatbot.clientList[client.phoneNumber].orderList;
+    const orderList = chatbot.clientList[client.phoneNumber].chatbot.orderList;
 
     for (const productId in orderList) {
       let rows = [];
@@ -256,8 +257,8 @@ mf.getProductsAndAdditionalIdsAndSections = function (chatbot, client) {
 mf.getOrderMessage = function (client) {
   let totalPrice = 0.0;
   let message = "";
-  const orderList = client.orderList;
-  // console.log("client.orderList :", JSON.stringify(client.orderList, null, 2));
+  const orderList = client.chatbot.orderList;
+  // console.log("client.chatbot.orderList :", JSON.stringify(client.chatbot.orderList, null, 2));
   for (const productId in orderList) {
     if (
       orderList[productId].additionalList &&
@@ -279,7 +280,7 @@ mf.getOrderMessage = function (client) {
             }
           }
         } else {
-          message += "\n   `tradicional`";
+          message += "\n   `-tradicional`";
         }
       }
     } else {
@@ -287,45 +288,49 @@ mf.getOrderMessage = function (client) {
       totalPrice += orderList[productId].price * orderList[productId].quantity;
     }
   }
-  message = `Seu pedido: (Total R$ ${totalPrice.toFixed(2).replace(".", ",")})` + message;
+  if (!message) message = `\nSua lista de pedidos esta vazia`;
+    message = `Seu pedido: (Total R$ ${totalPrice.toFixed(2).replace(".", ",")})` + message;
   return message;
 };
 
 mf.getCompleteOrderMessage = function (client) {
   let totalPrice = 0.0;
   let message = "";
-  const orderList = client.approvedOrderList;
+  const orderList = client.chatbot.approvedOrderList;
   console.log("client.orderList :", JSON.stringify(orderList, null, 2));
   for (const productId in orderList) {
-    if (
-      orderList[productId].additionalList?.length &&
-      !orderList[productId].additionalList.every((obj) => Object.keys(obj).length === 0)
-    ) {
-      for (let i = 0; i < orderList[productId].quantity; i++) {
-        message += `\n• ${orderList[productId].name} nº ${i + 1} (R$ ${orderList[productId].price.toFixed(2).replace(".", ",")})`;
-        totalPrice += orderList[productId].price;
-        if (Object.keys(orderList[productId].additionalList[i]).length) {
-          for (const additionalId in orderList[productId].additionalList[i]) {
-            const additional = orderList[productId].additionalList[i][additionalId];
-            // console.log('\x1b[34;1m%s\x1b[0m','additional: ', additional);
-            if (additional.name === "Observação") {
-              message += "\n   +`Obs: " + additional.text + "`";
-            } else {
-              message +=
-                "\n   +`" +
-                `${additional.name} x${additional.quantity} (R$ ${(additional.price * additional.quantity).toFixed(2).replace(".", ",")})` +
-                "`";
-              totalPrice += additional.price * additional.quantity;
+    const product = orderList[productId];
+    if (product.additionalList?.length) {
+      //&& !product.additionalList.every((obj) => Object.keys(obj).length === 0)) {
+      let prodNum = 1;
+      for (let orderNum = 0; orderNum < product.additionalList.length; orderNum++) {
+        // message += product.additionalList.length>1 ? `\n Pedido nº ${orderNum + 1} :` : '';
+        for (let i = 0; i < product.additionalList[orderNum].length; i++) {
+          message += `\n• ${product.name} nº${prodNum++} R$ ${product.price.toFixed(2).replace(".", ",")}`;
+          totalPrice += product.price;
+          if (Object.keys(product.additionalList[orderNum][i]).length) {
+            for (const additionalId in product.additionalList[orderNum][i]) {
+              const additional = product.additionalList[orderNum][i][additionalId];
+              console.log("\x1b[34;1m%s\x1b[0m", "additional: ", additional);
+              if (additional.name === "Observação") {
+                message += "\n   +`Obs: " + additional.text + "`";
+              } else {
+                message +=
+                  "\n   +`" +
+                  `${additional.name} x${additional.quantity} +${(additional.price * additional.quantity).toFixed(2).replace(".", ",")}` +
+                  "`";
+                totalPrice += additional.price * additional.quantity;
+              }
             }
+          } else {
+            message += "\n   `tradicional`";
           }
-        } else {
-          message += "\n   `tradicional`";
         }
       }
     } else {
-      const price = orderList[productId].price;
-      const qnt = orderList[productId].quantity;
-      message += `\n• ${orderList[productId].name} x${qnt} (R$ ${(price * qnt).toFixed(2).replace(".", ",")})`;
+      const price = product.price;
+      const qnt = product.quantity;
+      message += `\n• ${product.name} x${qnt} (R$ ${(price * qnt).toFixed(2).replace(".", ",")})`;
       totalPrice += price * qnt;
     }
   }
@@ -333,14 +338,14 @@ mf.getCompleteOrderMessage = function (client) {
   return message;
 };
 
-mf.getLastValidContext = function (messageHistory) {
-  for (let i = messageHistory.length - 1; i >= 0; i--) {
-    const message = messageHistory[i].split("&&")[0];
-    if (!["atendente", "garcom"].includes(message)) {
-      return message;
-    }
+mf.recurrentTimeOut = function (chatbot, client) {
+  if (!client.chatbot.timeouts["recurrent"].trigged) {
+    setTimeout(() => {
+      if (client.chatbot.context === "finalizar-pedido") {
+        chatbot.sendContextMessage("recorrente", client);
+      }
+    }, client.chatbot.timeouts["recurrent"].time);
   }
-  throw new Error("Error in getLastValidContext: No valid context found!");
 };
 
 function getAdditionalQuantity(additionalList) {

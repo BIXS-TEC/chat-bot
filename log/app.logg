@@ -22407,3 +22407,916 @@
   level: 'info',
   timestamp: '2024-06-08T21:12:21.987Z'
 }
+{
+  message: 'Server is running on port: 3000',
+  level: 'info',
+  timestamp: '2024-06-11T13:14:48.143Z'
+}
+{
+  message: '\x1B[31m Visit 3.85.210.237:3000/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-06-11T13:14:48.148Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-06-11T13:14:48.148Z'
+}
+{
+  message: '',
+  level: 'error',
+  code: 'ECONNREFUSED',
+  errors: [
+    Error: connect ECONNREFUSED ::1:80
+        at createConnectionError (node:net:1646:14)
+        at afterConnectMultiple (node:net:1676:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '::1',
+      port: 80
+    },
+    Error: connect ECONNREFUSED 127.0.0.1:80
+        at createConnectionError (node:net:1646:14)
+        at afterConnectMultiple (node:net:1676:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 80
+    }
+  ],
+  name: 'AggregateError',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: {
+      FormData: [Function: FormData] {
+        LINE_BREAK: '\r\n',
+        DEFAULT_CONTENT_TYPE: 'application/octet-stream'
+      },
+      Blob: [class Blob]
+    },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'User-Agent': 'axios/1.6.8',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'post',
+    url: '3.85.210.237:3000/api/BIXTOKEN/start-all',
+    data: undefined
+  },
+  request: <ref *2> Writable {
+    _events: {
+      close: undefined,
+      error: [Function: handleRequestError],
+      prefinish: undefined,
+      finish: undefined,
+      drain: undefined,
+      response: [Function: handleResponse],
+      socket: [Function: handleRequestSocket]
+    },
+    _writableState: WritableState {
+      highWaterMark: 16384,
+      length: 0,
+      corked: 0,
+      onwrite: [Function: bound onwrite],
+      writelen: 0,
+      bufferedIndex: 0,
+      pendingcb: 0,
+      [Symbol(kState)]: 17580812,
+      [Symbol(kBufferedValue)]: null
+    },
+    _maxListeners: undefined,
+    _options: {
+      maxRedirects: 21,
+      maxBodyLength: Infinity,
+      protocol: 'http:',
+      path: '/3.85.210.237:3000/api/BIXTOKEN/start-all',
+      method: 'POST',
+      headers: [Object: null prototype] {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'axios/1.6.8',
+        'Accept-Encoding': 'gzip, compress, deflate, br'
+      },
+      agents: { http: undefined, https: undefined },
+      auth: undefined,
+      family: undefined,
+      beforeRedirect: [Function: dispatchBeforeRedirect],
+      beforeRedirects: { proxy: [Function: beforeRedirect] },
+      hostname: 'localhost',
+      port: '',
+      agent: undefined,
+      nativeProtocols: {
+        'http:': {
+          _connectionListener: [Function: connectionListener],
+          METHODS: [
+            'ACL',         'BIND',       'CHECKOUT',
+            'CONNECT',     'COPY',       'DELETE',
+            'GET',         'HEAD',       'LINK',
+            'LOCK',        'M-SEARCH',   'MERGE',
+            'MKACTIVITY',  'MKCALENDAR', 'MKCOL',
+            'MOVE',        'NOTIFY',     'OPTIONS',
+            'PATCH',       'POST',       'PROPFIND',
+            'PROPPATCH',   'PURGE',      'PUT',
+            'REBIND',      'REPORT',     'SEARCH',
+            'SOURCE',      'SUBSCRIBE',  'TRACE',
+            'UNBIND',      'UNLINK',     'UNLOCK',
+            'UNSUBSCRIBE'
+          ],
+          STATUS_CODES: {
+            '100': 'Continue',
+            '101': 'Switching Protocols',
+            '102': 'Processing',
+            '103': 'Early Hints',
+            '200': 'OK',
+            '201': 'Created',
+            '202': 'Accepted',
+            '203': 'Non-Authoritative Information',
+            '204': 'No Content',
+            '205': 'Reset Content',
+            '206': 'Partial Content',
+            '207': 'Multi-Status',
+            '208': 'Already Reported',
+            '226': 'IM Used',
+            '300': 'Multiple Choices',
+            '301': 'Moved Permanently',
+            '302': 'Found',
+            '303': 'See Other',
+            '304': 'Not Modified',
+            '305': 'Use Proxy',
+            '307': 'Temporary Redirect',
+            '308': 'Permanent Redirect',
+            '400': 'Bad Request',
+            '401': 'Unauthorized',
+            '402': 'Payment Required',
+            '403': 'Forbidden',
+            '404': 'Not Found',
+            '405': 'Method Not Allowed',
+            '406': 'Not Acceptable',
+            '407': 'Proxy Authentication Required',
+            '408': 'Request Timeout',
+            '409': 'Conflict',
+            '410': 'Gone',
+            '411': 'Length Required',
+            '412': 'Precondition Failed',
+            '413': 'Payload Too Large',
+            '414': 'URI Too Long',
+            '415': 'Unsupported Media Type',
+            '416': 'Range Not Satisfiable',
+            '417': 'Expectation Failed',
+            '418': "I'm a Teapot",
+            '421': 'Misdirected Request',
+            '422': 'Unprocessable Entity',
+            '423': 'Locked',
+            '424': 'Failed Dependency',
+            '425': 'Too Early',
+            '426': 'Upgrade Required',
+            '428': 'Precondition Required',
+            '429': 'Too Many Requests',
+            '431': 'Request Header Fields Too Large',
+            '451': 'Unavailable For Legal Reasons',
+            '500': 'Internal Server Error',
+            '501': 'Not Implemented',
+            '502': 'Bad Gateway',
+            '503': 'Service Unavailable',
+            '504': 'Gateway Timeout',
+            '505': 'HTTP Version Not Supported',
+            '506': 'Variant Also Negotiates',
+            '507': 'Insufficient Storage',
+            '508': 'Loop Detected',
+            '509': 'Bandwidth Limit Exceeded',
+            '510': 'Not Extended',
+            '511': 'Network Authentication Required'
+          },
+          Agent: [Function: Agent] { defaultMaxSockets: Infinity },
+          ClientRequest: [Function: ClientRequest],
+          IncomingMessage: [Function: IncomingMessage],
+          OutgoingMessage: [Function: OutgoingMessage],
+          Server: [Function: Server],
+          ServerResponse: [Function: ServerResponse],
+          createServer: [Function: createServer],
+          validateHeaderName: [Function: wrappedFn] {
+            withoutStackTrace: [Function (anonymous)]
+          },
+          validateHeaderValue: [Function: wrappedFn] {
+            withoutStackTrace: [Function (anonymous)]
+          },
+          get: [Function: get],
+          request: [Function: request],
+          setMaxIdleHTTPParsers: [Function: setMaxIdleHTTPParsers],
+          maxHeaderSize: [Getter],
+          globalAgent: [Getter/Setter]
+        },
+        'https:': {
+          Agent: [Function: Agent],
+          globalAgent: Agent {
+            _events: [Object: null prototype] {
+              free: [Function (anonymous)],
+              newListener: [Function: maybeEnableKeylog]
+            },
+            _eventsCount: 2,
+            _maxListeners: undefined,
+            defaultPort: 443,
+            protocol: 'https:',
+            options: [Object: null prototype] {
+              keepAlive: true,
+              scheduling: 'lifo',
+              timeout: 5000,
+              noDelay: true,
+              path: null
+            },
+            requests: [Object: null prototype] {},
+            sockets: [Object: null prototype] {},
+            freeSockets: [Object: null prototype] {},
+            keepAliveMsecs: 1000,
+            keepAlive: true,
+            maxSockets: Infinity,
+            maxFreeSockets: 256,
+            scheduling: 'lifo',
+            maxTotalSockets: Infinity,
+            totalSocketCount: 0,
+            maxCachedSessions: 100,
+            _sessionCache: { map: {}, list: [] },
+            [Symbol(shapeMode)]: false,
+            [Symbol(kCapture)]: false
+          },
+          Server: [Function: Server],
+          createServer: [Function: createServer],
+          get: [Function: get],
+          request: [Function: request]
+        }
+      },
+      pathname: '/3.85.210.237:3000/api/BIXTOKEN/start-all'
+    },
+    _ended: true,
+    _ending: true,
+    _redirectCount: 0,
+    _redirects: [],
+    _requestBodyLength: 0,
+    _requestBodyBuffers: [],
+    _eventsCount: 3,
+    _onNativeResponse: [Function (anonymous)],
+    _currentRequest: <ref *1> ClientRequest {
+      _events: [Object: null prototype] {
+        response: [Function: bound onceWrapper] {
+          listener: [Function (anonymous)]
+        },
+        abort: [Function (anonymous)],
+        aborted: [Function (anonymous)],
+        connect: [Function (anonymous)],
+        error: [Function (anonymous)],
+        socket: [Function (anonymous)],
+        timeout: [Function (anonymous)]
+      },
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      _header: 'POST /3.85.210.237:3000/api/BIXTOKEN/start-all HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/x-www-form-urlencoded\r\n' +
+        'User-Agent: axios/1.6.8\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: localhost\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Content-Length: 0\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: Agent {
+        _events: [Object: null prototype] {
+          free: [Function (anonymous)],
+          newListener: [Function: maybeEnableKeylog]
+        },
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        defaultPort: 80,
+        protocol: 'http:',
+        options: [Object: null prototype] {
+          keepAlive: true,
+          scheduling: 'lifo',
+          timeout: 5000,
+          noDelay: true,
+          path: null
+        },
+        requests: [Object: null prototype] {},
+        sockets: [Object: null prototype] {
+          'localhost:80:': [
+            Socket {
+              connecting: false,
+              _hadError: true,
+              _parent: null,
+              _host: 'localhost',
+              _closeAfterHandlingError: false,
+              _events: {
+                close: [
+                  [Function: onClose],
+                  [Function: socketCloseListener],
+                  [Function: bound onceWrapper] {
+                    listener: [Function: onClose]
+                  }
+                ],
+                error: [Function: socketErrorListener],
+                prefinish: undefined,
+                finish: undefined,
+                drain: [Function: ondrain],
+                data: undefined,
+                end: [Function: onReadableStreamEnd],
+                readable: undefined,
+                connect: [
+                  [Function: bound onceWrapper] {
+                    listener: [Function (anonymous)]
+                  },
+                  [Function: bound onceWrapper] {
+                    listener: [Function: connect]
+                  },
+                  [Function: bound onceWrapper] {
+                    listener: [Function (anonymous)]
+                  }
+                ],
+                free: [Function: onFree],
+                timeout: [
+                  [Function: onTimeout],
+                  [Function: bound onceWrapper] {
+                    listener: [Function: emitRequestTimeout]
+                  }
+                ],
+                agentRemove: [Function: onRemove]
+              },
+              _readableState: ReadableState {
+                highWaterMark: 16384,
+                buffer: [],
+                bufferIndex: 0,
+                length: 0,
+                pipes: [],
+                awaitDrainWriters: null,
+                [Symbol(kState)]: 59777526,
+                [Symbol(kErroredValue)]: AggregateError [ECONNREFUSED]: 
+                    at internalConnectMultiple (node:net:1116:18)
+                    at afterConnectMultiple (node:net:1683:7) {
+                  code: 'ECONNREFUSED',
+                  [errors]: [
+                    Error: connect ECONNREFUSED ::1:80
+                        at createConnectionError (node:net:1646:14)
+                        at afterConnectMultiple (node:net:1676:16) {
+                      errno: -4078,
+                      code: 'ECONNREFUSED',
+                      syscall: 'connect',
+                      address: '::1',
+                      port: 80
+                    },
+                    Error: connect ECONNREFUSED 127.0.0.1:80
+                        at createConnectionError (node:net:1646:14)
+                        at afterConnectMultiple (node:net:1676:16) {
+                      errno: -4078,
+                      code: 'ECONNREFUSED',
+                      syscall: 'connect',
+                      address: '127.0.0.1',
+                      port: 80
+                    }
+                  ]
+                }
+              },
+              _writableState: WritableState {
+                highWaterMark: 16384,
+                length: 282,
+                corked: 0,
+                onwrite: [Function: bound onwrite],
+                writelen: 282,
+                bufferedIndex: 0,
+                pendingcb: 1,
+                [Symbol(kState)]: 118260214,
+                [Symbol(kBufferedValue)]: null,
+                [Symbol(kWriteCbValue)]: [Function: bound onFinish],
+                [Symbol(kErroredValue)]: AggregateError [ECONNREFUSED]: 
+                    at internalConnectMultiple (node:net:1116:18)
+                    at afterConnectMultiple (node:net:1683:7) {
+                  code: 'ECONNREFUSED',
+                  [errors]: [
+                    Error: connect ECONNREFUSED ::1:80
+                        at createConnectionError (node:net:1646:14)
+                        at afterConnectMultiple (node:net:1676:16) {
+                      errno: -4078,
+                      code: 'ECONNREFUSED',
+                      syscall: 'connect',
+                      address: '::1',
+                      port: 80
+                    },
+                    Error: connect ECONNREFUSED 127.0.0.1:80
+                        at createConnectionError (node:net:1646:14)
+                        at afterConnectMultiple (node:net:1676:16) {
+                      errno: -4078,
+                      code: 'ECONNREFUSED',
+                      syscall: 'connect',
+                      address: '127.0.0.1',
+                      port: 80
+                    }
+                  ]
+                }
+              },
+              allowHalfOpen: false,
+              _maxListeners: undefined,
+              _eventsCount: 8,
+              _sockname: null,
+              _pendingData: 'POST /3.85.210.237:3000/api/BIXTOKEN/start-all HTTP/1.1\r\n' +
+                'Accept: application/json, text/plain, */*\r\n' +
+                'Content-Type: application/x-www-form-urlencoded\r\n' +
+                'User-Agent: axios/1.6.8\r\n' +
+                'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+                'Host: localhost\r\n' +
+                'Connection: keep-alive\r\n' +
+                'Content-Length: 0\r\n' +
+                '\r\n',
+              _pendingEncoding: 'latin1',
+              server: null,
+              _server: null,
+              timeout: 5000,
+              parser: null,
+              _httpMessage: [Circular *1],
+              autoSelectFamilyAttemptedAddresses: [ '::1:80', '127.0.0.1:80' ],
+              [Symbol(async_id_symbol)]: 50,
+              [Symbol(kHandle)]: null,
+              [Symbol(lastWriteQueueSize)]: 0,
+              [Symbol(timeout)]: Timeout {
+                _idleTimeout: -1,
+                _idlePrev: null,
+                _idleNext: null,
+                _idleStart: 4317,
+                _onTimeout: null,
+                _timerArgs: undefined,
+                _repeat: null,
+                _destroyed: true,
+                [Symbol(refed)]: false,
+                [Symbol(kHasPrimitive)]: false,
+                [Symbol(asyncId)]: 37,
+                [Symbol(triggerId)]: 17
+              },
+              [Symbol(kBuffer)]: null,
+              [Symbol(kBufferCb)]: null,
+              [Symbol(kBufferGen)]: null,
+              [Symbol(shapeMode)]: true,
+              [Symbol(kCapture)]: false,
+              [Symbol(kSetNoDelay)]: true,
+              [Symbol(kSetKeepAlive)]: true,
+              [Symbol(kSetKeepAliveInitialDelay)]: 60,
+              [Symbol(kBytesRead)]: 0,
+              [Symbol(kBytesWritten)]: 0
+            }
+          ]
+        },
+        freeSockets: [Object: null prototype] {},
+        keepAliveMsecs: 1000,
+        keepAlive: true,
+        maxSockets: Infinity,
+        maxFreeSockets: 256,
+        scheduling: 'lifo',
+        maxTotalSockets: Infinity,
+        totalSocketCount: 1,
+        [Symbol(shapeMode)]: false,
+        [Symbol(kCapture)]: false
+      },
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/3.85.210.237:3000/api/BIXTOKEN/start-all',
+      _ended: false,
+      res: null,
+      aborted: false,
+      timeoutCb: [Function: emitRequestTimeout],
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'localhost',
+      protocol: 'http:',
+      _redirectable: [Circular *2],
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kChunkedBuffer)]: [],
+      [Symbol(kChunkedLength)]: 0,
+      [Symbol(kSocket)]: Socket {
+        connecting: false,
+        _hadError: true,
+        _parent: null,
+        _host: 'localhost',
+        _closeAfterHandlingError: false,
+        _events: {
+          close: [
+            [Function: onClose],
+            [Function: socketCloseListener],
+            [Function: bound onceWrapper] {
+              listener: [Function: onClose]
+            }
+          ],
+          error: [Function: socketErrorListener],
+          prefinish: undefined,
+          finish: undefined,
+          drain: [Function: ondrain],
+          data: undefined,
+          end: [Function: onReadableStreamEnd],
+          readable: undefined,
+          connect: [
+            [Function: bound onceWrapper] {
+              listener: [Function (anonymous)]
+            },
+            [Function: bound onceWrapper] {
+              listener: [Function: connect]
+            },
+            [Function: bound onceWrapper] {
+              listener: [Function (anonymous)]
+            }
+          ],
+          free: [Function: onFree],
+          timeout: [
+            [Function: onTimeout],
+            [Function: bound onceWrapper] {
+              listener: [Function: emitRequestTimeout]
+            }
+          ],
+          agentRemove: [Function: onRemove]
+        },
+        _readableState: ReadableState {
+          highWaterMark: 16384,
+          buffer: [],
+          bufferIndex: 0,
+          length: 0,
+          pipes: [],
+          awaitDrainWriters: null,
+          [Symbol(kState)]: 59777526,
+          [Symbol(kErroredValue)]: AggregateError [ECONNREFUSED]: 
+              at internalConnectMultiple (node:net:1116:18)
+              at afterConnectMultiple (node:net:1683:7) {
+            code: 'ECONNREFUSED',
+            [errors]: [
+              Error: connect ECONNREFUSED ::1:80
+                  at createConnectionError (node:net:1646:14)
+                  at afterConnectMultiple (node:net:1676:16) {
+                errno: -4078,
+                code: 'ECONNREFUSED',
+                syscall: 'connect',
+                address: '::1',
+                port: 80
+              },
+              Error: connect ECONNREFUSED 127.0.0.1:80
+                  at createConnectionError (node:net:1646:14)
+                  at afterConnectMultiple (node:net:1676:16) {
+                errno: -4078,
+                code: 'ECONNREFUSED',
+                syscall: 'connect',
+                address: '127.0.0.1',
+                port: 80
+              }
+            ]
+          }
+        },
+        _writableState: WritableState {
+          highWaterMark: 16384,
+          length: 282,
+          corked: 0,
+          onwrite: [Function: bound onwrite],
+          writelen: 282,
+          bufferedIndex: 0,
+          pendingcb: 1,
+          [Symbol(kState)]: 118260214,
+          [Symbol(kBufferedValue)]: null,
+          [Symbol(kWriteCbValue)]: [Function: bound onFinish],
+          [Symbol(kErroredValue)]: AggregateError [ECONNREFUSED]: 
+              at internalConnectMultiple (node:net:1116:18)
+              at afterConnectMultiple (node:net:1683:7) {
+            code: 'ECONNREFUSED',
+            [errors]: [
+              Error: connect ECONNREFUSED ::1:80
+                  at createConnectionError (node:net:1646:14)
+                  at afterConnectMultiple (node:net:1676:16) {
+                errno: -4078,
+                code: 'ECONNREFUSED',
+                syscall: 'connect',
+                address: '::1',
+                port: 80
+              },
+              Error: connect ECONNREFUSED 127.0.0.1:80
+                  at createConnectionError (node:net:1646:14)
+                  at afterConnectMultiple (node:net:1676:16) {
+                errno: -4078,
+                code: 'ECONNREFUSED',
+                syscall: 'connect',
+                address: '127.0.0.1',
+                port: 80
+              }
+            ]
+          }
+        },
+        allowHalfOpen: false,
+        _maxListeners: undefined,
+        _eventsCount: 8,
+        _sockname: null,
+        _pendingData: 'POST /3.85.210.237:3000/api/BIXTOKEN/start-all HTTP/1.1\r\n' +
+          'Accept: application/json, text/plain, */*\r\n' +
+          'Content-Type: application/x-www-form-urlencoded\r\n' +
+          'User-Agent: axios/1.6.8\r\n' +
+          'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+          'Host: localhost\r\n' +
+          'Connection: keep-alive\r\n' +
+          'Content-Length: 0\r\n' +
+          '\r\n',
+        _pendingEncoding: 'latin1',
+        server: null,
+        _server: null,
+        timeout: 5000,
+        parser: null,
+        _httpMessage: [Circular *1],
+        autoSelectFamilyAttemptedAddresses: [ '::1:80', '127.0.0.1:80' ],
+        [Symbol(async_id_symbol)]: 50,
+        [Symbol(kHandle)]: null,
+        [Symbol(lastWriteQueueSize)]: 0,
+        [Symbol(timeout)]: Timeout {
+          _idleTimeout: -1,
+          _idlePrev: null,
+          _idleNext: null,
+          _idleStart: 4317,
+          _onTimeout: null,
+          _timerArgs: undefined,
+          _repeat: null,
+          _destroyed: true,
+          [Symbol(refed)]: false,
+          [Symbol(kHasPrimitive)]: false,
+          [Symbol(asyncId)]: 37,
+          [Symbol(triggerId)]: 17
+        },
+        [Symbol(kBuffer)]: null,
+        [Symbol(kBufferCb)]: null,
+        [Symbol(kBufferGen)]: null,
+        [Symbol(shapeMode)]: true,
+        [Symbol(kCapture)]: false,
+        [Symbol(kSetNoDelay)]: true,
+        [Symbol(kSetKeepAlive)]: true,
+        [Symbol(kSetKeepAliveInitialDelay)]: 60,
+        [Symbol(kBytesRead)]: 0,
+        [Symbol(kBytesWritten)]: 0
+      },
+      [Symbol(kOutHeaders)]: [Object: null prototype] {
+        accept: [ 'Accept', 'application/json, text/plain, */*' ],
+        'content-type': [ 'Content-Type', 'application/x-www-form-urlencoded' ],
+        'user-agent': [ 'User-Agent', 'axios/1.6.8' ],
+        'accept-encoding': [ 'Accept-Encoding', 'gzip, compress, deflate, br' ],
+        host: [ 'Host', 'localhost' ]
+      },
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 16384,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null
+    },
+    _currentUrl: 'http://localhost/3.85.210.237:3000/api/BIXTOKEN/start-all',
+    [Symbol(shapeMode)]: true,
+    [Symbol(kCapture)]: false
+  },
+  cause: AggregateError [ECONNREFUSED]: 
+      at internalConnectMultiple (node:net:1116:18)
+      at afterConnectMultiple (node:net:1683:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [
+      Error: connect ECONNREFUSED ::1:80
+          at createConnectionError (node:net:1646:14)
+          at afterConnectMultiple (node:net:1676:16) {
+        errno: -4078,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '::1',
+        port: 80
+      },
+      Error: connect ECONNREFUSED 127.0.0.1:80
+          at createConnectionError (node:net:1646:14)
+          at afterConnectMultiple (node:net:1676:16) {
+        errno: -4078,
+        code: 'ECONNREFUSED',
+        syscall: 'connect',
+        address: '127.0.0.1',
+        port: 80
+      }
+    ]
+  },
+  stack: 'AggregateError\n' +
+    '    at AxiosError.from (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\axios\\dist\\node\\axios.cjs:836:14)\n' +
+    '    at RedirectableRequest.handleRequestError (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\axios\\dist\\node\\axios.cjs:3086:25)\n' +
+    '    at RedirectableRequest.emit (node:events:519:28)\n' +
+    '    at eventHandlers.<computed> (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\follow-redirects\\index.js:38:24)\n' +
+    '    at ClientRequest.emit (node:events:519:28)\n' +
+    '    at Socket.socketErrorListener (node:_http_client:500:9)\n' +
+    '    at Socket.emit (node:events:519:28)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:169:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:128:3)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)\n' +
+    '    at Axios.request (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\axios\\dist\\node\\axios.cjs:3876:41)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async startAllSessions (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\util\\functions.js:238:5)',
+  timestamp: '2024-06-11T13:14:48.208Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-06-11T13:17:17.621Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-06-11T13:17:17.629Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-06-11T13:17:17.630Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-06-11T13:24:08.956Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-06-11T13:24:08.962Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-06-11T13:24:08.962Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-06-11T13:40:30.965Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-06-11T13:40:30.971Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-06-11T13:40:30.972Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:41:06.573Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:41:09.983Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-06-11T13:41:09.985Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:41:10.011Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-06-11T13:42:59.043Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-06-11T13:42:59.049Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-06-11T13:42:59.050Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:43:34.165Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-06-11T13:43:40.155Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:43:40.421Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-06-11T13:43:41.630Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-06-11T13:43:41.893Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:43:44.732Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:44:22.677Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-06-11T13:44:22.792Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-06-11T13:49:32.535Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-06-11T13:49:32.541Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-06-11T13:49:32.542Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:50:08.563Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T13:50:08.628Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-06-11T13:50:08.848Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-06-11T16:15:00.867Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-06-11T18:06:44.532Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-06-11T18:06:44.540Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-06-11T18:06:44.540Z'
+}

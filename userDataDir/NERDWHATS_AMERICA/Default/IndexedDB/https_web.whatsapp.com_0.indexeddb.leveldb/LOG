@@ -1,13 +1,13 @@
-2024/06/08-18:12:17.058 ea8 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-002093
-2024/06/08-18:12:17.069 ea8 Recovering log #3032
-2024/06/08-18:12:17.078 ea8 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/003032.log 
-2024/06/08-18:12:18.769 2e58 Level-0 table #3037: started
-2024/06/08-18:12:18.776 2e58 Level-0 table #3037: 181579 bytes OK
-2024/06/08-18:12:18.777 2e58 Delete type=0 #3032
-2024/06/08-18:12:18.780 2e58 Manual compaction at level-0 from ' \xb1\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \xb2\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/06/08-18:12:20.462 918 Compacting 1@1 + 1@2 files
-2024/06/08-18:12:20.638 918 Generated table #3038@1: 50359 keys, 1772576 bytes
-2024/06/08-18:12:20.638 918 Compacted 1@1 + 1@2 files => 1772576 bytes
-2024/06/08-18:12:20.638 918 compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/06/08-18:12:20.639 918 Delete type=2 #3034
-2024/06/08-18:12:20.639 918 Delete type=2 #3037
+2024/06/11-15:06:49.982 536c Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-002093
+2024/06/11-15:06:49.983 536c Recovering log #3169
+2024/06/11-15:06:50.039 536c Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/003169.log 
+2024/06/11-15:06:51.278 938 Level-0 table #3174: started
+2024/06/11-15:06:51.393 938 Level-0 table #3174: 731136 bytes OK
+2024/06/11-15:06:51.473 938 Delete type=0 #3169
+2024/06/11-15:06:51.512 536c Manual compaction at level-0 from ' \xdd\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \xde\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/06/11-15:06:53.357 349c Compacting 1@1 + 1@2 files
+2024/06/11-15:06:53.739 349c Generated table #3175@1: 49758 keys, 1609956 bytes
+2024/06/11-15:06:53.740 349c Compacted 1@1 + 1@2 files => 1609956 bytes
+2024/06/11-15:06:53.770 349c compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/06/11-15:06:53.800 349c Delete type=2 #3171
+2024/06/11-15:06:53.801 349c Delete type=2 #3174

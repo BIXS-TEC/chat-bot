@@ -12,7 +12,7 @@ const caixa = {
         {
           type: "text",
           isGroup: true,
-          message: `Conta [${user.phoneNumber}] ${chatbot.config.modality[0]}:${user.chatbot.modalityId} fechada!`,
+          message: `# Conta [${user.phoneNumber}] ${chatbot.config.modality[0]}:${user.chatbot.modalityId} fechada!`,
         },
       ],
     };
@@ -23,7 +23,7 @@ const caixa = {
         {
           type: "text",
           isGroup: true,
-          message: `Comando inválido!`,
+          message: `# Comando inválido!`,
         },
       ],
     };
@@ -34,7 +34,7 @@ const caixa = {
         {
           type: "text",
           isGroup: true,
-          message: `${modality} ${modalityId} não possiu cliente ativo!`,
+          message: `# ${modality} ${modalityId} não possiu cliente ativo!`,
         },
       ],
     }
@@ -45,7 +45,7 @@ const caixa = {
         {
           type: "text",
           isGroup: true,
-          message: `${modality} ${modalityId} esta inativa!`,
+          message: `# ${modality} ${modalityId} esta inativa!`,
         },
       ],
     }

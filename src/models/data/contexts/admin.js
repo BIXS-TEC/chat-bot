@@ -27,7 +27,7 @@ export default function getAdminContexts(chatbot) {
     previuosContext: ["admin"],
     activationKeywords: ["."],
     action: function (client) {
-      chatbot.clientList[client.phoneNumber].humanChating = false;
+      chatbot.clientList[client.phoneNumber].chatbot.humanChating = false;
       return true;
     },
     responseObjects: function (client, args = {}) {

@@ -225,11 +225,13 @@ f.atendente = {};
 
 f.atendente.action = function (context, chatbot, client) {
   try {
+    console.log("\x1b[36m%s\x1b[0m", `f.atendente.action Cliente: ${JSON.stringify(client)}`);
     const saveResponse = client.chatbot.lastChatbotMessage.filter((response) => !response.dontSave);
+    console.log(`f.atendente.action saveResponse: ${JSON.stringify(saveResponse)}`);
     if (saveResponse.length && !["atendente"].includes(client.chatbot.context)) client.chatbot.lastResponseBeforeAtendente = saveResponse;
     client.changeContext(context.name);
     setTimeout(() => {
-      client.setHumanChat(true);
+      client.chatbot.humanChating = true;
     }, 500);
     return;
   } catch (error) {
@@ -244,7 +246,7 @@ f.atendente.responseObjects = function (context, chatbot, client, args = {}) {
       { type: "text", message: "Ok!\n Já vou te transferir para um de nossos atendentes!\n\nSó um minuto que já vamos te chamar.", dontSave: true },
       {
         type: "listMessage",
-        description: "Você pode voltar ao chatbot quando quiser, basta selecionar a opção",
+        description: "Quando quiser, selecione a opção para voltar ao chatbot.",
         buttonText: "SELECIONE UMA OPÇÃO",
         sections: [
           {
@@ -271,7 +273,7 @@ f.atendente.responseObjects = function (context, chatbot, client, args = {}) {
       },
       {
         type: "text",
-        message: `Cliente [${client.phoneNumber}] solicitou atendimento!\n*Clique para responde-lo.*`,
+        message: `# Cliente [${client.phoneNumber}] solicitou atendimento!\n*Clique para responde-lo.*`,
         groupPhone: chatbot.groupList["Atendente"].chatId,
         isGroup: true,
         dontSave: true,
@@ -295,7 +297,8 @@ f.voltar_chatbot = {};
 
 f.voltar_chatbot.action = function (context, chatbot, client) {
   try {
-    chatbot.clientList[client.phoneNumber].humanChating = false;
+    client.chatbot.humanChating = false;
+    client.changeContext(client.getLastValidContext());
     return true;
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
@@ -314,7 +317,6 @@ f.voltar_chatbot.responseObjects = function (context, chatbot, client, args = {}
     ];
     returnMessage.push(...client.chatbot.lastResponseBeforeAtendente);
     console.log("returnMessage :", returnMessage);
-    delete client.chatbot.lastResponseBeforeAtendente;
     return returnMessage;
   } catch (error) {
     console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
@@ -344,7 +346,7 @@ f.garcom.responseObjects = function (context, chatbot, client, args = {}) {
       },
       {
         type: "text",
-        message: `*Mesa ${client.chatbot.modalityId}* solicitou um garçom!\nCliente: ${client.name}`,
+        message: `# *Mesa ${client.chatbot.modalityId}* solicitou um garçom!\nCliente: ${client.name}`,
         groupPhone: chatbot.groupList["Garçom"].chatId,
         isGroup: true,
         dontSave: true,
@@ -378,18 +380,24 @@ f.cardapio.action = function (context, chatbot, client) {
 f.cardapio.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     const sections = args.sections;
+    let description = "\n\n*Selecione um por vez*";
 
     /* Caso tenha sido redirecionado pelo contexto "editar-produto" e ja contenha itens na lista */
-    if (Object.keys(client.orderList).length) {
-      sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "editar-pedido", "recomendar-produto", "garcom", "atendente"]));
+    if (Object.keys(client.chatbot.orderList).length) {
+      let message = mf.getOrderMessage(client);
+      description = message + description;
+      sections.push(
+        mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "editar-pedido", "recomendar-produto", "garcom", "atendente", "cancelar-pedido"])
+      );
     } else {
+      description = "Monte seu pedido!" + description;
       sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["garcom", "atendente"]));
     }
 
     return [
       {
         type: "listMessage",
-        description: "Monte seu pedido!\n\n*Selecione um por vez*",
+        description: description,
         buttonText: "SELECIONE UMA OPÇÃO",
         sections: sections,
       },
@@ -420,7 +428,9 @@ f.adicionar_produto.responseObjects = function (context, chatbot, client, args =
     let message = mf.getOrderMessage(client);
     // message += "\n\nSelecione umas das opções do botão abaixo";
     const [, sections] = mf.getProductsIdsAndSections(chatbot);
-    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "editar-pedido", "recomendar-produto", "garcom", "atendente"]));
+    sections.push(
+      mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "editar-pedido", "recomendar-produto", "garcom", "atendente", "cancelar-pedido"])
+    );
 
     return [
       {
@@ -459,7 +469,16 @@ f.adicionais.responseObjects = function (context, chatbot, client, args = {}) {
     // console.log("args.sections: ", args.sections);
     let message = mf.getOrderMessage(client);
     const sections = args.sections;
-    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "editar-pedido", "recomendar-produto", "garcom", "atendente"]));
+    sections.push(
+      mf.buildSection(chatbot, "🔽 Outras opções", [
+        "voltar-cardapio",
+        "editar-pedido",
+        "recomendar-produto",
+        "garcom",
+        "atendente",
+        "cancelar-pedido",
+      ])
+    );
 
     return [
       {
@@ -495,7 +514,16 @@ f.incluir_adicionais.responseObjects = function (context, chatbot, client, args 
   try {
     let message = mf.getOrderMessage(client);
     const [, , sections] = mf.getAdditionalIdsAndSections(chatbot, client); // Melhorar performace
-    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "editar-pedido", "recomendar-produto", "garcom", "atendente"]));
+    sections.push(
+      mf.buildSection(chatbot, "🔽 Outras opções", [
+        "voltar-cardapio",
+        "editar-pedido",
+        "recomendar-produto",
+        "garcom",
+        "atendente",
+        "cancelar-pedido",
+      ])
+    );
 
     return [
       {
@@ -529,7 +557,7 @@ f.incluir_observacao.responseObjects = function (context, chatbot, client, args 
     return [
       {
         type: "text",
-        message: `Por favor, escreva a observação para ${client.orderList[productId].name}.`,
+        message: `Por favor, escreva a observação para ${client.chatbot.orderList[productId].name}.`,
       },
     ];
   } catch (error) {
@@ -545,12 +573,12 @@ f.salvar_observacao.action = function (context, chatbot, client) {
   try {
     client.changeContext("adicionais");
     // console.log("last message: ", client.messageHistory[client.messageHistory.length - 2]);
-    const [, code] = client.messageHistory[client.messageHistory.length - 2].split("&&");
+    const [, code] = client.chatbot.messageHistory[client.chatbot.messageHistory.length - 2].split("&&");
     const [productId, index] = code.split(":");
-    // const additionalList = client.orderList[productId].additionalList;
-    if (!client.orderList[productId].additionalList) client.orderList[productId].additionalList = [];
-    if (!client.orderList[productId].additionalList[index]) client.orderList[productId].additionalList[index] = {};
-    client.orderList[productId].additionalList[index]["observation"] = {
+    // const additionalList = client.chatbot.orderList[productId].additionalList;
+    if (!client.chatbot.orderList[productId].additionalList) client.chatbot.orderList[productId].additionalList = [];
+    if (!client.chatbot.orderList[productId].additionalList[index]) client.chatbot.orderList[productId].additionalList[index] = {};
+    client.chatbot.orderList[productId].additionalList[index]["observation"] = {
       text: client.chatbot.currentMessage,
       name: "Observação",
     };
@@ -565,7 +593,7 @@ f.salvar_observacao.responseObjects = function (context, chatbot, client, args =
   try {
     let message = mf.getOrderMessage(client);
     const [, , sections] = mf.getAdditionalIdsAndSections(chatbot, client); // Melhorar performace
-    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["editar-pedido", "recomendar-produto", "garcom", "atendente"]));
+    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["editar-pedido", "recomendar-produto", "garcom", "atendente", "cancelar-pedido"]));
 
     return [
       {
@@ -612,7 +640,14 @@ f.recomendar_produto.responseObjects = function (context, chatbot, client, args 
             recommended: recommended,
             qtdRecommended: 3,
           }),
-          mf.buildSection(chatbot, "🔽 Outras opções", ["editar-pedido", "finalizar-pedido", "garcom", "atendente"]),
+          mf.buildSection(chatbot, "🔽 Outras opções", [
+            "voltar-cardapio",
+            Object.keys(client.chatbot.orderList).length ? "editar-pedido" : "",
+            Object.keys(client.chatbot.orderList).length ? "finalizar-pedido" : "",
+            "garcom",
+            "atendente",
+            "cancelar-pedido",
+          ]),
         ],
       },
     ];
@@ -654,7 +689,14 @@ f.incluir_recomendado.responseObjects = function (context, chatbot, client, args
             recommended: recommended,
             qtdRecommended: 3,
           }),
-          mf.buildSection(chatbot, "🔽 Outras opções", ["cardapio", "editar-pedido", "finalizar-pedido", "garcom", "atendente"]),
+          mf.buildSection(chatbot, "🔽 Outras opções", [
+            "voltar-cardapio",
+            "editar-pedido",
+            "finalizar-pedido",
+            "garcom",
+            "atendente",
+            "cancelar-pedido",
+          ]),
         ],
       },
     ];
@@ -687,7 +729,9 @@ f.editar_pedido.responseObjects = function (context, chatbot, client, args = {})
 
     let message = mf.getOrderMessage(client);
     message += "\n\nSelecione um item para REMOVER ou outra opção";
-    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "adicionais", "recomendar-produto", "garcom", "atendente"]));
+    sections.push(
+      mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "adicionais", "recomendar-produto", "garcom", "atendente", "cancelar-pedido"])
+    );
 
     return [
       {
@@ -718,12 +762,23 @@ f.remover_item.action = function (context, chatbot, client) {
 
 f.remover_item.responseObjects = function (context, chatbot, client, args = {}) {
   try {
+    if (!Object.keys(client.chatbot.orderList).length) {
+      setTimeout(() => {
+        chatbot.sendContextMessage("cardapio", client);
+      }, 200);
+      return [
+        {
+          type: "text",
+          message: "Item removido!\nSua lista de pedidos está vazia.",
+        },
+      ];
+    }
     let sections = [];
     [, sections] = mf.getProductsAndAdditionalIdsAndSections(chatbot, client); // Melhorar performace
 
     let message = mf.getOrderMessage(client);
     message += "\n\nItem removido!";
-    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "recomendar-produto", "garcom", "atendente"]));
+    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "recomendar-produto", "garcom", "atendente", "cancelar-pedido"]));
 
     return [
       {
@@ -745,12 +800,14 @@ f.finalizar_pedido = {};
 f.finalizar_pedido.action = function (context, chatbot, client) {
   try {
     client.changeContext(context.name);
+    if (!Object.keys(client.chatbot.orderList).length) {
+      chatbot.sendContextMessage("pedidos-vazio", client);
+      chatbot.sendContextMessage("cardapio", client);
+      return { isEmpty: true };
+    }
     const orderMessage = chatbot.sendClientOrder(client);
-    setTimeout(() => {
-      if (client.chatbot.context === "finalizar-pedido") {
-        chatbot.sendContextMessage("recorrente", client);
-      }
-    }, chatbot.config.recurrentTime);
+    console.log("f.finalizar_pedido.action orderMessage:", orderMessage);
+    mf.recurrentTimeOut(chatbot, client);
     return { orderMessage: orderMessage };
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
@@ -759,6 +816,7 @@ f.finalizar_pedido.action = function (context, chatbot, client) {
 
 f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = {}) {
   try {
+    if (args.isEmpty) return [];
     const sections = [];
     sections.push(mf.buildSection(chatbot, "🔽 Selecione uma das opções", ["voltar-cardapio", "solicitar-fechamento", "garcom", "atendente", "faq"]));
 
@@ -786,24 +844,69 @@ f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = 
   }
 };
 
+/** Cancelar Pedido */
+
+f.cancelar_pedido = {};
+
+f.cancelar_pedido.action = function (context, chatbot, client) {
+  try {
+    client.chatbot.orderList = {};
+    client.changeContext("finalizar-pedido");
+    mf.recurrentTimeOut(chatbot, client);
+    return;
+  } catch (error) {
+    console.error(`Erro em action no contexto "${context.name}"`, error);
+  }
+};
+
+f.cancelar_pedido.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    const sections = [];
+    sections.push(
+      mf.buildSection(chatbot, "🔽 Selecione uma das opções", [
+        "voltar-cardapio",
+        Object.keys(client.chatbot.approvedOrderList).length ? "solicitar-fechamento" : "",
+        "garcom",
+        "atendente",
+        "faq",
+      ])
+    );
+
+    return [
+      {
+        type: "listMessage",
+        description: "Seu pedido foi cancelado!",
+        buttonText: "SELECIONE UMA OPÇÃO",
+        sections: sections,
+      },
+    ];
+  } catch (error) {
+    console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
+  }
+};
+
 /** Recorrente */
 
 f.recorrente = {};
 
 f.recorrente.action = function (context, chatbot, client) {
-  client.changeContext(context.name);
+  if (!Object.keys(client.chatbot.approvedOrderList).length) return { noProducts: true };
   // Atualizar activationKeywords de "incluir-recorrente"
   const activationKeywords = [];
-  for (let productId in client.approvedOrderList) {
-    const category = client.approvedOrderList[productId].category;
+  for (let productId in client.chatbot.approvedOrderList) {
+    const category = client.chatbot.approvedOrderList[productId].category;
     if (chatbot.config.recurrentCategories.includes(category)) {
       activationKeywords.push(productId);
     }
   }
+  console.log('f.recorrente.action activationKeywords:', activationKeywords);
+  if (!activationKeywords.length) return { noProducts: true };
+  client.changeContext(context.name);
   chatbot.contextList["cardapio-whatsapp"]["incluir-recorrente"].activationKeywords = activationKeywords;
 };
 
 f.recorrente.responseObjects = function (context, chatbot, client, args = {}) {
+  if (args.noProducts) return [];
   const recurrent = mf.buildSection(chatbot, `Selecione uma bebida.`, ["recorrente"], { client });
   let message = "";
   for (let row of recurrent.rows) {
@@ -846,7 +949,14 @@ f.incluir_recorrente.responseObjects = function (context, chatbot, client, args 
         buttonText: "SELECIONE UMA DAS OPÇÕES",
         sections: [
           mf.buildSection(chatbot, "Selecione uma bebida", ["recorrente"], { client }),
-          mf.buildSection(chatbot, "🔽 Outras opções", ["cardapio", "editar-pedido", "finalizar-pedido", "garcom", "atendente"]),
+          mf.buildSection(chatbot, "🔽 Outras opções", [
+            "cardapio",
+            "editar-pedido",
+            "recomendar-produto" /*"finalizar-pedido"*/,
+            "garcom",
+            "atendente",
+            "cancelar-pedido",
+          ]),
         ],
       },
     ];
@@ -879,20 +989,22 @@ f.solicitar_fechamento.responseObjects = function (context, chatbot, client, arg
       },
       {
         type: "text",
-        message: chatbot.config.groupNames.includes('Garçom') ? 'Um garçom irá trazer a conta.\nPor favor, aguarde.' : 'Por favor, dirija-se ao caixa para o pagamento.' ,
+        message: chatbot.config.groupNames.includes("Garçom")
+          ? "Um garçom irá trazer a conta.\nPor favor, aguarde."
+          : "Por favor, dirija-se ao caixa para o pagamento.",
       },
       {
         type: "text",
-        message: `Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.`,
+        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.`,
         groupPhone: chatbot.groupList["Caixa"].chatId,
         isGroup: true,
         dontSave: true,
-      }
+      },
     ];
-    if (chatbot.config.groupNames.includes('Garçom')) {
+    if (chatbot.config.groupNames.includes("Garçom")) {
       returnMessage.push({
         type: "text",
-        message: `Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.`,
+        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.`,
         groupPhone: chatbot.groupList["Garçom"].chatId,
         isGroup: true,
         dontSave: true,
@@ -964,6 +1076,31 @@ f.fechar_conta.responseObjects = function (context, chatbot, client, args = {}) 
     ];
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+/** Pedidos vazio */
+
+f.pedidos_vazio = {};
+
+f.pedidos_vazio.action = function (context, chatbot, client) {
+  try {
+    return;
+  } catch (error) {
+    console.error(`Erro em action no contexto "${context.name}"`, error);
+  }
+};
+
+f.pedidos_vazio.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    return [
+      {
+        type: "text",
+        message: "Sua lista de pedidos está vazia!\nPor favor, adicione um item para finalizar.",
+      },
+    ];
+  } catch (error) {
+    console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
   }
 };
 

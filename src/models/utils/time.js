@@ -1,4 +1,4 @@
-export function configureMenu(chatbot, productList, nightTime = { hour: 20, minute: 0 }, dayTime = { hour: 6, minute: 0 }) {
+export function configureProductsList(chatbot, productList, nightTime = { hour: 20, minute: 0 }, dayTime = { hour: 6, minute: 0 }) {
     
     // Calcular tempo até hora e minuto
     function calculateTimeUntil(hour, minute) {

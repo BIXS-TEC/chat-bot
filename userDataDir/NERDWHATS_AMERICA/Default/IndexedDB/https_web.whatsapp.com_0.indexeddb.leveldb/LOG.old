@@ -1,13 +1,22 @@
-2024/06/08-18:11:09.667 3124 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-002093
-2024/06/08-18:11:09.668 3124 Recovering log #3028
-2024/06/08-18:11:09.686 3124 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/003028.log 
-2024/06/08-18:11:11.863 5560 Level-0 table #3033: started
-2024/06/08-18:11:11.872 5560 Level-0 table #3033: 184202 bytes OK
-2024/06/08-18:11:11.874 5560 Delete type=0 #3028
-2024/06/08-18:11:11.877 5560 Manual compaction at level-0 from ' \xb0\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \xb1\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/06/08-18:11:13.556 3124 Compacting 1@1 + 1@2 files
-2024/06/08-18:11:13.731 3124 Generated table #3034@1: 49740 keys, 1751370 bytes
-2024/06/08-18:11:13.731 3124 Compacted 1@1 + 1@2 files => 1751370 bytes
-2024/06/08-18:11:13.738 3124 compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/06/08-18:11:13.739 3124 Delete type=2 #3030
-2024/06/08-18:11:13.739 3124 Delete type=2 #3033
+2024/06/11-10:49:35.018 48f8 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-002093
+2024/06/11-10:49:35.020 48f8 Recovering log #3162
+2024/06/11-10:49:35.021 48f8 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/003162.log 
+2024/06/11-10:49:36.031 3d2c Level-0 table #3167: started
+2024/06/11-10:49:36.034 3d2c Level-0 table #3167: 31661 bytes OK
+2024/06/11-10:49:36.038 3d2c Delete type=0 #3162
+2024/06/11-10:49:36.039 48f8 Manual compaction at level-0 from ' \xdc\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \xdd\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/06/11-10:49:37.613 29dc Compacting 1@1 + 1@2 files
+2024/06/11-10:49:37.760 29dc Generated table #3168@1: 43296 keys, 1447174 bytes
+2024/06/11-10:49:37.760 29dc Compacted 1@1 + 1@2 files => 1447174 bytes
+2024/06/11-10:49:37.764 29dc compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/06/11-10:49:37.764 29dc Delete type=2 #3164
+2024/06/11-10:49:37.764 29dc Delete type=2 #3167
+2024/06/11-12:59:34.296 3d2c Level-0 table #3170: started
+2024/06/11-12:59:34.512 3d2c Level-0 table #3170: 1228417 bytes OK
+2024/06/11-12:59:34.548 3d2c Delete type=0 #3166
+2024/06/11-13:00:49.708 29dc Compacting 1@1 + 1@2 files
+2024/06/11-13:00:49.792 29dc Generated table #3171@1: 47726 keys, 1543188 bytes
+2024/06/11-13:00:49.792 29dc Compacted 1@1 + 1@2 files => 1543188 bytes
+2024/06/11-13:00:49.793 29dc compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/06/11-13:00:49.793 29dc Delete type=2 #3168
+2024/06/11-13:00:49.793 29dc Delete type=2 #3170

@@ -27,7 +27,7 @@ export function systemSetup() {
 export async function handleMessageRequest(request) {
   return new Promise((resolve, reject) => {
     try {
-      console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
+      // console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
 
       const client = standardizeMessageRequestToDefault(request);
       if (!client) {
@@ -46,7 +46,7 @@ export async function handleMessageRequest(request) {
       switch (client.chatbot.interaction) {
         case "cardapio-whatsapp":
         case "cardapio-online":
-          if (!chatbot.clientList[client.phoneNumber]?.humanChating || ["voltar-chatbot", "faq", "atendente"].includes(client.chatbot.itemId)) {
+          if (!chatbot.clientList[client.phoneNumber]?.chatbot?.humanChating || ["voltar-chatbot", "faq", "atendente"].includes(client.chatbot.itemId)) {
             chatbot
               .handleOrderMenuFlow(client)
               .then((result) => {
@@ -59,7 +59,7 @@ export async function handleMessageRequest(request) {
           }
           break;
         case "admin":
-          if (chatbot.clientList[client.chatbot.messageTo]?.humanChating) {
+          if (chatbot.clientList[client.chatbot.messageTo]?.chatbot.humanChating) {
             chatbot
               .handleAdminCommand(client)
               .then((result) => {
