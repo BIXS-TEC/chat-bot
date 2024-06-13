@@ -899,7 +899,6 @@ f.recorrente.action = function (context, chatbot, client) {
       activationKeywords.push(productId);
     }
   }
-  console.log('f.recorrente.action activationKeywords:', activationKeywords);
   if (!activationKeywords.length) return { noProducts: true };
   client.changeContext(context.name);
   chatbot.contextList["cardapio-whatsapp"]["incluir-recorrente"].activationKeywords = activationKeywords;
