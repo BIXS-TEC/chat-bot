@@ -31,7 +31,7 @@ export default function getAdminContexts(chatbot) {
       return true;
     },
     responseObjects: function (client, args = {}) {
-      console.log("lastResponseBeforeAtendente: ", client.chatbot.lastResponseBeforeAtendente);
+      // console.log("lastResponseBeforeAtendente: ", client.chatbot.lastResponseBeforeAtendente);
       const returnMessage = [
         {
           type: "text",
@@ -40,7 +40,7 @@ export default function getAdminContexts(chatbot) {
         },
       ];
       returnMessage.push(...client.chatbot.lastResponseBeforeAtendente);
-      console.log("returnMessage :", returnMessage);
+      // console.log("returnMessage :", returnMessage);
       delete client.chatbot.lastResponseBeforeAtendente;
       return returnMessage;
     },

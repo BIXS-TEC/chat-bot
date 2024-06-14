@@ -21,8 +21,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Servidor ouvindo na porta ${port}`);
-  console.log(`Path: https://########.ngrok-free.app/message`);
+  console.log(`Path to chatbot: http://54.152.116.180:5002/message`);
 });
 
 // node_modules\@wppconnect\server\dist\util\createSessionUtil.js

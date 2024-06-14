@@ -196,7 +196,7 @@ f.faq.action = function (context, chatbot, client) {
 
 f.faq.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    console.log("faq lastChatbotMessage: ", client.chatbot.lastChatbotMessage);
+    // console.log("faq lastChatbotMessage: ", client.chatbot.lastChatbotMessage);
     const returnMessage = [...client.chatbot.lastChatbotMessage];
     returnMessage.unshift({
       type: "text",
@@ -225,9 +225,9 @@ f.atendente = {};
 
 f.atendente.action = function (context, chatbot, client) {
   try {
-    console.log("\x1b[36m%s\x1b[0m", `f.atendente.action Cliente: ${JSON.stringify(client)}`);
+    // console.log("\x1b[36m%s\x1b[0m", `f.atendente.action Cliente: ${JSON.stringify(client)}`);
     const saveResponse = client.chatbot.lastChatbotMessage.filter((response) => !response.dontSave);
-    console.log(`f.atendente.action saveResponse: ${JSON.stringify(saveResponse)}`);
+    // console.log(`f.atendente.action saveResponse: ${JSON.stringify(saveResponse)}`);
     if (saveResponse.length && !["atendente"].includes(client.chatbot.context)) client.chatbot.lastResponseBeforeAtendente = saveResponse;
     client.changeContext(context.name);
     setTimeout(() => {
@@ -307,7 +307,7 @@ f.voltar_chatbot.action = function (context, chatbot, client) {
 
 f.voltar_chatbot.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    console.log("lastResponseBeforeAtendente: ", client.chatbot.lastResponseBeforeAtendente);
+    // console.log("lastResponseBeforeAtendente: ", client.chatbot.lastResponseBeforeAtendente);
     const returnMessage = [
       {
         type: "text",
@@ -316,7 +316,7 @@ f.voltar_chatbot.responseObjects = function (context, chatbot, client, args = {}
       },
     ];
     returnMessage.push(...client.chatbot.lastResponseBeforeAtendente);
-    console.log("returnMessage :", returnMessage);
+    // console.log("returnMessage :", returnMessage);
     return returnMessage;
   } catch (error) {
     console.error(`Erro em responseObjects no contexto "${context.name}"`, error);

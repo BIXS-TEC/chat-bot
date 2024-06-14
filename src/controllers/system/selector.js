@@ -117,7 +117,7 @@ export async function handleDataRequest(request) {
           chatbotList[client.chatbot.chatbotPhoneNumber]
             .saveClientOrder(client)
             .then((result) => {
-              console.log("result: ", result);
+              // console.log("result: ", result);
               resolve({ statusCode: 200, message: "OK" });
             })
             .catch((err) => {

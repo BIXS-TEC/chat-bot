@@ -49,8 +49,8 @@ export default class Client {
   }
 
   removeFromOrderList(productId, index, additionalId) {
-    console.log("this.chatbot.orderList: ", JSON.stringify(this.chatbot.orderList, null, 2));
-    console.log(`productId: ${productId}, index: ${index}, additionalId: ${additionalId}`);
+    // console.log("this.chatbot.orderList: ", JSON.stringify(this.chatbot.orderList, null, 2));
+    // console.log(`productId: ${productId}, index: ${index}, additionalId: ${additionalId}`);
     const clientProduct = this.chatbot.orderList[productId];
     if (additionalId === undefined) {
       this.chatbot.orderList[productId].quantity -= 1;

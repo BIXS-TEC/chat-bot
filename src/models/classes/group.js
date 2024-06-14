@@ -33,7 +33,7 @@ Group.initializeGroupList = async function (chatbot) {
   */
     /* Buscar grupos existentes */
     let existingGroups = (await sender.sendGroupRequests([{ type: "get-all-groups" }])).flat();
-    console.log("existingGroups: ", JSON.stringify(existingGroups.map((group) => group.name)));
+    // console.log("existingGroups: ", JSON.stringify(existingGroups.map((group) => group.name)));
 
     /* Filtrar grupos que ja existem dos grupos pedidos pelo chatbot */
     const groupNames = chatbot.config.groupNames.filter((name) => !existingGroups.some((group) => group.name === name));

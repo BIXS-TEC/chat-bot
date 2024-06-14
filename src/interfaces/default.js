@@ -10,7 +10,7 @@ dfInterface.standardizeMessageToDefault = function (req) {
       chatbotPhoneNumber: req.message.chatbotPhoneNumber,
       message: req.message.message,
     };
-    console.log("\n\n\nUnknown Client:", client, "\n\n\n");
+    // console.log("\n\n\nUnknown Client:", client, "\n\n\n");
     return client;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a requisição desconhecida!");

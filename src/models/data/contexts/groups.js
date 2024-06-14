@@ -62,7 +62,7 @@ export default function getGroupContexts(chatbot) {
       previuosContext: ["nenhum"],
       activationKeywords: [],
       action: function (client) {
-        console.log("contextList['Caixa'] currentMessage:", `[0]:(${client.chatbot.currentMessage[0]})  ` ,client.chatbot.currentMessage)
+        // console.log("contextList['Caixa'] currentMessage:", `[0]:(${client.chatbot.currentMessage[0]})  ` ,client.chatbot.currentMessage)
         if (client.chatbot.currentMessage[0] !== '#') {
         const command = client.chatbot.currentMessage.split(' ')[0].toLowerCase();
         if (!caixa[command]) return caixa['invalido']();

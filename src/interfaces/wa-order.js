@@ -8,13 +8,13 @@ order.uniteClientProducts = function (client) {
   // const clientCopy = { ...client };
   const clientCopy = lodash.cloneDeep(client);
   client.chatbot.orderList = {};
-  console.log('uniteClientProducts clientCopy:', clientCopy);
+  // console.log('uniteClientProducts clientCopy:', clientCopy);
   for (let productId in clientCopy.chatbot.orderList) {
     if (client.chatbot.approvedOrderList[productId]) {
       client.chatbot.approvedOrderList[productId].quantity += clientCopy.chatbot.orderList[productId].quantity;
       if (clientCopy.chatbot.orderList[productId].additionalList?.length) {
         if (!client.chatbot.approvedOrderList[productId].additionalList?.length) client.chatbot.approvedOrderList[productId].additionalList = [];
-        console.log("additionalList: ", clientCopy.chatbot.orderList[productId].additionalList);
+        // console.log("additionalList: ", clientCopy.chatbot.orderList[productId].additionalList);
         client.chatbot.approvedOrderList[productId].additionalList.push([...clientCopy.chatbot.orderList[productId].additionalList]);
       }
     } else {
@@ -27,7 +27,7 @@ order.uniteClientProducts = function (client) {
     }
     // console.log("sendClientOrder client.chatbot.approvedOrderList: \n", JSON.stringify(client.chatbot.approvedOrderList, null, 2));
   }
-  console.log('uniteClientProducts clientCopy:', clientCopy);
+  // console.log('uniteClientProducts clientCopy:', clientCopy);
   return clientCopy;
 };
 

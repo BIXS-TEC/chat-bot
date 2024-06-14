@@ -4,7 +4,7 @@ function getCompleteOrderMessage(client) {
   let totalPrice = 0.0;
   let message = "";
   const orderList = client.chatbot.approvedOrderList;
-  console.log("client.orderList :", JSON.stringify(orderList, null, 2));
+  // console.log("client.orderList :", JSON.stringify(orderList, null, 2));
   for (const productId in orderList) {
     const product = orderList[productId];
     if (product.additionalList?.length) {
@@ -18,7 +18,7 @@ function getCompleteOrderMessage(client) {
           if (Object.keys(product.additionalList[orderNum][i]).length) {
             for (const additionalId in product.additionalList[orderNum][i]) {
               const additional = product.additionalList[orderNum][i][additionalId];
-              console.log("\x1b[34;1m%s\x1b[0m", "additional: ", additional);
+              // console.log("\x1b[34;1m%s\x1b[0m", "additional: ", additional);
               if (additional.name === "Observação") {
                 message += "\n   +`Obs: " + additional.text + "`";
               } else {
@@ -45,4 +45,4 @@ function getCompleteOrderMessage(client) {
   return message;
 }
 
-console.log(getCompleteOrderMessage(client));
+// console.log(getCompleteOrderMessage(client));

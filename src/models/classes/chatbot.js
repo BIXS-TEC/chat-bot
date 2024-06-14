@@ -84,7 +84,7 @@ export default class Chatbot {
   async sendContextMessage(contextName, client) {
     if (this.contextList[client.chatbot.interaction][contextName]) {
       const useClient = client.chatbot.interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
-      console.log('sendContextMessage useClient: ', client)
+      // console.log('sendContextMessage useClient: ', client)
       this.contextList[client.chatbot.interaction][contextName]
         .runContext(useClient)
         .then((response) => {
