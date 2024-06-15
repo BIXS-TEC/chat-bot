@@ -84,7 +84,8 @@ export default class Chatbot {
   async sendContextMessage(contextName, client) {
     if (!this.contextList[client.chatbot.interaction][contextName]) return;
     const useClient = client.chatbot.interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
-    // console.log('sendContextMessage useClient: ', client)
+    console.log('sendContextMessage client.chatbot.interaction: ', client.chatbot.interaction)
+    console.log('sendContextMessage contextName: ', contextName);
     this.contextList[client.chatbot.interaction][contextName]
       .runContext(useClient)
       .then((response) => {
@@ -183,7 +184,6 @@ export default class Chatbot {
 
   addClientToList(client, context = "nenhum") {
     //incluir verificação de objeto
-    console.log("1addClientToList client:", JSON.stringify(client));
     try {
       if (!this.clientList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' adicionado!`);
       else if (this.clientList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' alterado!`);
@@ -202,7 +202,6 @@ export default class Chatbot {
           timeouts: { recurrent: { trigged: false, time: this.config.recurrentTime } },
         }),
       });
-      console.log("2addClientToList client:", JSON.stringify(this.clientList[client.phoneNumber]));
       return true;
     } catch (error) {
       console.log("Error on addClientToList function", error);

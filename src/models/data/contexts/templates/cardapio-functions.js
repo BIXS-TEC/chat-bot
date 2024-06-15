@@ -1015,7 +1015,7 @@ f.pesquisa_satisfacao = {};
 f.pesquisa_satisfacao.action = function (context, chatbot, client) {
   try {
     client.changeContext(context.name);
-    // console.log("PESQUISA DE SATISFAÇÃO client: ", client);
+    console.log("PESQUISA DE SATISFAÇÃO client: ", client.phoneNumber);
     const id = client.chatbot.modalityId;
     chatbot.modalityIdList[id].occupied = false;
     setTimeout(() => {
