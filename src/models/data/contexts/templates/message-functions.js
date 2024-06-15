@@ -334,6 +334,7 @@ mf.getCompleteOrderMessage = function (client) {
       totalPrice += price * qnt;
     }
   }
+  client.chatbot.totalPrice = totalPrice;
   message = `Seu pedido: (Total R$ ${totalPrice.toFixed(2).replace(".", ",")})` + message;
   return message;
 };

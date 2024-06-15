@@ -951,7 +951,7 @@ f.incluir_recorrente.responseObjects = function (context, chatbot, client, args 
           mf.buildSection(chatbot, "🔽 Outras opções", [
             "cardapio",
             "editar-pedido",
-            "recomendar-produto" /*"finalizar-pedido"*/,
+            "finalizar-pedido",
             "garcom",
             "atendente",
             "cancelar-pedido",
@@ -994,7 +994,7 @@ f.solicitar_fechamento.responseObjects = function (context, chatbot, client, arg
       },
       {
         type: "text",
-        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.`,
+        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.\nTotal: R$ ${client.chatbot.totalPrice}`,
         groupPhone: chatbot.groupList["Caixa"].chatId,
         isGroup: true,
         dontSave: true,
@@ -1003,7 +1003,7 @@ f.solicitar_fechamento.responseObjects = function (context, chatbot, client, arg
     if (chatbot.config.groupNames.includes("Garçom")) {
       returnMessage.push({
         type: "text",
-        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.`,
+        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.\nTotal: R$ ${client.chatbot.totalPrice}`,
         groupPhone: chatbot.groupList["Garçom"].chatId,
         isGroup: true,
         dontSave: true,
