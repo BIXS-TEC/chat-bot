@@ -68,24 +68,45 @@ wppInterface.WPPConnectTextToDefault = function (req) {
         };
       }
     } else {
-      return {
-        id: req.from,
-        name: req.sender.pushname,
-        phoneNumber: formatPhoneWPPConnect(req.from),
-        isGroupMsg: true,
-        platform: req.platform,
-        timestamp: req.t,
-        isChatbot: true, // req.sender.isMe
-        chatbot: {
-          messageId: req.id.split("_")[2],
-          currentMessage: req.body,
-          messageType: req.type,
-          messageTo: formatPhoneWPPConnect(req.to),
-          interaction: "group",
-          chatbotPhoneNumber: formatPhoneWPPConnect(req.from),
-          itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
-        },
-      };
+      if (req.sender.isMe) {
+        return {
+          id: req.from,
+          name: req.sender.pushname,
+          phoneNumber: formatPhoneWPPConnect(req.from),
+          isGroupMsg: true,
+          platform: req.platform,
+          timestamp: req.t,
+          isChatbot: true,
+          chatbot: {
+            messageId: req.id.split("_")[2],
+            currentMessage: req.body,
+            messageType: req.type,
+            messageTo: formatPhoneWPPConnect(req.to),
+            interaction: "group",
+            chatbotPhoneNumber: formatPhoneWPPConnect(req.from),
+            itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
+          },
+        };
+      } else {
+        return {
+          id: req.from,
+          name: req.sender.pushname,
+          phoneNumber: formatPhoneWPPConnect(req.author),
+          isGroupMsg: true,
+          platform: req.platform,
+          timestamp: req.t,
+          isChatbot: false,
+          chatbot: {
+            messageId: req.id.split("_")[2],
+            currentMessage: req.body,
+            messageType: req.type,
+            messageTo: formatPhoneWPPConnect(req.from),
+            interaction: "group",
+            chatbotPhoneNumber: formatPhoneWPPConnect(req.to),
+            itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
+          },
+        };
+      }
     }
   } catch (error) {
     console.log("Não foi possivel padronizar a mensagem Text de WPPConnect!\n", error);
@@ -247,16 +268,16 @@ wppInterface.defaultToWPPConnectPollMessage = function (response) {
       name: response.name,
       choices: response.choices,
       options: {
-          selectableCount: response.selectableCount || 1,
-      }
-  };
+        selectableCount: response.selectableCount || 1,
+      },
+    };
 
     if (verbose) console.log(`\nwppRes: ${JSON.stringify(wppRes)}\n`);
     return wppRes;
   } catch (error) {
     throw new Error("Não foi possivel padronizar a mensagem de WPPConnect! [defaultToWPPConnectPollMessage]\n", error);
   }
-}
+};
 
 function formatPhoneWPPConnect(phoneNumber) {
   return phoneNumber.slice(0, phoneNumber.indexOf("@"));

@@ -82,31 +82,30 @@ export default class Chatbot {
   }
 
   async sendContextMessage(contextName, client) {
-    if (this.contextList[client.chatbot.interaction][contextName]) {
-      const useClient = client.chatbot.interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
-      // console.log('sendContextMessage useClient: ', client)
-      this.contextList[client.chatbot.interaction][contextName]
-        .runContext(useClient)
-        .then((response) => {
-          // console.log("\x1b[33m sendContextMessage response:", JSON.stringify(response));
-          if (client.chatbot.interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
-          sender
-            .sendMessage(response)
-            .then((requestResponseList) => {
-              useClient.saveResponse(requestResponseList);
-              console.log("\x1b[36m%s\x1b[0m", `Cliente: [${useClient.platform}] ${JSON.stringify(useClient)}`);
-              return response;
-            })
-            .catch((error) => {
-              console.log("Erro em sendMessage: ", error);
-              return error;
-            });
-        })
-        .catch((error) => {
-          console.log("Erro ao processar contexto: ", error);
-          return error;
-        });
-    }
+    if (!this.contextList[client.chatbot.interaction][contextName]) return;
+    const useClient = client.chatbot.interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
+    // console.log('sendContextMessage useClient: ', client)
+    this.contextList[client.chatbot.interaction][contextName]
+      .runContext(useClient)
+      .then((response) => {
+        // console.log("\x1b[33m sendContextMessage response:", JSON.stringify(response));
+        if (client.chatbot.interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
+        sender
+          .sendMessage(response)
+          .then((requestResponseList) => {
+            useClient.saveResponse(requestResponseList);
+            console.log("\x1b[36m%s\x1b[0m", `Cliente: [${useClient.platform}] ${JSON.stringify(useClient)}`);
+            return response;
+          })
+          .catch((error) => {
+            console.log("Erro em sendMessage: ", error);
+            return error;
+          });
+      })
+      .catch((error) => {
+        console.log("Erro ao processar contexto: ", error);
+        return error;
+      });
   }
 
   findBestContext(client) {
@@ -182,7 +181,7 @@ export default class Chatbot {
     for (let productName in this.productList["Bebidas"]) return this.productList["Bebidas"][productName];
   }
 
-  addClientToList(client) {
+  addClientToList(client, context = "nenhum") {
     //incluir verificação de objeto
     console.log("1addClientToList client:", JSON.stringify(client));
     try {
@@ -194,8 +193,8 @@ export default class Chatbot {
         phoneNumber: client.phoneNumber,
         platform: client.platform,
         chatbot: Object.assign(client.chatbot, {
-          context: "nenhum",
-          messageHistory: [`${"nenhum"}&&${client.chatbot.currentMessage}`],
+          context: context,
+          messageHistory: [`${context}&&${client.chatbot.currentMessage}`],
           orderList: {},
           approvedOrderList: {},
           humanChating: false,
@@ -256,7 +255,7 @@ export default class Chatbot {
         interaction: "adicionais",
         chatbotPhoneNumber: this.phoneNumber,
         humanChating: true,
-        messageHistory: []
+        messageHistory: [],
       },
     });
   }
