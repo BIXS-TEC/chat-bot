@@ -6,7 +6,7 @@ import { systemSetup } from './controllers/system/selector.js';
 
 systemSetup();
 const app = express();
-const port = 3000;
+const port = 5002;
 
 app.use(express.json());
 
