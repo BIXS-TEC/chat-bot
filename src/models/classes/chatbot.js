@@ -8,7 +8,7 @@ import { configureProductsList } from "../utils/time.js";
 const verbose = true;
 
 export default class Chatbot {
-  constructor({ id, businessName, phoneNumber, clientList, productList, config }) {
+  constructor({ id, businessName, phoneNumber, clientList, employeeList, productList, config }) {
     if (!Array.isArray(productList)) throw new Error("ProductList must be an array!");
     if (!Array.isArray(config.topProductsId)) throw new Error("config.topProductsId must be an array!");
 
@@ -28,6 +28,7 @@ export default class Chatbot {
     }, {});
 
     this.clientList = clientList;
+    this.employeeList = employeeList;
 
     configureProductsList(this, productList);
 
@@ -42,7 +43,7 @@ export default class Chatbot {
   async handleAdminCommand(admClient) {
     try {
       // console.log("handleAdminCommand client:", admClient);
-      this.clientList[admClient.phoneNumber].updateClientData(admClient);
+      this.employeeList[admClient.phoneNumber].updateClientData(admClient);
 
       if (admClient.chatbot.messageTo === admClient.phoneNumber) {
         console.log("\x1b[31m%s\x1b[0m", "Admin command not implemented yet");
@@ -73,12 +74,12 @@ export default class Chatbot {
   async handleGroupCommand(client) {
     const groupName = Object.values(this.groupList).find((group) => group.chatId === client.chatbot.messageTo).name;
     // console.log("groupName :", groupName);
-    if (!this.clientList[client.phoneNumber]) {
-      this.addClientToList(client);
+    if (!this.employeeList[client.phoneNumber]) {
+      this.addEmployeeToList(client);
     } else {
-      this.clientList[client.phoneNumber].updateClientData(client);
+      this.employeeList[client.phoneNumber].updateClientData(client);
     }
-    return await this.sendContextMessage(groupName, this.clientList[client.phoneNumber]);
+    return await this.sendContextMessage(groupName, this.employeeList[client.phoneNumber]);
   }
 
   async sendContextMessage(contextName, client, interaction=client.chatbot.interaction) {
@@ -208,6 +209,32 @@ export default class Chatbot {
     }
   }
 
+  addEmployeeToList(client, context = "nenhum") {
+    //incluir verificação de objeto
+    try {
+      if (!this.employeeList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' adicionado!`);
+      else if (this.employeeList[client.phoneNumber] && verbose) console.log("\x1b[32m%s\x1b[0m", `\nCliente '${client.phoneNumber}' alterado!`);
+      this.employeeList[client.phoneNumber] = new Client({
+        id: client.id,
+        name: client.name,
+        phoneNumber: client.phoneNumber,
+        platform: client.platform,
+        chatbot: Object.assign(client.chatbot, {
+          context: context,
+          messageHistory: [`${context}&&${client.chatbot.currentMessage}`],
+          orderList: {},
+          approvedOrderList: {},
+          humanChating: false,
+          messageIds: { saveResponse: "" },
+          timeouts: { recurrent: { trigged: false, time: this.config.recurrentTime } },
+        }),
+      });
+      return true;
+    } catch (error) {
+      console.log("Error on addClientToList function", error);
+    }
+  }
+
   sendClientOrder(client) {
     if (this.config.flow.includes("PrintWeb")) {
       throw new Error("Enviar pedido para PrintWeb ainda não diponível");
@@ -241,7 +268,7 @@ export default class Chatbot {
   }
 
   initializeAdminClient() {
-    this.clientList[this.phoneNumber] = new Client({
+    this.employeeList[this.phoneNumber] = new Client({
       id: 0,
       name: this.businessName,
       phoneNumber: this.phoneNumber,

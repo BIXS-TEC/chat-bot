@@ -10,6 +10,7 @@ export default function getChatbotList() {
     businessName: "Restaurante Bix",
     phoneNumber: "554891487526",
     clientList: {},
+    employeeList: {},
     productList: productList,
     config: {
       recurrentTime: 1 * 10 * 1000, // minutos * segundos * milisegundos
