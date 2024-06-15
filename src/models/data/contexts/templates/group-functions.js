@@ -6,7 +6,8 @@ const caixa = {
     if (chatbot.modalityIdList[modalityId].inactive) return caixa.inativo(chatbot.config.modality[0], modalityId);
     if (!chatbot.modalityIdList[modalityId].occupied) return caixa.nao_ocupado(chatbot.config.modality[0], modalityId);
     const user = Object.values(chatbot.clientList).find((client) => client.chatbot.modalityId === modalityId);
-    chatbot.sendContextMessage('pesquisa-satisfacao', chatbot.clientList[user.phoneNumber]);
+    console.log('caixa.fecha user.phoneNumber: ', user.phoneNumber);
+    chatbot.sendContextMessage("pesquisa-satisfacao", chatbot.clientList[user.phoneNumber]);
     return {
       responseObjects: [
         {

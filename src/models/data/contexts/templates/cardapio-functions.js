@@ -948,14 +948,7 @@ f.incluir_recorrente.responseObjects = function (context, chatbot, client, args 
         buttonText: "SELECIONE UMA DAS OPÇÕES",
         sections: [
           mf.buildSection(chatbot, "Selecione uma bebida", ["recorrente"], { client }),
-          mf.buildSection(chatbot, "🔽 Outras opções", [
-            "cardapio",
-            "editar-pedido",
-            "finalizar-pedido",
-            "garcom",
-            "atendente",
-            "cancelar-pedido",
-          ]),
+          mf.buildSection(chatbot, "🔽 Outras opções", ["cardapio", "editar-pedido", "finalizar-pedido", "garcom", "atendente", "cancelar-pedido"]),
         ],
       },
     ];
@@ -1022,7 +1015,12 @@ f.pesquisa_satisfacao = {};
 f.pesquisa_satisfacao.action = function (context, chatbot, client) {
   try {
     client.changeContext(context.name);
-    console.log("PESQUISA DE SATISFAÇÃO client: ", client);
+    // console.log("PESQUISA DE SATISFAÇÃO client: ", client);
+    const id = client.chatbot.modalityId;
+    chatbot.modalityIdList[id].occupied = false;
+    setTimeout(() => {
+      if (chatbot.clientList[client.phoneNumber]) chatbot.sendContextMessage("fechar-conta", client);
+    }, 60 * 60 * 1000);
     return;
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
@@ -1052,13 +1050,14 @@ f.fechar_conta.action = function (context, chatbot, client) {
   try {
     client.changeContext(context.name);
     // Salvar dados em um arquivo
+    if (!chatbot.satisfactionPoll[client.chatbot.itemId]) return { noVote: true };
     chatbot.satisfactionPoll[client.chatbot.itemId].count += 1;
     chatbot.satisfactionPoll[client.chatbot.itemId].voters.push(client.phoneNumber);
-    console.log("pesquisa: ", chatbot.satisfactionPoll);
+    // console.log("pesquisa: ", chatbot.satisfactionPoll);
     // Salvar cliente no historico do chatbot
     setTimeout(() => {
       delete chatbot.clientList[client.phoneNumber];
-    }, 1000);
+    }, 1000); // Tempo para enviar a ultima mensagem antes de excluir
     return;
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
@@ -1070,7 +1069,7 @@ f.fechar_conta.responseObjects = function (context, chatbot, client, args = {}) 
     return [
       {
         type: "text",
-        message: "Obrigado pela avaliação!\n\nAgradecemos pela preferência.\n*Volte sempre!* 😊",
+        message: args.noVote ? "" : "Obrigado pela avaliação!\n\n" + "Agradecemos pela preferência.\n*Volte sempre!* 😊",
       },
     ];
   } catch (error) {
