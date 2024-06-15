@@ -81,16 +81,16 @@ export default class Chatbot {
     return await this.sendContextMessage(groupName, this.clientList[client.phoneNumber]);
   }
 
-  async sendContextMessage(contextName, client) {
+  async sendContextMessage(contextName, client, interaction=client.chatbot.interaction) {
     // console.log('sendContextMessage client: ', client);
     // console.log('sendContextMessage contextName: ', contextName);
-    if (!this.contextList[client.chatbot.interaction][contextName]) return;
-    const useClient = client.chatbot.interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
-    this.contextList[client.chatbot.interaction][contextName]
+    if (!this.contextList[interaction][contextName]) return;
+    const useClient = interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
+    this.contextList[interaction][contextName]
       .runContext(useClient)
       .then((response) => {
         // console.log("\x1b[33m sendContextMessage response:", JSON.stringify(response));
-        if (client.chatbot.interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
+        if (interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
         sender
           .sendMessage(response)
           .then((requestResponseList) => {
