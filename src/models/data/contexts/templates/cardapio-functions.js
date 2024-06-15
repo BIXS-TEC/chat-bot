@@ -806,7 +806,7 @@ f.finalizar_pedido.action = function (context, chatbot, client) {
       return { isEmpty: true };
     }
     const orderMessage = chatbot.sendClientOrder(client);
-    console.log("f.finalizar_pedido.action orderMessage:", orderMessage);
+    // console.log("f.finalizar_pedido.action orderMessage:", orderMessage);
     mf.recurrentTimeOut(chatbot, client);
     return { orderMessage: orderMessage };
   } catch (error) {

@@ -72,7 +72,7 @@ export default class Chatbot {
 
   async handleGroupCommand(client) {
     const groupName = Object.values(this.groupList).find((group) => group.chatId === client.chatbot.messageTo).name;
-    console.log("groupName :", groupName);
+    // console.log("groupName :", groupName);
     if (!this.clientList[client.phoneNumber]) {
       this.addClientToList(client);
     } else {
@@ -82,8 +82,8 @@ export default class Chatbot {
   }
 
   async sendContextMessage(contextName, client) {
-    console.log('sendContextMessage client: ', client);
-    console.log('sendContextMessage contextName: ', contextName);
+    // console.log('sendContextMessage client: ', client);
+    // console.log('sendContextMessage contextName: ', contextName);
     if (!this.contextList[client.chatbot.interaction][contextName]) return;
     const useClient = client.chatbot.interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
     this.contextList[client.chatbot.interaction][contextName]
@@ -136,7 +136,7 @@ export default class Chatbot {
         }
       })();
       console.log("\x1b[33;1m", "keyword: ", keyword, "; messageType: ", client.chatbot.messageType, "\x1b[0m");
-      console.log("matchedContexts: ", JSON.stringify(matchedContext.map((context) => context.name)));
+      // console.log("matchedContexts: ", JSON.stringify(matchedContext.map((context) => context.name)));
 
       const matchedContextCopy = [...matchedContext];
       for (const context of matchedContextCopy) {
