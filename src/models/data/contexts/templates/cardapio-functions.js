@@ -987,7 +987,7 @@ f.solicitar_fechamento.responseObjects = function (context, chatbot, client, arg
       },
       {
         type: "text",
-        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.\nTotal: R$ ${client.chatbot.totalPrice}`,
+        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.\nTotal: R$ ${client.chatbot.totalPrice.toFixed(2).replace(".", ",")}`,
         groupPhone: chatbot.groupList["Caixa"].chatId,
         isGroup: true,
         dontSave: true,
@@ -996,7 +996,7 @@ f.solicitar_fechamento.responseObjects = function (context, chatbot, client, arg
     if (chatbot.config.groupNames.includes("Garçom")) {
       returnMessage.push({
         type: "text",
-        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.\nTotal: R$ ${client.chatbot.totalPrice}`,
+        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.\nTotal: R$ ${client.chatbot.totalPrice.toFixed(2).replace(".", ",")}`,
         groupPhone: chatbot.groupList["Garçom"].chatId,
         isGroup: true,
         dontSave: true,
