@@ -10,6 +10,7 @@ export const productList = [
         price: 25.5,
         maxAddQt: 3,
         category: "Lanches",
+        recommendedProductId: 4,
         additionalList: [
           {
             [additionalList[0].id]: additionalList[0],
@@ -24,6 +25,7 @@ export const productList = [
         price: 19.0,
         maxAddQt: 3,
         category: "Lanches",
+        recommendedProductId: 4,
         additionalList: [
           {
             [additionalList[0].id]: additionalList[0],
@@ -66,12 +68,14 @@ export const productList = [
         name: "Coca-Cola Lata",
         price: 5.5,
         category: "Bebidas",
+        recommendedProductId: 0,
       },
       5: {
         id: 5,
         name: "Guaraná Lata",
         price: 5.0,
         category: "Bebidas",
+        recommendedProductId: 0,
       },
       6: {
         id: 6,
@@ -96,6 +100,7 @@ export const productList = [
         price: 15.5,
         maxAddQt: 3,
         category: "Pasteis",
+        recommendedProductId: 4,
         additionalList: [
           {
             [additionalList[0].id]: additionalList[0],
@@ -110,6 +115,7 @@ export const productList = [
         price: 19.0,
         maxAddQt: 3,
         category: "Pasteis",
+        recommendedProductId: 4,
         additionalList: [
           {
             [additionalList[0].id]: additionalList[0],
@@ -152,12 +158,14 @@ export const productList = [
         name: "Pepsi Lata",
         price: 5.5,
         category: "Bebidas",
+        recommendedProductId: 1,
       },
       5: {
         id: 5,
         name: "Guaraná Lata",
         price: 5.0,
         category: "Bebidas",
+        recommendedProductId: 1,
       },
       6: {
         id: 6,

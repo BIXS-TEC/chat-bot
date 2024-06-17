@@ -157,8 +157,35 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
   });
 
-  contextList["adicionar-produto"] = new Context({
+  
+  contextList["recomendar-produto"] = new Context({
     id: "6",
+    name: "recomendar-produto",
+    previousContexts: [],
+    activationKeywords: [],
+    action: function (client) {
+      return f.recomendar_produto.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.recomendar_produto.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["incluir-recomendado"] = new Context({
+    id: "7",
+    name: "incluir-recomendado",
+    previousContexts: ["cardapio", "recorrente"],
+    activationKeywords: ["incluir-recomendado1", "incluir-recomendado2", "incluir-recomendado3"],
+    action: function (client) {
+      return f.incluir_recomendado.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.incluir_recomendado.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["adicionar-produto"] = new Context({
+    id: "8",
     name: "adicionar-produto",
     previousContexts: ["cardapio", "atendente"],
     action: function (client) {
@@ -170,7 +197,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["adicionais"] = new Context({
-    id: "7",
+    id: "9",
     name: "adicionais",
     previousContexts: ["cardapio", "editar-pedido"],
     activationKeywords: ["adicionais"],
@@ -183,7 +210,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["incluir-adicionais"] = new Context({
-    id: "8",
+    id: "10",
     name: "incluir-adicionais",
     previousContexts: ["adicionais"],
     action: function (client) {
@@ -195,7 +222,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["incluir-observacao"] = new Context({
-    id: "9",
+    id: "11",
     name: "incluir-observacao",
     previousContexts: ["adicionais"],
     action: function (client) {
@@ -207,7 +234,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["salvar-observacao"] = new Context({
-    id: "10",
+    id: "12",
     name: "salvar-observacao",
     previousContexts: ["incluir-observacao"],
     activationRegex: /^\w*$/,
@@ -216,32 +243,6 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
     responseObjects: function (client, args = {}) {
       return f.salvar_observacao.responseObjects(this, chatbot, client, args);
-    },
-  });
-
-  contextList["recomendar-produto"] = new Context({
-    id: "11",
-    name: "recomendar-produto",
-    previousContexts: ["cardapio", "adicionais", "editar-pedido"],
-    activationKeywords: ["recomendar-produto"],
-    action: function (client) {
-      return f.recomendar_produto.action(this, chatbot, client);
-    },
-    responseObjects: function (client, args = {}) {
-      return f.recomendar_produto.responseObjects(this, chatbot, client, args);
-    },
-  });
-
-  contextList["incluir-recomendado"] = new Context({
-    id: "12",
-    name: "incluir-recomendado",
-    previousContexts: ["recomendar-produto", "recorrente"],
-    activationKeywords: ["incluir-recomendado1", "incluir-recomendado2", "incluir-recomendado3"],
-    action: function (client) {
-      return f.incluir_recomendado.action(this, chatbot, client);
-    },
-    responseObjects: function (client, args = {}) {
-      return f.incluir_recomendado.responseObjects(this, chatbot, client, args);
     },
   });
 
