@@ -1070,7 +1070,7 @@ f.fechar_conta.responseObjects = function (context, chatbot, client, args = {}) 
     return [
       {
         type: "text",
-        message: args.noVote ? "" : "Obrigado pela avaliação!\n\n" + "Agradecemos pela preferência.\n*Volte sempre!* 😊",
+        message: `${args.noVote ? "" : "Obrigado pela avaliação!\n\n"}` + "Agradecemos pela preferência.\n*Volte sempre!* 😊",
       },
     ];
   } catch (error) {

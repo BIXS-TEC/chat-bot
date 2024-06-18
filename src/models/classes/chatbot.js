@@ -276,22 +276,24 @@ export default class Chatbot {
   }
 
   initializeSatisfactionPoll() {
-    this.satisfactionPoll = {
-      0: {
-        title: "Bom",
-        count: 0,
-        voters: [],
-      },
-      1: {
-        title: "Regular",
-        count: 0,
-        voters: [],
-      },
-      2: {
-        title: "Ruim",
-        count: 0,
-        voters: [],
-      },
-    };
+    if (chatbot.config.serviceOptions.pesquisaSatisfacao) {
+      this.satisfactionPoll = {
+        0: {
+          title: "Bom",
+          count: 0,
+          voters: [],
+        },
+        1: {
+          title: "Regular",
+          count: 0,
+          voters: [],
+        },
+        2: {
+          title: "Ruim",
+          count: 0,
+          voters: [],
+        },
+      };
+    }
   }
 }

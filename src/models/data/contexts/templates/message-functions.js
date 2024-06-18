@@ -330,7 +330,7 @@ mf.getCompleteOrderMessage = function (client) {
     } else {
       const price = product.price;
       const qnt = product.quantity;
-      message += `\n• ${product.name} x${qnt} (R$ ${(price * qnt).toFixed(2).replace(".", ",")})`;
+      message += `\n• ${product.name} x${qnt} R$ ${(price * qnt).toFixed(2).replace(".", ",")}`;
       totalPrice += price * qnt;
     }
   }
