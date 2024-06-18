@@ -387,7 +387,7 @@ f.cardapio.responseObjects = function (context, chatbot, client, args = {}) {
       let message = mf.getOrderMessage(client);
       description = message + description;
       sections.push(
-        mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "editar-pedido", "finalizar-pedido", "garcom", "atendente", "cancelar-pedido"])
+        mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "finalizar-pedido", "editar-pedido", "atendente", "garcom", "cancelar-pedido"])
       );
     } else {
       description = "Monte seu pedido!" + description;
@@ -431,7 +431,7 @@ f.adicionar_produto.responseObjects = function (context, chatbot, client, args =
     // message += "\n\nSelecione umas das opções do botão abaixo";
     const [, sections] = mf.getProductsIdsAndSections(chatbot);
     sections.push(
-      mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "editar-pedido", "finalizar-pedidoo", "garcom", "atendente", "cancelar-pedido"])
+      mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "finalizar-pedido", "editar-pedido", "garcom", "atendente", "cancelar-pedido"])
     );
 
     return [
@@ -532,7 +532,7 @@ f.incluir_recomendado.responseObjects = function (context, chatbot, client, args
       })
     );
     sections.push(
-      mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "editar-pedido", "finalizar-pedidoo", "garcom", "atendente", "cancelar-pedido"])
+      mf.buildSection(chatbot, "🔽 Outras opções", ["adicionais", "finalizar-pedido", "editar-pedido", "garcom", "atendente", "cancelar-pedido"])
     );
 
     return [
@@ -611,7 +611,7 @@ f.incluir_adicionais.responseObjects = function (context, chatbot, client, args 
     let message = mf.getOrderMessage(client);
     const [, , sections] = mf.getAdditionalIdsAndSections(chatbot, client); // Melhorar performace
     sections.push(
-      mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "editar-pedido", "finalizar-pedido", "garcom", "atendente", "cancelar-pedido"])
+      mf.buildSection(chatbot, "🔽 Outras opções", ["finalizar-pedido", "voltar-cardapio", "editar-pedido", "garcom", "atendente", "cancelar-pedido"])
     );
 
     return [
@@ -682,7 +682,7 @@ f.salvar_observacao.responseObjects = function (context, chatbot, client, args =
   try {
     let message = mf.getOrderMessage(client);
     const [, , sections] = mf.getAdditionalIdsAndSections(chatbot, client); // Melhorar performace
-    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["editar-pedido", "finalizar-pedido", "garcom", "atendente", "cancelar-pedido"]));
+    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["finalizar-pedido", "editar-pedido", "garcom", "atendente", "cancelar-pedido"]));
 
     return [
       {
@@ -722,7 +722,7 @@ f.editar_pedido.responseObjects = function (context, chatbot, client, args = {})
     let message = mf.getOrderMessage(client);
     message += "\n\nSelecione um item para REMOVER ou outra opção";
     sections.push(
-      mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "adicionais", "finalizar-pedido", "garcom", "atendente", "cancelar-pedido"])
+      mf.buildSection(chatbot, "🔽 Outras opções", ["finalizar-pedido", "voltar-cardapio", "adicionais", "garcom", "atendente", "cancelar-pedido"])
     );
 
     return [
@@ -770,7 +770,7 @@ f.remover_item.responseObjects = function (context, chatbot, client, args = {}) 
 
     let message = mf.getOrderMessage(client);
     message += "\n\nItem removido!";
-    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["voltar-cardapio", "finalizar-pedido", "garcom", "atendente", "cancelar-pedido"]));
+    sections.push(mf.buildSection(chatbot, "🔽 Outras opções", ["finalizar-pedido", "voltar-cardapio", "garcom", "atendente", "cancelar-pedido"]));
 
     return [
       {
@@ -940,7 +940,7 @@ f.incluir_recorrente.responseObjects = function (context, chatbot, client, args 
         buttonText: "SELECIONE UMA OPÇÃO",
         sections: [
           mf.buildSection(chatbot, "Selecione uma bebida", ["recorrente"], { client }),
-          mf.buildSection(chatbot, "🔽 Outras opções", ["cardapio", "editar-pedido", "finalizar-pedido", "garcom", "atendente", "cancelar-pedido"]),
+          mf.buildSection(chatbot, "🔽 Outras opções", ["finalizar-pedido", "cardapio", "editar-pedido", "garcom", "atendente", "cancelar-pedido"]),
         ],
       },
     ];
