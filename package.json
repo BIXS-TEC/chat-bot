@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "update": "git fetch && git reset --hard origin/wppconnect && pm2 restart server",
     "postinstall": "cp test/config/createSessionUtil.js node_modules/@wppconnect/server/dist/util/createSessionUtil.js && cp test/config/config.js node_modules/@wppconnect/server/dist/config.js",
     "dev": "nodemon ./src/server.js",
     "devwpp": "nodemon ./src/wpp-server.js",
