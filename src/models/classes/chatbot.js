@@ -276,7 +276,7 @@ export default class Chatbot {
   }
 
   initializeSatisfactionPoll() {
-    if (chatbot.config.serviceOptions.pesquisaSatisfacao) {
+    if (this.config.serviceOptions.pesquisaSatisfacao) {
       this.satisfactionPoll = {
         0: {
           title: "Bom",
