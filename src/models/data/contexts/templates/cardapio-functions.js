@@ -458,9 +458,9 @@ f.recomendar_produto.action = function (context, chatbot, client) {
     const recommended = (client.chatbot.recommendedProduct = chatbot.getProductById(product.recommendedProductId));
     let count = 0;
     for (let product of Object.values(client.chatbot.orderList)) {
-      if (parseInt(product.recommendedProductId) === parseInt(recommended.id)) count+=product.quantity;         
+      if (parseInt(product.recommendedProductId) === parseInt(recommended.id)) count += product.quantity;
     }
-    const recommendedProduct = client.chatbot.orderList[recommended.id]
+    const recommendedProduct = client.chatbot.orderList[recommended.id];
     if (recommendedProduct && recommendedProduct.quantity >= count) {
       return {};
     }
@@ -1011,12 +1011,16 @@ f.pesquisa_satisfacao = {};
 f.pesquisa_satisfacao.action = function (context, chatbot, client) {
   try {
     client.changeContext(context.name);
-    console.log("PESQUISA DE SATISFAÇÃO client: ", client.phoneNumber);
+    // console.log("PESQUISA DE SATISFAÇÃO client: ", client.phoneNumber);
     const id = client.chatbot.modalityId;
     chatbot.modalityIdList[id].occupied = false;
+    let time = 60 * 60 * 1000;
+    if (!chatbot.config.serviceOptions.pesquisaSatisfacao) {
+      time = 0;
+    }
     setTimeout(() => {
       if (chatbot.clientList[client.phoneNumber]) chatbot.sendContextMessage("fechar-conta", client);
-    }, 60 * 60 * 1000);
+    }, time);
     return;
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
@@ -1025,6 +1029,7 @@ f.pesquisa_satisfacao.action = function (context, chatbot, client) {
 
 f.pesquisa_satisfacao.responseObjects = function (context, chatbot, client, args = {}) {
   try {
+    if (!chatbot.config.serviceOptions.pesquisaSatisfacao) return [];
     return [
       {
         type: "listMessage",
@@ -1045,15 +1050,15 @@ f.fechar_conta = {};
 f.fechar_conta.action = function (context, chatbot, client) {
   try {
     client.changeContext(context.name);
-    // Salvar dados em um arquivo
-    if (!chatbot.satisfactionPoll[client.chatbot.itemId]) return { noVote: true };
-    chatbot.satisfactionPoll[client.chatbot.itemId].count += 1;
-    chatbot.satisfactionPoll[client.chatbot.itemId].voters.push(client.phoneNumber);
-    // console.log("pesquisa: ", chatbot.satisfactionPoll);
-    // Salvar cliente no historico do chatbot
     setTimeout(() => {
       delete chatbot.clientList[client.phoneNumber];
-    }, 1000); // Tempo para enviar a ultima mensagem antes de excluir
+    }, 5000); // Tempo para enviar a ultima mensagem antes de excluir
+
+    // Salvar dados em um arquivo
+    if (!chatbot.satisfactionPoll?.[client.chatbot.itemId]) return { noVote: true };
+    chatbot.satisfactionPoll[client.chatbot.itemId].count += 1;
+    chatbot.satisfactionPoll[client.chatbot.itemId].voters.push(client.phoneNumber);
+    // Salvar cliente no historico do chatbot
     return;
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);

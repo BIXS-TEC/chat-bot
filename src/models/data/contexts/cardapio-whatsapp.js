@@ -6,11 +6,11 @@ function contextSetup(contextList, chatbot) {
   for (const contextName in contextList) {
     contextNames.push(`${contextName}`);
   }
-  
-  const uniqueContexts = ['incluir-observacao'];
+
+  const uniqueContexts = ["incluir-observacao"];
   contextList["faq"].previousContexts = contextNames;
   contextList["atendente"].previousContexts = contextNames;
-  contextList["invalido"].previousContexts = contextNames.filter(name => !uniqueContexts.includes(name));
+  contextList["invalido"].previousContexts = contextNames.filter((name) => !uniqueContexts.includes(name));
   contextList["garcom"].previousContexts = contextNames;
   contextList["informar-id"].activationKeywords = Object.keys(chatbot.modalityIdList);
 }
@@ -157,7 +157,6 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
   });
 
-  
   contextList["recomendar-produto"] = new Context({
     id: "6",
     name: "recomendar-produto",
@@ -326,7 +325,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   contextList["solicitar-fechamento"] = new Context({
     id: "19",
     name: "solicitar-fechamento",
-    previousContexts: ["solicitar-fechamento", "recorrente","finalizar-pedido"],
+    previousContexts: ["solicitar-fechamento", "recorrente", "finalizar-pedido"],
     activationKeywords: ["solicitar-fechamento"],
     action: function (client) {
       return f.solicitar_fechamento.action(this, chatbot, client);
@@ -353,7 +352,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     id: "21",
     name: "fechar-conta",
     previousContexts: ["pesquisa-satisfacao"],
-    activationKeywords: ['0', '1', '2'],
+    activationKeywords: ["0", "1", "2"],
     action: function (client) {
       return f.fechar_conta.action(this, chatbot, client);
     },

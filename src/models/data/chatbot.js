@@ -23,6 +23,7 @@ export default function getChatbotList() {
         atendente: true,
         garcom: true,
         faq: true,
+        pesquisaSatisfacao: true,
       },
       url: {
         faq: "https://printweb.vlks.com.br/",
