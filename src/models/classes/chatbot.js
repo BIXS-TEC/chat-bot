@@ -82,32 +82,21 @@ export default class Chatbot {
     return await this.sendContextMessage(groupName, this.employeeList[client.phoneNumber]);
   }
 
-  async sendContextMessage(contextName, client, interaction=client.chatbot.interaction) {
+  async sendContextMessage(contextName, client, interaction = client.chatbot.interaction) {
     // console.log('sendContextMessage client: ', client);
     // console.log('sendContextMessage contextName: ', contextName);
     if (!this.contextList[interaction][contextName]) return;
     const useClient = interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
-    await this.contextList[interaction][contextName]
-      .runContext(useClient)
-      .then((response) => {
-        // console.log("\x1b[33m sendContextMessage response:", JSON.stringify(response));
-        if (interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
-        sender
-          .sendMessage(response)
-          .then((requestResponseList) => {
-            useClient.saveResponse(requestResponseList);
-            console.log("\x1b[36m%s\x1b[0m", `Cliente: [${useClient.platform}] ${JSON.stringify(useClient)}`);
-            return response;
-          })
-          .catch((error) => {
-            console.log("Erro em sendMessage: ", error);
-            return error;
-          });
-      })
-      .catch((error) => {
-        console.log("Erro ao processar contexto: ", error);
-        return error;
-      });
+    try {
+      const response = await this.contextList[interaction][contextName].runContext(useClient);
+      if (interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
+      const requestResponseList = await sender.sendMessage(response);
+      useClient.saveResponse(requestResponseList);
+      console.log("\x1b[36m%s\x1b[0m", `Cliente: [${useClient.platform}] ${JSON.stringify(useClient)}`);
+      return response;
+    } catch (error) {
+      console.error("Erro em sendContextMessage: ", error);
+    }
   }
 
   findBestContext(client) {

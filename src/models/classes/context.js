@@ -24,9 +24,7 @@ export default class Context {
 
   async runContext(client) {
     try {
-      const args = await this.action(client);
-      // console.log('args: ', args);
-      
+      const args = await this.action(client);      
       const response = {};
       response.clientPhone = client.chatbot.interaction === 'group' ? client.chatbot.messageTo : client.phoneNumber;
       response.platform = client.platform;
