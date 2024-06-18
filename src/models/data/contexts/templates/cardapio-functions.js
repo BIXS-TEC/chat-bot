@@ -418,7 +418,7 @@ f.adicionar_produto.action = async function (context, chatbot, client) {
     let product = chatbot.getProductById(id);
     client.addProductToOrderList(product);
     console.log("f.adicionar_produto.action product.recommendedProduct: ", product.recommendedProductId);
-    if (product.recommendedProductId) await chatbot.sendContextMessage("recomendar-produto", client);
+    if (product.recommendedProductId !== undefined) await chatbot.sendContextMessage("recomendar-produto", client);
     return;
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
@@ -454,6 +454,12 @@ f.recomendar_produto = {};
 f.recomendar_produto.action = function (context, chatbot, client) {
   try {
     try {
+      const id = parseInt(client.chatbot.itemId);
+      const product = chatbot.getProductById(id);
+      const recommended = (client.chatbot.recommendedProduct = chatbot.getProductById(product.recommendedProductId));
+      for (let productId in client.chatbot.orderList)
+        if (productId === recommended.id) return {};
+      return { product: product, recommended: recommended };
     } catch (error) {
       console.error(`Erro in action "${context.name}"`, error);
     }
@@ -465,9 +471,9 @@ f.recomendar_produto.action = function (context, chatbot, client) {
 
 f.recomendar_produto.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    const id = parseInt(client.chatbot.itemId);
-    const product = chatbot.getProductById(id);
-    const recommended = client.chatbot.recommendedProduct = chatbot.getProductById(product.recommendedProductId);
+    const product = args.product;
+    const recommended = args.recommended;
+    if (!product || !recommended) return [];
     console.log("f.recomendar_produto.responseObjects recommended: ", recommended);
     let message = `Sabe o que vai muito bem com ${product.name}?\n*${recommended.name}!!!*🤩😋`;
     message += "\nInclua em seu pedido!";
