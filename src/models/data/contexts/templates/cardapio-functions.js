@@ -453,20 +453,18 @@ f.recomendar_produto = {};
 
 f.recomendar_produto.action = function (context, chatbot, client) {
   try {
-    try {
-      const id = parseInt(client.chatbot.itemId);
-      const product = chatbot.getProductById(id);
-      const recommended = (client.chatbot.recommendedProduct = chatbot.getProductById(product.recommendedProductId));
-      for (let productId in client.chatbot.orderList) {
-        console.log('productId: ', productId);
-        console.log('recommended.id: ', recommended.id);
-        if (parseInt(productId) === recommended.id) return {};
-      }
-      return { product: product, recommended: recommended };
-    } catch (error) {
-      console.error(`Erro in action "${context.name}"`, error);
+    const id = parseInt(client.chatbot.itemId);
+    const product = chatbot.getProductById(id);
+    const recommended = (client.chatbot.recommendedProduct = chatbot.getProductById(product.recommendedProductId));
+    let count = 0;
+    for (let product of Object.values(client.chatbot.orderList)) {
+      if (parseInt(product.recommendedProductId) === parseInt(recommended.id)) count+=product.quantity;         
     }
-    return;
+    const recommendedProduct = client.chatbot.orderList[recommended.id]
+    if (recommendedProduct && recommendedProduct.quantity >= count) {
+      return {};
+    }
+    return { product: product, recommended: recommended };
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
   }
