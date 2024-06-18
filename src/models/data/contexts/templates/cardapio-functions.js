@@ -457,8 +457,9 @@ f.recomendar_produto.action = function (context, chatbot, client) {
       const id = parseInt(client.chatbot.itemId);
       const product = chatbot.getProductById(id);
       const recommended = (client.chatbot.recommendedProduct = chatbot.getProductById(product.recommendedProductId));
-      for (let productId in client.chatbot.orderList)
+      for (let productId in client.chatbot.orderList) {
         if (productId === recommended.id) return {};
+      }
       return { product: product, recommended: recommended };
     } catch (error) {
       console.error(`Erro in action "${context.name}"`, error);
