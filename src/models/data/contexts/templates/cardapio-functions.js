@@ -460,7 +460,7 @@ f.recomendar_produto.action = function (context, chatbot, client) {
       for (let productId in client.chatbot.orderList) {
         console.log('productId: ', productId);
         console.log('recommended.id: ', recommended.id);
-        if (productId === recommended.id) return {};
+        if (parseInt(productId) === recommended.id) return {};
       }
       return { product: product, recommended: recommended };
     } catch (error) {
