@@ -187,6 +187,7 @@ export default class Chatbot {
           messageHistory: [`${context}&&${client.chatbot.currentMessage}`],
           orderList: {},
           approvedOrderList: {},
+          interaction: "cardapio-whatsapp",
           humanChating: false,
           messageIds: { saveResponse: "" },
           timeouts: { recurrent: { trigged: false, time: this.config.recurrentTime } },

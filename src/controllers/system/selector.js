@@ -43,7 +43,11 @@ export async function handleMessageRequest(request) {
       const chatbot = chatbotList[client.chatbot.chatbotPhoneNumber];
       if (!chatbot) throw new Error("Invalid chatbot");
 
+      if (client.chatbot.interaction === "chatbot" && chatbot.clientList[client.phoneNumber]) 
+        client.chatbot.interaction = chatbot.clientList[client.phoneNumber].chatbot.interaction;
+
       switch (client.chatbot.interaction) {
+        case "chatbot":
         case "cardapio-whatsapp":
         case "cardapio-online":
           if (!chatbot.clientList[client.phoneNumber]?.chatbot?.humanChating || ["voltar-chatbot", "faq", "atendente"].includes(client.chatbot.itemId)) {

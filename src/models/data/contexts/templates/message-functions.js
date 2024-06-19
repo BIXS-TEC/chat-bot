@@ -58,7 +58,7 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
       },
       "solicitar-fechamento": {
         rowId: "solicitar-fechamento",
-        title: "Fechar conta e pagar 🧾",
+        title: "Fechar conta e pagar 💲",
         description: "",
       },
     };

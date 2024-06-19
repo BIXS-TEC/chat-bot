@@ -61,7 +61,7 @@ wppInterface.WPPConnectTextToDefault = function (req) {
             currentMessage: req.body,
             messageType: req.type,
             messageTo: formatPhoneWPPConnect(req.to),
-            interaction: req.interaction || "cardapio-whatsapp",
+            interaction: "chatbot",
             chatbotPhoneNumber: formatPhoneWPPConnect(req.to),
             itemId: req.type === "list_response" ? req.listResponse.singleSelectReply.selectedRowId : "",
           },
