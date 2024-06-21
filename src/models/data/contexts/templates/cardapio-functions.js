@@ -379,9 +379,8 @@ f.cardapio.action = function (context, chatbot, client) {
 
 f.cardapio.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    let message = mf.getOrderMessage(client);
     const sections = args.sections;
-    let description = message + "\n\n*Selecione um por vez*";
+    let description = "\n\n*Selecione um por vez*";
 
     /* Caso tenha sido redirecionado pelo contexto "editar-produto" e ja contenha itens na lista */
     if (Object.keys(client.chatbot.orderList).length) {
@@ -903,7 +902,7 @@ f.cancelar_pedido.action = function (context, chatbot, client) {
 
 f.cancelar_pedido.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    if (cancel) return [];
+    if (args.cancel) return [];
     const sections = [];
     sections.push(
       mf.buildSection(chatbot, "🔽 Selecione uma das opções", [
