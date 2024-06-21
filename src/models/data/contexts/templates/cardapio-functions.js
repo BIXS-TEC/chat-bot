@@ -1014,12 +1014,15 @@ f.solicitar_fechamento.action = function (context, chatbot, client) {
 
 f.solicitar_fechamento.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    let message = mf.getCompleteOrderMessage(client);
+    let orderMessage = mf.getCompleteOrderMessage(client);
+    let message = `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${
+          client.chatbot.modalityId
+        } solicitou fechamento de conta.\n` + orderMessage.replace("Seu pedido: ", "");
 
     const returnMessage = [
       {
         type: "text",
-        message: message,
+        message: orderMessage,
       },
       {
         type: "text",
@@ -1029,9 +1032,7 @@ f.solicitar_fechamento.responseObjects = function (context, chatbot, client, arg
       },
       {
         type: "text",
-        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${
-          client.chatbot.modalityId
-        } solicitou fechamento de conta.\nTotal: R$ ${client.chatbot.totalPrice.toFixed(2).replace(".", ",")}`,
+        message: message,
         groupPhone: chatbot.groupList["Caixa"].chatId,
         isGroup: true,
         dontSave: true,
@@ -1040,9 +1041,7 @@ f.solicitar_fechamento.responseObjects = function (context, chatbot, client, arg
     if (chatbot.config.groupNames.includes("Garçom")) {
       returnMessage.push({
         type: "text",
-        message: `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${
-          client.chatbot.modalityId
-        } solicitou fechamento de conta.\nTotal: R$ ${client.chatbot.totalPrice.toFixed(2).replace(".", ",")}`,
+        message: message,
         groupPhone: chatbot.groupList["Garçom"].chatId,
         isGroup: true,
         dontSave: true,
