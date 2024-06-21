@@ -1,5 +1,6 @@
 import { closeSession } from "@wppconnect/server/dist/controller/sessionController.js";
 import mf from "./message-functions.js";
+import { keys } from "lodash";
 
 export const f = {};
 
@@ -797,10 +798,10 @@ f.finalizar_pedido.action = function (context, chatbot, client) {
       chatbot.sendContextMessage("cardapio", client);
       return { isEmpty: true };
     }
+    const preparationTime = client.getPreparationTime();
     const orderMessage = chatbot.sendClientOrder(client);
-    // console.log("f.finalizar_pedido.action orderMessage:", orderMessage);
     mf.recurrentTimeOut(chatbot, client);
-    return { orderMessage: orderMessage };
+    return { orderMessage: orderMessage, preparationTime: preparationTime };
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
   }
@@ -811,11 +812,12 @@ f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = 
     if (args.isEmpty) return [];
     const sections = [];
     sections.push(mf.buildSection(chatbot, "🔽 Selecione uma das opções", ["voltar-cardapio", "solicitar-fechamento", "garcom", "atendente", "faq"]));
+    const prepMessage = args.preparationTime ? `O tempo de espera é de +- *${args.preparationTime} minutos*` : "";
 
     return [
       {
         type: "text",
-        message: "Seu pedido já esta sendo preparado!!!\n\nO tempo de espera é de +- *30 minutos*\n\nAgradecemos pela preferência! 😊",
+        message: "Seu pedido já esta sendo preparado!!!" + '\n\n' + prepMessage + '\n\n' + chatbot.config.orderCompletionMessage,
       },
       {
         type: "listMessage",
@@ -842,6 +844,7 @@ f.confirmar_cancelamento = {};
 
 f.confirmar_cancelamento.action = function (context, chatbot, client) {
   try {
+    client.changeContext(context.name);
     return;
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
@@ -850,23 +853,24 @@ f.confirmar_cancelamento.action = function (context, chatbot, client) {
 
 f.confirmar_cancelamento.responseObjects = function (context, chatbot, client, args = {}) {
   try {
+    const message = Object.keys(client.chatbot.approvedOrderList).length ? '\n`Os pedidos anteriores ou em preparo não serão cancelados.`' : '';
     return [
       {
         type: "listMessage",
-        description: "Tem certeza que quer cancelar o pedido?\nOs itens do seu pedido atual serão cancelados",
+        description: "Tem certeza que quer cancelar seu pedido?\nOs itens do seu pedido atual serão apagados" + message,
         buttonText: "SELECIONE UMA OPÇÃO",
         sections: [
           {
             title: "Cancelar seu pedido?",
             rows: [
               {
-                rowId: "sim",
-                title: "Sim, cancelar pedido.",
+                rowId: "sim-cancelar",
+                title: "Sim, cancelar pedido. 🗑",
                 description: "Apenas os itens do seu pedido atual serão apagados",
               },
               {
-                rowId: "nao",
-                title: "Não, manter os itens selecionados.",
+                rowId: "nao-cancelar",
+                title: "Não, manter os itens selecionados e continuar. 🛒",
                 description: "",
               },
             ],

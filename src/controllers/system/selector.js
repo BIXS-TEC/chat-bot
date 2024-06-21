@@ -27,7 +27,7 @@ export function systemSetup() {
 export async function handleMessageRequest(request) {
   return new Promise((resolve, reject) => {
     try {
-      // console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
+      console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
 
       const client = standardizeMessageRequestToDefault(request);
       if (!client) {

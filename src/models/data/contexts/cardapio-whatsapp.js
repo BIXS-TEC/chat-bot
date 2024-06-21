@@ -283,11 +283,24 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
   });
 
-  contextList["cancelar-pedido"] = new Context({
+  contextList["confirmar-cancelamento"] = new Context({
     id: "16",
-    name: "cancelar-pedido",
+    name: "confirmar-cancelamento",
     previousContexts: ["recomendar-produto", "editar-pedido", "recorrente", "adicionais", "cardapio"],
-    activationKeywords: ["cancelar-pedido"],
+    activationKeywords: ["confirmar-cancelamento"],
+    action: function (client) {
+      return f.confirmar_cancelamento.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.confirmar_cancelamento.responseObjects(this, chatbot, client, args);
+    },
+  });
+
+  contextList["cancelar-pedido"] = new Context({
+    id: "17",
+    name: "cancelar-pedido",
+    previousContexts: ["confirmar-cancelamento"],
+    activationKeywords: ["sim-cancelar", "nao-cancelar"],
     action: function (client) {
       return f.cancelar_pedido.action(this, chatbot, client);
     },
@@ -297,7 +310,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["recorrente"] = new Context({
-    id: "17",
+    id: "18",
     name: "recorrente",
     previousContexts: ["finalizar-pedido"],
     activationKeywords: ["recorrente"],
@@ -310,7 +323,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["incluir-recorrente"] = new Context({
-    id: "18",
+    id: "19",
     name: "incluir-recorrente",
     previousContexts: ["recorrente"],
     activationKeywords: [], // Definidos em action de "recorrente"
@@ -323,7 +336,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["solicitar-fechamento"] = new Context({
-    id: "19",
+    id: "20",
     name: "solicitar-fechamento",
     previousContexts: ["solicitar-fechamento", "recorrente", "finalizar-pedido"],
     activationKeywords: ["solicitar-fechamento"],
@@ -336,7 +349,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["pesquisa-satisfacao"] = new Context({
-    id: "20",
+    id: "21",
     name: "pesquisa-satisfacao",
     previousContexts: [],
     activationKeywords: [],
@@ -349,7 +362,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["fechar-conta"] = new Context({
-    id: "21",
+    id: "22",
     name: "fechar-conta",
     previousContexts: ["pesquisa-satisfacao"],
     activationKeywords: ["0", "1", "2"],
@@ -362,7 +375,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   });
 
   contextList["pedidos-vazio"] = new Context({
-    id: "22",
+    id: "23",
     name: "pedidos-vazio",
     previousContexts: [],
     activationKeywords: [],
