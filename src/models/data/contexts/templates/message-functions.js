@@ -258,7 +258,9 @@ mf.getOrderMessage = function (client) {
   let totalPrice = 0.0;
   let message = "";
   const orderList = client.chatbot.orderList;
-  // console.log("client.chatbot.orderList :", JSON.stringify(client.chatbot.orderList, null, 2));
+  
+  if (!Object.keys(orderList).length) return message;
+
   for (const productId in orderList) {
     if (
       orderList[productId].additionalList &&
@@ -288,8 +290,8 @@ mf.getOrderMessage = function (client) {
       totalPrice += orderList[productId].price * orderList[productId].quantity;
     }
   }
-  if (!message) message = `\nSua lista de pedidos esta vazia`;
-    message = `Seu pedido: (Total R$ ${totalPrice.toFixed(2).replace(".", ",")})` + message;
+
+  message = `Seu pedido: (Total R$ ${totalPrice.toFixed(2).replace(".", ",")})` + message;
   return message;
 };
 
