@@ -1,5 +1,5 @@
 export default class Client {
-  constructor({ id, name, phoneNumber, platform, chatbot}) {
+  constructor({ id, name, phoneNumber, platform, chatbot }) {
     this.id = id;
     this.name = name;
     this.phoneNumber = phoneNumber;
@@ -112,5 +112,13 @@ export default class Client {
       }
     }
     throw new Error("Error in getLastValidContext: No valid context found!");
-  };
+  }
+
+  getPreparationTime() {
+    let longerTime = 0;
+    for (let product of Object.values(this.chatbot.orderList)) {
+      if (product.preparationTime && product.preparationTime > longerTime) longerTime = product.preparationTime;
+    }
+    return longerTime;
+  }
 }

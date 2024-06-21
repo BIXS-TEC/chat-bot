@@ -52,7 +52,7 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
         description: "",
       },
       "cancelar-pedido": {
-        rowId: "cancelar-pedido",
+        rowId: "confirmar-cancelamento",
         title: "Cancelar este pedido ❌",
         description: "Você será redirecionado para o menu.",
       },

@@ -19,6 +19,7 @@ export default function getChatbotList() {
       modality: ["Mesa"], // Opções: ['Mesa', 'Comanda', 'Cartela', 'Ficha']
       groupNames: ["Cozinha", "Garçom", "Atendente", "Caixa"],
       topProductsId: [[0, 1, 4, 5],[1, 3, 5, 6]],
+      orderCompletionMessage: 'Um garçom irá trazer o seu pedido',
       serviceOptions: {
         atendente: true,
         garcom: true,

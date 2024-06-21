@@ -836,6 +836,49 @@ f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = 
   }
 };
 
+/** Confirmar cancelamento */
+
+f.confirmar_cancelamento = {};
+
+f.confirmar_cancelamento.action = function (context, chatbot, client) {
+  try {
+    return;
+  } catch (error) {
+    console.error(`Erro em action no contexto "${context.name}"`, error);
+  }
+};
+
+f.confirmar_cancelamento.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    return [
+      {
+        type: "listMessage",
+        description: "Tem certeza que quer cancelar o pedido?\nOs itens do seu pedido atual serão cancelados",
+        buttonText: "SELECIONE UMA OPÇÃO",
+        sections: [
+          {
+            title: "Cancelar seu pedido?",
+            rows: [
+              {
+                rowId: "sim",
+                title: "Sim, cancelar pedido.",
+                description: "Apenas os itens do seu pedido atual serão apagados",
+              },
+              {
+                rowId: "nao",
+                title: "Não, manter os itens selecionados.",
+                description: "",
+              },
+            ],
+          },
+        ],
+      },
+    ];
+  } catch (error) {
+    console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
+  }
+};
+
 /** Cancelar Pedido */
 
 f.cancelar_pedido = {};
