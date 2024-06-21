@@ -1,6 +1,5 @@
 import { closeSession } from "@wppconnect/server/dist/controller/sessionController.js";
 import mf from "./message-functions.js";
-import { keys } from "lodash";
 
 export const f = {};
 
