@@ -18,7 +18,7 @@ export function standardizeMessageRequestToDefault(req) {
   }
 };
 
-export function standardizeDataRequestToDefault(req) {
+export function standardizeConfigRequestToDefault(req) {
   switch (req.platform) {
     case undefined:
       return ;
@@ -30,7 +30,7 @@ export function standardizeDataRequestToDefault(req) {
       return ;
 
     case 'printweb':
-      return pw.PrintWebDataToDefault(req);
+      return pw.PrintWebConfigToDefault(req);
     default:
       break;
   }

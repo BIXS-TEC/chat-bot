@@ -29,8 +29,8 @@ function readExcelToObject(filePath) {
   return result;
 }
 
-// Caminho para o arquivo Excel
-const filePath = 'test/notes/produtos.xlsx';
+// Caminho para o arquivo Excel src/models/data/productsXLSX.js
+const filePath = '../../../test/notes/produtos.xlsx';
 
 // Chama a função e imprime o resultado
 const result = readExcelToObject(filePath);

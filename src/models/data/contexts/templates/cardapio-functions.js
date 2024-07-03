@@ -1063,7 +1063,7 @@ f.pesquisa_satisfacao.action = function (context, chatbot, client) {
     // console.log("PESQUISA DE SATISFAÇÃO client: ", client.phoneNumber);
     const id = client.chatbot.modalityId;
     chatbot.modalityIdList[id].occupied = false;
-    let time = 60 * 60 * 1000;
+    let time = chatbot.config.timeToCloseBill;
     if (!chatbot.config.serviceOptions.pesquisaSatisfacao) {
       time = 0;
     }

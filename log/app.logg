@@ -23320,3 +23320,258 @@
   level: 'info',
   timestamp: '2024-06-11T18:06:44.540Z'
 }
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-02T15:41:31.207Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-02T15:41:31.213Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-02T15:41:31.216Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:42:07.576Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:42:13.591Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-07-02T15:42:13.593Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:42:13.618Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-02T15:42:57.935Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-02T15:42:57.941Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-02T15:42:57.943Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:43:34.047Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:43:38.522Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-07-02T15:43:38.584Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-02T15:43:39.760Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-07-02T15:43:41.289Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:43:44.598Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:44:23.416Z'
+}
+{
+  message: 'State Change CONNECTED: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-02T15:44:23.496Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-02T15:45:02.922Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-02T15:45:02.927Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-02T15:45:02.928Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:45:37.805Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T15:45:37.856Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-02T15:45:38.074Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-02T16:08:13.603Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-02T16:08:13.609Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-02T16:08:13.610Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-02T16:08:20.353Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-02T16:08:22.426Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:08:22.452Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:08:22.634Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-02T16:08:22.858Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-02T16:12:03.623Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-02T16:12:03.649Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-02T16:12:03.653Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:12:26.699Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:12:26.873Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-02T16:12:27.080Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-02T16:13:49.606Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-02T16:13:49.626Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-02T16:13:49.628Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:14:04.558Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:14:04.588Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-02T16:14:04.811Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-02T16:48:29.591Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-02T16:48:29.597Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-02T16:48:29.598Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:48:47.691Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:48:47.788Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-02T16:48:48.005Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-07-02T16:49:53.738Z'
+}

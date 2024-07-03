@@ -14,6 +14,6 @@ export default pwInterface;
  * }
  */
 
-pwInterface.PrintWebDataToDefault = function(req) {
+pwInterface.PrintWebConfigToDefault = function(req) {
   throw new Error("Não foi possivel padronizar a requisição de PrintWeb!");
 }

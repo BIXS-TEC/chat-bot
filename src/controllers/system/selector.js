@@ -1,5 +1,5 @@
 import creator from "./creator.js";
-import { standardizeMessageRequestToDefault, standardizeDataRequestToDefault } from "../../interfaces/index.js";
+import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault } from "../../interfaces/index.js";
 
 /**
  * Plataforma - De onde vem?
@@ -111,10 +111,10 @@ export async function handleMessageRequest(request) {
   });
 }
 
-export async function handleDataRequest(request) {
+export async function handleConfigRequest(request) {
   return new Promise((resolve, reject) => {
     try {
-      const client = standardizeDataRequestToDefault(request);
+      const client = standardizeConfigRequestToDefault(request);
 
       switch (client.chatbot.interaction) {
         case "cardapio-online":
@@ -130,7 +130,7 @@ export async function handleDataRequest(request) {
           break;
       }
     } catch (error) {
-      console.log("Error in handleDataRequest function:\n", error);
+      console.log("Error in handleConfigRequest function:\n", error);
       reject(error);
     }
   });

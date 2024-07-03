@@ -1,22 +1,21 @@
-2024/06/11-10:49:35.018 48f8 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-002093
-2024/06/11-10:49:35.020 48f8 Recovering log #3162
-2024/06/11-10:49:35.021 48f8 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/003162.log 
-2024/06/11-10:49:36.031 3d2c Level-0 table #3167: started
-2024/06/11-10:49:36.034 3d2c Level-0 table #3167: 31661 bytes OK
-2024/06/11-10:49:36.038 3d2c Delete type=0 #3162
-2024/06/11-10:49:36.039 48f8 Manual compaction at level-0 from ' \xdc\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \xdd\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/06/11-10:49:37.613 29dc Compacting 1@1 + 1@2 files
-2024/06/11-10:49:37.760 29dc Generated table #3168@1: 43296 keys, 1447174 bytes
-2024/06/11-10:49:37.760 29dc Compacted 1@1 + 1@2 files => 1447174 bytes
-2024/06/11-10:49:37.764 29dc compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/06/11-10:49:37.764 29dc Delete type=2 #3164
-2024/06/11-10:49:37.764 29dc Delete type=2 #3167
-2024/06/11-12:59:34.296 3d2c Level-0 table #3170: started
-2024/06/11-12:59:34.512 3d2c Level-0 table #3170: 1228417 bytes OK
-2024/06/11-12:59:34.548 3d2c Delete type=0 #3166
-2024/06/11-13:00:49.708 29dc Compacting 1@1 + 1@2 files
-2024/06/11-13:00:49.792 29dc Generated table #3171@1: 47726 keys, 1543188 bytes
-2024/06/11-13:00:49.792 29dc Compacted 1@1 + 1@2 files => 1543188 bytes
-2024/06/11-13:00:49.793 29dc compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/06/11-13:00:49.793 29dc Delete type=2 #3168
-2024/06/11-13:00:49.793 29dc Delete type=2 #3170
+2024/07/02-13:13:53.966 1c94 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-002093
+2024/07/02-13:13:53.967 1c94 Recovering log #3384
+2024/07/02-13:13:54.137 1c94 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/003384.log 
+2024/07/02-13:13:54.984 2de4 Level-0 table #3393: started
+2024/07/02-13:13:54.991 2de4 Level-0 table #3393: 118663 bytes OK
+2024/07/02-13:13:54.993 2de4 Delete type=0 #3384
+2024/07/02-13:13:54.995 1c94 Manual compaction at level-0 from ' \x0a\x02\x00\x00\x00' @ 72057594037927935 : 1 .. ' \x0b\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/07/02-13:13:56.644 1b60 Compacting 1@1 + 5@2 files
+2024/07/02-13:13:57.124 1b60 Generated table #3394@1: 25588 keys, 2181567 bytes
+2024/07/02-13:13:57.506 1b60 Generated table #3395@1: 2482 keys, 2147942 bytes
+2024/07/02-13:13:57.932 1b60 Generated table #3396@1: 16945 keys, 2179726 bytes
+2024/07/02-13:13:58.240 1b60 Generated table #3397@1: 69884 keys, 2224913 bytes
+2024/07/02-13:13:58.492 1b60 Generated table #3398@1: 62365 keys, 1206648 bytes
+2024/07/02-13:13:58.492 1b60 Compacted 1@1 + 5@2 files => 9940796 bytes
+2024/07/02-13:13:58.493 1b60 compacted to: files[ 0 0 5 0 0 0 0 ]
+2024/07/02-13:13:58.494 1b60 Delete type=2 #3386
+2024/07/02-13:13:58.494 1b60 Delete type=2 #3387
+2024/07/02-13:13:58.494 1b60 Delete type=2 #3388
+2024/07/02-13:13:58.494 1b60 Delete type=2 #3389
+2024/07/02-13:13:58.494 1b60 Delete type=2 #3390
+2024/07/02-13:13:58.494 1b60 Delete type=2 #3393

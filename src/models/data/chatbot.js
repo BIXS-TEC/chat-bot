@@ -15,7 +15,8 @@ export default function getChatbotList() {
     config: {
       recurrentTime: 1 * 10 * 1000, // minutos * segundos * milisegundos
       recurrentCategories: ['Bebidas', 'Drinks'],
-      flow: ["WhatsApp"], // Opções: ['WhatsApp', 'PrintWeb']
+      timeToCloseBill: 60 * 60 * 1000,
+      flow: ["WhatsApp"], // Opções: ['WhatsApp', 'PrintWeb'] 
       modality: ["Mesa"], // Opções: ['Mesa', 'Comanda', 'Cartela', 'Ficha']
       groupNames: ["Cozinha", "Garçom", "Atendente", "Caixa"],
       topProductsId: [[0, 1, 4, 5],[1, 3, 5, 6]],

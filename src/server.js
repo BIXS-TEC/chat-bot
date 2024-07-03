@@ -1,7 +1,7 @@
 import express from 'express';
 import message from './routes/message.js';
 import auth from './routes/auth.js';
-import data from './routes/data.js';
+import config from './routes/config.js';
 import { systemSetup } from './controllers/system/selector.js';
 
 systemSetup();
@@ -14,14 +14,14 @@ app.use('/message', message);
 
 app.use('/auth', auth);
 
-app.use('/data', data);
+app.use('/config', config);
 
 app.get('/', (req, res) => {
   res.status(200).json('Home!');
 })
 
 app.listen(port, () => {
-  console.log(`Path to chatbot: http://54.152.116.180:5002/message`);
+  console.log(`Path to chatbot: http://54.227.229.46:5002/message`);
 });
 
 // node_modules\@wppconnect\server\dist\util\createSessionUtil.js
