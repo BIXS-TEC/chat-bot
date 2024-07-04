@@ -1,6 +1,6 @@
 import Chatbot from "../classes/chatbot.js";
 import { productList } from "./productList.js";
-import { filteredProductList } from "./productsXLSX.js";
+// import { filteredProductList } from "./productsXLSX.js";
 
 export default function getChatbotList() {
   const chatbotList = {};
