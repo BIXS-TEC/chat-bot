@@ -1,5 +1,5 @@
 import express from "express";
-import { handleConfigRequest, handleConfigRequest } from "../controllers/system/selector.js";
+import { handleConfigRequest } from "../controllers/system/selector.js";
 
 const config = express.Router();
 
