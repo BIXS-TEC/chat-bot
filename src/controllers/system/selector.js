@@ -1,4 +1,5 @@
 import creator from "./creator.js";
+import Chatbot from "../../models/classes/chatbot.js";
 import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault } from "../../interfaces/index.js";
 
 /**
@@ -117,6 +118,10 @@ export async function handleConfigRequest(request) {
       const client = standardizeConfigRequestToDefault(request);
 
       switch (client.chatbot.interaction) {
+        case "create-chatbot":
+          chatbotList[client.phoneNumber] = new Chatbot(client);
+          console.log('\x1b[32m chatbotList: ', chatbotList)
+          break;
         case "cardapio-online":
           chatbotList[client.chatbot.chatbotPhoneNumber]
             .saveClientOrder(client)

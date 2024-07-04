@@ -5,10 +5,10 @@ import { filteredProductList } from "./productsXLSX.js";
 export default function getChatbotList() {
   const chatbotList = {};
 
-  chatbotList["554891487526"] = new Chatbot({
+  chatbotList["5548912345678"] = new Chatbot({
     id: "0",
-    businessName: "Restaurante Bix",
-    phoneNumber: "554891487526",
+    businessName: "Assistente Bix",
+    phoneNumber: "5548912345678",
     clientList: {},
     employeeList: {},
     productList: productList,
@@ -33,15 +33,6 @@ export default function getChatbotList() {
       },
     },
   });
-
-  // chatbotList["123123123"] = new Chatbot(
-  //   '1',
-  //   'uai',
-  //   '123123123',
-  //   {},
-  //   {},
-  //   getContextList(),
-  // );
 
   return chatbotList;
 }
