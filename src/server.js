@@ -2,9 +2,9 @@ import express from 'express';
 import message from './routes/message.js';
 import auth from './routes/auth.js';
 import config from './routes/config.js';
-import { systemSetup } from './controllers/system/selector.js';
+// import { systemSetup } from './controllers/system/selector.js';
 
-systemSetup();
+// systemSetup();
 const app = express();
 const port = 5002;
 

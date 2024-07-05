@@ -10,7 +10,6 @@ import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault }
  * Contexto - Qual o contexto do cliente?
  * Ação - O que o cliente quer fazer?
  */
-
 let chatbotList;
 
 export function systemSetup() {
@@ -25,35 +24,65 @@ export function systemSetup() {
   });
 }
 
-export async function handleMessageRequest(request) {
-  return new Promise((resolve, reject) => {
-    try {
-      console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
+const message = {
+  handleMessageRequest: async function (request) {
+    return new Promise((resolve, reject) => {
+      try {
+        console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
 
-      const client = standardizeMessageRequestToDefault(request);
-      if (!client) {
-        resolve({ statusCode: 200, message: "No data" });
-        return;
-      }
+        const client = standardizeMessageRequestToDefault(request);
+        if (!client) {
+          resolve({ statusCode: 200, message: "No data" });
+          return;
+        }
 
-      if (Math.floor(Date.now() / 1000) - client.timestamp > 30) {
-        resolve({ statusCode: 200, message: "Request took more than 30 seconds to arrive!" });
-        return;
-      }
+        if (Math.floor(Date.now() / 1000) - client.timestamp > 30) {
+          resolve({ statusCode: 200, message: "Request took more than 30 seconds to arrive!" });
+          return;
+        }
 
-      const chatbot = chatbotList[client.chatbot.chatbotPhoneNumber];
-      if (!chatbot) throw new Error("Invalid chatbot");
+        const chatbot = chatbotList[client.chatbot.chatbotPhoneNumber];
+        if (!chatbot) throw new Error("Invalid chatbot");
 
-      if (client.chatbot.interaction === "chatbot" && chatbot.clientList[client.phoneNumber]) 
-        client.chatbot.interaction = chatbot.clientList[client.phoneNumber].chatbot.interaction;
+        if (client.chatbot.interaction === "chatbot" && chatbot.clientList[client.phoneNumber])
+          client.chatbot.interaction = chatbot.clientList[client.phoneNumber].chatbot.interaction;
 
-      switch (client.chatbot.interaction) {
-        case "chatbot":
-        case "cardapio-whatsapp":
-        case "cardapio-online":
-          if (!chatbot.clientList[client.phoneNumber]?.chatbot?.humanChating || ["voltar-chatbot", "faq", "atendente"].includes(client.chatbot.itemId)) {
+        switch (client.chatbot.interaction) {
+          case "chatbot":
+          case "cardapio-whatsapp":
+          case "cardapio-online":
+            if (
+              !chatbot.clientList[client.phoneNumber]?.chatbot?.humanChating ||
+              ["voltar-chatbot", "faq", "atendente"].includes(client.chatbot.itemId)
+            ) {
+              chatbot
+                .handleOrderMenuFlow(client)
+                .then((result) => {
+                  // console.log("result: ", JSON.stringify(result));
+                  resolve({ statusCode: 200, message: "OK" });
+                })
+                .catch((err) => {
+                  reject(err);
+                });
+            }
+            break;
+          case "admin":
+            if (chatbot.clientList[client.chatbot.messageTo]?.chatbot.humanChating) {
+              chatbot
+                .handleAdminCommand(client)
+                .then((result) => {
+                  // console.log("result: ", JSON.stringify(result));
+                  resolve({ statusCode: 200, message: "OK" });
+                })
+                .catch((err) => {
+                  reject(err);
+                });
+            }
+            break;
+
+          case "group":
             chatbot
-              .handleOrderMenuFlow(client)
+              .handleGroupCommand(client)
               .then((result) => {
                 // console.log("result: ", JSON.stringify(result));
                 resolve({ statusCode: 200, message: "OK" });
@@ -61,12 +90,11 @@ export async function handleMessageRequest(request) {
               .catch((err) => {
                 reject(err);
               });
-          }
-          break;
-        case "admin":
-          if (chatbot.clientList[client.chatbot.messageTo]?.chatbot.humanChating) {
+            break;
+
+          case "poll":
             chatbot
-              .handleAdminCommand(client)
+              .saveSatisfactionFeedback(client)
               .then((result) => {
                 // console.log("result: ", JSON.stringify(result));
                 resolve({ statusCode: 200, message: "OK" });
@@ -74,69 +102,50 @@ export async function handleMessageRequest(request) {
               .catch((err) => {
                 reject(err);
               });
-          }
-          break;
+            break;
 
-        case "group":
-          chatbot
-            .handleGroupCommand(client)
-            .then((result) => {
-              // console.log("result: ", JSON.stringify(result));
-              resolve({ statusCode: 200, message: "OK" });
-            })
-            .catch((err) => {
-              reject(err);
-            });
-          break;
-
-        case "poll":
-          chatbot
-            .saveSatisfactionFeedback(client)
-            .then((result) => {
-              // console.log("result: ", JSON.stringify(result));
-              resolve({ statusCode: 200, message: "OK" });
-            })
-            .catch((err) => {
-              reject(err);
-            });
-          break;
-
-        default:
-          console.log("client.chatbot: ", client);
-          resolve({ statusCode: 204, message: `req.chatbot.interaction must be a valid tag. ${client.chatbot.interaction} is not` });
+          default:
+            console.log("client.chatbot: ", client);
+            resolve({ statusCode: 204, message: `req.chatbot.interaction must be a valid tag. ${client.chatbot.interaction} is not` });
+        }
+      } catch (error) {
+        console.log("Error in handleMessageRequest function:\n", error);
+        reject(error);
       }
-    } catch (error) {
-      console.log("Error in handleMessageRequest function:\n", error);
-      reject(error);
-    }
-  });
-}
+    });
+  },
+};
 
-export async function handleConfigRequest(request) {
-  return new Promise((resolve, reject) => {
-    try {
-      const client = standardizeConfigRequestToDefault(request);
+const config = {
+  handleConfigRequest: async function (request) {
+    return new Promise((resolve, reject) => {
+      try {
+        const client = standardizeConfigRequestToDefault(request);
 
-      switch (client.chatbot.interaction) {
-        case "create-chatbot":
-          chatbotList[client.phoneNumber] = new Chatbot(client);
-          console.log('\x1b[32m chatbotList: ', chatbotList)
-          break;
-        case "cardapio-online":
-          chatbotList[client.chatbot.chatbotPhoneNumber]
-            .saveClientOrder(client)
-            .then((result) => {
-              // console.log("result: ", result);
-              resolve({ statusCode: 200, message: "OK" });
-            })
-            .catch((err) => {
-              reject(err);
-            });
-          break;
+        switch (client.chatbot.interaction) {
+          case "cardapio-online":
+            chatbotList[client.chatbot.chatbotPhoneNumber]
+              .saveClientOrder(client)
+              .then((result) => {
+                // console.log("result: ", result);
+                resolve({ statusCode: 200, message: "OK" });
+              })
+              .catch((err) => {
+                reject(err);
+              });
+            break;
+        }
+      } catch (error) {
+        console.log("Error in handleConfigRequest function:\n", error);
+        reject(error);
       }
-    } catch (error) {
-      console.log("Error in handleConfigRequest function:\n", error);
-      reject(error);
-    }
-  });
-}
+    });
+  },
+
+  createChatbot: async function (request) {
+    chatbotList[client.phoneNumber] = new Chatbot(client);
+    console.log("\x1b[32m chatbotList: ", chatbotList);
+  },
+};
+
+export { message, config };
