@@ -143,7 +143,7 @@ const config = {
   },
 
   createChatbot: async function (request) {
-    chatbotList[client.phoneNumber] = new Chatbot(client);
+    chatbotList[request.phoneNumber] = new Chatbot(request);
     console.log("\x1b[32m chatbotList: ", chatbotList);
   },
 };
