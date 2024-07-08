@@ -23575,3 +23575,218 @@
   level: 'info',
   timestamp: '2024-07-02T16:49:53.738Z'
 }
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-07T23:03:22.657Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-07T23:03:22.662Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-07T23:03:22.662Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-07T23:03:27.300Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:03:29.315Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-07T23:03:30.549Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:03:36.457Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:03:36.485Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:01.043Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:01.049Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:01.050Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:07.829Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:27.147Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:27.239Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:28.366Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:29.077Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:04:30.001Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-07T23:06:18.318Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-07T23:06:18.324Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-07T23:06:18.325Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-07T23:06:23.508Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:06:24.814Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-07T23:06:25.149Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:06:25.440Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-07T23:06:26.049Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-07T23:08:10.379Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-07T23:08:10.384Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-07T23:08:10.385Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-07T23:08:16.096Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:08:17.133Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:08:17.396Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-07T23:08:17.398Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-07T23:08:18.360Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-07T23:10:22.063Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-07T23:10:22.069Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-07T23:10:22.070Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-07T23:10:28.116Z'
+}
+{
+  message: '[NERDWHATS_AMERICA] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-07T23:10:30.141Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:10:30.401Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:10:30.552Z'
+}
+{
+  message: 'Started Session: NERDWHATS_AMERICA',
+  level: 'info',
+  timestamp: '2024-07-07T23:10:30.762Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:18:17.110Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-07-07T23:18:22.282Z'
+}

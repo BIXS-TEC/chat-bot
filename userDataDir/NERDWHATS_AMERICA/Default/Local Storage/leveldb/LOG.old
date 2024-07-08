@@ -1,3 +1,15 @@
-2024/07/02-13:13:52.335 114c Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/MANIFEST-000001
-2024/07/02-13:13:52.337 114c Recovering log #594
-2024/07/02-13:13:52.342 114c Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/000594.log 
+2024/07/07-20:08:11.671 23f8 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/MANIFEST-000001
+2024/07/07-20:08:11.674 23f8 Recovering log #594
+2024/07/07-20:08:11.690 23f8 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Local Storage\leveldb/000594.log 
+2024/07/07-20:09:12.194 198c Level-0 table #597: started
+2024/07/07-20:09:12.202 198c Level-0 table #597: 16153 bytes OK
+2024/07/07-20:09:12.204 198c Delete type=0 #594
+2024/07/07-20:09:12.205 198c Compacting 4@0 + 1@1 files
+2024/07/07-20:09:12.213 198c Generated table #598@0: 86 keys, 7162 bytes
+2024/07/07-20:09:12.213 198c Compacted 4@0 + 1@1 files => 7162 bytes
+2024/07/07-20:09:12.214 198c compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/07/07-20:09:12.215 198c Delete type=2 #586
+2024/07/07-20:09:12.215 198c Delete type=2 #589
+2024/07/07-20:09:12.215 198c Delete type=2 #591
+2024/07/07-20:09:12.215 198c Delete type=2 #593
+2024/07/07-20:09:12.215 198c Delete type=2 #597
