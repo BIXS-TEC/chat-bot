@@ -9,7 +9,7 @@ const verbose = true;
 
 export default class Chatbot {
   constructor({ id, businessName, phoneNumber, clientList, employeeList, productList, config }) {
-    if (!Array.isArray(productList)) throw new Error("ProductList must be an array!");
+    // if (!Array.isArray(productList)) throw new Error("ProductList must be an array!");
     if (!Array.isArray(config.topProductsId)) throw new Error("config.topProductsId must be an array!");
 
     this.id = id;
