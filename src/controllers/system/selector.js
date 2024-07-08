@@ -10,7 +10,7 @@ import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault }
  * Contexto - Qual o contexto do cliente?
  * Ação - O que o cliente quer fazer?
  */
-let chatbotList;
+let chatbotList = {};
 
 export function systemSetup() {
   return new Promise(async (resolve, reject) => {
