@@ -143,6 +143,7 @@ const config = {
   },
 
   createChatbot: async function (request) {
+    console.log('createChatbot request:', request);
     const chatbot = {
       id: request.id,
       businessName: request.businessName,
