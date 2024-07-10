@@ -1,6 +1,7 @@
 import creator from "./creator.js";
 import Chatbot from "../../models/classes/chatbot.js";
 import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault } from "../../interfaces/index.js";
+import { initServer } from "../init/wpp-server.js";
 
 /**
  * Plataforma - De onde vem?
@@ -143,6 +144,7 @@ const config = {
   },
 
   createChatbot: async function (request) {
+    initServer();
     console.log('createChatbot request:', request);
     const chatbot = {
       id: request.id,
