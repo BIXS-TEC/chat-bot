@@ -1,8 +1,9 @@
 import creator from "./creator.js";
 import Chatbot from "../../models/classes/chatbot.js";
 import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault } from "../../interfaces/index.js";
-import { initServer } from "../init/wpp-server.js";
 import WppSender from "../../APIs/wppconnect-server/wpp-sender.js";
+import { create, Whatsapp } from "@wppconnect-team/wppconnect";
+import { response } from "express";
 
 /**
  * Plataforma - De onde vem?
@@ -12,6 +13,7 @@ import WppSender from "../../APIs/wppconnect-server/wpp-sender.js";
  * Contexto - Qual o contexto do cliente?
  * Ação - O que o cliente quer fazer?
  */
+const wppconnect = new Whatsapp();
 let chatbotList = {};
 
 export function systemSetup() {
@@ -145,7 +147,14 @@ const config = {
   },
 
   createChatbot: async function (request) {
-    const response = await WppSender.startSession();
+    try {
+      const client = await create({ session: "sales" });
+      return client;
+    } catch (error) {
+      console.error("Erro ao iniciar o bot de vendas:", error);
+    }
+
+    // const response = await WppSender.startSession();
     // console.log("createChatbot request:", request);
     // const chatbot = {
     //   id: request.id,
@@ -159,7 +168,7 @@ const config = {
     // chatbotList[chatbot.phoneNumber] = new Chatbot(chatbot);
     // console.log("\x1b[32m chatbotList: ", chatbotList);
     // console.log('startSession response: ', response);
-    return response;
+    // return response;
   },
 };
 
