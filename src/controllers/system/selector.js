@@ -3,7 +3,6 @@ import Chatbot from "../../models/classes/chatbot.js";
 import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault } from "../../interfaces/index.js";
 import WppSender from "../../APIs/wppconnect-server/wpp-sender.js";
 import { create, Whatsapp } from "@wppconnect-team/wppconnect";
-import { response } from "express";
 
 /**
  * Plataforma - De onde vem?
@@ -147,12 +146,11 @@ const config = {
   },
 
   createChatbot: async function (request) {
-    try {
-      const client = await create({ session: "sales" });
-      return client;
-    } catch (error) {
-      console.error("Erro ao iniciar o bot de vendas:", error);
-    }
+    create({ session: "sales" })
+      .then((cliente) => cliente)
+      .catch((error) => {
+        console.error("Erro ao iniciar a sessão de vendas:", error);
+      });
 
     // const response = await WppSender.startSession();
     // console.log("createChatbot request:", request);
