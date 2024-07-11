@@ -19,7 +19,7 @@ export default class Chatbot {
 
     this.config = config;
 
-    this.modalityIdList = Array.from({ length: 501 }).reduce((acc, _, index) => {
+    this.modalityIdList = Array.from({ length: 101 }).reduce((acc, _, index) => {
       acc[String(index)] = {
         occupied: false,
         inactive: false,
