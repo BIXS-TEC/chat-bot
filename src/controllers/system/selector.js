@@ -2,6 +2,7 @@ import creator from "./creator.js";
 import Chatbot from "../../models/classes/chatbot.js";
 import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault } from "../../interfaces/index.js";
 import { initServer } from "../init/wpp-server.js";
+import WppSender from "../../APIs/wppconnect-server/wpp-sender.js";
 
 /**
  * Plataforma - De onde vem?
@@ -144,8 +145,7 @@ const config = {
   },
 
   createChatbot: async function (request) {
-    initServer();
-    console.log('createChatbot request:', request);
+    console.log("createChatbot request:", request);
     const chatbot = {
       id: request.id,
       businessName: request.businessName,
@@ -157,6 +157,8 @@ const config = {
     };
     chatbotList[chatbot.phoneNumber] = new Chatbot(chatbot);
     console.log("\x1b[32m chatbotList: ", chatbotList);
+    const response = await WppSender.startSession();
+    return response;
   },
 };
 

@@ -40,7 +40,32 @@ WppSender.generateWPPToken = async function () {
   return tokenPromise;
 };
 
-WppSender.generateWPPToken();
+WppSender.startSession = async function () {
+  let data = JSON.stringify({
+    webhook: null,
+    waitQrCode: false,
+  });
+
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: `http://${path}/api/${session}/${secretKey}/start-session`,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    console.log(JSON.stringify(response.data));
+    return response.data;  // Retorna os dados da resposta
+  } catch (error) {
+    console.log(error);
+    throw new Error("Erro ao iniciar a sessão!");
+  }
+};
 
 WppSender.closeSession = async function () {
   return new Promise(async (resolve, reject) => {
