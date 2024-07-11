@@ -145,6 +145,7 @@ const config = {
   },
 
   createChatbot: async function (request) {
+    const response = await WppSender.startSession();
     console.log("createChatbot request:", request);
     const chatbot = {
       id: request.id,
@@ -157,7 +158,6 @@ const config = {
     };
     chatbotList[chatbot.phoneNumber] = new Chatbot(chatbot);
     console.log("\x1b[32m chatbotList: ", chatbotList);
-    const response = await WppSender.startSession();
     console.log('startSession response: ', response);
     return response;
   },
