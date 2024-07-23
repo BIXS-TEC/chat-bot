@@ -1,0 +1,1 @@
+import '@wppconnect/server/dist/server.js';

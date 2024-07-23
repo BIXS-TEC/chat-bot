@@ -1,8 +1,6 @@
 import creator from "./creator.js";
 import Chatbot from "../../models/classes/chatbot.js";
 import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault } from "../../interfaces/index.js";
-import WppSender from "../../APIs/wppconnect-server/wpp-sender.js";
-import { create, Whatsapp } from "@wppconnect-team/wppconnect";
 
 /**
  * Plataforma - De onde vem?
@@ -12,7 +10,6 @@ import { create, Whatsapp } from "@wppconnect-team/wppconnect";
  * Contexto - Qual o contexto do cliente?
  * Ação - O que o cliente quer fazer?
  */
-const wppconnect = new Whatsapp();
 let chatbotList = {};
 
 export function systemSetup() {
@@ -121,7 +118,7 @@ const message = {
 
 const config = {
   handleConfigRequest: async function (request) {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       try {
         const client = standardizeConfigRequestToDefault(request);
 
@@ -137,6 +134,17 @@ const config = {
                 reject(err);
               });
             break;
+          case "session-connected":
+            const phoneNumber = findPhoneNumberBySession(client.session);
+            if (phoneNumber) {
+              console.log('checkConnectionSession: ', await chatbotList[phoneNumber].checkConnectionSession());
+              setTimeout(() => {
+                chatbotList[phoneNumber].initializeGroupList();
+              }, 5000);
+            } else {
+              console.error(`Session ${client.session} not found in chatbotList`);
+            }
+            break;
         }
       } catch (error) {
         console.log("Error in handleConfigRequest function:\n", error);
@@ -146,28 +154,30 @@ const config = {
   },
 
   createChatbot: async function (request) {
-    create({ session: "sales" })
-      .then((cliente) => cliente)
-      .catch((error) => {
-        console.error("Erro ao iniciar a sessão de vendas:", error);
-      });
-
-    // const response = await WppSender.startSession();
     // console.log("createChatbot request:", request);
-    // const chatbot = {
-    //   id: request.id,
-    //   businessName: request.businessName,
-    //   phoneNumber: request.phoneNumber,
-    //   clientList: {},
-    //   employeeList: {},
-    //   productList: request.productList,
-    //   config: request.config,
-    // };
-    // chatbotList[chatbot.phoneNumber] = new Chatbot(chatbot);
+    const chatbot = {
+      id: request.id,
+      businessName: request.businessName,
+      secretKey: request.secretKey,
+      phoneNumber: request.phoneNumber,
+      clientList: {},
+      employeeList: {},
+      productList: request.productList,
+      config: request.config,
+    };
+    chatbotList[chatbot.phoneNumber] = new Chatbot(chatbot);
     // console.log("\x1b[32m chatbotList: ", chatbotList);
-    // console.log('startSession response: ', response);
-    // return response;
+    return await chatbotList[chatbot.phoneNumber].qrcode;
   },
 };
+
+function findPhoneNumberBySession(session) {
+  for (let phoneNumber in chatbotList) {
+    if (chatbotList[phoneNumber].session === session) {
+      return chatbotList[phoneNumber].phoneNumber;
+    }
+  }
+  return null; // Retorna null se não encontrar um objeto com o session especificado
+}
 
 export { message, config };

@@ -273,7 +273,7 @@ export default function getCardapioWhatsAppContexts(chatbot) {
   contextList["finalizar-pedido"] = new Context({
     id: "15",
     name: "finalizar-pedido",
-    previousContexts: ["cardapio", "recomendar-produto", "editar-pedido", "recorrente"],
+    previousContexts: ["cardapio", "adicionais", "recomendar-produto", "editar-pedido", "recorrente"],
     activationKeywords: ["finalizar-pedido"],
     action: function (client) {
       return f.finalizar_pedido.action(this, chatbot, client);

@@ -1,5 +1,3 @@
-import Group from "../models/classes/group.js";
-
 const wppInterface = {};
 export default wppInterface;
 
@@ -283,10 +281,40 @@ function formatPhoneWPPConnect(phoneNumber) {
   return phoneNumber.slice(0, phoneNumber.indexOf("@"));
 }
 
+////////////////////////////////////* Config *////////////////////////////////////
+
+wppInterface.WppConnectConfigToDefault = function (response) {
+  try {
+    // console.log('WppConnectConfigToDefault response: ', response);
+    switch (response.interaction) {
+      case "session-connected": {
+        return wppInterface.WPPConnectCreateChatbotToDefault(response);
+      }
+      default: {
+        console.log('Nenhuma interação configurada em WppConnectConfigToDefault');
+        return;
+      }
+    }
+  } catch (error) {
+    console.error("Error in WppConnectConfigToDefault", error);
+  }
+};
+
+wppInterface.WPPConnectCreateChatbotToDefault = function (req) {
+  return {
+    session: req.session,
+    platform: req.platform,
+    chatbot: {
+      interaction: req.interaction
+    }
+  }
+}
+
 ////////////////////////////////////* Groups *////////////////////////////////////
 
 wppInterface.WppGetAllGroupsToDefault = function (response) {
   try {
+    // console.log('WppGetAllGroupsToDefault response:', response);
     let groups = [];
     for (let group of response) {
       const admin = [];
@@ -300,7 +328,7 @@ wppInterface.WppGetAllGroupsToDefault = function (response) {
       }
 
       groups.push(
-        Group.createGroup({
+        wppInterface.createNewGroup({
           chatId: group.contact.id.user,
           name: group.contact.name,
           admin: admin,
@@ -319,7 +347,7 @@ wppInterface.WppCreatedGroupToDefault = function (response, participant) {
     if (response.statusText !== "Created") throw new Error("statusText is not 'Created'");
     response = response.data.response;
 
-    return Group.createGroup({
+    return wppInterface.createNewGroup({
       id: response.groupInfo[0].id,
       name: response.groupInfo[0].name,
       admin: [participant],
@@ -327,6 +355,20 @@ wppInterface.WppCreatedGroupToDefault = function (response, participant) {
   } catch (error) {
     console.error("Error in WppGroupsToDefault", error);
   }
+};
+
+wppInterface.createNewGroup = function ({ chatId, name, admin, member = [] }) {
+  if (!Array.isArray(admin)) throw new Error("admin must be an Array");
+  if (!Array.isArray(member)) throw new Error("member must be an Array");
+
+  return {
+    chatId: chatId,
+    name: name,
+    participants: {
+      admin: admin,
+      member: member,
+    },
+  };
 };
 
 const all = {

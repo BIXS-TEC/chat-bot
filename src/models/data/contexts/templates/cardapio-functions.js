@@ -810,12 +810,12 @@ f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = 
     if (args.isEmpty) return [];
     const sections = [];
     sections.push(mf.buildSection(chatbot, "🔽 Selecione uma das opções", ["voltar-cardapio", "solicitar-fechamento", "garcom", "atendente", "faq"]));
-    const prepMessage = args.preparationTime ? `O tempo de espera é de +- *${args.preparationTime} minutos*` : "";
+    const prepMessage = args.preparationTime ? `\n\nO tempo de espera é de +- *${args.preparationTime} minutos*` : "";
 
     return [
       {
         type: "text",
-        message: "Seu pedido já esta sendo preparado!!!" + '\n\n' + prepMessage + '\n\n' + chatbot.config.orderCompletionMessage,
+        message: "Seu pedido já esta sendo preparado!!!" + prepMessage + '\n\n' + chatbot.config.orderCompletionMessage,
       },
       {
         type: "listMessage",
@@ -888,8 +888,8 @@ f.cancelar_pedido = {};
 f.cancelar_pedido.action = function (context, chatbot, client) {
   try {
     if (client.chatbot.itemId === "nao-cancelar") {
-      chatbot.sendContextMessage("cardapio", client);
-      return { cancel: false };
+      chatbot.sendContextMessage("adicionar-produto", client);
+      return { cancel: true };
     }
     client.chatbot.orderList = {};
     client.changeContext("finalizar-pedido");

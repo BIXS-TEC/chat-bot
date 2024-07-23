@@ -1,10 +1,9 @@
-import WppSender from "../../APIs/wppconnect-server/wpp-sender.js";
 import wpp from "../../interfaces/wppconnect.js";
 
 const sender = {};
 export default sender;
 
-sender.sendMessage = async function (response) {
+sender.sendMessage = async function (chatbot, response) {
   try {
     if (!response.responseObjects) return;
     switch (response.platform) {
@@ -15,49 +14,49 @@ sender.sendMessage = async function (response) {
           switch (message.type) {
             case "text": {
               const WppMessage = wpp.defaultToWPPConnectResponseTextMessage(message);
-              if (!message.isGroup) await WppSender.setTyping(phone, true);
-              const requestResponse = await WppSender.sendMessage(phone, WppMessage);
-              if (!message.isGroup) await WppSender.setTyping(phone, false);
+              if (!message.isGroup) await chatbot.setTyping(phone, true);
+              const requestResponse = await chatbot.sendMessage(phone, WppMessage);
+              if (!message.isGroup) await chatbot.setTyping(phone, false);
               requestResponseList.push(requestResponse);
               break;
             }
             case "listMessage": {
               const WppMessage = wpp.defaultToWPPConnectResponseListMessage(message);
-              await WppSender.setTyping(phone, true);
-              const requestResponse = await WppSender.sendListMessage(phone, WppMessage);
-              await WppSender.setTyping(phone, false);
+              await chatbot.setTyping(phone, true);
+              const requestResponse = await chatbot.sendListMessage(phone, WppMessage);
+              await chatbot.setTyping(phone, false);
               requestResponseList.push(requestResponse);
               break;
             }
             case "replyMessage": {
               const WppMessage = wpp.defaultToWPPConnectResponseReplyMessage(message);
-              await WppSender.setTyping(phone, true);
-              const requestResponse = await WppSender.sendReplyMessage(phone, WppMessage);
-              await WppSender.setTyping(phone, false);
+              await chatbot.setTyping(phone, true);
+              const requestResponse = await chatbot.sendReplyMessage(phone, WppMessage);
+              await chatbot.setTyping(phone, false);
               requestResponseList.push(requestResponse);
               break;
             }
             case "linkPreview": {
               const WppMessage = wpp.defaultToWPPConnectResponseLinkPreview(message);
-              await WppSender.setTyping(phone, true);
-              const requestResponse = await WppSender.sendLinkPreviewMessage(phone, WppMessage);
-              await WppSender.setTyping(phone, false);
+              await chatbot.setTyping(phone, true);
+              const requestResponse = await chatbot.sendLinkPreviewMessage(phone, WppMessage);
+              await chatbot.setTyping(phone, false);
               requestResponseList.push(requestResponse);
               break;
             }
             case "contactVcard": {
               const WppMessage = wpp.defaultToWPPConnectContactVcard(message);
-              await WppSender.setTyping(phone, true);
-              const requestResponse = await WppSender.sendContactVcard(phone, WppMessage);
-              await WppSender.setTyping(phone, false);
+              await chatbot.setTyping(phone, true);
+              const requestResponse = await chatbot.sendContactVcard(phone, WppMessage);
+              await chatbot.setTyping(phone, false);
               requestResponseList.push(requestResponse);
               break;
             }
             case "pollMessage": {
               const WppMessage = wpp.defaultToWPPConnectPollMessage(message);
-              await WppSender.setTyping(phone, true);
-              const requestResponse = await WppSender.sendPollMessage(phone, WppMessage);
-              await WppSender.setTyping(phone, false);
+              await chatbot.setTyping(phone, true);
+              const requestResponse = await chatbot.sendPollMessage(phone, WppMessage);
+              await chatbot.setTyping(phone, false);
               requestResponseList.push(requestResponse);
               break;
             }
@@ -75,18 +74,18 @@ sender.sendMessage = async function (response) {
   }
 }
 
-sender.sendGroupRequests = async function (requestList) {
+sender.sendGroupRequests = async function (chatbot, requestList) {
   try {
     const responseList = await Promise.all(
       requestList.map(async (request) => {
         switch (request.type) {
           case "get-all-groups": {
-            let response = await WppSender.getAllGroups();
+            let response = await chatbot.getAllGroups();
             response = wpp.WppGetAllGroupsToDefault(response);
             return response;
           }
           case "create-group": {
-            let response = await WppSender.createGroup(request.name, request.participants);
+            let response = await chatbot.createGroup(request.name, request.participants);
             response = wpp.WppCreatedGroupToDefault(response, request.participants);
             return response;
           }

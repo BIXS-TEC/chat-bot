@@ -27,7 +27,7 @@ export function standardizeConfigRequestToDefault(req) {
       return ;
 
     case 'wppconnect':
-      return req;
+      return wpp.WppConnectConfigToDefault(req);
 
     case 'printweb':
       return pw.PrintWebConfigToDefault(req);

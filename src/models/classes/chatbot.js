@@ -1,14 +1,15 @@
 import order from "../../interfaces/wa-order.js";
 import context from "../data/contexts/index.js";
 import sender from "./sender.js";
-import group from "./group.js";
 import Client from "./client.js";
+import { WppConnect } from "./wppconnect.js";
 import { configureProductsList } from "../utils/time.js";
 
 const verbose = true;
 
-export default class Chatbot {
-  constructor({ id, businessName, phoneNumber, clientList, employeeList, productList, config }) {
+export default class Chatbot extends WppConnect {
+  constructor({ id, businessName, secretKey, phoneNumber, clientList, employeeList, productList, config }) {
+    super(businessName, secretKey);
     if (!Array.isArray(productList)) throw new Error("ProductList must be an array!");
     if (!Array.isArray(config.topProductsId)) throw new Error("config.topProductsId must be an array!");
 
@@ -29,15 +30,24 @@ export default class Chatbot {
 
     this.clientList = clientList;
     this.employeeList = employeeList;
-
     configureProductsList(this, productList);
 
+    this.qrcode = this.chatbotSetup();
+
+    if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
+  }
+
+  async chatbotSetup() {
     this.contextList = context.getContextList(this);
-    group.initializeGroupList(this);
     this.initializeSatisfactionPoll();
     this.initializeAdminClient();
 
-    if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
+    try {
+      await this.startNewSession();
+      return this.qrcode;
+    } catch (error) {
+      console.error("Erro durante o setup do chatbot:", error);
+    }
   }
 
   async handleAdminCommand(admClient) {
@@ -90,7 +100,7 @@ export default class Chatbot {
     try {
       const response = await this.contextList[interaction][contextName].runContext(useClient);
       if (interaction !== "admin") useClient.saveLastChatbotMessage(response.responseObjects);
-      const requestResponseList = await sender.sendMessage(response);
+      const requestResponseList = await sender.sendMessage(this, response);
       useClient.saveResponse(requestResponseList);
       console.log("\x1b[36m%s\x1b[0m", `Cliente: [${useClient.platform}] ${JSON.stringify(useClient)}`);
       return response;
