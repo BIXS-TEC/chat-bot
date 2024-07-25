@@ -32259,3 +32259,284 @@
   level: 'info',
   timestamp: '2024-07-23T17:21:35.076Z'
 }
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-23T18:34:05.503Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-23T18:34:05.526Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-23T18:34:05.527Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-23T18:37:15.757Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-23T18:37:15.786Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-23T18:37:15.794Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-23T18:37:31.647Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T18:37:34.145Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T18:37:35.565Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T18:37:35.778Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:07:01.126Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:07:01.221Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:07:01.678Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:07:01.681Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:07:01.696Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:30:50.998Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:30:51.088Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:30:51.629Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:30:51.643Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:30:51.647Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:43:52.003Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:43:52.095Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:43:52.547Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:43:52.551Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:43:52.562Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:44:52.231Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:44:52.319Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:44:52.766Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T20:44:52.770Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:44:52.780Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T20:50:09.431Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-23T21:29:48.166Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-23T21:29:48.175Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-23T21:29:48.176Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-07-23T21:30:24.092Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T21:30:27.999Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T21:30:29.222Z'
+}
+{
+  level: 'error',
+  message: 'WAPI is not defined',
+  stack: 'Error: WAPI is not defined\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ReferenceError: WAPI is not defined\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:47\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:77\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function () { return WAPI.isConnected(); }',
+  timestamp: '2024-07-23T21:30:36.129Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T21:30:37.697Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T21:30:37.737Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-07-23T21:30:46.965Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-07-23T21:30:46.976Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-07-23T21:30:46.979Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T21:31:22.035Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T21:31:50.974Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-07-23T21:31:51.178Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T21:31:52.186Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-07-23T21:31:53.678Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T21:31:57.340Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T21:32:49.812Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T21:32:49.906Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T21:32:50.360Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-07-23T21:32:50.364Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-07-23T21:32:50.376Z'
+}
