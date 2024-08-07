@@ -235,6 +235,30 @@ export default class Chatbot extends WppConnect {
     }
   }
 
+  updateConfigData(c) {
+    if (typeof c !== 'object' || !c.field || c.value === undefined) {
+      console.log('\x1b[31m%s\x1b[0m', 'Parâmetro inválido fornecido a updateConfigData!');
+      return false;
+    }
+
+    console.log(`field: ${c.field} - value: ${c.value}`);
+
+    if (this.hasOwnProperty(c.field)) {
+      this[c.field] = c.value;
+    } else if (this.config && this.config.hasOwnProperty(c.field)) {
+      this.config[c.field] = c.value;
+    } else if (this.config.serviceOptions && this.config.serviceOptions.hasOwnProperty(c.field)) {
+      this.config.serviceOptions[c.field] = c.value;
+    } else if (this.config.url && this.config.url.hasOwnProperty(c.field)) {
+      this.config.url[c.field] = c.value;
+    } else {
+      console.log('\x1b[31m%s\x1b[0m', 'Parâmetro não encontrado em updateConfigData!');
+      return false;
+    }
+
+    return true;
+  }
+
   sendClientOrder(client) {
     if (this.config.flow.includes("PrintWeb")) {
       throw new Error("Enviar pedido para PrintWeb ainda não diponível");

@@ -134,7 +134,7 @@ const config = {
                 reject(err);
               });
             break;
-          case "session-connected":
+          case "session-connected": {
             const phoneNumber = findPhoneNumberBySession(client.session);
             if (phoneNumber) {
               console.log('checkConnectionSession: ', await chatbotList[phoneNumber].checkConnectionSession());
@@ -145,6 +145,14 @@ const config = {
               console.error(`Session ${client.session} not found in chatbotList`);
             }
             break;
+          }
+          case "update-chatbot": {
+            console.log("update-chatbot client: ", client);
+            const phoneNumber = formatPhoneNumber(client.phoneNumber);
+            console.log('formatPhoneNumber: ', phoneNumber);
+            chatbotList[phoneNumber].updateConfigData(client);
+            break;
+          }
         }
       } catch (error) {
         console.log("Error in handleConfigRequest function:\n", error);
@@ -178,6 +186,13 @@ function findPhoneNumberBySession(session) {
     }
   }
   return null; // Retorna null se não encontrar um objeto com o session especificado
+}
+
+function formatPhoneNumber(phoneNumber) {
+  let phoneNumber = phoneNumber.replace(/\D/g, '');
+  const pos = phoneNumber.length - 9;
+
+  return phoneNumber.slice(0, pos) + phoneNumber.slice(pos + 1);
 }
 
 export { message, config };
