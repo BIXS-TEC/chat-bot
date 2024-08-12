@@ -11,6 +11,7 @@ export class WppConnect extends WppSender {
 
   async startNewSession() {
     try {
+      //Verificar se a session ja existe
       const tokenData = await this.generateWPPToken();
       console.log("tokenData:\n", tokenData);
       this.token = tokenData.token;

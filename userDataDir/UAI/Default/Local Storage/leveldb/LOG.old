@@ -1,3 +1,2 @@
-2024/07/23-11:12:53.815 5264 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\UAI\Default\Local Storage\leveldb/MANIFEST-000001
-2024/07/23-11:12:53.816 5264 Recovering log #3
-2024/07/23-11:12:53.822 5264 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\UAI\Default\Local Storage\leveldb/000003.log 
+2024/08/07-17:49:48.587 106c Creating DB C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\UAI\Default\Local Storage\leveldb since it was missing.
+2024/08/07-17:49:48.633 106c Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\UAI\Default\Local Storage\leveldb/MANIFEST-000001

@@ -189,7 +189,7 @@ function findPhoneNumberBySession(session) {
 }
 
 function formatPhoneNumber(phoneNumber) {
-  let phoneNumber = phoneNumber.replace(/\D/g, '');
+  phoneNumber = phoneNumber.replace(/\D/g, '');
   const pos = phoneNumber.length - 9;
 
   return phoneNumber.slice(0, pos) + phoneNumber.slice(pos + 1);

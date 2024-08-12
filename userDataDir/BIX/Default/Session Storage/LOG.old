@@ -1,3 +1,2 @@
-2024/07/23-11:12:53.789 6548 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\BIX\Default\Session Storage/MANIFEST-000001
-2024/07/23-11:12:53.796 6548 Recovering log #3
-2024/07/23-11:12:53.809 6548 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\BIX\Default\Session Storage/000003.log 
+2024/08/07-17:49:48.626 3c70 Creating DB C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\BIX\Default\Session Storage since it was missing.
+2024/08/07-17:49:48.657 3c70 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\BIX\Default\Session Storage/MANIFEST-000001

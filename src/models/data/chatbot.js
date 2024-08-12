@@ -21,7 +21,16 @@ export default function getChatbotList() {
       groupNames: ["Cozinha", "Garçom", "Atendente", "Caixa"],
       topProductsId: [[0, 1, 4, 5],[1, 3, 5, 6]],
       orderCompletionMessage: 'Um garçom irá trazer o seu pedido',
+      recomendarProduto: true,
+      produtosRecorrentes: true,
+      tableInterval: {
+        min: 0,
+        max: 10,
+        excludedValues: [],
+      },
       serviceOptions: {
+        pedidos: true,
+        caixa: true,
         atendente: true,
         garcom: true,
         faq: true,

@@ -1,3 +1,8 @@
-2024/07/23-11:12:59.883 3f88 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\File System\Origins/MANIFEST-000001
-2024/07/23-11:12:59.883 3f88 Recovering log #3
-2024/07/23-11:12:59.888 3f88 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\File System\Origins/000003.log 
+2024/08/07-17:50:29.622 2ea8 Log #3: 3 ops saved to Table #7 OK
+2024/08/07-17:50:29.627 2ea8 Archiving C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\NERDWHATS_AMERICA\Default\File System\Origins/000003.log: OK
+2024/08/07-17:50:29.628 2ea8 Log #6: 0 ops saved to Table #8 OK
+2024/08/07-17:50:29.629 2ea8 Archiving C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\NERDWHATS_AMERICA\Default\File System\Origins/000006.log: OK
+2024/08/07-17:50:29.630 2ea8 Table #4: 3 entries OK
+2024/08/07-17:50:29.630 2ea8 Table #7: 3 entries OK
+2024/08/07-17:50:29.634 2ea8 Archiving C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\NERDWHATS_AMERICA\Default\File System\Origins/MANIFEST-000001: OK
+2024/08/07-17:50:29.640 2ea8 **** Repaired leveldb C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\NERDWHATS_AMERICA\Default\File System\Origins; recovered 2 files; 362 bytes. Some data may have been lost. ****

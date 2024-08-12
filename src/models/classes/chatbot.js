@@ -20,14 +20,6 @@ export default class Chatbot extends WppConnect {
 
     this.config = config;
 
-    this.modalityIdList = Array.from({ length: 101 }).reduce((acc, _, index) => {
-      acc[String(index)] = {
-        occupied: false,
-        inactive: false,
-      };
-      return acc;
-    }, {});
-
     this.clientList = clientList;
     this.employeeList = employeeList;
     configureProductsList(this, productList);
@@ -39,6 +31,7 @@ export default class Chatbot extends WppConnect {
 
   async chatbotSetup() {
     this.contextList = context.getContextList(this);
+    this.initializeModality();
     this.initializeSatisfactionPoll();
     this.initializeAdminClient();
 
@@ -289,6 +282,16 @@ export default class Chatbot extends WppConnect {
     } catch (error) {
       console.error("Error in getTopProductsCategory: ", error);
     }
+  }
+
+  initializeModality() {
+    this.modalityIdList = Array.from({ length: 101 }).reduce((acc, _, index) => {
+      acc[String(index)] = {
+        occupied: false,
+        inactive: false,
+      };
+      return acc;
+    }, {});
   }
 
   initializeAdminClient() {

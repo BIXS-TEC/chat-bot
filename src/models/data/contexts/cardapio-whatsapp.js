@@ -157,6 +157,19 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
   });
 
+  contextList["cardapio-online"] = new Context({
+    id: "5",
+    name: "cardapio-online",
+    previousContexts: ["bem-vindo", "editar-pedido", "finalizar-pedido", "adicionais", "atendente", "recorrente", "recomendar-produto"],
+    activationKeywords: ["cardapio"],
+    action: function (client) {
+      return f.cardapio.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.cardapio.responseObjects(this, chatbot, client, args);
+    },
+  });
+
   contextList["recomendar-produto"] = new Context({
     id: "6",
     name: "recomendar-produto",

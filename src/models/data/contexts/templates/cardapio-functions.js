@@ -358,6 +358,51 @@ f.garcom.responseObjects = function (context, chatbot, client, args = {}) {
   }
 };
 
+/** Cardapio online */
+
+f.cardapio_online = {};
+
+f.cardapio_online.action = function (context, chatbot, client) {
+  try {
+    client.changeContext(context.name);
+
+    return;
+  } catch (error) {
+    console.error(`Erro em action no contexto "${context.name}"`, error);
+  }
+};
+
+f.cardapio_online.responseObjects = function (context, chatbot, client, args = {}) {
+  let message = '';
+  let listMessage = {};
+  const garcom = chatbot.config.serviceOptions.garcom;
+  const atendente = chatbot.config.serviceOptions.atendente;
+  if (garcom || atendente) {
+    message = 'Se desejar, você ainda pode ';
+    if (garcom) message += 'chamar um garçom';
+    if (garcom && atendente) message += ' ou ';
+    if (atendente) message += 'falar com um atendente';
+    if (message) message += '!';
+    listMessage = {
+      type: "listMessage",
+      description: message,
+      buttonText: "SELECIONE UMA OPÇÃO",
+      sections: mf.buildSection(chatbot, "🔽 Outras opções", ["garçom", "atendente"])
+    }
+  }
+  try {
+    return [
+      {
+        type: "text",
+        message: `Faça seu pedido em nosso cardapio online!\n\n${chatbot.config.url.cardapio}`,
+      },
+      listMessage,
+    ];
+  } catch (error) {
+    console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
+  }
+};
+
 /** Cardapio */
 
 f.cardapio = {};
@@ -1015,9 +1060,8 @@ f.solicitar_fechamento.action = function (context, chatbot, client) {
 f.solicitar_fechamento.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     let orderMessage = mf.getCompleteOrderMessage(client);
-    let message = `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${
-          client.chatbot.modalityId
-        } solicitou fechamento de conta.\n` + orderMessage.replace("Seu pedido: ", "");
+    let message = `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId
+      } solicitou fechamento de conta.\n` + orderMessage.replace("Seu pedido: ", "");
 
     const returnMessage = [
       {
