@@ -2,9 +2,9 @@ import WppSender from "../../APIs/wppconnect-server/wpp-sender.js";
 import sender from "./sender.js";
 
 export class WppConnect extends WppSender {
-  constructor(session, secretKey) {
+  constructor(session) {
     super();
-    this.secretKey = secretKey;
+    this.secretKey = 'BIXTOKEN';
     this.session = session.replace(/\s+/g, '-');
     this.token = null;
   }
@@ -71,4 +71,13 @@ export class WppConnect extends WppSender {
       console.error("Error in getGroupList:", error);
     }
   };
+
+  generateSecretKey() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let secretKey = '';
+    for (let i = 0; i < 32; i++) {
+      secretKey += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return secretKey;
+  }
 }

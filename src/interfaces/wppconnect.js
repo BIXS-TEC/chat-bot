@@ -292,11 +292,11 @@ wppInterface.WppConnectConfigToDefault = function (response) {
       case "session-connected": {
         return wppInterface.WPPConnectCreateChatbotToDefault(response);
       }
-      case "updateChatbot": {
+      case "update-chatbot": {
         return wppInterface.WPPConnectUpdateChatbotToDefault(response);
       }
       default: {
-        console.log('Nenhuma interação configurada em WppConnectConfigToDefault');
+        console.log("Nenhuma interação configurada em WppConnectConfigToDefault");
         return;
       }
     }
@@ -310,19 +310,21 @@ wppInterface.WPPConnectCreateChatbotToDefault = function (req) {
     session: req.session,
     platform: req.platform,
     chatbot: {
-      interaction: req.interaction
-    }
-  }
-}
+      interaction: req.interaction,
+    },
+  };
+};
 
 wppInterface.WPPConnectUpdateChatbotToDefault = function (req) {
-  return {
+  const client = {
     ...req,
     chatbot: {
       interaction: req.interaction,
-    }
+    },
   };
-}
+  delete client.interaction;
+  return client;
+};
 
 ////////////////////////////////////* Groups *////////////////////////////////////
 

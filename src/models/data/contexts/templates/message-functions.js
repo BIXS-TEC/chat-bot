@@ -9,11 +9,21 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
       cardapio: {
         rowId: "cardapio",
         title: "Ver cardápio 🍔",
-        description: "Monte seu pedido",
+        description: "Monte seu pedido sem sair do WhatsApp",
+      },
+      "cardapio-online": {
+        rowId: "cardapio-online",
+        title: "Ver cardápio online 📋",
+        description: "Monte seu pedido em nosso site",
       },
       "voltar-cardapio": {
         rowId: "cardapio",
         title: "Voltar ao cardápio 🍔",
+        description: "",
+      },
+      "menu-opcoes": {
+        rowId: "menu-opcoes",
+        title: "Menu de opções 🔘",
         description: "",
       },
       atendente: {
@@ -117,7 +127,7 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
   }
 };
 
-mf.checkMessageIDCode = function (currentMessage) {
+mf.checkPreProgrammedMessage = function (currentMessage) {
   try {
     if (typeof currentMessage === "string") {
       const info = currentMessage.replace(/\s/g, "").split("#");
@@ -127,14 +137,14 @@ mf.checkMessageIDCode = function (currentMessage) {
         const [, code] = info[info.length - 1].split(":");
         if (modality && idNum && code) {
           const hash = CryptoJS.MD5(idNum + "BIX").toString();
-          // console.log(`checkMessageIDCode:  int:${modality} - id:${idNum} - code:${code} - hash:${hash.slice(-5)}`);
+          // console.log(`checkPreProgrammedMessage:  int:${modality} - id:${idNum} - code:${code} - hash:${hash.slice(-5)}`);
           if (code === hash.slice(-5)) return [modality, idNum];
         }
       }
     }
     return [false, false];
   } catch (error) {
-    console.error("Error in checkMessageIDCode:", error);
+    console.error("Error in checkPreProgrammedMessage:", error);
     return [false, false];
   }
 };

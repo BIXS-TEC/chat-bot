@@ -28,7 +28,7 @@ const message = {
   handleMessageRequest: async function (request) {
     return new Promise((resolve, reject) => {
       try {
-        console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
+        // console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
 
         const client = standardizeMessageRequestToDefault(request);
         if (!client) {
@@ -137,7 +137,7 @@ const config = {
           case "session-connected": {
             const phoneNumber = findPhoneNumberBySession(client.session);
             if (phoneNumber) {
-              console.log('checkConnectionSession: ', await chatbotList[phoneNumber].checkConnectionSession());
+              console.log("checkConnectionSession: ", await chatbotList[phoneNumber].checkConnectionSession());
               setTimeout(() => {
                 chatbotList[phoneNumber].initializeGroupList();
               }, 5000);
@@ -149,7 +149,11 @@ const config = {
           case "update-chatbot": {
             console.log("update-chatbot client: ", client);
             const phoneNumber = formatPhoneNumber(client.phoneNumber);
-            console.log('formatPhoneNumber: ', phoneNumber);
+            console.log("formatPhoneNumber: ", phoneNumber);
+            if (!chatbotList[phoneNumber]) {
+              console.log(`\x1b[31mChatbot com o número ${phoneNumber} não existe.\x1b[0m`);
+              break;
+            }
             chatbotList[phoneNumber].updateConfigData(client);
             break;
           }
@@ -162,19 +166,18 @@ const config = {
   },
 
   createChatbot: async function (request) {
-    // console.log("createChatbot request:", request);
+    console.log("createChatbot request:", request);
     const chatbot = {
       id: request.id,
       businessName: request.businessName,
-      secretKey: request.secretKey,
-      phoneNumber: request.phoneNumber,
+      phoneNumber: formatPhoneNumber(request.phoneNumber),
       clientList: {},
       employeeList: {},
       productList: request.productList,
       config: request.config,
     };
     chatbotList[chatbot.phoneNumber] = new Chatbot(chatbot);
-    // console.log("\x1b[32m chatbotList: ", chatbotList);
+    console.log('createChatbot chatbotList:', chatbotList);
     return await chatbotList[chatbot.phoneNumber].qrcode;
   },
 };
@@ -189,7 +192,7 @@ function findPhoneNumberBySession(session) {
 }
 
 function formatPhoneNumber(phoneNumber) {
-  phoneNumber = phoneNumber.replace(/\D/g, '');
+  phoneNumber = phoneNumber.replace(/\D/g, "");
   const pos = phoneNumber.length - 9;
 
   return phoneNumber.slice(0, pos) + phoneNumber.slice(pos + 1);

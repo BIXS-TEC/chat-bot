@@ -21,8 +21,8 @@ export default function getChatbotList() {
       groupNames: ["Cozinha", "Garçom", "Atendente", "Caixa"],
       topProductsId: [[0, 1, 4, 5],[1, 3, 5, 6]],
       orderCompletionMessage: 'Um garçom irá trazer o seu pedido',
-      recomendarProduto: true,
-      produtosRecorrentes: true,
+      enableRecommendProducts: true,
+      enableRecurrentProducts: true,
       tableInterval: {
         min: 0,
         max: 10,
@@ -35,10 +35,11 @@ export default function getChatbotList() {
         garcom: true,
         faq: true,
         pesquisaSatisfacao: true,
+        "cardapio-online": true,
       },
       url: {
         faq: "https://printweb.vlks.com.br/",
-        cardapio: "https://printweb.vlks.com.br/",
+        cardapio: "https://tocadosurubim.menudigital.net.br/#/catalogo",
       },
     },
   });

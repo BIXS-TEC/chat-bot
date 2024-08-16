@@ -1,3 +1,9 @@
-2024/08/07-17:50:16.149 2b64 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\Toca-do-Surubim\Default\Local Storage\leveldb/MANIFEST-000001
-2024/08/07-17:50:16.150 2b64 Recovering log #3
-2024/08/07-17:50:16.160 2b64 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\Toca-do-Surubim\Default\Local Storage\leveldb/000003.log 
+2024/08/16-11:19:06.851 391c Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\Local Storage\leveldb/MANIFEST-000001
+2024/08/16-11:19:06.888 391c Recovering log #65
+2024/08/16-11:19:06.898 391c Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\Local Storage\leveldb/000065.log 
+2024/08/16-11:34:07.589 7e8 Level-0 table #70: started
+2024/08/16-11:34:07.597 7e8 Level-0 table #70: 15284 bytes OK
+2024/08/16-11:34:07.599 7e8 Delete type=0 #65
+2024/08/16-14:27:08.844 7e8 Level-0 table #72: started
+2024/08/16-14:27:08.855 7e8 Level-0 table #72: 10578 bytes OK
+2024/08/16-14:27:08.857 7e8 Delete type=0 #69

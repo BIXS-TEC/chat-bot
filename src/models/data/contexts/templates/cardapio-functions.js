@@ -1,4 +1,3 @@
-import { closeSession } from "@wppconnect/server/dist/controller/sessionController.js";
 import mf from "./message-functions.js";
 
 export const f = {};
@@ -33,11 +32,16 @@ f.bem_vindo = {};
 f.bem_vindo.action = function (context, chatbot, client) {
   try {
     client.changeContext("informar-id");
-    const [modality, id] = mf.checkMessageIDCode(client.chatbot.currentMessage);
-    // console.log("modality: ", modality, "id:", id);
+
+    // Verifica se é mensagem pré-programada com id e modalidade
+    const [modality, id] = mf.checkPreProgrammedMessage(client.chatbot.currentMessage);
     let status = "invalid";
+
+    // Verifica se os valores são validos para esse chatbot
     if (chatbot.config.modality.includes(modality) && Object.keys(chatbot.modalityIdList).includes(id)) {
       status = "valid";
+
+      // Verifica se a mesa esta ocupada ou inativa
       if (!chatbot.modalityIdList[id].occupied && !chatbot.modalityIdList[id].inactive) {
         chatbot.modalityIdList[id].occupied = true;
         client.chatbot.modalityId = id;
@@ -67,7 +71,7 @@ f.bem_vindo.responseObjects = function (context, chatbot, client, args = {}) {
           type: "listMessage",
           description: `${client.chatbot.modality}: ${client.chatbot.modalityId}\n\nSelecione uma opção no botão abaixo`,
           buttonText: "VER OPÇÕES",
-          sections: [mf.buildSection(chatbot, "Escolha uma das opções", ["cardapio", "garcom", "atendente", "faq"])],
+          sections: [mf.buildSection(chatbot, "Escolha uma das opções", ["cardapio", "cardapio-online", "garcom", "atendente", "faq"])],
         },
       ];
     } else {
@@ -109,7 +113,7 @@ f.informar_id = {};
 
 f.informar_id.action = function (context, chatbot, client) {
   try {
-    const [modality, id] = mf.checkMessageIDCode(client.chatbot.currentMessage);
+    const [modality, id] = mf.checkPreProgrammedMessage(client.chatbot.currentMessage);
     // console.log("modality: ", modality, "id:", id);
     let status = "invalid";
     if (chatbot.config.modality.includes(modality) && Object.keys(chatbot.modalityIdList).includes(id)) {
@@ -148,7 +152,7 @@ f.informar_id.responseObjects = function (context, chatbot, client, args = {}) {
           type: "listMessage",
           description: `${client.chatbot.modality}: ${client.chatbot.modalityId}\n\nSelecione uma opção no botão abaixo`,
           buttonText: "VER OPÇÕES",
-          sections: [mf.buildSection(chatbot, "Escolha uma das opções", ["cardapio", "garcom", "atendente", "faq"])],
+          sections: [mf.buildSection(chatbot, "Escolha uma das opções", ["cardapio", "cardapio-online", "garcom", "atendente", "faq"])],
         },
       ];
     } else {
@@ -179,6 +183,34 @@ f.informar_id.responseObjects = function (context, chatbot, client, args = {}) {
     }
   } catch (error) {
     console.error(`Erro no contexto "${context.name}"`, error);
+  }
+};
+
+/* Menu de opções */
+
+f.menu_opcoes = {};
+
+f.menu_opcoes.action = function (context, chatbot, client) {
+  try {
+    client.changeContext("bem-vindo");
+    return;
+  } catch (error) {
+    console.error(`Erro em action no contexto "${context.name}"`, error);
+  }
+};
+
+f.menu_opcoes.responseObjects = function (context, chatbot, client, args = {}) {
+  try {
+    return [
+      {
+        type: "listMessage",
+        description: `${client.chatbot.modality}: ${client.chatbot.modalityId}\n\nSelecione uma opção no botão abaixo`,
+        buttonText: "VER OPÇÕES",
+        sections: [mf.buildSection(chatbot, "Escolha uma das opções", ["cardapio", "cardapio-online", "garcom", "atendente", "faq"])],
+      },
+    ];
+  } catch (error) {
+    console.error(`Erro em responseObjects no contexto "${context.name}"`, error);
   }
 };
 
@@ -373,22 +405,22 @@ f.cardapio_online.action = function (context, chatbot, client) {
 };
 
 f.cardapio_online.responseObjects = function (context, chatbot, client, args = {}) {
-  let message = '';
+  let message = "";
   let listMessage = {};
   const garcom = chatbot.config.serviceOptions.garcom;
   const atendente = chatbot.config.serviceOptions.atendente;
   if (garcom || atendente) {
-    message = 'Se desejar, você ainda pode ';
-    if (garcom) message += 'chamar um garçom';
-    if (garcom && atendente) message += ' ou ';
-    if (atendente) message += 'falar com um atendente';
-    if (message) message += '!';
+    message = "Se desejar, você ainda pode ";
+    if (garcom) message += "chamar um garçom";
+    if (garcom && atendente) message += " ou ";
+    if (atendente) message += "falar com um atendente";
+    message += "!";
     listMessage = {
       type: "listMessage",
       description: message,
       buttonText: "SELECIONE UMA OPÇÃO",
-      sections: mf.buildSection(chatbot, "🔽 Outras opções", ["garçom", "atendente"])
-    }
+      sections: [mf.buildSection(chatbot, "🔽 Outras opções", ["menu-opcoes", "garcom", "atendente"])],
+    };
   }
   try {
     return [
@@ -860,7 +892,7 @@ f.finalizar_pedido.responseObjects = function (context, chatbot, client, args = 
     return [
       {
         type: "text",
-        message: "Seu pedido já esta sendo preparado!!!" + prepMessage + '\n\n' + chatbot.config.orderCompletionMessage,
+        message: "Seu pedido já esta sendo preparado!!!" + prepMessage + "\n\n" + chatbot.config.orderCompletionMessage,
       },
       {
         type: "listMessage",
@@ -896,7 +928,7 @@ f.confirmar_cancelamento.action = function (context, chatbot, client) {
 
 f.confirmar_cancelamento.responseObjects = function (context, chatbot, client, args = {}) {
   try {
-    const message = Object.keys(client.chatbot.approvedOrderList).length ? '\n`Os pedidos anteriores ou em preparo não serão cancelados.`' : '';
+    const message = Object.keys(client.chatbot.approvedOrderList).length ? "\n`Os pedidos anteriores ou em preparo não serão cancelados.`" : "";
     return [
       {
         type: "listMessage",
@@ -1060,8 +1092,9 @@ f.solicitar_fechamento.action = function (context, chatbot, client) {
 f.solicitar_fechamento.responseObjects = function (context, chatbot, client, args = {}) {
   try {
     let orderMessage = mf.getCompleteOrderMessage(client);
-    let message = `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId
-      } solicitou fechamento de conta.\n` + orderMessage.replace("Seu pedido: ", "");
+    let message =
+      `# Cliente [${client.phoneNumber}] ${client.chatbot.modality}: ${client.chatbot.modalityId} solicitou fechamento de conta.\n` +
+      orderMessage.replace("Seu pedido: ", "");
 
     const returnMessage = [
       {

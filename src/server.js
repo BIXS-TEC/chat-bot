@@ -4,7 +4,8 @@ import auth from './routes/auth.js';
 import config from './routes/config.js';
 import cors from 'cors';
 
-const path = 'localhost:5001';
+const id = '54.227.229.46'
+const path = id + ':5001';
 
 const app = express();
 const port = 5002;
@@ -28,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Path to chatbot: http://54.227.229.46:5002/message`);
+  console.log(`Path to chatbot: http://${id}:5002/message`);
 });
 
 export default path;

@@ -86,6 +86,19 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
   });
 
+  contextList["menu-opcoes"] = new Context({
+    id: "1",
+    name: "menu-opcoes",
+    previousContexts: ["cardapio-online"],
+    activationKeywords: ["menu-opcoes"],
+    action: function (client) {
+      return f.menu_opcoes.action(this, chatbot, client);
+    },
+    responseObjects: function (client, args = {}) {
+      return f.menu_opcoes.responseObjects(this, chatbot, client, args);
+    },
+  });
+
   if (chatbot.config.serviceOptions.faq) {
     contextList["faq"] = new Context({
       id: "2",
@@ -157,19 +170,20 @@ export default function getCardapioWhatsAppContexts(chatbot) {
     },
   });
 
-  contextList["cardapio-online"] = new Context({
-    id: "5",
-    name: "cardapio-online",
-    previousContexts: ["bem-vindo", "editar-pedido", "finalizar-pedido", "adicionais", "atendente", "recorrente", "recomendar-produto"],
-    activationKeywords: ["cardapio"],
-    action: function (client) {
-      return f.cardapio.action(this, chatbot, client);
-    },
-    responseObjects: function (client, args = {}) {
-      return f.cardapio.responseObjects(this, chatbot, client, args);
-    },
-  });
-
+  if (chatbot.config.serviceOptions["cardapio-online"]) {
+    contextList["cardapio-online"] = new Context({
+      id: "5",
+      name: "cardapio-online",
+      previousContexts: ["bem-vindo", "editar-pedido", "finalizar-pedido", "adicionais", "atendente", "recorrente", "recomendar-produto"],
+      activationKeywords: ["cardapio-online"],
+      action: function (client) {
+        return f.cardapio_online.action(this, chatbot, client);
+      },
+      responseObjects: function (client, args = {}) {
+        return f.cardapio_online.responseObjects(this, chatbot, client, args);
+      },
+    });
+  }
   contextList["recomendar-produto"] = new Context({
     id: "6",
     name: "recomendar-produto",

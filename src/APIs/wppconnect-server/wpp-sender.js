@@ -17,6 +17,7 @@ export default class WppSender {
         Accept: "*/*",
       },
     };
+    console.log('generateWPPToken url:', config.url);
 
     try {
       const response = await axios.request(config);
@@ -24,7 +25,7 @@ export default class WppSender {
       console.log("Token: ", response.data.token);
       return response.data;
     } catch (error) {
-      console.error("Error generating WPP token:", error);
+      console.error("Error generating WPP token:", error.data);
       throw new Error("Error generating WPP token");
     }
   }

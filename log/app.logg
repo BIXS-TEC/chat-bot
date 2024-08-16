@@ -32570,3 +32570,1991 @@
   level: 'info',
   timestamp: '2024-08-07T20:50:13.051Z'
 }
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-12T16:58:57.090Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-12T16:58:57.097Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-12T16:58:57.098Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T12:14:49.824Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T12:14:49.830Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T12:14:49.831Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:01:43.635Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:01:43.641Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:01:43.642Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:03:25.749Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:03:25.755Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:03:25.756Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:05:07.768Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:05:07.773Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:05:07.774Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:06:28.415Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:06:28.421Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:06:28.422Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:07:14.474Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:07:14.480Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:07:14.481Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:10:55.862Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:10:55.866Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:10:55.867Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:12:42.008Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:12:42.013Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:12:42.014Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:13:17.385Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:13:17.390Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:13:17.391Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:14:14.183Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:14:14.192Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:14:14.193Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:16:31.903Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:16:31.910Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:16:31.911Z'
+}
+{
+  level: 'error',
+  message: "Cannot read properties of undefined (reading 'status')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'status')\n" +
+    '    at closeSession (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\controller\\sessionController.js:238:44)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\middleware\\auth.js:75:11',
+  timestamp: '2024-08-13T13:26:26.056Z'
+}
+{
+  level: 'error',
+  message: "Cannot read properties of undefined (reading 'status')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'status')\n" +
+    '    at closeSession (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\controller\\sessionController.js:238:44)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\server\\dist\\middleware\\auth.js:75:11',
+  timestamp: '2024-08-13T13:28:40.071Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:30:20.545Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:30:20.551Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:30:20.552Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-13T13:30:35.599Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-13T13:31:36.075Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-13T13:31:36.388Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-13T13:31:36.390Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-13T13:39:03.812Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:39:27.948Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:39:27.955Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:39:27.955Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-13T13:39:39.224Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-13T13:40:05.688Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-13T13:40:05.694Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-13T13:40:05.695Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T14:21:55.156Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T14:21:55.167Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T14:21:55.168Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T14:22:44.830Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T14:22:44.836Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T14:22:44.838Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T14:23:56.600Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T14:24:57.299Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T14:24:57.589Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-14T14:24:57.591Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T14:34:01.126Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T14:34:01.134Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T14:34:01.135Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T14:34:21.570Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T14:35:22.120Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T14:35:22.324Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-14T14:35:22.326Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T18:39:46.080Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T18:39:46.086Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T18:39:46.087Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:02:28.691Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:02:28.697Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:02:28.700Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:03:14.123Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:03:14.129Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:03:14.130Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:09:05.093Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:09:05.099Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:09:05.100Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:09:20.904Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:09:20.910Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:09:20.911Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:10:20.998Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:10:21.004Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:10:21.005Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:10:34.892Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:10:34.902Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:10:34.904Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:12:05.805Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:13:06.373Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:13:06.672Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-14T19:13:06.674Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:16:30.000Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:16:30.005Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:16:30.006Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:17:37.512Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:17:37.518Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:17:37.518Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:18:09.409Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:19:09.980Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:19:10.263Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-14T19:19:10.264Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:22:13.825Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:23:03.649Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:23:03.655Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:23:03.655Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:23:15.882Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:23:36.675Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:23:36.681Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:23:36.681Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:24:14.699Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:25:15.220Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:25:15.567Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-14T19:25:15.568Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:27:37.649Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:27:37.655Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:27:37.656Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:29:15.505Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:29:15.510Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:29:15.511Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:32:47.927Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:33:48.383Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:33:48.677Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-14T19:33:48.678Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:35:38.906Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:35:38.912Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:35:38.913Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:36:51.582Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:37:52.125Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:37:52.403Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-14T19:37:52.404Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:38:08.054Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:38:08.065Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:38:08.082Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:38:30.637Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:39:13.509Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:39:13.514Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:39:13.515Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-14T19:39:30.449Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-14T19:40:35.496Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-14T19:40:35.502Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-14T19:40:35.502Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T15:47:39.220Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T15:48:40.107Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T15:48:40.510Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-15T15:48:40.512Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T15:49:51.074Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T15:50:38.927Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T15:50:38.934Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T15:50:38.935Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T15:50:46.276Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T15:51:17.588Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-15T15:51:17.679Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T15:51:18.795Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-15T15:51:19.333Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T15:51:28.236Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T15:59:22.055Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T15:59:22.072Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T15:59:22.073Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T16:07:36.331Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T16:07:36.337Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T16:07:36.338Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T16:08:23.159Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T16:08:23.165Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T16:08:23.166Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T16:18:09.845Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T16:18:09.855Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T16:18:09.856Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:04:56.559Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:04:56.565Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:04:56.566Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:06:32.646Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:06:33.924Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:06:34.122Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:06:34.320Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:06:35.152Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:09:18.518Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:09:18.524Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:09:18.525Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:12:33.443Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:12:37.395Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:12:37.908Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:12:38.063Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:12:38.651Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:13:19.535Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:13:19.541Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:13:19.542Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:13:40.416Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:13:44.526Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:13:44.682Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:13:44.958Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:13:45.741Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:14:57.974Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:14:58.018Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:14:58.020Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:15:14.971Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:15:16.065Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:15:16.688Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:15:16.836Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:15:17.470Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:34.842Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:34.848Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:34.849Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:39.293Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:39.300Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:39.300Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:45.433Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:49.627Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:16:50.850Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:17:04.948Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:17:04.951Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:17:05.239Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:17:05.538Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:20:00.775Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:20:00.781Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:20:00.783Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:20:04.325Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:20:08.626Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:20:08.868Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:20:09.192Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:20:09.840Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:25:34.550Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:25:34.558Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:25:34.559Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:25:46.139Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:25:50.263Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:25:50.285Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:25:50.500Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:25:51.483Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:28:55.160Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:28:55.166Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:28:55.167Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:29:05.774Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:29:05.780Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:29:05.781Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:29:28.617Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:29:32.807Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:29:33.004Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:29:33.255Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:29:34.061Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:25.763Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:25.768Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:25.768Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:33.400Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:37.640Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:37.652Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:37.843Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:37.871Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T17:32:37.960Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-15T17:33:33.024Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-15T17:33:33.179Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-15T17:33:33.336Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-15T17:33:33.480Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T21:39:27.804Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T21:39:27.916Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T21:39:28.473Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T21:39:28.477Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T21:39:28.488Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T22:46:06.291Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T22:46:06.378Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T22:46:06.942Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-15T22:46:06.945Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-15T22:46:06.955Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T05:12:54.154Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T13:27:27.586Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T13:27:27.623Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T13:27:27.624Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:28:32.948Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:29:16.439Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-08-16T13:29:17.018Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T13:29:17.654Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T13:29:17.983Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T13:29:17.987Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-08-16T13:29:19.561Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:29:23.572Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:29:23.574Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T13:31:35.472Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T13:31:35.478Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T13:31:35.479Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T13:31:45.311Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:31:49.449Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T13:31:49.863Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:31:50.142Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T13:31:50.687Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T13:33:49.674Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T13:33:49.680Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T13:33:49.680Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T13:34:06.089Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:34:07.520Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:34:07.610Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T13:34:07.828Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:34:47.110Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:34:47.292Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:34:47.456Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:34:47.603Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T13:37:41.799Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T13:37:41.805Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T13:37:41.806Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T13:38:11.655Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T13:38:11.662Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T13:38:11.662Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T13:38:19.734Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:38:24.180Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T13:38:24.628Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:38:24.836Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T13:38:25.434Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T13:46:50.458Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T13:46:50.463Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T13:46:50.463Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T13:46:57.719Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:46:59.151Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T13:46:59.382Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T13:46:59.384Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T13:47:00.449Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:53:20.600Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:53:20.811Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:53:21.015Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:53:21.176Z'
+}
+{
+  code: 'invalid_list_type',
+  level: 'error',
+  message: 'Sections must be an array',
+  stack: 'Error: Sections must be an array\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: Error: Sections must be an array\n' +
+    '    at t.sendListMessage (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect\\wa-js\\dist\\wppconnect-wa.js:2:191375)\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:58:45\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:59:28\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function (_a) {\n' +
+    '                            var to = _a.to, options = _a.options;\n' +
+    '                            return WPP.chat.sendListMessage(to, options);\n' +
+    '                        }',
+  timestamp: '2024-08-16T13:58:13.397Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:14.033Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:14.039Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:14.040Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:19.796Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:19.801Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:19.802Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:27.395Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:32.026Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:32.219Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:32.408Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T14:01:33.256Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T14:02:37.033Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T14:02:37.039Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T14:02:37.040Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T14:06:33.565Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T14:06:33.571Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T14:06:33.572Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T14:19:03.433Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T14:19:03.449Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T14:19:03.450Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T14:19:11.464Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-16T14:19:13.317Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T14:19:14.160Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T14:19:14.261Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-16T14:19:14.466Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-16T16:36:20.829Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T19:17:37.336Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T19:17:37.341Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T19:17:37.342Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T19:45:52.112Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T19:45:52.123Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T19:45:52.124Z'
+}

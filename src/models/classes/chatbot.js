@@ -4,12 +4,13 @@ import sender from "./sender.js";
 import Client from "./client.js";
 import { WppConnect } from "./wppconnect.js";
 import { configureProductsList } from "../utils/time.js";
+import mapping from "../../interfaces/gab-parameters.js"
 
 const verbose = true;
 
 export default class Chatbot extends WppConnect {
-  constructor({ id, businessName, secretKey, phoneNumber, clientList, employeeList, productList, config }) {
-    super(businessName, secretKey);
+  constructor({ id, businessName, phoneNumber, clientList, employeeList, productList, config }) {
+    super(businessName);
     if (!Array.isArray(productList)) throw new Error("ProductList must be an array!");
     if (!Array.isArray(config.topProductsId)) throw new Error("config.topProductsId must be an array!");
 
@@ -30,8 +31,8 @@ export default class Chatbot extends WppConnect {
   }
 
   async chatbotSetup() {
-    this.contextList = context.getContextList(this);
     this.initializeModality();
+    this.contextList = context.getContextList(this);
     this.initializeSatisfactionPoll();
     this.initializeAdminClient();
 
@@ -87,7 +88,7 @@ export default class Chatbot extends WppConnect {
 
   async sendContextMessage(contextName, client, interaction = client.chatbot.interaction) {
     // console.log('sendContextMessage client: ', client);
-    // console.log('sendContextMessage contextName: ', contextName);
+    console.log('sendContextMessage contextName: ', contextName);
     if (!this.contextList[interaction][contextName]) return;
     const useClient = interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
     try {
@@ -168,7 +169,8 @@ export default class Chatbot extends WppConnect {
         return this.productList[category][id];
       }
     }
-    throw new Error(`Error em getProductById. Produto não encontrado (${id})!\n`);
+    console.warn(`%cAviso: Produto não encontrado (${id})!`, "color: yellow; font-weight: bold;");
+    return null; // Retorna null caso o produto não seja encontrado
   }
 
   getRecommendedProduct() {
@@ -229,25 +231,32 @@ export default class Chatbot extends WppConnect {
   }
 
   updateConfigData(c) {
-    if (typeof c !== 'object' || !c.field || c.value === undefined) {
-      console.log('\x1b[31m%s\x1b[0m', 'Parâmetro inválido fornecido a updateConfigData!');
+    if (typeof c !== "object" || !c.field || c.value === undefined) {
+      console.log("\x1b[31m%s\x1b[0m", "Parâmetro inválido fornecido a updateConfigData!");
       return false;
     }
 
     console.log(`field: ${c.field} - value: ${c.value}`);
 
-    if (this.hasOwnProperty(c.field)) {
-      this[c.field] = c.value;
-    } else if (this.config && this.config.hasOwnProperty(c.field)) {
-      this.config[c.field] = c.value;
-    } else if (this.config.serviceOptions && this.config.serviceOptions.hasOwnProperty(c.field)) {
-      this.config.serviceOptions[c.field] = c.value;
-    } else if (this.config.url && this.config.url.hasOwnProperty(c.field)) {
-      this.config.url[c.field] = c.value;
-    } else {
-      console.log('\x1b[31m%s\x1b[0m', 'Parâmetro não encontrado em updateConfigData!');
+    const mappedPath = mapping[c.field];
+    if (!mappedPath) {
+      console.log("\x1b[31m%s\x1b[0m", "Parâmetro não mapeado fornecido a updateConfigData!");
       return false;
     }
+
+    const keys = mappedPath.split(".");
+    let target = this;
+
+    for (let i = 0; i < keys.length - 1; i++) {
+      target = target[keys[i]];
+      if (target === undefined) {
+        console.log("\x1b[31m%s\x1b[0m", "Caminho não encontrado em updateConfigData!");
+        return false;
+      }
+    }
+
+    target[keys[keys.length - 1]] = c.value;
+    console.log('target: ', target[keys[keys.length - 1]]);
 
     return true;
   }
