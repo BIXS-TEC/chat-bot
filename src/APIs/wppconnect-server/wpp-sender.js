@@ -30,7 +30,7 @@ export default class WppSender {
     }
   }
 
-  async startSession(waitQrCode = true) {
+  async startSession(waitQrCode = false) {
     let data = JSON.stringify({
       webhook: null,
       waitQrCode: waitQrCode,
@@ -72,6 +72,27 @@ export default class WppSender {
       const response = await axios.request(config);
       console.log("Session closed: ", JSON.stringify(response.data));
       return response;
+    } catch (error) {
+      console.error(error);
+      throw new Error("Erro ao fechar a sessão!");
+    }
+  }
+
+  async statusSession() {
+    console.log("using Session status function");
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: `http://${path}/api/${this.session}/status-session`,
+      headers: {
+        Authorization: `Bearer ${this.token}`,
+      },
+    };
+
+    try {
+      const response = await axios.request(config);
+      console.log("Session status: ", JSON.stringify(response.data));
+      return response.data;
     } catch (error) {
       console.error(error);
       throw new Error("Erro ao fechar a sessão!");

@@ -21,8 +21,9 @@ config.post("/", async (req, res) => {
 
 config.post("/createChatbot", async (req, res) => {
   try {
-    console.log('\x1b[33m%s\x1b[0m', 'createChatbot req: ', req.body);
+    // console.log('\x1b[33m%s\x1b[0m', 'createChatbot req: ', req.body);
     const response = await cfg.createChatbot(req.body);
+    console.log('response: ', response);
     res.status(200).json(response);
   } catch (error) {
     res.status(500).json("Erro ao enviar a resposta!");
@@ -33,6 +34,17 @@ config.post("/createChatbot", async (req, res) => {
 config.post("/sessionCreated", async (req, res) => {
     try {
       console.log('\x1b[33m%s\x1b[0m', 'sessionCreated req: ', req.body);
+      const response = await cfg.handleConfigRequest(req.body);
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json("Erro ao enviar a resposta!");
+      console.log('\x1b[31m%s\x1b[0m', error);
+    }
+});
+
+config.post("/checkConnectionSession", async (req, res) => {
+    try {
+      console.log('\x1b[33m%s\x1b[0m', 'checkConnectionSession req: ', req.body);
       const response = await cfg.handleConfigRequest(req.body);
       res.status(200).json(response);
     } catch (error) {

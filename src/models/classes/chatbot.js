@@ -4,7 +4,7 @@ import sender from "./sender.js";
 import Client from "./client.js";
 import { WppConnect } from "./wppconnect.js";
 import { configureProductsList } from "../utils/time.js";
-import mapping from "../../interfaces/gab-parameters.js"
+import mapping from "../../interfaces/gab-parameters.js";
 
 const verbose = true;
 
@@ -25,7 +25,7 @@ export default class Chatbot extends WppConnect {
     this.employeeList = employeeList;
     configureProductsList(this, productList);
 
-    this.qrcode = this.chatbotSetup();
+    this.sessionData = this.chatbotSetup();
 
     if (verbose) console.log("\x1b[32m%s\x1b[0m", `\nChatbot '${this.businessName}:${this.phoneNumber}' iniciado!`);
   }
@@ -38,7 +38,7 @@ export default class Chatbot extends WppConnect {
 
     try {
       await this.startNewSession();
-      return this.qrcode;
+      return this.sessionData;
     } catch (error) {
       console.error("Erro durante o setup do chatbot:", error);
     }
@@ -88,7 +88,7 @@ export default class Chatbot extends WppConnect {
 
   async sendContextMessage(contextName, client, interaction = client.chatbot.interaction) {
     // console.log('sendContextMessage client: ', client);
-    console.log('sendContextMessage contextName: ', contextName);
+    console.log("sendContextMessage contextName: ", contextName);
     if (!this.contextList[interaction][contextName]) return;
     const useClient = interaction === "admin" ? this.clientList[client.chatbot.messageTo] : client;
     try {
@@ -169,7 +169,7 @@ export default class Chatbot extends WppConnect {
         return this.productList[category][id];
       }
     }
-    console.warn(`%cAviso: Produto não encontrado (${id})!`, "color: yellow; font-weight: bold;");
+    console.warn(`Aviso: Produto não encontrado (${id})!`);
     return null; // Retorna null caso o produto não seja encontrado
   }
 
@@ -256,7 +256,7 @@ export default class Chatbot extends WppConnect {
     }
 
     target[keys[keys.length - 1]] = c.value;
-    console.log('target: ', target[keys[keys.length - 1]]);
+    console.log("target: ", target[keys[keys.length - 1]]);
 
     return true;
   }
@@ -281,24 +281,35 @@ export default class Chatbot extends WppConnect {
     try {
       if (!this.productList["Mais Pedidos"]) {
         const topProducts = { "Mais Pedidos": {} };
+
         for (let productId of topProductsId) {
           topProducts["Mais Pedidos"][productId] = this.getProductById(productId);
         }
+
         if (!Object.keys(topProducts["Mais Pedidos"]).length) return;
-        this.productList = { ...topProducts, ...this.productList };
+
+        if (this.config.serviceOptions.onlyTopProducts) {
+          this.productList = { ...topProducts };
+        } else {
+          this.productList = { ...topProducts, ...this.productList };
+        }
       }
-      return;
     } catch (error) {
-      console.error("Error in getTopProductsCategory: ", error);
+      console.error("Error in createTopProductsCategory: ", error);
     }
   }
 
   initializeModality() {
-    this.modalityIdList = Array.from({ length: 101 }).reduce((acc, _, index) => {
-      acc[String(index)] = {
+    const { min, max, excludedValues } = this.config.tableInterval;
+
+    this.modalityIdList = Array.from({ length: max - min + 1 }).reduce((acc, _, index) => {
+      const tableNumber = min + index;
+
+      acc[String(tableNumber)] = {
         occupied: false,
-        inactive: false,
+        inactive: excludedValues.includes(tableNumber),
       };
+
       return acc;
     }, {});
   }

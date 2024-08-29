@@ -34558,3 +34558,3407 @@
   level: 'info',
   timestamp: '2024-08-16T19:45:52.124Z'
 }
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T19:51:13.681Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T19:51:13.694Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T19:51:13.695Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-16T19:52:04.143Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-16T19:52:04.149Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-16T19:52:04.150Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T16:21:33.249Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:21:33.263Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-19T16:21:33.266Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T16:29:14.580Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T16:29:16.174Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T16:29:16.268Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T16:29:16.403Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T16:29:16.503Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T16:29:16.984Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T16:30:40.920Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:30:40.925Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-19T16:30:40.926Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T16:31:24.834Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T16:31:26.172Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T16:31:26.780Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T16:31:27.058Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T16:31:27.551Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T16:35:10.358Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:35:10.369Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-19T16:35:10.370Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T16:41:43.609Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:41:43.619Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-19T16:41:43.620Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T16:45:00.327Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T16:45:01.666Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T16:45:01.983Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T16:45:01.986Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T16:45:02.896Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:15.568Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:15.574Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:15.575Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:26.435Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:26.440Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.4.4',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:26.441Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:37.298Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:38.581Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:38.648Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:38.798Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:38.800Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T16:47:38.954Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-08-19T16:51:45.926Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:51:45.932Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T16:51:45.932Z'
+}
+{
+  message: 'Server is running on port: 21465',
+  level: 'info',
+  timestamp: '2024-08-19T16:52:12.969Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:21465/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:52:12.980Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T16:52:12.983Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T16:56:24.274Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T16:56:24.344Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T16:56:24.355Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T18:32:14.641Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T18:32:14.646Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T18:32:14.647Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:33:05.799Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:33:10.672Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:33:11.540Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:33:11.676Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T18:33:11.922Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T18:38:55.177Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T18:38:55.183Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T18:38:55.184Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T18:39:33.504Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T18:39:33.511Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T18:39:33.512Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:45:54.952Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:45:56.849Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:45:56.941Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:45:57.104Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T18:45:57.319Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T18:48:36.317Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T18:48:36.323Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T18:48:36.324Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:48:40.913Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:48:45.173Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:48:45.504Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:48:45.526Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T18:48:46.471Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T18:51:53.356Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T18:51:53.362Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T18:51:53.363Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:52:02.587Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:52:06.924Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:52:07.225Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:52:07.236Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T18:52:07.642Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T18:52:07.910Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:12.281Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:12.287Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:12.288Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:26.161Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:30.183Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:30.477Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:30.483Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:31.417Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:53.995Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:54.003Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T18:55:54.004Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:56:13.003Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:56:14.513Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:56:14.559Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:56:14.594Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T18:56:14.728Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T18:59:15.119Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T18:59:15.125Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T18:59:15.126Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:59:25.838Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:59:29.877Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T18:59:30.107Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T18:59:30.246Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T18:59:31.111Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T19:02:57.051Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T19:02:57.057Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T19:02:57.058Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T19:04:06.367Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T19:04:10.531Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:04:10.545Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:04:10.718Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T19:04:10.901Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T19:04:11.440Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:01.052Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:01.058Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:01.059Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:32.832Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:37.024Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:37.117Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:37.253Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:37.261Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-19T19:05:37.346Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:08:18.318Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:08:18.811Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:08:47.134Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:09:47.617Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:09:47.913Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-19T19:09:47.914Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:10:05.691Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T19:10:35.182Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T19:10:35.189Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T19:10:35.191Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:10:50.377Z'
+}
+{
+  level: 'error',
+  message: 'Failed to launch the browser process! undefined\n' +
+    '\n' +
+    '\n' +
+    'TROUBLESHOOTING: https://pptr.dev/troubleshooting\n',
+  stack: 'Error: Failed to launch the browser process! undefined\n' +
+    '\n' +
+    '\n' +
+    'TROUBLESHOOTING: https://pptr.dev/troubleshooting\n' +
+    '\n' +
+    '    at ChildProcess.onClose (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@puppeteer\\browsers\\lib\\cjs\\launch.js:310:24)\n' +
+    '    at ChildProcess.emit (node:events:531:35)\n' +
+    '    at ChildProcess._handle.onexit (node:internal/child_process:294:12)',
+  timestamp: '2024-08-19T19:10:50.877Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:11:51.045Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:11:51.330Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-19T19:11:51.331Z'
+}
+{
+  level: 'error',
+  message: 'Failed to launch the browser process! undefined\n' +
+    '\n' +
+    '\n' +
+    'TROUBLESHOOTING: https://pptr.dev/troubleshooting\n',
+  stack: 'Error: Failed to launch the browser process! undefined\n' +
+    '\n' +
+    '\n' +
+    'TROUBLESHOOTING: https://pptr.dev/troubleshooting\n' +
+    '\n' +
+    '    at ChildProcess.onClose (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@puppeteer\\browsers\\lib\\cjs\\launch.js:310:24)\n' +
+    '    at ChildProcess.emit (node:events:531:35)\n' +
+    '    at ChildProcess._handle.onexit (node:internal/child_process:294:12)',
+  timestamp: '2024-08-19T19:12:19.559Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:12:19.771Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:13:20.394Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T19:13:20.786Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-19T19:13:20.787Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-19T21:15:30.450Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-19T21:15:30.457Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-19T21:15:30.458Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T21:15:50.882Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T21:18:52.305Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-19T21:18:52.627Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-19T21:18:52.629Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-20T21:47:38.501Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-20T21:47:38.518Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-20T21:47:38.523Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-20T21:48:30.834Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-20T21:50:54.247Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-20T21:50:54.496Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-20T21:50:55.491Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-20T21:50:56.125Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-20T21:51:00.394Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:11:29.330Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:11:29.341Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:11:29.342Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:12:24.700Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:12:28.737Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:12:29.262Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:12:29.400Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:12:30.041Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:12.252Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:12.258Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:12.259Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:23.238Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:23.244Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:23.245Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:35.541Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:36.864Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:37.335Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:37.496Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:14:38.136Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:20:07.306Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:20:07.313Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:20:07.315Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:22:40.408Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:22:40.414Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:22:40.415Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:07.808Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:07.815Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:07.816Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:16.211Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:16.218Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:16.219Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:27.474Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:27.480Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:27.481Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:42.462Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:46.681Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:46.808Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:46.841Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:46.978Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:26:47.124Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:10.260Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:10.266Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:10.266Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:43.283Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:44.360Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:45.346Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:45.529Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:45.688Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:54.573Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:54.581Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:32:54.582Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:33:29.304Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:33:29.310Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:33:29.311Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:33:37.092Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:33:41.193Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:33:41.532Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:33:41.535Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:33:42.419Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:00.199Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:00.206Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:00.206Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:06.900Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:06.906Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:06.907Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:51.597Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:52.887Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:53.051Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:53.358Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:36:54.111Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:01.750Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:01.757Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:01.758Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:19.549Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:24.082Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:24.552Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:25.078Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:25.733Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:34.863Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:34.869Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:38:34.870Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:57:13.100Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:57:13.107Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:57:13.107Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T19:58:41.075Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:58:45.258Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T19:58:46.473Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:58:51.368Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:58:52.205Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T19:59:21.455Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T19:59:21.461Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T19:59:21.462Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T19:59:30.961Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:08.860Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:08.866Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:08.867Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:18.542Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:37.162Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:37.290Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:38.380Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:38.879Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:41.749Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:42.953Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:44.141Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:44.188Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:57.202Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:57.209Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:00:57.211Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:01:25.334Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:01:25.340Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:01:25.341Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:02:18.087Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:13.467Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:13.633Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:14.693Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:15.800Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:22.095Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:22.357Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:22.892Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:22.896Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:23.596Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:25.315Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:59.842Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:59.849Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:03:59.850Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:04:05.966Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:04:05.972Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:04:05.972Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:04:37.864Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:04:37.870Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:04:37.871Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T20:04:56.223Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:04:58.856Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:00.120Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:07.723Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:07.796Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:08.484Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:08.488Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:09.519Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:09.791Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:38.258Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:38.267Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:38.270Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:54.231Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:56.824Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:05:58.047Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:05.942Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:06.912Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:12.949Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:12.957Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:12.959Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:27.140Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:28.367Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:35.617Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:35.688Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:36.407Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:36.425Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:37.504Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:06:37.655Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:28.112Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:28.117Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:28.118Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:40.146Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:42.806Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:45.083Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:45.467Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:45.601Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:45.807Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:08:45.900Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:14.391Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:14.397Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:14.398Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:31.032Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:34.144Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:35.297Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:35.614Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:35.740Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:09:36.612Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:10:57.960Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:10:57.966Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:10:57.967Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:03.436Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:03.442Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:03.443Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:10.084Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:10.090Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:10.091Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:23.416Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:26.818Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:27.955Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:29.200Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:38.296Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:38.460Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:47.619Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:47.625Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:11:47.626Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:12:01.688Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:12:01.694Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:12:01.695Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:12:12.664Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:13:18.200Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:13:18.301Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T20:13:19.531Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T20:13:21.286Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:13:22.585Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:14:58.158Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:14:58.166Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:14:58.168Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:09.515Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:09.521Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:09.523Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:14.746Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:18.770Z'
+}
+{
+  level: 'error',
+  message: 'WAPI is not defined',
+  stack: 'Error: WAPI is not defined\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ReferenceError: WAPI is not defined\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:47\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:77\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function () { return WAPI.isConnected(); }',
+  timestamp: '2024-08-21T20:15:20.779Z'
+}
+{
+  level: 'error',
+  message: 'WAPI is not defined',
+  stack: 'Error: WAPI is not defined\n' +
+    '    at C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:107:31\n' +
+    '    at step (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:49:23)\n' +
+    '    at Object.next (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:30:53)\n' +
+    '    at fulfilled (C:\\Users\\marce\\OneDrive\\Documentos\\Code\\Plataform\\BixAssistant\\node_modules\\@wppconnect-team\\wppconnect\\dist\\api\\helpers\\evaluate-and-return.js:21:58)\n' +
+    'JS Stack: ReferenceError: WAPI is not defined\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:47\n' +
+    '    at pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:56:77\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at anonymous (pptr:evaluate;C%3A%5CUsers%5Cmarce%5COneDrive%5CDocumentos%5CCode%5CPlataform%5CBixAssistant%5Cnode_modules%5C%40wppconnect-team%5Cwppconnect%5Cdist%5Capi%5Chelpers%5Cevaluate-and-return.js%3A99%3A56:54:14)\n' +
+    'Function: function () { return WAPI.isConnected(); }',
+  timestamp: '2024-08-21T20:15:22.185Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:31.067Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:31.073Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:31.074Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:35.500Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T20:15:46.776Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:16:15.509Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:16:15.515Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:16:15.516Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T20:16:45.520Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T20:16:45.526Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T20:16:45.527Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:11:40.671Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:11:40.678Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:11:40.679Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:12:15.806Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:12:30.754Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-08-21T21:12:30.838Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:12:31.975Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-08-21T21:12:32.419Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:12:34.718Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:12:34.737Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:13:32.135Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:13:32.141Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:13:32.142Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:14:21.980Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:14:25.090Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:14:26.305Z'
+}
+{
+  message: 'State Change UNPAIRED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:14:33.493Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:14:33.766Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:14:33.782Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:15:39.282Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:15:39.291Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:15:39.292Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:15:44.059Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:15:44.113Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:15:44.114Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:15:51.624Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:15:59.954Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:00.179Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:01.187Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:02.035Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:04.888Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:38.316Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:38.322Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:38.323Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:50.080Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:53.900Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:54.062Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:54.089Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:54.228Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:16:54.386Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:25:11.194Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:25:11.286Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:25:11.896Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:25:11.900Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:25:11.915Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:27:07.864Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:27:07.870Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:27:07.871Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:28:57.359Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:29:01.582Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:29:01.862Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:29:01.866Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:29:02.804Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:40:27.804Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:40:27.891Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:40:28.460Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:40:28.464Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:40:28.481Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:03.730Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:03.737Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:03.739Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:16.327Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:16.333Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:16.334Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:31.312Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:35.545Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:35.594Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:35.838Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:36.765Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:49.483Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:49.489Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:49.490Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:53:56.487Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:54:00.496Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:54:00.650Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:54:00.853Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:54:01.712Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:55:17.798Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:55:17.803Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:55:17.804Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:55:41.664Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:55:46.049Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:55:46.550Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:55:46.843Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:55:47.342Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T21:57:16.907Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T21:57:16.913Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T21:57:16.914Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:57:27.411Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:57:28.715Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T21:57:28.896Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T21:57:28.961Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T21:57:29.947Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T22:08:38.373Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T22:08:38.380Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T22:08:38.381Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T22:08:45.537Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T22:08:45.543Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T22:08:45.544Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T22:09:04.344Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T22:09:08.462Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T22:09:08.516Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T22:09:08.685Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T22:09:09.672Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T22:09:44.762Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T22:09:44.769Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T22:09:44.771Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T23:33:10.917Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:33:14.975Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-21T23:33:15.214Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:33:15.399Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T23:33:16.957Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:35:04.990Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:35:05.258Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:35:14.644Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:35:14.650Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:35:14.651Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:35:38.758Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:38:03.444Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:38:03.450Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:38:03.451Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:38:20.654Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:39:02.579Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:39:02.586Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:39:02.587Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:39:10.629Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:39:10.635Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:39:10.636Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:39:19.611Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:40:32.126Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:40:32.133Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:40:32.134Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:40:50.696Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:42:02.273Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:42:02.279Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:42:02.280Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:42:27.933Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:45:29.409Z'
+}
+{
+  message: 'qrReadError\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:45:29.729Z'
+}
+{
+  message: 'Auto Close Called',
+  level: 'error',
+  timestamp: '2024-08-21T23:45:29.731Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:47:28.862Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:47:28.868Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:47:28.869Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:47:34.740Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:47:34.746Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:47:34.747Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:47:45.751Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:49:42.549Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:49:42.554Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:49:42.556Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-21T23:49:49.313Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-21T23:49:49.319Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-21T23:49:49.320Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:49:57.162Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:50:41.198Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T23:50:41.521Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T23:50:42.445Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T23:50:42.564Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-21T23:50:42.569Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-21T23:50:44.765Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-21T23:50:47.865Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:10:34.161Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:10:34.167Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:10:34.170Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:10:54.767Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:10:54.773Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:10:54.774Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-22T00:11:25.380Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:11:26.677Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-22T00:11:27.905Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:11:36.797Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:11:37.059Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:11:43.881Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:11:43.888Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:11:43.889Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:12:05.055Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:12:15.438Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-22T00:12:15.646Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-22T00:12:16.662Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-22T00:12:17.579Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:12:19.791Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:29.512Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:29.521Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:29.522Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:43.995Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:44.001Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:44.002Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:51.937Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:51.943Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:51.944Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-22T00:14:59.731Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:03.972Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:05.195Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:17.166Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:17.173Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:17.174Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:37.983Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:47.110Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:57.359Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:57.450Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:58.582Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Carregando suas conversas',
+  level: 'info',
+  timestamp: '2024-08-22T00:15:59.422Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:16:02.257Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:16:02.258Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:16:48.070Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:16:48.076Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:16:48.076Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:16:54.400Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:16:54.406Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:16:54.407Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:09.052Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:09.058Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:09.058Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:18.954Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:20.394Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:21.622Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:26.424Z'
+}
+{
+  message: 'State Change UNPAIRED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:26.491Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:26.561Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:26.633Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:35.073Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:35.079Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:35.080Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:17:57.116Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:18:15.168Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-22T00:18:15.231Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-22T00:18:16.408Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-22T00:18:16.800Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:18:19.494Z'
+}
+{
+  message: 'desconnectedMobile\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:18:53.031Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-22T00:18:53.088Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-22T00:21:02.803Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-22T00:21:02.816Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-22T00:21:02.817Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-23T17:47:50.708Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-23T17:47:50.729Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-23T17:47:50.730Z'
+}
+{
+  message: 'notLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T17:53:49.033Z'
+}
+{
+  message: 'qrReadSuccess\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T17:54:36.146Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-23T17:54:36.279Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T17:54:37.379Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - Loading your chats',
+  level: 'info',
+  timestamp: '2024-08-23T17:54:38.979Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T17:54:42.800Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T18:02:31.753Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-23T18:14:59.468Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-23T18:14:59.474Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-23T18:14:59.475Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T18:17:36.760Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T18:17:37.575Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T18:17:37.792Z'
+}
+{
+  message: 'browserClose\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T18:20:29.869Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-23T18:20:51.335Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-23T18:20:51.343Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-23T18:20:51.344Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-23T18:21:34.872Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-23T18:21:35.776Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T18:21:38.260Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T18:21:38.343Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T18:21:38.572Z'
+}
+{
+  message: 'Server is running on port: 5001',
+  level: 'info',
+  timestamp: '2024-08-23T18:22:48.740Z'
+}
+{
+  message: '\x1B[31m Visit http://localhost:5001/api-docs for Swagger docs',
+  level: 'info',
+  timestamp: '2024-08-23T18:22:48.747Z'
+}
+{
+  message: 'WPPConnect-Server version: 2.6.0',
+  level: 'info',
+  timestamp: '2024-08-23T18:22:48.748Z'
+}
+{
+  message: '[Toca-do-Surubim] 0% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-23T18:23:17.346Z'
+}
+{
+  message: 'isLogged\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T18:23:21.742Z'
+}
+{
+  message: '[Toca-do-Surubim] 100% - WhatsApp',
+  level: 'info',
+  timestamp: '2024-08-23T18:23:21.928Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T18:23:22.047Z'
+}
+{
+  message: 'Started Session: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T18:23:22.973Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T19:26:59.394Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T19:26:59.491Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T19:27:00.048Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T19:27:00.051Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T19:27:00.070Z'
+}
+{
+  message: 'State Change OPENING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T19:41:51.224Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T19:41:51.325Z'
+}
+{
+  message: 'State Change PAIRING: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T19:41:52.279Z'
+}
+{
+  message: 'State Change CONNECTED: Toca-do-Surubim',
+  level: 'info',
+  timestamp: '2024-08-23T19:41:52.284Z'
+}
+{
+  message: 'inChat\n\n',
+  level: 'info',
+  timestamp: '2024-08-23T19:41:52.295Z'
+}

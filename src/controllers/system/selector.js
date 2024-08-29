@@ -134,18 +134,20 @@ const config = {
                 reject(err);
               });
             break;
+
           case "session-connected": {
-            const phoneNumber = findPhoneNumberBySession(client.session);
+            const phoneNumber = findPhoneNumberBySession(client.phoneNumber);
             if (phoneNumber) {
               console.log("checkConnectionSession: ", await chatbotList[phoneNumber].checkConnectionSession());
               setTimeout(() => {
                 chatbotList[phoneNumber].initializeGroupList();
-              }, 5000);
+              }, 20000);
             } else {
               console.error(`Session ${client.session} not found in chatbotList`);
             }
             break;
           }
+
           case "update-chatbot": {
             console.log("update-chatbot client: ", client);
             const phoneNumber = formatPhoneNumber(client.phoneNumber);
@@ -157,6 +159,17 @@ const config = {
             chatbotList[phoneNumber].updateConfigData(client);
             break;
           }
+
+          case "check-connection-session": {
+            console.log("check-connection-session client: ", client);
+            const phoneNumber = formatPhoneNumber(client.phoneNumber);
+            console.log("formatPhoneNumber: ", phoneNumber);
+            if (!chatbotList[phoneNumber]) {
+              console.log(`\x1b[31mChatbot com o número ${phoneNumber} não existe.\x1b[0m`);
+              break;
+            }
+            return await chatbotList[phoneNumber].checkConnectionSession();
+          }
         }
       } catch (error) {
         console.log("Error in handleConfigRequest function:\n", error);
@@ -166,7 +179,6 @@ const config = {
   },
 
   createChatbot: async function (request) {
-    console.log("createChatbot request:", request);
     const chatbot = {
       id: request.id,
       businessName: request.businessName,
@@ -176,9 +188,15 @@ const config = {
       productList: request.productList,
       config: request.config,
     };
+
+    if (chatbotList[chatbot.phoneNumber] && (await chatbotList[phoneNumber].checkConnectionSession().status) === "Connected")
+      return { status: "CONNECTED" };
+
     chatbotList[chatbot.phoneNumber] = new Chatbot(chatbot);
-    console.log('createChatbot chatbotList:', chatbotList);
-    return await chatbotList[chatbot.phoneNumber].qrcode;
+
+    const sessionData = await chatbotList[chatbot.phoneNumber].sessionData;
+    console.log("createChatbot sessionData: ", sessionData);
+    return sessionData;
   },
 };
 

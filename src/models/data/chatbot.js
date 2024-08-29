@@ -35,6 +35,7 @@ export default function getChatbotList() {
         garcom: true,
         faq: true,
         pesquisaSatisfacao: true,
+        onlyTopProducts: false,
         "cardapio-online": true,
       },
       url: {

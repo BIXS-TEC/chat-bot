@@ -19,6 +19,7 @@
     cashier: "config.serviceOptions.caixa",
     attendant: "config.serviceOptions.atendente",
     waiter: "config.serviceOptions.garcom",
+    onlyTopProducts: "config.serviceOptions.onlyTopProducts",
     productRecommendations: "config.enableRecommendProducts",
     recurringProductsResell: "config.enableRecurrentProducts",
     timeToOfferRecurringProducts: "config.recurrentTime",

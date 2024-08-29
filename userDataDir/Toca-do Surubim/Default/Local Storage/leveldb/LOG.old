@@ -1,2 +1,3 @@
-2024/08/07-17:49:48.849 5b3c Creating DB C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\Toca-do Surubim\Default\Local Storage\leveldb since it was missing.
-2024/08/07-17:49:49.155 5b3c Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\Toca-do Surubim\Default\Local Storage\leveldb/MANIFEST-000001
+2024/08/07-17:50:18.336 577c Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\Toca-do Surubim\Default\Local Storage\leveldb/MANIFEST-000001
+2024/08/07-17:50:18.342 577c Recovering log #3
+2024/08/07-17:50:18.348 577c Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\Toca-do Surubim\Default\Local Storage\leveldb/000003.log 

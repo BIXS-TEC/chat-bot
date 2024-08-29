@@ -4,28 +4,54 @@ import sender from "./sender.js";
 export class WppConnect extends WppSender {
   constructor(session) {
     super();
-    this.secretKey = 'BIXTOKEN';
-    this.session = session.replace(/\s+/g, '-');
+    this.secretKey = "BIXTOKEN";
+    this.session = session.replace(/\s+/g, "-");
     this.token = null;
   }
 
   async startNewSession() {
     try {
-      //Verificar se a session ja existe
+      // Gerar o token
       const tokenData = await this.generateWPPToken();
       console.log("tokenData:\n", tokenData);
       this.token = tokenData.token;
+      
+      // Iniciar a sessão
+      await this.startSession();
 
-      const sessionData = await this.startSession();
-      this.qrcode = sessionData.qrcode;
+      // Verificar o status da sessão
+      const checkSessionStatus = async () => {
+        try {
+          const sessionData = await this.statusSession();
+          console.log("Session status:", sessionData);
 
-      return sessionData.qrcode;
+          if (sessionData.status === "INITIALIZING" || sessionData.status === "CLOSED") {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+            return checkSessionStatus();
+          }
+
+          if (sessionData.status === "QRCODE" || sessionData.status === "CONNECTED") {
+            this.sessionData = sessionData;
+            return sessionData;
+          }
+
+          // Caso nenhuma das opções
+          console.error("Unexpected session status:", sessionData.status);
+          return { status: "ERROR" };
+        } catch (error) {
+          console.error("Erro ao verificar o status da sessão:", error);
+          throw error;
+        }
+      };
+
+      return await checkSessionStatus();
     } catch (error) {
       console.error("Error in WppConnect.startNewSession", error);
+      throw error;
     }
   }
 
-  async initializeGroupList () {
+  async initializeGroupList() {
     try {
       /**
        * [{
@@ -70,11 +96,11 @@ export class WppConnect extends WppSender {
     } catch (error) {
       console.error("Error in getGroupList:", error);
     }
-  };
+  }
 
   generateSecretKey() {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let secretKey = '';
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let secretKey = "";
     for (let i = 0; i < 32; i++) {
       secretKey += characters.charAt(Math.floor(Math.random() * characters.length));
     }

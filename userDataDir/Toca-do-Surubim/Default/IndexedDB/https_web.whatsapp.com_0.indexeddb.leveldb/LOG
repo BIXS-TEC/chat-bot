@@ -1,36 +1,13 @@
-2024/08/16-11:19:08.194 1f7c Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/08/16-11:19:08.198 1f7c Recovering log #151
-2024/08/16-11:19:08.378 1f7c Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000151.log 
-2024/08/16-11:19:09.242 30c8 Level-0 table #157: started
-2024/08/16-11:19:09.262 30c8 Level-0 table #157: 366231 bytes OK
-2024/08/16-11:19:09.263 30c8 Delete type=0 #151
-2024/08/16-11:19:09.264 30c8 Manual compaction at level-0 from '\x009\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00:\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/08/16-11:19:11.415 25b0 Compacting 1@1 + 2@2 files
-2024/08/16-11:19:12.008 25b0 Generated table #158@1: 40671 keys, 2211032 bytes
-2024/08/16-11:19:12.032 25b0 Generated table #159@1: 20850 keys, 399941 bytes
-2024/08/16-11:19:12.032 25b0 Compacted 1@1 + 2@2 files => 2610973 bytes
-2024/08/16-11:19:12.033 25b0 compacted to: files[ 0 0 2 0 0 0 0 ]
-2024/08/16-11:19:12.035 25b0 Delete type=2 #153
-2024/08/16-11:19:12.036 25b0 Delete type=2 #154
-2024/08/16-11:19:12.036 25b0 Delete type=2 #157
-2024/08/16-11:41:33.309 30c8 Level-0 table #161: started
-2024/08/16-11:41:33.360 30c8 Level-0 table #161: 1295330 bytes OK
-2024/08/16-11:41:33.362 30c8 Delete type=0 #156
-2024/08/16-11:43:34.084 25b0 Compacting 1@1 + 2@2 files
-2024/08/16-11:43:34.186 25b0 Generated table #162@1: 37831 keys, 2214168 bytes
-2024/08/16-11:43:34.214 25b0 Generated table #163@1: 28413 keys, 544854 bytes
-2024/08/16-11:43:34.214 25b0 Compacted 1@1 + 2@2 files => 2759022 bytes
-2024/08/16-11:43:34.215 25b0 compacted to: files[ 0 0 2 0 0 0 0 ]
-2024/08/16-11:43:34.215 25b0 Delete type=2 #158
-2024/08/16-11:43:34.216 25b0 Delete type=2 #159
-2024/08/16-11:43:34.216 25b0 Delete type=2 #161
-2024/08/16-15:49:49.783 25b0 Level-0 table #165: started
-2024/08/16-15:49:49.881 25b0 Level-0 table #165: 1231774 bytes OK
-2024/08/16-15:49:49.884 25b0 Delete type=0 #160
-2024/08/16-15:51:04.319 25b0 Compacting 1@1 + 1@2 files
-2024/08/16-15:51:04.549 25b0 Generated table #166@1: 41191 keys, 2221849 bytes
-2024/08/16-15:51:06.335 25b0 Generated table #167@1: 400 keys, 74202 bytes
-2024/08/16-15:51:06.335 25b0 Compacted 1@1 + 1@2 files => 2296051 bytes
-2024/08/16-15:51:06.417 25b0 compacted to: files[ 0 0 3 0 0 0 0 ]
-2024/08/16-15:51:06.418 25b0 Delete type=2 #162
-2024/08/16-15:51:06.418 25b0 Delete type=2 #165
+2024/08/23-15:23:16.875 1220 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/08/23-15:23:16.876 1220 Recovering log #2363
+2024/08/23-15:23:16.912 1220 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/002363.log 
+2024/08/23-15:23:17.875 ff8 Level-0 table #2368: started
+2024/08/23-15:23:17.882 ff8 Level-0 table #2368: 107656 bytes OK
+2024/08/23-15:23:17.887 ff8 Delete type=0 #2363
+2024/08/23-15:23:17.889 34b0 Manual compaction at level-0 from ' \xf0\x02\x00\x00\x00' @ 72057594037927935 : 1 .. ' \xf1\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/08/23-15:23:20.374 1220 Compacting 1@1 + 1@2 files
+2024/08/23-15:23:20.879 1220 Generated table #2369@1: 50751 keys, 2192635 bytes
+2024/08/23-15:23:20.879 1220 Compacted 1@1 + 1@2 files => 2192635 bytes
+2024/08/23-15:23:20.881 1220 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/08/23-15:23:20.881 1220 Delete type=2 #2365
+2024/08/23-15:23:20.882 1220 Delete type=2 #2368

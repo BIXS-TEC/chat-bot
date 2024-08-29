@@ -1,9 +1,18 @@
-2024/08/16-11:19:06.851 391c Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\Local Storage\leveldb/MANIFEST-000001
-2024/08/16-11:19:06.888 391c Recovering log #65
-2024/08/16-11:19:06.898 391c Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\Local Storage\leveldb/000065.log 
-2024/08/16-11:34:07.589 7e8 Level-0 table #70: started
-2024/08/16-11:34:07.597 7e8 Level-0 table #70: 15284 bytes OK
-2024/08/16-11:34:07.599 7e8 Delete type=0 #65
-2024/08/16-14:27:08.844 7e8 Level-0 table #72: started
-2024/08/16-14:27:08.855 7e8 Level-0 table #72: 10578 bytes OK
-2024/08/16-14:27:08.857 7e8 Delete type=0 #69
+2024/08/23-15:23:15.324 1c90 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\Local Storage\leveldb/MANIFEST-000001
+2024/08/23-15:23:15.331 1c90 Recovering log #100
+2024/08/23-15:23:15.391 1c90 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\Toca-do-Surubim\Default\Local Storage\leveldb/000100.log 
+2024/08/23-15:36:15.818 1c90 Level-0 table #103: started
+2024/08/23-15:36:15.832 1c90 Level-0 table #103: 16203 bytes OK
+2024/08/23-15:36:15.834 1c90 Delete type=0 #100
+2024/08/23-15:36:15.836 1c90 Compacting 4@0 + 1@1 files
+2024/08/23-15:36:15.846 1c90 Generated table #104@0: 91 keys, 7847 bytes
+2024/08/23-15:36:15.846 1c90 Compacted 4@0 + 1@1 files => 7847 bytes
+2024/08/23-15:36:15.847 1c90 compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/08/23-15:36:15.848 1c90 Delete type=2 #91
+2024/08/23-15:36:15.848 1c90 Delete type=2 #94
+2024/08/23-15:36:15.848 1c90 Delete type=2 #97
+2024/08/23-15:36:15.849 1c90 Delete type=2 #99
+2024/08/23-15:36:15.849 1c90 Delete type=2 #103
+2024/08/23-17:55:17.573 1c90 Level-0 table #106: started
+2024/08/23-17:55:17.581 1c90 Level-0 table #106: 10907 bytes OK
+2024/08/23-17:55:17.583 1c90 Delete type=0 #102

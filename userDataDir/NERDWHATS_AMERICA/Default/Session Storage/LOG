@@ -1,3 +1,4 @@
-2024/08/07-17:50:17.482 4930 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\NERDWHATS_AMERICA\Default\Session Storage/MANIFEST-000001
-2024/08/07-17:50:17.931 4930 Recovering log #3
-2024/08/07-17:50:17.935 4930 Reusing old log C:\Users\marce\OneDrive\Documentos\Code\Platform\BixAssitant\userDataDir\NERDWHATS_AMERICA\Default\Session Storage/000003.log 
+2024/08/19-13:52:18.100 5160 Reusing MANIFEST C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Session Storage/MANIFEST-000001
+2024/08/19-13:52:18.125 5160 Recovering log #3
+2024/08/19-13:52:19.818 5160 Level-0 table #3: started
+2024/08/19-13:52:19.818 5160 Level-0 table #3: 0 bytes IO error: C:\Users\marce\OneDrive\Documentos\Code\Plataform\BixAssistant\userDataDir\NERDWHATS_AMERICA\Default\Session Storage/000003.ldb: Unable to create writable file (ChromeMethodBFE: 9::NewWritableFile::16)

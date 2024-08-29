@@ -292,6 +292,9 @@ wppInterface.WppConnectConfigToDefault = function (response) {
       case "session-connected": {
         return wppInterface.WPPConnectCreateChatbotToDefault(response);
       }
+      case "check-connection-session": {
+        return wppInterface.WPPConnectCheckStatusToDefault(response);
+      }
       case "update-chatbot": {
         return wppInterface.WPPConnectUpdateChatbotToDefault(response);
       }
@@ -316,6 +319,17 @@ wppInterface.WPPConnectCreateChatbotToDefault = function (req) {
 };
 
 wppInterface.WPPConnectUpdateChatbotToDefault = function (req) {
+  const client = {
+    ...req,
+    chatbot: {
+      interaction: req.interaction,
+    },
+  };
+  delete client.interaction;
+  return client;
+};
+
+wppInterface.WPPConnectCheckStatusToDefault = function (req) {
   const client = {
     ...req,
     chatbot: {
