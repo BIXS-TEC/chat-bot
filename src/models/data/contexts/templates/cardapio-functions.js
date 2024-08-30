@@ -426,7 +426,7 @@ f.cardapio_online.responseObjects = function (context, chatbot, client, args = {
     return [
       {
         type: "text",
-        message: `Faça seu pedido em nosso cardapio online!\n\n${chatbot.config.url.cardapio}`,
+        message: `Faça seu pedido em nosso cardapio online!\n\n${chatbot.config.url.cardapio}mesa/${client.chatbot.modalityId}`,
       },
       listMessage,
     ];
