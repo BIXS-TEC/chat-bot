@@ -1,13 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = void 0;
-var _default = exports.default = {
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = exports.default =
+// node_modules/@wppconnect/server/dist/config.js
+{
   secretKey: 'BIXTOKEN',
-  host: '3.85.210.237',
+  host: 'http://localhost',
   port: '5001',
   deviceName: 'WppConnect',
   poweredBy: 'WPPConnect-Server',
-  startAllSession: true,
+  startAllSession: false,
   tokenStoreType: 'file',
   maxListeners: 15,
   customUserDataDir: './userDataDir/',

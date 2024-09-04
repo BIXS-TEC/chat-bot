@@ -1,18 +1,10 @@
-"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = void 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// node_modules/@wppconnect/server/dist/util/createSessionUtil.js
+const PATH = 'http://localhost:5002';
 const axios = require('axios');
 var _wppconnect = require("@wppconnect-team/wppconnect");
 
@@ -133,6 +125,9 @@ var _factory = _interopRequireDefault(require("./tokenStore/factory")); /*
       if (req.serverOptions.webhook.onLabelUpdated) {
         await this.onLabelUpdated(client, req);
       }
+
+      console.log("\x1b[32;1m%s\x1b[0m", "Sessão conectada!", client.session);
+      this.sessionConnected({session: client.session});
     } catch (e) {
       req.logger.error(e);
     }
@@ -185,22 +180,44 @@ var _factory = _interopRequireDefault(require("./tokenStore/factory")); /*
     });
   }
 
+  // node_modules/@wppconnect/server/dist/util/createSessionUtil.js
   async sendMessage(message, attempt = 1) {
-    const url = 'https://1afe-2804-4d98-260-5c00-7d6-eabf-6200-a01f.ngrok-free.app/message';
+    message.platform = "wppconnect";
+    message.interaction = "cardapio-whatsapp";
+    const url = PATH + '/message';
 
-    try {
+    try { 
         const response = await axios.post(url, message);
         console.log('Mensagem enviada com sucesso:', response.data);
         return response.data;
     } catch (error) {
         console.error(`Tentativa ${attempt} falhou:`, error.message);
         if (attempt < 2) {
-            return sendMessage(message, attempt + 1);
+            return this.sendMessage(message, attempt + 1);
         } else {
             throw new Error('Falha ao enviar mensagem após 3 tentativas');
         }
     }
-}
+  }
+
+  async sessionConnected(message, attempt=0) {
+    message.platform = "wppconnect";
+    message.interaction = "session-connected";
+    const url = PATH + '/config/sessionCreated';
+
+    try { 
+      const response = await axios.post(url, message);
+      console.log('Evento [sessionConnected] enviado com sucesso:', response.data);
+      return response.data;
+    } catch (error) {
+        console.error(`Tentativa ${attempt} falhou:`, error.message);
+        if (attempt < 2) {
+            return this.sessionConnected(message, attempt + 1);
+        } else {
+            throw new Error('Falha ao enviar evento [sessionConnected] após 3 tentativas');
+        }
+    }
+  }
 
   async start(req, client) {
     try {
@@ -251,9 +268,6 @@ var _factory = _interopRequireDefault(require("./tokenStore/factory")); /*
 
     await client.onAnyMessage(async (message) => {
       message.session = client.session;
-
-      message.platform = "wppconnect";
-      message.interaction = "cardapio-whatsapp";
       this.sendMessage(message);
 
       if (message.type === 'sticker') {
