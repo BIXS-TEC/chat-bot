@@ -133,6 +133,7 @@ const config = {
       try {
         // Padronização da mensagem dependendo do remetente
         const client = standardizeConfigRequestToDefault(request);
+        console.log("handleConfigRequest client: ", client);
 
         switch (client.chatbot.interaction) {
           case "cardapio-online":
