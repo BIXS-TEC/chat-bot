@@ -1,3 +1,6 @@
+/**
+ * Classe para instanciar um novo cliente na lista de clientes do chatbot
+ */
 export default class Client {
   constructor({ id, name, phoneNumber, platform, chatbot }) {
     this.id = id;
@@ -7,6 +10,10 @@ export default class Client {
     this.chatbot = chatbot;
   }
 
+  /**
+   * atualizar dados do cliente
+   * @param {Objeto padronizado Client} client 
+   */
   updateClientData(client) {
     // console.log("updateClientData client: ", JSON.stringify(client));
     this.platform = client.platform;

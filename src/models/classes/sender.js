@@ -3,6 +3,8 @@ import wpp from "../../interfaces/wppconnect.js";
 const sender = {};
 export default sender;
 
+// Enviar a mensagem de acordo com o tipo
+// Configurada no método responseObjects de cada contexto
 sender.sendMessage = async function (chatbot, response) {
   try {
     if (!response.responseObjects) return;
@@ -74,6 +76,7 @@ sender.sendMessage = async function (chatbot, response) {
   }
 }
 
+// Enviar requisições para obter informações dos grupos presentes no perfil do Whats App sincronizado
 sender.sendGroupRequests = async function (chatbot, requestList) {
   try {
     const responseList = await Promise.all(

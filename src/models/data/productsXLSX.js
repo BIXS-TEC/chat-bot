@@ -1,6 +1,10 @@
 import xlsx from 'xlsx';
 
-// Função para ler dados da planilha e salvar em um objeto
+/**
+ * Função para ler dados da planilha e salvar em um objeto
+ * @param {string} filePath 
+ * @returns 
+ */
 function readExcelToObject(filePath) {
   const workbook = xlsx.readFile(filePath);
   const sheetName = workbook.SheetNames[0];

@@ -1,11 +1,14 @@
 import axios from "axios";
 import path from "../../server.js";
 
+/**
+ * Consultar https://wppconnect.io/pt-BR/swagger/wppconnect-server/
+ */
 export default class WppSender {
   constructor() {
     this.token = null;
     this.session = null;
-    this.secretKey = null;
+    this.secretKey = null; // Inicializado na classe WppConnect
   }
 
   async generateWPPToken() {

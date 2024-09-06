@@ -8,6 +8,11 @@ function contextSetup(contextList, chatbot) {
   }
 }
 
+/**
+ * Contextos para o Grupo Caixa
+ * @param {Chatbot} chatbot 
+ * @returns contextList
+ */
 export default function getGroupContexts(chatbot) {
   const contextList = {};
   /**

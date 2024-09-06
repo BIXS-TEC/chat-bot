@@ -7,6 +7,11 @@ function contextSetup(contextList, chatbot) {
   }
 }
 
+/**
+ * Obter os contextos para comando do admin, com conversa com seu próprio numero
+ * @param {Chatbot} chatbot 
+ * @returns 
+ */
 export default function getAdminContexts(chatbot) {
   const contextList = {};
 

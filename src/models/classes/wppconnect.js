@@ -9,6 +9,9 @@ export class WppConnect extends WppSender {
     this.token = null;
   }
 
+  /**
+   * Processo para iniciar uma nova sessão, e aguardar o QR Code ser gerado
+   */
   async startNewSession() {
     try {
       // Gerar o token
@@ -25,11 +28,11 @@ export class WppConnect extends WppSender {
           const sessionData = await this.statusSession();
           console.log("Session status:", sessionData);
 
+          // Ambos os casos abaixos podem ser retornados durante a incialização
           if (sessionData.status === "INITIALIZING" || sessionData.status === "CLOSED") {
             await new Promise((resolve) => setTimeout(resolve, 1000));
             return checkSessionStatus();
           }
-
           if (sessionData.status === "QRCODE" || sessionData.status === "CONNECTED") {
             this.sessionData = sessionData;
             return sessionData;
@@ -98,6 +101,11 @@ export class WppConnect extends WppSender {
     }
   }
 
+  /**
+   * Função para ferar uma secretKey aleatorio
+   * [Não utilizada]
+   * @returns 
+   */
   generateSecretKey() {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let secretKey = "";

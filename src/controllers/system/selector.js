@@ -2,7 +2,7 @@ import creator from "./creator.js";
 import Chatbot from "../../models/classes/chatbot.js";
 import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault } from "../../interfaces/index.js";
 
-/**
+/** Estrutura de indentificação da mensagem em ordem:
  * Plataforma - De onde vem?
  * Interação - Qual o tipo de interação?
  * Negócio - Qual bot será acionado?
@@ -12,10 +12,12 @@ import { standardizeMessageRequestToDefault, standardizeConfigRequestToDefault }
  */
 let chatbotList = {};
 
+// Depreciada, apenas para teste, iniciar chatbot ao iniciar servidor
+// Função de setup para iniciar o chatbot a partir dados de objetos json
 export function systemSetup() {
   return new Promise(async (resolve, reject) => {
     try {
-      chatbotList = await creator();
+      chatbotList = await creator(); // Retorna a lista de chatbots
       resolve(true);
     } catch (error) {
       console.error("Error in systemSetup:\n", error);
@@ -25,38 +27,44 @@ export function systemSetup() {
 }
 
 const message = {
+  // Tratamento de requisições de mensagens enviadas pelo cliente Whats App (via wppconnect-server)
   handleMessageRequest: async function (request) {
     return new Promise((resolve, reject) => {
       try {
         // console.log("\x1b[36;1m", "\n\n\n\nrequest: ", request, "\n\n\n\n", "\x1b[0m");
 
+        // Padronização do objeto recebido de acordo com a plataforma remetente
         const client = standardizeMessageRequestToDefault(request);
         if (!client) {
           resolve({ statusCode: 200, message: "No data" });
           return;
         }
 
+        // Ignora requisições que demoraram mais de 30 segundos para serem tratadas
         if (Math.floor(Date.now() / 1000) - client.timestamp > 30) {
           resolve({ statusCode: 200, message: "Request took more than 30 seconds to arrive!" });
           return;
         }
 
+        // Identifica o chatbot que o cliente Whats App deseja interagir
         const chatbot = chatbotList[client.chatbot.chatbotPhoneNumber];
         if (!chatbot) throw new Error("Invalid chatbot");
 
+        // Atualiza o valor de "interaction" do cliente da lista de clientes
         if (client.chatbot.interaction === "chatbot" && chatbot.clientList[client.phoneNumber])
           client.chatbot.interaction = chatbot.clientList[client.phoneNumber].chatbot.interaction;
 
+        // Identifica qual a interação desejada pelo cliente
         switch (client.chatbot.interaction) {
           case "chatbot":
           case "cardapio-whatsapp":
           case "cardapio-online":
+            // Verifica se o cliente esta conversando com um atendente ou se deseja entrar em um dos 3 contextos padrões
             if (
               !chatbot.clientList[client.phoneNumber]?.chatbot?.humanChating ||
               ["voltar-chatbot", "faq", "atendente"].includes(client.chatbot.itemId)
             ) {
-              chatbot
-                .handleOrderMenuFlow(client)
+              chatbot.handleOrderMenuFlow(client)
                 .then((result) => {
                   // console.log("result: ", JSON.stringify(result));
                   resolve({ statusCode: 200, message: "OK" });
@@ -66,6 +74,7 @@ const message = {
                 });
             }
             break;
+          // Tratamento de comandos enviados na conversa do próprio numero de Whats App que sincronizou com o chatbot
           case "admin":
             if (chatbot.clientList[client.chatbot.messageTo]?.chatbot.humanChating) {
               chatbot
@@ -79,7 +88,7 @@ const message = {
                 });
             }
             break;
-
+          // Comandos enviados em um grupo de funcionários
           case "group":
             chatbot
               .handleGroupCommand(client)
@@ -92,6 +101,7 @@ const message = {
               });
             break;
 
+            // Tratamento de mensagens do Whats App tipo Enquete
           case "poll":
             chatbot
               .saveSatisfactionFeedback(client)
@@ -117,9 +127,11 @@ const message = {
 };
 
 const config = {
+  // Tratamento de requisições de alteração de dados do chatbot enviadas pelo Gerenciador Assistente Bix
   handleConfigRequest: async function (request) {
     return new Promise(async (resolve, reject) => {
       try {
+        // Padronização da mensagem dependendo do remetente
         const client = standardizeConfigRequestToDefault(request);
 
         switch (client.chatbot.interaction) {
@@ -134,7 +146,7 @@ const config = {
                 reject(err);
               });
             break;
-
+          // Tratamento de requisição para notificar que a sessão foi iniciada com sucesso
           case "session-connected": {
             const phoneNumber = findPhoneNumberBySession(client.phoneNumber);
             if (phoneNumber) {
@@ -147,7 +159,7 @@ const config = {
             }
             break;
           }
-
+          // Tratamento de requisições para alteração de dados do chatbot
           case "update-chatbot": {
             console.log("update-chatbot client: ", client);
             const phoneNumber = formatPhoneNumber(client.phoneNumber);
@@ -159,7 +171,7 @@ const config = {
             chatbotList[phoneNumber].updateConfigData(client);
             break;
           }
-
+          // Tratamento de requisição para verificar o status da sessão
           case "check-connection-session": {
             console.log("check-connection-session client: ", client);
             const phoneNumber = formatPhoneNumber(client.phoneNumber);
@@ -178,6 +190,7 @@ const config = {
     });
   },
 
+  // Função para instanciar um novo chatbot
   createChatbot: async function (request) {
     const chatbot = {
       id: request.id,
@@ -189,11 +202,13 @@ const config = {
       config: request.config,
     };
 
+    // Se chatbot ja existe retornar que ja esta conectado
     if (chatbotList[chatbot.phoneNumber] && (await chatbotList[phoneNumber].checkConnectionSession().status) === "Connected")
       return { status: "CONNECTED" };
 
     chatbotList[chatbot.phoneNumber] = new Chatbot(chatbot);
 
+    // Retornar o QR Code
     const sessionData = await chatbotList[chatbot.phoneNumber].sessionData;
     console.log("createChatbot sessionData: ", sessionData);
     return sessionData;

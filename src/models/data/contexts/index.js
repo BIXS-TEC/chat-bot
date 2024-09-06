@@ -6,6 +6,11 @@ import getGroupContexts from "./groups.js";
 const context = {};
 export default context;
 
+/**
+ * Inicializar lista de contextos de acordo com a configuração 
+ * @param {Chatbot} chatbot 
+ * @returns Lista de contextos
+ */
 context.getContextList = function (chatbot) {
   const contextList = {};
 

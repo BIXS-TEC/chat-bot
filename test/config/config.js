@@ -2,7 +2,7 @@
 // node_modules/@wppconnect/server/dist/config.js
 {
   secretKey: 'BIXTOKEN',
-  host: 'http://localhost',
+  host: 'http://atendi.bixs.com.br',
   port: '5001',
   deviceName: 'WppConnect',
   poweredBy: 'WPPConnect-Server',

@@ -22,12 +22,19 @@ export default class Context {
     this.responseObjects = responseObjects;
   }
 
+  /**
+   * Função para executar o contexto de forma padrão
+   * @param {Client} client 
+   * @returns 
+   */
   async runContext(client) {
     try {
-      const args = await this.action(client);      
+      // Função para operações lógicas
+      const args = await this.action(client);
       const response = {};
       response.clientPhone = client.chatbot.interaction === 'group' ? client.chatbot.messageTo : client.phoneNumber;
       response.platform = client.platform;
+      // Função para contruir a mensagem de resposta
       response.responseObjects = await this.responseObjects(client, args ? args : {});
 
       return response;
@@ -36,6 +43,11 @@ export default class Context {
     }
   }
 
+  /**
+   * Depreciada
+   * @param {Object} buttons 
+   * @returns 
+   */
   checkButtonsRestrictions(buttons) {
     for (let button of buttons) {
       if (!button) throw new Error("\x1b[31m%s\x1b[0m", `Titulo do botão ${typeof button}.`);

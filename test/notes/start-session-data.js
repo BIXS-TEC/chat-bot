@@ -1,3 +1,5 @@
+// Apenas para registrar o corpo da requisição para cada caso do endpoint startSession
+
 //Primeira conexão
 const startSession_notConnectedYet1 = {
     "status": "CLOSED",

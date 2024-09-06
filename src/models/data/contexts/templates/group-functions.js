@@ -1,5 +1,9 @@
 const atendente = {};
 
+/**
+ * Funções de cada comando possivel de ser enviado no Grupo Caixa
+ * O nome do comando corresponde ao nome da função
+ */
 const caixa = {
   fecha: function (context, chatbot, client) {
     const modalityId = client.chatbot.currentMessage.split(" ")[1];

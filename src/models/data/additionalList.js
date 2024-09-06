@@ -1,3 +1,7 @@
+/**
+ * Lista de adicionais exemplo
+ * Usada para inicialização em testes
+ */
 export const additionalList = {
     0 : {
         id: 0,

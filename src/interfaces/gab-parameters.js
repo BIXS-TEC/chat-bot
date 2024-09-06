@@ -1,3 +1,4 @@
+ // Mapeamento do nome da variavel utilizada no Gerenciador Assistente Bix para a respectiva variavel no chatbot
  const mapping = {
     profileImage: "profileImage",
     establishmentName: "businessName",

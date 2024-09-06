@@ -7,6 +7,7 @@ config.get("/", (req, res) => {
   res.status(200).json({ mensagem: "Rota GET exemplo, tudo OK!"});
 });
 
+// Requisições genericas de configuração de dados enviados pelo Gerenciador Assistente Bix
 config.post("/", async (req, res) => {
   try {
     console.log('\x1b[33m%s\x1b[0m', 'handleConfigRequest req: ', req);
@@ -19,6 +20,8 @@ config.post("/", async (req, res) => {
   }
 });
 
+// Requisições de criação de um novo chatbot enviados pelo Gerenciador Assistente Bix
+// Retorna o QR Code
 config.post("/createChatbot", async (req, res) => {
   try {
     // console.log('\x1b[33m%s\x1b[0m', 'createChatbot req: ', req.body);
@@ -31,6 +34,7 @@ config.post("/createChatbot", async (req, res) => {
   }
 });
 
+// Requisições de aviso, que a session no wppconnect-server finalizou a inicialização
 config.post("/sessionCreated", async (req, res) => {
     try {
       console.log('\x1b[33m%s\x1b[0m', 'sessionCreated req: ', req.body);
@@ -42,6 +46,7 @@ config.post("/sessionCreated", async (req, res) => {
     }
 });
 
+// Requisições de verificação do status da session enviados pelo Gerenciador Assistente Bix
 config.post("/checkConnectionSession", async (req, res) => {
     try {
       console.log('\x1b[33m%s\x1b[0m', 'checkConnectionSession req: ', req.body);
@@ -53,6 +58,7 @@ config.post("/checkConnectionSession", async (req, res) => {
     }
 });
 
+// Requisições de atualização de um dado especifico do chatbot enviados pelo Gerenciador Assistente Bix
 config.post("/updateChatbot", async (req, res) => {
     try {
       console.log('\x1b[33m%s\x1b[0m', 'updateChatbot req: ', req.body);

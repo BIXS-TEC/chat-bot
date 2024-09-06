@@ -3,6 +3,11 @@ import lodash from 'lodash';
 const order = {};
 export default order;
 
+/**
+ * Função para agrupar todos os produtos pedidos pelo cliente durante todo o atendimento
+ * @param {Client} client 
+ * @returns 
+ */
 order.uniteClientProducts = function (client) {
   if (!Object.keys(client.chatbot.orderList).length) return;
   // const clientCopy = { ...client };
@@ -31,6 +36,11 @@ order.uniteClientProducts = function (client) {
   return clientCopy;
 };
 
+/**
+ * Função para converter a lista de pedidos para uma mensagem
+ * @param {Client} client 
+ * @returns string
+ */
 order.convertToMessage = function (client) {
   const order = client.chatbot.orderList;
 

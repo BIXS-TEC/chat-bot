@@ -7,6 +7,7 @@ const verbose = false;
 
 ////////////////////////////////////* Messages *////////////////////////////////////
 
+// Identificação do tipo da mensagem enviada do Whats App
 wppInterface.WPPConnectMessageToDefault = function (req) {
   try {
     switch (req.type) {
@@ -32,7 +33,7 @@ wppInterface.WPPConnectMessageToDefault = function (req) {
 wppInterface.WPPConnectTextToDefault = function (req) {
   try {
     if (!req.isGroupMsg) {
-      if (req.sender.isMe) {
+      if (req.sender.isMe) { // isMe é o próprio numero do chatbot (admin)
         return {
           id: req.from,
           name: req.sender.pushname,
@@ -113,6 +114,7 @@ wppInterface.WPPConnectTextToDefault = function (req) {
   }
 };
 
+// Cartao de contato
 wppInterface.WPPConnectVcardToDefault = function (req) {
   try {
     const [id, chatId, messageId, phoneId] = req.id.split("_");
@@ -141,6 +143,7 @@ wppInterface.WPPConnectVcardToDefault = function (req) {
   }
 };
 
+// Enquete
 wppInterface.WPPConnectPollToDefault = function (req) {
   try {
     return {
@@ -161,8 +164,10 @@ wppInterface.WPPConnectPollToDefault = function (req) {
   }
 };
 
-/** Chat */ // Juntar essas funções em uma defaultToWPPConnect('type', args)
+/** Chat */ // TO DO: Juntar essas funções em uma defaultToWPPConnect('type', args)
 
+// Abaixo, formatação das mensagem para o modelo pedido pelo wppconnect
+// Consulte https://wppconnect.io/pt-BR/swagger/wppconnect-server/
 wppInterface.defaultToWPPConnectResponseTextMessage = function (response) {
   try {
     const wppRes = {
@@ -285,6 +290,7 @@ function formatPhoneWPPConnect(phoneNumber) {
 
 ////////////////////////////////////* Config *////////////////////////////////////
 
+// Padronização para requisições de configuração de dados
 wppInterface.WppConnectConfigToDefault = function (response) {
   try {
     // console.log('WppConnectConfigToDefault response: ', response);
@@ -401,6 +407,7 @@ wppInterface.createNewGroup = function ({ chatId, name, admin, member = [] }) {
   };
 };
 
+// Exemplo de objeto recebido de https://atende.bixs.com.br:5001/api/{session}/all-contacts
 const all = {
   status: "success",
   response: [

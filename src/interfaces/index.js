@@ -3,6 +3,9 @@ import mc from "./manychat.js";
 import wpp from "./wppconnect.js";
 import pw from "./printweb.js";
 
+// Funções de padronização de mensagens dependendo da plataforma origem e do remetente
+// Os nomes das funções são auto explicativos
+
 export function standardizeMessageRequestToDefault(req) {
   switch (req.platform) {
     case undefined:

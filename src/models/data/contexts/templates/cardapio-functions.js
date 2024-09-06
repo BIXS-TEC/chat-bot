@@ -3,8 +3,10 @@ import mf from "./message-functions.js";
 export const f = {};
 
 /**
+ * Inicializa um novo contexto   
   f.context_name = {};
 
+  Define as operações lógicas realizadas naquele contexto
   f.context_name.action = function (context, chatbot, client) {
     try {
       //
@@ -14,6 +16,7 @@ export const f = {};
     }
   };
 
+  Monta o objeto padrão para envio da mensagem
   f.context_name.responseObjects = function (context, chatbot, client, args = {}) {
     try {
       return [];
@@ -77,6 +80,7 @@ f.bem_vindo.responseObjects = function (context, chatbot, client, args = {}) {
     } else {
       let modality = chatbot.config.modality[0];
       const len = chatbot.config.modality.length;
+      // Se Trabalhando com mais de uma modalidade
       if (len > 1) {
         for (let i = 1; i < len - 1; i++) {
           modality += `, ${chatbot.config.modality[i]}`;

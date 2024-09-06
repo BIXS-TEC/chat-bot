@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = void 0;
 
 // node_modules/@wppconnect/server/dist/util/createSessionUtil.js
-const PATH = 'http://localhost:5002';
+const PATH = 'http://atendi.bixs.com.br';
 const axios = require('axios');
 var _wppconnect = require("@wppconnect-team/wppconnect");
 
@@ -127,7 +127,7 @@ var _factory = _interopRequireDefault(require("./tokenStore/factory")); /*
       }
 
       console.log("\x1b[32;1m%s\x1b[0m", "Sessão conectada!", client.session);
-      this.sessionConnected({session: client.session});
+      this.sessionConnected({session: client.session}); // Enviar notificação que a sessão foi inicializada
     } catch (e) {
       req.logger.error(e);
     }
@@ -181,6 +181,12 @@ var _factory = _interopRequireDefault(require("./tokenStore/factory")); /*
   }
 
   // node_modules/@wppconnect/server/dist/util/createSessionUtil.js
+  /**
+   * Enviar a mensagem para ser tratada e pelo chatbot
+   * @param {Object} message mensagem do wppconnect
+   * @param {number} attempt Quantas vezes deve tentar reenviar a requisição em caso de falha
+   * @returns 
+   */
   async sendMessage(message, attempt = 1) {
     message.platform = "wppconnect";
     message.interaction = "cardapio-whatsapp";
@@ -200,6 +206,12 @@ var _factory = _interopRequireDefault(require("./tokenStore/factory")); /*
     }
   }
 
+  /**
+   * Enviar requisição para notificar que a sessão finalizou a inicialização
+   * @param {Object} message mensagem do wppconnect
+   * @param {number} attempt Quantas vezes deve tentar reenviar a requisição em caso de falha
+   * @returns 
+   */
   async sessionConnected(message, attempt=0) {
     message.platform = "wppconnect";
     message.interaction = "session-connected";
@@ -268,7 +280,7 @@ var _factory = _interopRequireDefault(require("./tokenStore/factory")); /*
 
     await client.onAnyMessage(async (message) => {
       message.session = client.session;
-      this.sendMessage(message);
+      this.sendMessage(message); // Enviar mensagem para chatbot
 
       if (message.type === 'sticker') {
         (0, _sessionController.download)(message, client, req.logger);

@@ -3,6 +3,14 @@ import CryptoJS from "crypto-js";
 const mf = {};
 export default mf;
 
+/**
+ * Função para construir uma sessão com o padrão do wppconnect para mensagens tipo ListMessage
+ * @param {Chatbot} chatbot Chatbot que esta sendo utilizado
+ * @param {string} title Titulo da sessão, como será mostrado no Whats App
+ * @param {Array<string>} sectionsName Nomes das sessões que devem ser incluidas
+ * @param {Object} args Para uso especifico, se necessário para cada caso
+ * @returns 
+ */
 mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
   try {
     const sectionMappings = {
@@ -111,6 +119,7 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
 
     const rows = sectionsName
       .flatMap((name) => {
+        // Verifica se a funcionalidade existe e esta habilitada em chatbot.config.serviceOptions antes de incluir na resposta
         if (sectionMappings[name] && (chatbot.config.serviceOptions[name] || chatbot.config.serviceOptions[name] === undefined)) {
           return sectionMappings[name];
         }
@@ -127,6 +136,12 @@ mf.buildSection = function (chatbot, title, sectionsName, args = {}) {
   }
 };
 
+/**
+ * Verificar se a mensagem possui o tipo da modalidade e o seu numero
+ * Utilizado no contexto Bem-Vindo para automatizar o fluxo
+ * @param {string} currentMessage 
+ * @returns 
+ */
 mf.checkPreProgrammedMessage = function (currentMessage) {
   try {
     if (typeof currentMessage === "string") {
@@ -149,6 +164,12 @@ mf.checkPreProgrammedMessage = function (currentMessage) {
   }
 };
 
+/**
+ * Obter os IDs dos produtos (Para ser registrados)
+ * Obter as seções dos produtos separadas por Categoria
+ * @param {Chatbot} chatbot 
+ * @returns IDs dos produtos, sessões para construção da listMessage
+ */
 mf.getProductsIdsAndSections = function (chatbot) {
   const ids = [];
   const sections = [];
@@ -173,6 +194,14 @@ mf.getProductsIdsAndSections = function (chatbot) {
   return [ids, sections];
 };
 
+/**
+ * Para o contexto de adicionais
+ * Obter os IDs dos produtos e adicionais (Para ser registrados)
+ * Obter as seções dos adicionais separadas por Produto
+ * @param {Chatbot} chatbot 
+ * @param {Client} client 
+ * @returns IDs dos adicionais, IDs das observações, sessões para construção da listMessage
+ */
 mf.getAdditionalIdsAndSections = function (chatbot, client) {
   try {
     const addIds = [];
@@ -222,6 +251,13 @@ mf.getAdditionalIdsAndSections = function (chatbot, client) {
   }
 };
 
+/**
+ * Para o contexto de editar pedido, o qual...
+ * Inclui IDs produtos, adicionais e observações
+ * @param {*} chatbot 
+ * @param {*} client 
+ * @returns IDs produtos, adicionais, observações e sessões para construção da listMessage
+ */
 mf.getProductsAndAdditionalIdsAndSections = function (chatbot, client) {
   try {
     const ids = [];
@@ -264,6 +300,11 @@ mf.getProductsAndAdditionalIdsAndSections = function (chatbot, client) {
   }
 };
 
+/**
+ * Transforma a lista de produtos atual do cliente em uma mensagem
+ * @param {Client} client 
+ * @returns 
+ */
 mf.getOrderMessage = function (client) {
   let totalPrice = 0.0;
   let message = "";
@@ -305,6 +346,12 @@ mf.getOrderMessage = function (client) {
   return message;
 };
 
+/**
+ * Transforma a lista de produtos completa do cliente em uma mensagem
+ * Completa: Pedidos que já foram enviados para preparo/entregues
+ * @param {Client} client 
+ * @returns 
+ */
 mf.getCompleteOrderMessage = function (client) {
   let totalPrice = 0.0;
   let message = "";
@@ -351,6 +398,11 @@ mf.getCompleteOrderMessage = function (client) {
   return message;
 };
 
+/**
+ * Enviar mensagem de produtos recorrentes após o tempo configurado
+ * @param {Chatbot} chatbot 
+ * @param {Client} client 
+ */
 mf.recurrentTimeOut = function (chatbot, client) {
   if (!client.chatbot.timeouts["recurrent"].trigged) {
     setTimeout(() => {
@@ -361,6 +413,11 @@ mf.recurrentTimeOut = function (chatbot, client) {
   }
 };
 
+/**
+ * Obter quantos adicionais foram incluidos
+ * @param {Object<Additional>} additionalList 
+ * @returns 
+ */
 function getAdditionalQuantity(additionalList) {
   let quantity = 0;
   for (const additionalId in additionalList) {

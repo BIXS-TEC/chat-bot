@@ -4,8 +4,9 @@ import auth from './routes/auth.js';
 import config from './routes/config.js';
 import cors from 'cors';
 
-const id = 'localhost' //'54.227.229.46'
-const path = id + ':5001';
+
+const id = 'localhost' //'54.227.229.46' // IP do endereço do servidor
+const path = id + ':5001'; // Porta do wppconnect-server
 
 const app = express();
 const port = 5002;
@@ -20,8 +21,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
+// Endpoint para envio de requisições de mensagens para o chatbot
 app.use('/message', message);
+// Endpoint não implementado para processo de authenticação para requisições do chatbot
 app.use('/auth', auth);
+// Endpoint para alterações de dados do chatbot
 app.use('/config', config);
 
 app.get('/', (req, res) => {
@@ -29,7 +33,8 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Path to chatbot: https://${id}:5002/message`);
+  console.log(`Path to chatbot-server: https://${id}:5002/message`);
 });
 
+// importando em src\APIs\wppconnect-server\wpp-sender.js
 export default path;

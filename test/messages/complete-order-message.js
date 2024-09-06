@@ -1,5 +1,11 @@
 import client from "../objects/client-final.js";
 
+/**
+ * Depreciada
+ * Obter a lista de pedidos completa do cliente
+ * @param {Client} client 
+ * @returns 
+ */
 function getCompleteOrderMessage(client) {
   let totalPrice = 0.0;
   let message = "";

@@ -1,5 +1,9 @@
 import { additionalList } from "./additionalList.js";
 
+/**
+ * Lista de produtos exemplo
+ * Usada para inicialização em testes
+ */
 export const productList = [
   {
     Lanches: {
