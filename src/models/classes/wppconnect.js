@@ -26,7 +26,6 @@ export class WppConnect extends WppSender {
       const checkSessionStatus = async () => {
         try {
           const sessionData = await this.statusSession();
-          console.log("Session status:", sessionData);
 
           // Ambos os casos abaixos podem ser retornados durante a incialização
           if (sessionData.status === "INITIALIZING" || sessionData.status === "CLOSED") {
