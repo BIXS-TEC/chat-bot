@@ -498,7 +498,7 @@ f.adicionar_produto.action = async function (context, chatbot, client) {
     const id = parseInt(client.chatbot.itemId);
     let product = chatbot.getProductById(id);
     client.addProductToOrderList(product);
-    if (product.recommendedProductId !== undefined) await chatbot.sendContextMessage("recomendar-produto", client);
+    if (product.recommendedProductId !== undefined && product.recommendedProductId) await chatbot.sendContextMessage("recomendar-produto", client);
     return;
   } catch (error) {
     console.error(`Erro em action no contexto "${context.name}"`, error);
