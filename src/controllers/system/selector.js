@@ -157,6 +157,7 @@ const config = {
                 chatbotList[phoneNumber].initializeGroupList();
               }, 20000);
             } else {
+              console.log('chatbotList: ', chatbotList);
               console.error(`Session ${client.session} not found in chatbotList!\nCould not start Groups\n`);
             }
             break;
