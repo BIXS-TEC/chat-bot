@@ -149,7 +149,7 @@ const config = {
             break;
           // Tratamento de requisição para notificar que a sessão foi iniciada com sucesso
           case "session-connected": {
-            const phoneNumber = findPhoneNumberBySession(client.phoneNumber);
+            const phoneNumber = findPhoneNumberBySession(client.session);
             console.log('phoneNumber: ', phoneNumber);
             if (phoneNumber) {
               console.log("checkConnectionSession: ", await chatbotList[phoneNumber].checkConnectionSession());
