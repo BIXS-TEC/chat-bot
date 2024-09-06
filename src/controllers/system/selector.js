@@ -149,13 +149,14 @@ const config = {
           // Tratamento de requisição para notificar que a sessão foi iniciada com sucesso
           case "session-connected": {
             const phoneNumber = findPhoneNumberBySession(client.phoneNumber);
+            console.log('phoneNumber: ', phoneNumber);
             if (phoneNumber) {
               console.log("checkConnectionSession: ", await chatbotList[phoneNumber].checkConnectionSession());
               setTimeout(() => {
                 chatbotList[phoneNumber].initializeGroupList();
               }, 20000);
             } else {
-              console.error(`Session ${client.session} not found in chatbotList`);
+              console.error(`Session ${client.session} not found in chatbotList!\nCould not start Groups\n`);
             }
             break;
           }
