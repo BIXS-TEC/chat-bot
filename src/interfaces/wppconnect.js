@@ -316,6 +316,7 @@ wppInterface.WppConnectConfigToDefault = function (response) {
 
 wppInterface.WPPConnectCreateChatbotToDefault = function (req) {
   return {
+    ...req,
     session: req.session,
     platform: req.platform,
     chatbot: {
