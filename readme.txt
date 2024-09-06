@@ -1,4 +1,5 @@
 NOTA: Para iniciar uma sessão no chatbot utilizando o Gerenciador Assistente Bix é necessário reiniciar o servidor (as vezes 2, 3 vezes) por não ter um tratamento de sessões implementado e dar refresh no site antes de clicar em "Conectar Dispositivo".
+PARA NÃO ACONTECER ISSO, ANTES DE REINICIAR O PARAR O SERVIDOR, TERMINE TODAS AS SESSÕES ATIVAS MANUALMENTE.
 Estará pronto para conexão se o servidor loggar no console:
 0|server | Path to chatbot: https://localhost:5002/message
 1|wpp-server  | (node:19845) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
