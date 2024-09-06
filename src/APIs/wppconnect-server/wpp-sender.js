@@ -82,7 +82,6 @@ export default class WppSender {
   }
 
   async statusSession() {
-    console.log("using Session status function");
     let config = {
       method: "get",
       maxBodyLength: Infinity,
@@ -94,7 +93,6 @@ export default class WppSender {
 
     try {
       const response = await axios.request(config);
-      console.log("Session status: ", JSON.stringify(response.data));
       return response.data;
     } catch (error) {
       console.error(error);
